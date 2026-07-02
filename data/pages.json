@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "home",
+    "data": {
+      "root": {
+        "props": {}
+      },
+      "content": [
+        {
+          "type": "HeroSection",
+          "props": {
+            "title": "Timeless Quality for the Modern Wardrobe",
+            "subtitle": "Discover our curated collection of high-end essentials designed for the sophisticated individual. Effortless luxury, everyday.",
+            "ctaPrimary": "Shop the Collection",
+            "ctaSecondary": "View Lookbook",
+            "productName": "Premium Wool Coats!!!!",
+            "productSlug": "premium-wool-coat",
+            "productDescription": "Luxurious wool coat crafted from the finest materials for the modern wardrobe.",
+            "productImage": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=1200&q=80",
+            "id": "HeroSection-3fe042a7-6d08-43da-a022-d3b53ce33214"
+          }
+        },
+        {
+          "type": "PriceDisplay",
+          "props": {
+            "price": 299,
+            "salePrice": 199,
+            "originalPrice": 299,
+            "isOnSale": "true",
+            "size": "default",
+            "id": "PriceDisplay-52d0efc5-5529-4b2a-b8f2-3b4bdad9d824"
+          }
+        },
+        {
+          "type": "TestimonialCard",
+          "props": {
+            "quote": "The quality is exceptional. Every piece feels thoughtfully designed and built to last. This is what luxury should feel like.",
+            "author": "Sarah Mitchell",
+            "role": "Verified Buyer",
+            "avatar": "",
+            "rating": "5",
+            "platform": "Trustpilot",
+            "id": "TestimonialCard-2801b278-4b5b-4aa7-8c37-8f23aa6b15ca"
+          }
+        }
+      ],
+      "zones": {}
+    }
+  }
+]
