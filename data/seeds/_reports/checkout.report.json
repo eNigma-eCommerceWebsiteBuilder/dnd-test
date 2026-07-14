@@ -1,0 +1,51 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/checkout/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/checkout.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "CheckoutSteps",
+      "id": "checkoutsteps-1"
+    },
+    {
+      "type": "CheckoutShippingForm",
+      "id": "checkoutshippingform-1"
+    },
+    {
+      "type": "CheckoutShippingMethod",
+      "id": "checkoutshippingmethod-1"
+    },
+    {
+      "type": "CheckoutPaymentMethod",
+      "id": "checkoutpaymentmethod-1"
+    },
+    {
+      "type": "CheckoutOrderReview",
+      "id": "checkoutorderreview-1"
+    },
+    {
+      "type": "CheckoutOrderSummary",
+      "id": "checkoutordersummary-1"
+    },
+    {
+      "type": "CheckoutPlaceOrderButton",
+      "id": "checkoutplaceorderbutton-1"
+    },
+    {
+      "type": "CheckoutSecureBadges",
+      "id": "checkoutsecurebadges-1"
+    },
+    {
+      "type": "CartEmpty",
+      "id": "cartempty-1"
+    },
+    {
+      "type": "CheckoutStateSection",
+      "id": "checkoutstatesection-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": []
+}

@@ -1,0 +1,14 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "SharedWishlistStateSection",
+      "props": {
+        "id": "sharedwishliststatesection-1",
+        "token": "",
+        "state": "invalid"
+      }
+    }
+  ],
+  "zones": {}
+}

@@ -1,5 +1,22 @@
 import type { Category } from './categories';
 
+export enum ProductSort {
+  PRICE_ASC = 'price-asc',
+  PRICE_DESC = 'price-desc',
+  RATING = 'rating',
+  NEW = 'new',
+  TRENDING = 'trending',
+}
+
+export enum ProductReviewSort {
+  RECENT = 'recent',
+  RATING_ASC = 'rating-asc',
+  RATING_DESC = 'rating-desc',
+}
+
+export type ProductSortValue = `${ProductSort}`;
+export type ProductReviewSortValue = `${ProductReviewSort}`;
+
 export interface ProductColor {
   name: string;
   hex: string;
@@ -31,6 +48,7 @@ export interface ProductVariant {
 
 export interface Product {
   _id: string;
+  id?: string;
   name: string;
   slug: string;
   description?: string;

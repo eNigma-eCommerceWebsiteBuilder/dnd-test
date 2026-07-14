@@ -1,0 +1,25 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/account/orders/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/account-orders.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "PageHeader",
+      "id": "pageheader-1"
+    },
+    {
+      "type": "PageWrapper",
+      "id": "pagewrapper-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [
+    "OrderStatusFilter"
+  ],
+  "unmatchedHtml": [],
+  "runtimeConditionals": [
+    {
+      "source": "orders.length > 0 ? (\r\n                    <OrderList\r\n                        initialOrders={orders}\r\n                        initialPagination={pagination}\r\n                        statusFilter={status}\r\n                    />\r\n                ) : (\r\n                    <OrderEmpty />\r\n                )"
+    }
+  ]
+}

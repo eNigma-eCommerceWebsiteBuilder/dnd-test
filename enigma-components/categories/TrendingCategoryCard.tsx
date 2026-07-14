@@ -11,11 +11,12 @@ import type { Category } from '@/lib/api/types';
 interface TrendingCategoryCardProps {
     category: Category;
     badge?: string;
+    hrefPrefix?: string;
 }
 
-export function TrendingCategoryCard({ category, badge }: TrendingCategoryCardProps) {
+export function TrendingCategoryCard({ category, badge, hrefPrefix = '/categories' }: TrendingCategoryCardProps) {
     const imageUrl = category.image || category.imageUrl || '/placeholder-category.jpg';
-    const href = `/categories/${category.slug}`;
+    const href = `${hrefPrefix}/${category.slug}`;
 
     // Determine badge text - use provided badge, category badge, or default
     const badgeText = badge || category.badge || 'Trending Now';

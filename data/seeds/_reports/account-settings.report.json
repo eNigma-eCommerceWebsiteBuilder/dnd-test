@@ -1,0 +1,31 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/account/settings/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/account-settings.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "PageHeader",
+      "id": "pageheader-1"
+    },
+    {
+      "type": "CardSection",
+      "id": "cardsection-1"
+    },
+    {
+      "type": "CardSection",
+      "id": "cardsection-2"
+    },
+    {
+      "type": "PageWrapper",
+      "id": "pagewrapper-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": [
+    {
+      "source": "session?.user?.emailVerified\r\n                    ? 'Your identity provider has marked this email as verified.'\r\n                    : 'Verification is controlled by the identity provider and no longer handled inside the storefront.'"
+    }
+  ]
+}

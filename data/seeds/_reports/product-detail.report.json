@@ -1,0 +1,91 @@
+{
+  "page": "app/products/[slug]/page.tsx",
+  "output": "../dnd-test/data/seeds/product-detail.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "ProductGallery",
+      "id": "productgallery-1"
+    },
+    {
+      "type": "ProductTabs",
+      "id": "producttabs-1"
+    },
+    {
+      "type": "ProductDetailMediaColumn",
+      "id": "productdetailmediacolumn-1"
+    },
+    {
+      "type": "StockIndicator",
+      "id": "stockindicator-1"
+    },
+    {
+      "type": "ProductRatingSummary",
+      "id": "productratingsummary-1"
+    },
+    {
+      "type": "PriceDisplay",
+      "id": "pricedisplay-1"
+    },
+    {
+      "type": "ProductDetailsClient",
+      "id": "productdetailsclient-1"
+    },
+    {
+      "type": "ProductDetailTrustBadges",
+      "id": "productdetailtrustbadges-1"
+    },
+    {
+      "type": "ProductDetailPurchaseColumn",
+      "id": "productdetailpurchasecolumn-1"
+    },
+    {
+      "type": "ProductTabs",
+      "id": "producttabs-2"
+    },
+    {
+      "type": "ProductDetailMobileTabs",
+      "id": "productdetailmobiletabs-1"
+    },
+    {
+      "type": "ReviewsSection",
+      "id": "reviewssection-1"
+    },
+    {
+      "type": "ProductDetailSection",
+      "id": "productdetailsection-1"
+    },
+    {
+      "type": "TestimonialsSection",
+      "id": "testimonialssection-1"
+    },
+    {
+      "type": "ProductDetailSection",
+      "id": "productdetailsection-2"
+    },
+    {
+      "type": "RelatedProducts",
+      "id": "relatedproducts-1"
+    },
+    {
+      "type": "ProductDetailRelatedProductsSection",
+      "id": "productdetailrelatedproductssection-1"
+    },
+    {
+      "type": "PromotionBanner",
+      "id": "promotionbanner-1"
+    },
+    {
+      "type": "Breadcrumbs",
+      "id": "breadcrumbs-1"
+    },
+    {
+      "type": "ProductDetailPageLayout",
+      "id": "productdetailpagelayout-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": []
+}

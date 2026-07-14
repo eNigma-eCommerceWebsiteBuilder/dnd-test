@@ -1,0 +1,27 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/account/orders/[id]/return/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/account-order-return.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "Breadcrumbs",
+      "id": "breadcrumbs-1"
+    },
+    {
+      "type": "PageHeader",
+      "id": "pageheader-1"
+    },
+    {
+      "type": "PageWrapper",
+      "id": "pagewrapper-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": [
+    {
+      "source": "isWindowExpired ? (\r\n                    <ReturnWindowExpired\r\n                        orderNumber={formatOrderNumber(order.orderNumber)}\r\n                        deadline={deadline}\r\n                    />\r\n                ) : !eligibility.valid ? (\r\n                    <NotEligibleMessage\r\n                        orderId={order._id}\r\n                        orderNumber={formatOrderNumber(order.orderNumber)}\r\n                        message={eligibility.error || 'This order is not eligible for return.'}\r\n                    />\r\n                ) : (\r\n                    <div className=\"flex flex-col gap-6\">\r\n                        <ReturnRequestForm order={order} />\r\n                        <ReturnPolicyReminder />\r\n                    </div>\r\n                )"
+    }
+  ]
+}

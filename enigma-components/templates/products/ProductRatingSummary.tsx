@@ -5,10 +5,7 @@ interface ProductRatingSummaryProps {
   reviewCount: number;
 }
 
-export function ProductRatingSummary({
-  rating,
-  reviewCount,
-}: ProductRatingSummaryProps) {
+export function ProductRatingSummary({ rating, reviewCount }: ProductRatingSummaryProps) {
   const ratingInfo = formatRating(rating);
 
   return (
@@ -34,9 +31,7 @@ export function ProductRatingSummary({
                 : 'star'}
           </span>
         ))}
-        <span className="ml-2 font-bold text-text-base">
-          {ratingInfo.display}
-        </span>
+        <span className="ml-2 font-bold text-text-base">{ratingInfo.display}</span>
       </div>
       <span className="text-text-muted">|</span>
       <a href="#reviews" className="text-sm font-medium text-text-muted hover:underline">

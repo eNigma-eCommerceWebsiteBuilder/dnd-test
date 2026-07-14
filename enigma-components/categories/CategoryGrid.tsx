@@ -11,13 +11,14 @@ import { CategoryCard } from './CategoryCard';
 interface CategoryGridProps {
     categories: Category[];
     showConciergeCard?: boolean;
+    hrefPrefix?: string;
 }
 
-export function CategoryGrid({ categories, showConciergeCard = true }: CategoryGridProps) {
+export function CategoryGrid({ categories, showConciergeCard = true, hrefPrefix }: CategoryGridProps) {
     return (
         <div className="@container grid grid-cols-2 @lg:grid-cols-4 gap-8">
             {categories.map((category) => (
-                <CategoryCard key={category._id} category={category} />
+                <CategoryCard key={category._id} category={category} hrefPrefix={hrefPrefix} />
             ))}
 
             {/* Concierge Card - optional CTA card */}

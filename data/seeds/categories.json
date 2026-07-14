@@ -1,0 +1,71 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "CategoriesPageLayout",
+      "props": {
+        "id": "categoriespagelayout-1",
+        "breadcrumbs": [
+          {
+            "type": "CategoriesPageBreadcrumbs",
+            "props": {
+              "id": "categoriespagebreadcrumbs-1"
+            }
+          }
+        ],
+        "intro": [
+          {
+            "type": "CategoriesPageIntro",
+            "props": {
+              "id": "categoriespageintro-1"
+            }
+          }
+        ],
+        "trending": [
+          {
+            "type": "TrendingCategoriesSection",
+            "props": {
+              "id": "trendingcategoriessection-1",
+              "previewMode": "visible",
+              "cards": [
+                {
+                  "type": "TrendingCategoryCard",
+                  "props": {
+                    "id": "trendingcategorycard-1",
+                    "position": 0,
+                    "badge": "Seasonal Pick"
+                  }
+                },
+                {
+                  "type": "TrendingCategoryCard",
+                  "props": {
+                    "id": "trendingcategorycard-2",
+                    "position": 1,
+                    "badge": "Trending Now"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "departments": [
+          {
+            "type": "DepartmentCategoriesSection",
+            "props": {
+              "id": "departmentcategoriessection-1",
+              "grid": [
+                {
+                  "type": "CategoryGrid",
+                  "props": {
+                    "id": "categorygrid-1"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "zones": {}
+}

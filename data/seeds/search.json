@@ -1,0 +1,51 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "SearchStateSection",
+      "props": {
+        "id": "searchstatesection-1",
+        "results": [
+          {
+            "type": "SearchHeader",
+            "props": {
+              "id": "searchheader-1"
+            }
+          },
+          {
+            "type": "ProductGrid",
+            "props": {
+              "id": "productgrid-1",
+              "listName": "Search Results"
+            }
+          }
+        ],
+        "noResults": [
+          {
+            "type": "SearchHeader",
+            "props": {
+              "id": "searchheader-2"
+            }
+          },
+          {
+            "type": "NoResults",
+            "props": {
+              "id": "noresults-1"
+            }
+          }
+        ],
+        "start": [
+          {
+            "type": "SectionHeading",
+            "props": {
+              "id": "sectionheading-1",
+              "title": "Start Your Search",
+              "subtitle": "Enter a search term in the navigation bar to find products."
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "zones": {}
+}

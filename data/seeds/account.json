@@ -1,0 +1,68 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "PageWrapper",
+      "props": {
+        "id": "pagewrapper-1",
+        "maxWidth": "1440",
+        "paddingY": "normal",
+        "children": [
+          {
+            "type": "CardSection",
+            "props": {
+              "id": "cardsection-2",
+              "title": "Hi, __STRIP__ .",
+              "children": [
+                {
+                  "type": "PageHeader",
+                  "props": {
+                    "id": "pageheader-1",
+                    "title": "Hi, __STRIP__ ."
+                  }
+                },
+                {
+                  "type": "CardSection",
+                  "props": {
+                    "id": "cardsection-1",
+                    "title": "",
+                    "children": []
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "AccountLinkGrid",
+            "props": {
+              "id": "accountlinkgrid-1",
+              "links": [
+                {
+                  "href": "/account/orders",
+                  "title": "Orders",
+                  "description": "Track purchases, returns, and fulfillment updates."
+                },
+                {
+                  "href": "/account/wishlist",
+                  "title": "Wishlist",
+                  "description": "Keep an eye on saved items and future picks."
+                },
+                {
+                  "href": "/account/addresses",
+                  "title": "Addresses",
+                  "description": "Review delivery details and defaults."
+                },
+                {
+                  "href": "/account/settings",
+                  "title": "Identity settings",
+                  "description": "See how your hosted sign-in is managed."
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "zones": {}
+}

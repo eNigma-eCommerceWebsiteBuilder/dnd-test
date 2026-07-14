@@ -1,0 +1,40 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "PageWrapper",
+      "props": {
+        "id": "pagewrapper-1",
+        "maxWidth": "1440",
+        "paddingY": "normal",
+        "children": [
+          {
+            "type": "CardSection",
+            "props": {
+              "id": "cardsection-2",
+              "title": "Sign-in is managed outside the storefront.",
+              "children": [
+                {
+                  "type": "PageHeader",
+                  "props": {
+                    "id": "pageheader-1",
+                    "title": "Sign-in is managed outside the storefront."
+                  }
+                },
+                {
+                  "type": "CardSection",
+                  "props": {
+                    "id": "cardsection-1",
+                    "title": "",
+                    "children": []
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "zones": {}
+}

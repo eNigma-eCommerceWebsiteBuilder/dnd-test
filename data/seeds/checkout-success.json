@@ -1,0 +1,103 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "PageWrapper",
+      "props": {
+        "id": "pagewrapper-1",
+        "maxWidth": "1440",
+        "paddingY": "normal",
+        "children": [
+          {
+            "type": "PurchaseTracker",
+            "props": {
+              "id": "purchasetracker-1",
+              "order": null
+            }
+          },
+          {
+            "type": "SuccessHeader",
+            "props": {
+              "id": "successheader-1",
+              "title": "Thank you for your order"
+            }
+          },
+          {
+            "type": "OrderNumber",
+            "props": {
+              "id": "ordernumber-1"
+            }
+          },
+          {
+            "type": "TwoColumnDetail",
+            "props": {
+              "id": "twocolumndetail-1",
+              "main": [
+                {
+                  "type": "SectionHeading",
+                  "props": {
+                    "id": "sectionheading-1",
+                    "title": "Order Summary"
+                  }
+                },
+                {
+                  "type": "OrderItemList",
+                  "props": {
+                    "id": "orderitemlist-1"
+                  }
+                },
+                {
+                  "type": "ConfirmationOrderSummary",
+                  "props": {
+                    "id": "confirmationordersummary-1",
+                    "order": null
+                  }
+                }
+              ],
+              "sidebar": [
+                {
+                  "type": "CheckoutDigitalAssetsSection",
+                  "props": {
+                    "id": "checkoutdigitalassetssection-1",
+                    "available": [],
+                    "unavailable": []
+                  }
+                },
+                {
+                  "type": "ShippingInfo",
+                  "props": {
+                    "id": "shippinginfo-1",
+                    "order": null
+                  }
+                },
+                {
+                  "type": "NextStepsCard",
+                  "props": {
+                    "id": "nextstepscard-1",
+                    "title": "What's Next?",
+                    "step1": "We've sent a detailed receipt to",
+                    "step2": "You'll receive a tracking number once your items ship.",
+                    "step3": "Our support team is available 24/7 if you have questions."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "ContinueShoppingButton",
+            "props": {
+              "id": "continueshoppingbutton-1"
+            }
+          },
+          {
+            "type": "ViewOrderButton",
+            "props": {
+              "id": "vieworderbutton-1"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "zones": {}
+}

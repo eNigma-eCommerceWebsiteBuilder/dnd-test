@@ -1,175 +1,76 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-
-  --color-primary: #1a1a1a;
-  --color-primary-light: #2a2a2a;
-  --color-primary-dark: #0a0a0a;
-
-  --color-secondary: #6b7280;
-  --color-secondary-light: #9ca3af;
-  --color-secondary-dark: #4b5563;
-
-  --color-accent: #c8a95e;
-  --color-accent-light: #d4b876;
-  --color-accent-dark: #b08f4a;
-
-  --color-text-base: #171717;
-  --color-text-muted: #6b7280;
-  --color-text-light: #9ca3af;
-  --color-text-lighter: #d1d5db;
-  --color-text-inverse: #ffffff;
-  --color-text-disabled: #d1d5db;
-  --color-on-primary: #ffffff;
-  --color-on-secondary: #ffffff;
-  --color-on-accent: #ffffff;
-
-  --color-bg-base: #f9fafb;
-  --color-bg-surface: #ffffff;
-  --color-bg-elevated: #ffffff;
-  --color-bg-sunken: #f3f4f6;
-  --color-bg-overlay: rgba(0, 0, 0, 0.5);
-  --color-bg-hover: #f9fafb;
-  --color-bg-active: #f3f4f6;
-  --color-bg-selected: #f3f4f6;
-  --color-bg-disabled: #f9fafb;
-  --color-bg-skeleton: #f3f4f6;
-
-  --color-border: #e5e7eb;
-  --color-border-light: #f3f4f6;
-  --color-border-dark: #d1d5db;
-  --color-border-focus: #1a1a1a;
-  --color-border-error: #ef4444;
-  --color-divider: #e5e7eb;
-
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-danger: #ef4444;
-  --color-info: #3b82f6;
-
-  --color-cta-primary: #1a1a1a;
-  --color-cta-primary-hover: #2a2a2a;
-  --color-cta-secondary: #6b7280;
-  --color-cta-secondary-hover: #4b5563;
-
-  --color-link: #1a1a1a;
-  --color-link-hover: #2a2a2a;
-
-  --color-badge: #f3f4f6;
-  --color-badge-text: #6b7280;
-  --color-badge-sale: #ef4444;
-  --color-badge-sale-text: #ffffff;
-  --color-badge-new: #10b981;
-  --color-badge-new-text: #ffffff;
-
-  --color-price: #1a1a1a;
-  --color-price-sale: #ef4444;
-  --color-price-original: #9ca3af;
-  --color-rating: #f59e0b;
-
-  --radius-button: 0.5rem;
-  --radius-card: 0.75rem;
-  --radius-input: 0.5rem;
-  --radius-badge: 0.25rem;
-
-  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-button: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-button-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* --- Core Brand Palette --- */
+    --color-primary: #329583;
+    --color-primary-light: #4aa996;
+    --color-primary-dark: #267a6a;
+    
+    /* Using Luxe Accent Coral for the 'accent' variable */
+    --color-accent: #FF8C6B;
+    --color-accent-light: #ffa185;
+    --color-accent-dark: #e57050;
 
-    --color-primary: #ededed;
-    --color-primary-light: #f5f5f5;
-    --color-primary-dark: #d4d4d4;
+    /* --- Text Colors --- */
+    --color-text-base: #121616;
+    --color-text-muted: #6b7280;
+    --color-text-light: #9ca3af;
+    --color-text-inverse: #ffffff;
+    
+    /* --- Background & Surface Colors --- */
+    --color-bg-base: #f6f8f7;
+    --color-bg-surface: #ffffff;
+    --color-bg-elevated: #ffffff;
+    
+    /* --- Border Colors --- */
+    --color-border: #e5e7eb;
+    --color-border-light: #f3f4f6;
+    --color-border-dark: #d1d5db;
+    
+    /* --- eCommerce-Specific Colors --- */
+    --color-price: #121616;
+    --color-price-sale: #FF8C6B;
+    
+    /* --- Radii --- */
+    --radius-button: 0.5rem;
+    --radius-card: 0.75rem;
+    --radius-input: 9999px;
+  }
 
-    --color-text-base: #ededed;
-    --color-text-muted: #a1a1aa;
-    --color-text-light: #71717a;
-    --color-text-lighter: #52525b;
-    --color-text-inverse: #0a0a0a;
-    --color-on-primary: #0a0a0a;
-
-    --color-bg-base: #0a0a0a;
-    --color-bg-surface: #18181b;
-    --color-bg-elevated: #27272a;
-    --color-bg-sunken: #09090b;
-    --color-bg-overlay: rgba(0, 0, 0, 0.7);
-    --color-bg-skeleton: #27272a;
-
-    --color-border: #27272a;
-    --color-border-light: #3f3f46;
-    --color-border-dark: #52525b;
-
-    --color-cta-primary: #ededed;
-    --color-cta-primary-hover: #d4d4d4;
-
-    --color-price: #ededed;
+  .dark {
+    /* --- Core Brand Palette --- */
+    --color-primary: #329583; /* Keep identity color */
+    
+    /* --- Text Colors --- */
+    --color-text-base: #ffffff;
+    --color-text-muted: #9ca3af;
+    --color-text-inverse: #121616;
+    
+    /* --- Background & Surface Colors --- */
+    --color-bg-base: #141e1c;
+    --color-bg-surface: #1e2b28;
+    --color-bg-elevated: #263632;
+    
+    /* --- Border Colors --- */
+    --color-border: #2d3836;
+    --color-border-light: #2d3836;
+    
+    /* --- eCommerce-Specific Colors --- */
+    --color-price: #ffffff;
   }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-
-  --color-primary: var(--color-primary);
-  --color-primary-light: var(--color-primary-light);
-  --color-primary-dark: var(--color-primary-dark);
-
-  --color-text-base: var(--color-text-base);
-  --color-text-muted: var(--color-text-muted);
-  --color-text-light: var(--color-text-light);
-  --color-text-lighter: var(--color-text-lighter);
-  --color-text-inverse: var(--color-text-inverse);
-  --color-on-primary: var(--color-on-primary);
-
-  --color-bg-surface: var(--color-bg-surface);
-  --color-bg-elevated: var(--color-bg-elevated);
-  --color-bg-sunken: var(--color-bg-sunken);
-  --color-bg-overlay: var(--color-bg-overlay);
-  --color-bg-skeleton: var(--color-bg-skeleton);
-
-  --color-border: var(--color-border);
-  --color-border-light: var(--color-border-light);
-  --color-border-dark: var(--color-border-dark);
-
-  --color-cta-primary: var(--color-cta-primary);
-  --color-cta-primary-hover: var(--color-cta-primary-hover);
-
-  --color-badge-sale: var(--color-badge-sale);
-  --color-badge-sale-text: var(--color-badge-sale-text);
-
-  --color-price: var(--color-price);
-  --color-price-original: var(--color-price-original);
-  --color-rating: var(--color-rating);
-
-  --radius-card: var(--radius-card);
-  --radius-button: var(--radius-button);
-  --radius-input: var(--radius-input);
-  --radius-badge: var(--radius-badge);
-
-  --shadow-card: var(--shadow-card);
-  --shadow-button: var(--shadow-button);
-  --shadow-button-hover: var(--shadow-button-hover);
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  @apply bg-bg-base text-text-base font-sans transition-colors duration-300;
 }
 
 .material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-  font-family: "Material Symbols Outlined";
-  font-weight: normal;
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-weight: 400;
   font-style: normal;
   line-height: 1;
   letter-spacing: normal;
@@ -178,4 +79,5 @@ body {
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
+  -webkit-font-smoothing: antialiased;
 }

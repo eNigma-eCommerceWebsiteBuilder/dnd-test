@@ -1,0 +1,2599 @@
+{
+  "generatedAt": "2026-07-14T08:55:04.262Z",
+  "components": [
+    {
+      "type": "AccountAddressesStateSection",
+      "category": "Account",
+      "label": "Account Addresses State Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "runtimeSignals": [
+          "userProfile",
+          "user.addresses"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/account/addresses/page.tsx"
+            ],
+            "component": "AccountAddressesStateSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "AccountDashboard",
+      "category": "Account",
+      "label": "Account Dashboard",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "AccountDigitalLibraryStateSection",
+      "category": "Account",
+      "label": "Account Digital Library State Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "runtimeSignals": [
+          "orders",
+          "digitalAssets",
+          "licenseInfo",
+          "downloadStats"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/account/downloads/page.tsx"
+            ],
+            "component": "AccountDigitalLibraryStateSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "AccountLinkGrid",
+      "category": "Account",
+      "label": "Account Link Grid",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "topLevel": true,
+        "matches": [
+          {
+            "identifier": "accountLinks",
+            "component": "AccountLinkGrid"
+          }
+        ]
+      }
+    },
+    {
+      "type": "AccountSessionPanel",
+      "category": "Account",
+      "label": "Account Session Panel",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "slots": [
+          "signedIn",
+          "signedOut"
+        ],
+        "runtimeSignals": [
+          "session"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/account"
+            ],
+            "component": "AccountSessionPanel"
+          }
+        ]
+      }
+    },
+    {
+      "type": "AccountSessions",
+      "category": "Account",
+      "label": "Account Sessions",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "AccountSettings",
+      "category": "Account",
+      "label": "Account Settings",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "ActiveFiltersBlock",
+      "category": "Products",
+      "label": "Active Product Filters",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "ActiveFilters"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ActiveFilters"
+        ],
+        "role": "catalog-active-filters",
+        "slotTarget": "activeFilters",
+        "runtimeSignals": [
+          "searchParams"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/products/page.tsx"
+            ],
+            "componentName": "ActiveFilters"
+          }
+        ]
+      }
+    },
+    {
+      "type": "AddressList",
+      "category": "Account",
+      "label": "Address List",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "AdminNotes",
+      "category": "Account",
+      "label": "Admin Notes",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "AuthEntryCard",
+      "category": "Auth",
+      "label": "Auth Entry Card",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "BillingAddress",
+      "category": "Account",
+      "label": "Billing Address",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "Breadcrumbs",
+      "category": "Products",
+      "label": "Breadcrumbs",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "Breadcrumbs"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/Breadcrumbs"
+        ],
+        "role": "breadcrumbs",
+        "runtimeSignals": [
+          "product.category"
+        ]
+      }
+    },
+    {
+      "type": "CalloutCard",
+      "category": "Layout",
+      "label": "Callout Card",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "topLevel": true,
+        "matches": [
+          {
+            "tag": "div",
+            "classIncludes": [
+              "bg-primary/5"
+            ],
+            "component": "CalloutCard"
+          }
+        ]
+      }
+    },
+    {
+      "type": "CardSection",
+      "category": "Layout",
+      "label": "Card Section",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "topLevel": true,
+        "slots": [
+          "children"
+        ],
+        "matches": [
+          {
+            "tag": "section",
+            "classIncludes": [
+              "rounded-card"
+            ],
+            "component": "CardSection"
+          },
+          {
+            "tag": "div",
+            "classIncludes": [
+              "rounded-card"
+            ],
+            "component": "CardSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "CartContinueShopping",
+      "category": "Cart",
+      "label": "Continue Shopping Button",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "CartEmpty",
+      "category": "Cart",
+      "label": "Cart Empty State",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "CartHeader",
+      "category": "Cart",
+      "label": "Cart Header",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "CartList",
+      "category": "Cart",
+      "label": "Cart Item List",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "CartStateSection",
+      "category": "Cart",
+      "label": "Cart State Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "slots": [
+          "filled",
+          "empty"
+        ],
+        "runtimeSignals": [
+          "cart"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/cart/page.tsx"
+            ],
+            "component": "CartStateSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "CartSummary",
+      "category": "Cart",
+      "label": "Cart Summary",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "CatalogActiveFiltersBoundary",
+      "category": "Products",
+      "label": "Catalog Active Filters Boundary",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "content"
+        ],
+        "sourceJsxNames": [
+          "Suspense",
+          "ActiveFilters"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ActiveFilters"
+        ],
+        "role": "catalog-active-filters-boundary",
+        "slotTarget": "activeFilters",
+        "suspenseFallback": "null",
+        "runtimeSignals": [
+          "searchParams"
+        ]
+      }
+    },
+    {
+      "type": "CatalogBreadcrumbs",
+      "category": "Products",
+      "label": "Catalog Breadcrumbs",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "sourceJsxNames": [
+          "nav"
+        ],
+        "sourceImportPaths": [
+          "next/link"
+        ],
+        "role": "catalog-breadcrumbs",
+        "slotTarget": "breadcrumbs",
+        "requiredClasses": [
+          "flex",
+          "items-center",
+          "gap-2",
+          "text-sm",
+          "text-text-muted",
+          "mb-4"
+        ]
+      }
+    },
+    {
+      "type": "CatalogContentLayout",
+      "category": "Products",
+      "label": "Catalog Content Layout",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "slots": [
+          "sidebar",
+          "results"
+        ],
+        "sourceJsxNames": [
+          "div"
+        ],
+        "sourceImportPaths": [
+          "app/products/page.tsx"
+        ],
+        "role": "catalog-content-layout",
+        "slotTarget": "content",
+        "requiredClasses": [
+          "flex",
+          "flex-col",
+          "lg:flex-row",
+          "gap-8",
+          "lg:gap-12"
+        ]
+      }
+    },
+    {
+      "type": "CatalogControlsLayout",
+      "category": "Products",
+      "label": "Catalog Controls Layout",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "slots": [
+          "controls"
+        ],
+        "sourceJsxNames": [
+          "div"
+        ],
+        "sourceImportPaths": [
+          "app/products/page.tsx"
+        ],
+        "role": "catalog-controls-layout",
+        "slotTarget": "controls",
+        "requiredClasses": [
+          "flex",
+          "items-center",
+          "gap-3",
+          "md:gap-4"
+        ]
+      }
+    },
+    {
+      "type": "CatalogFilterSidebar",
+      "category": "Products",
+      "label": "Catalog Filter Sidebar",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "filters"
+        ],
+        "sourceJsxNames": [
+          "Suspense",
+          "ProductFilters"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ProductFilters"
+        ],
+        "role": "catalog-filter-sidebar",
+        "slotTarget": "sidebar",
+        "suspenseFallback": "catalog-filter-skeleton",
+        "runtimeSignals": [
+          "categories"
+        ],
+        "requiredClasses": [
+          "hidden",
+          "lg:block",
+          "w-[280px]",
+          "flex-shrink-0"
+        ]
+      }
+    },
+    {
+      "type": "CatalogGridBoundary",
+      "category": "Products",
+      "label": "Catalog Grid Loading Boundary",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "grid"
+        ],
+        "sourceJsxNames": [
+          "Suspense",
+          "ProductGrid",
+          "ProductGridSkeleton"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ProductGrid",
+          "@/components/products/ProductGridSkeleton"
+        ],
+        "role": "catalog-grid-boundary",
+        "slotTarget": "results",
+        "suspenseFallback": "ProductGridSkeleton(count=pageSize)",
+        "runtimeSignals": [
+          "products.pageSize"
+        ]
+      }
+    },
+    {
+      "type": "CatalogHeaderLayout",
+      "category": "Products",
+      "label": "Catalog Header Layout",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "slots": [
+          "breadcrumbs",
+          "titleSummary",
+          "controls"
+        ],
+        "sourceJsxNames": [
+          "div"
+        ],
+        "sourceImportPaths": [
+          "app/products/page.tsx"
+        ],
+        "role": "catalog-header-layout",
+        "requiredClasses": [
+          "mb-10"
+        ]
+      }
+    },
+    {
+      "type": "CatalogHeading",
+      "category": "Products",
+      "label": "Catalog Heading",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "h1"
+        ],
+        "sourceImportPaths": [
+          "app/products/page.tsx"
+        ],
+        "role": "catalog-heading",
+        "slotTarget": "heading",
+        "runtimeSignals": [
+          "products.totalItems",
+          "searchParams"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/products/page.tsx"
+            ],
+            "tag": "h1",
+            "textIncludes": [
+              "All Products"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "CatalogPaginationBlock",
+      "category": "Products",
+      "label": "Catalog Pagination",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "Pagination"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/Pagination"
+        ],
+        "role": "catalog-pagination",
+        "slotTarget": "results",
+        "runtimeSignals": [
+          "products.totalPages",
+          "searchParams.page"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/products/page.tsx"
+            ],
+            "componentName": "Pagination"
+          }
+        ]
+      }
+    },
+    {
+      "type": "CatalogPaginationCondition",
+      "category": "Products",
+      "label": "Catalog Pagination Condition",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "content"
+        ],
+        "sourceJsxNames": [
+          "Pagination"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/Pagination"
+        ],
+        "role": "catalog-pagination-condition",
+        "slotTarget": "results",
+        "conditional": "totalPages > 1",
+        "runtimeSignals": [
+          "products.totalPages"
+        ]
+      }
+    },
+    {
+      "type": "CatalogResultsState",
+      "category": "Products",
+      "label": "Catalog Results State",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "results",
+          "empty"
+        ],
+        "sourceJsxNames": [
+          "ProductGrid",
+          "EmptyState"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ProductGrid",
+          "@/components/products/EmptyState"
+        ],
+        "role": "catalog-results-state",
+        "slotTarget": "results",
+        "conditional": "products.length > 0",
+        "runtimeSignals": [
+          "products.items"
+        ],
+        "requiredClasses": [
+          "flex-1"
+        ]
+      }
+    },
+    {
+      "type": "CatalogTitleSummary",
+      "category": "Products",
+      "label": "Catalog Title and Count",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "h1"
+        ],
+        "sourceImportPaths": [
+          "app/products/page.tsx"
+        ],
+        "role": "catalog-title-summary",
+        "slotTarget": "titleSummary",
+        "runtimeSignals": [
+          "products.totalItems",
+          "searchParams"
+        ],
+        "requiredClasses": [
+          "text-4xl",
+          "md:text-5xl",
+          "font-black",
+          "tracking-tight"
+        ]
+      }
+    },
+    {
+      "type": "CategoriesPageBreadcrumbs",
+      "category": "Categories",
+      "label": "Categories Breadcrumbs",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "sourceJsxNames": [
+          "nav",
+          "Link"
+        ],
+        "sourceImportPaths": [
+          "next/link"
+        ],
+        "role": "categories-page-breadcrumbs",
+        "slotTarget": "breadcrumbs",
+        "requiredClasses": [
+          "flex",
+          "items-center",
+          "gap-2",
+          "mb-8",
+          "text-sm",
+          "font-medium"
+        ]
+      }
+    },
+    {
+      "type": "CategoriesPageIntro",
+      "category": "Categories",
+      "label": "Categories Page Introduction",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "sourceJsxNames": [
+          "h1",
+          "p"
+        ],
+        "role": "categories-page-intro",
+        "slotTarget": "intro",
+        "requiredClasses": [
+          "mb-12",
+          "text-5xl",
+          "font-black",
+          "tracking-tight",
+          "text-lg",
+          "max-w-2xl"
+        ]
+      }
+    },
+    {
+      "type": "CategoriesPageLayout",
+      "category": "Categories",
+      "label": "Categories Page Layout",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "breadcrumbs",
+          "intro",
+          "trending",
+          "departments"
+        ],
+        "sourceJsxNames": [
+          "main"
+        ],
+        "role": "categories-page-layout",
+        "requiredClasses": [
+          "min-h-screen",
+          "bg-bg-base",
+          "text-text-base",
+          "max-w-[1280px]",
+          "px-6",
+          "lg:px-10",
+          "py-8"
+        ]
+      }
+    },
+    {
+      "type": "CategoryCatalogBreadcrumbs",
+      "category": "Categories",
+      "label": "Category Breadcrumbs",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "nav",
+          "Link"
+        ],
+        "sourceImportPaths": [
+          "next/link"
+        ],
+        "role": "category-catalog-breadcrumbs",
+        "slotTarget": "breadcrumbs",
+        "runtimeSignals": [
+          "params.categorySlug"
+        ],
+        "requiredClasses": [
+          "flex",
+          "items-center",
+          "gap-2",
+          "text-sm",
+          "text-text-muted",
+          "mb-6"
+        ]
+      }
+    },
+    {
+      "type": "CategoryCatalogFilterSidebar",
+      "category": "Categories",
+      "label": "Category Filter Sidebar",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "filters"
+        ],
+        "sourceJsxNames": [
+          "Suspense",
+          "ProductFilters"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ProductFilters"
+        ],
+        "role": "category-catalog-filter-sidebar",
+        "slotTarget": "sidebar",
+        "suspenseFallback": "category-filter-skeleton",
+        "requiredClasses": [
+          "w-full",
+          "lg:w-[280px]",
+          "flex-shrink-0"
+        ]
+      }
+    },
+    {
+      "type": "CategoryCatalogGridBoundary",
+      "category": "Categories",
+      "label": "Category Grid Loading Boundary",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "grid"
+        ],
+        "sourceJsxNames": [
+          "Suspense",
+          "ProductGrid",
+          "ProductGridSkeleton"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ProductGrid",
+          "@/components/products/ProductGridSkeleton"
+        ],
+        "role": "category-catalog-grid-boundary",
+        "slotTarget": "results",
+        "suspenseFallback": "ProductGridSkeleton(count=pageSize)",
+        "runtimeSignals": [
+          "category.pageSize"
+        ]
+      }
+    },
+    {
+      "type": "CategoryCatalogLayout",
+      "category": "Categories",
+      "label": "Category Catalog Layout",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "breadcrumbs",
+          "hero",
+          "subcategories",
+          "activeFilters",
+          "content"
+        ],
+        "sourceJsxNames": [
+          "main",
+          "CategoryHero"
+        ],
+        "sourceImportPaths": [
+          "@/components/categories/CategoryHero"
+        ],
+        "role": "category-catalog-layout",
+        "requiredClasses": [
+          "min-h-screen",
+          "bg-bg-base",
+          "text-text-base",
+          "max-w-[1440px]",
+          "px-6",
+          "lg:px-12",
+          "py-8"
+        ]
+      }
+    },
+    {
+      "type": "CategoryCatalogPaginationBlock",
+      "category": "Categories",
+      "label": "Category Pagination",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "Pagination"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/Pagination"
+        ],
+        "role": "category-catalog-pagination",
+        "slotTarget": "results",
+        "runtimeSignals": [
+          "category.totalPages",
+          "searchParams.page"
+        ]
+      }
+    },
+    {
+      "type": "CategoryCatalogPaginationCondition",
+      "category": "Categories",
+      "label": "Category Pagination Condition",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "content"
+        ],
+        "sourceJsxNames": [
+          "Pagination"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/Pagination"
+        ],
+        "role": "category-catalog-pagination-condition",
+        "slotTarget": "results",
+        "conditional": "totalPages > 1",
+        "runtimeSignals": [
+          "category.totalPages"
+        ]
+      }
+    },
+    {
+      "type": "CategoryCatalogResultsHeader",
+      "category": "Categories",
+      "label": "Category Results Controls",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "controls"
+        ],
+        "sourceJsxNames": [
+          "ViewToggle",
+          "SortDropdown"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ViewToggle",
+          "@/components/products/SortDropdown"
+        ],
+        "role": "category-catalog-results-header",
+        "slotTarget": "results",
+        "runtimeSignals": [
+          "category.totalItems"
+        ],
+        "requiredClasses": [
+          "flex",
+          "sm:flex-row",
+          "items-start",
+          "justify-between",
+          "gap-4",
+          "mb-8"
+        ]
+      }
+    },
+    {
+      "type": "CategoryCatalogResultsState",
+      "category": "Categories",
+      "label": "Category Results State",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "results",
+          "empty"
+        ],
+        "sourceJsxNames": [
+          "ProductGrid",
+          "EmptyCategory"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ProductGrid",
+          "@/components/categories/EmptyCategory"
+        ],
+        "role": "category-catalog-results-state",
+        "slotTarget": "results",
+        "conditional": "products.length > 0",
+        "runtimeSignals": [
+          "category.products"
+        ],
+        "requiredClasses": [
+          "flex-1"
+        ]
+      }
+    },
+    {
+      "type": "CategoryCatalogStateSection",
+      "category": "Categories",
+      "label": "Category Catalog State Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "runtimeSignals": [
+          "params.slug",
+          "searchParams",
+          "category",
+          "products"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/categories/[slug]/page.tsx"
+            ],
+            "component": "CategoryCatalogStateSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "CategoryGrid",
+      "category": "Categories",
+      "label": "Category Grid",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "CategoryGrid"
+        ],
+        "sourceImportPaths": [
+          "@/components/categories/CategoryGrid"
+        ],
+        "role": "categories-page-grid",
+        "slotTarget": "grid",
+        "runtimeSignals": [
+          "categories.main"
+        ]
+      }
+    },
+    {
+      "type": "CategoryHero",
+      "category": "Categories",
+      "label": "Category Hero",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "CategoryHero"
+        ],
+        "sourceImportPaths": [
+          "@/components/categories/CategoryHero"
+        ],
+        "role": "category-hero",
+        "slotTarget": "hero",
+        "runtimeSignals": [
+          "params.categorySlug",
+          "category.totalItems"
+        ]
+      }
+    },
+    {
+      "type": "CategoryHighlights",
+      "category": "Home",
+      "label": "Category Highlights",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "CategoryProductFiltersBlock",
+      "category": "Categories",
+      "label": "Category Product Filters",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "ProductFilters"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ProductFilters"
+        ],
+        "role": "category-catalog-filters",
+        "slotTarget": "filters",
+        "runtimeSignals": [
+          "category.categories",
+          "searchParams"
+        ]
+      }
+    },
+    {
+      "type": "CategoryProductGridBlock",
+      "category": "Categories",
+      "label": "Category Product Grid",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "ProductGrid"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ProductGrid"
+        ],
+        "role": "category-catalog-product-grid",
+        "slotTarget": "grid",
+        "runtimeSignals": [
+          "category.products"
+        ]
+      }
+    },
+    {
+      "type": "CategorySubcategoryCondition",
+      "category": "Categories",
+      "label": "Sibling Category Condition",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "content"
+        ],
+        "sourceJsxNames": [
+          "SubcategoryNav"
+        ],
+        "sourceImportPaths": [
+          "@/components/categories/SubcategoryNav"
+        ],
+        "role": "category-subcategory-condition",
+        "slotTarget": "subcategories",
+        "conditional": "siblingCategories.length > 0",
+        "runtimeSignals": [
+          "category.siblings"
+        ]
+      }
+    },
+    {
+      "type": "CheckoutConfirmation",
+      "category": "Checkout",
+      "label": "Checkout Confirmation",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "CheckoutDigitalAssetsSection",
+      "category": "Checkout",
+      "label": "Checkout Digital Assets Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "slots": [
+          "available",
+          "unavailable"
+        ],
+        "runtimeSignals": [
+          "order",
+          "digitalAssets"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/checkout/success/page.tsx"
+            ],
+            "textIncludes": [
+              "DigitalDownloads",
+              "LicenseKeyDisplay"
+            ],
+            "component": "CheckoutDigitalAssetsSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "CheckoutOrderReview",
+      "category": "Checkout",
+      "label": "Checkout Order Review",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "CheckoutOrderSummary",
+      "category": "Checkout",
+      "label": "Checkout Order Summary",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "CheckoutPaymentMethod",
+      "category": "Checkout",
+      "label": "Checkout Payment Method",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "CheckoutPlaceOrderButton",
+      "category": "Checkout",
+      "label": "Place Order Button",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "CheckoutSecureBadges",
+      "category": "Checkout",
+      "label": "Secure Checkout Badges",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "CheckoutShippingForm",
+      "category": "Checkout",
+      "label": "Checkout Shipping Form",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "CheckoutShippingMethod",
+      "category": "Checkout",
+      "label": "Checkout Shipping Method",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "CheckoutStateSection",
+      "category": "Checkout",
+      "label": "Checkout State Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "slots": [
+          "ready",
+          "empty"
+        ],
+        "runtimeSignals": [
+          "cart",
+          "session"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/checkout/page.tsx"
+            ],
+            "component": "CheckoutStateSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "CheckoutSteps",
+      "category": "Checkout",
+      "label": "Checkout Steps Progress",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "CheckoutSubscriptionStateSection",
+      "category": "Checkout",
+      "label": "Checkout Subscription State Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "slots": [
+          "ready",
+          "empty"
+        ],
+        "runtimeSignals": [
+          "cart",
+          "subscriptionCheckoutData",
+          "sellingPlans",
+          "pricingPreview"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/checkout/subscription/page.tsx"
+            ],
+            "component": "CheckoutSubscriptionStateSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "CollectionDetailStateSection",
+      "category": "Collections",
+      "label": "Collection Detail State Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "runtimeSignals": [
+          "params.slug",
+          "collection",
+          "curatedCollection",
+          "inspirationDetail"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/collections/[slug]/page.tsx"
+            ],
+            "component": "CollectionDetailStateSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "CollectionGrid",
+      "category": "Collections",
+      "label": "Collection Grid",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "CollectionHero",
+      "category": "Collections",
+      "label": "Collection Hero",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "CollectionStateSection",
+      "category": "Collections",
+      "label": "Collection State Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "slots": [
+          "content",
+          "empty"
+        ],
+        "runtimeSignals": [
+          "collections"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/collections"
+            ],
+            "component": "CollectionStateSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ConditionalSection",
+      "category": "Layout",
+      "label": "Conditional Section",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "ConfirmationOrderSummary",
+      "category": "Checkout",
+      "label": "Order Summary",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "ContinueShoppingButton",
+      "category": "Checkout",
+      "label": "Continue Shopping Button",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "CuratedCollectionSection",
+      "category": "Home",
+      "label": "Curated Collection Section",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "CuratedProductDisplay",
+      "category": "Collections",
+      "label": "Curated Product Display",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "DepartmentCategoriesSection",
+      "category": "Categories",
+      "label": "Browse by Department Section",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "grid"
+        ],
+        "sourceJsxNames": [
+          "CategoryGrid"
+        ],
+        "sourceImportPaths": [
+          "@/components/categories/CategoryGrid"
+        ],
+        "role": "department-categories-section",
+        "slotTarget": "departments",
+        "runtimeSignals": [
+          "categories.main"
+        ],
+        "requiredClasses": [
+          "mb-20",
+          "items-center",
+          "gap-4",
+          "mb-8",
+          "h-[2px]",
+          "bg-divider"
+        ]
+      }
+    },
+    {
+      "type": "DigitalDownloads",
+      "category": "Checkout",
+      "label": "Digital Downloads",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "DownloadLicenseStateSection",
+      "category": "Downloads",
+      "label": "Download License State Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "runtimeSignals": [
+          "params.key",
+          "licenseInfo"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/downloads/[key]/page.tsx"
+            ],
+            "component": "DownloadLicenseStateSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "DownloadsEmpty",
+      "category": "Account",
+      "label": "Downloads Empty State",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "EmptyCategory",
+      "category": "Categories",
+      "label": "Empty Category State",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "EmptyCategory"
+        ],
+        "sourceImportPaths": [
+          "@/components/categories/EmptyCategory"
+        ],
+        "role": "category-empty-state",
+        "slotTarget": "empty",
+        "runtimeSignals": [
+          "category.products"
+        ]
+      }
+    },
+    {
+      "type": "EmptyCollections",
+      "category": "Collections",
+      "label": "Empty Collections State",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "EmptyPaymentMethods",
+      "category": "Account",
+      "label": "Empty Payment Methods",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "EmptyState",
+      "category": "Products",
+      "label": "Empty Product State",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "EmptyState"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/EmptyState"
+        ],
+        "role": "catalog-empty-state",
+        "slotTarget": "empty",
+        "runtimeSignals": [
+          "products.items"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/products/page.tsx"
+            ],
+            "componentName": "EmptyState"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ErrorState",
+      "category": "Feedback",
+      "label": "Error State",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "topLevel": true,
+        "matches": [
+          {
+            "textIncludes": [
+              "Something went wrong"
+            ],
+            "component": "ErrorState"
+          }
+        ]
+      }
+    },
+    {
+      "type": "FeaturedProductsGrid",
+      "category": "Home",
+      "label": "Featured Products Grid",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "FeatureIconList",
+      "category": "Layout",
+      "label": "Feature Icon List",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "topLevel": true,
+        "matches": [
+          {
+            "tag": "div",
+            "classIncludes": [
+              "grid",
+              "grid-cols-2"
+            ],
+            "textIncludes": [
+              "Free Global Shipping",
+              "30-Day Easy Returns"
+            ],
+            "component": "FeatureIconList"
+          }
+        ]
+      }
+    },
+    {
+      "type": "FreeShippingProgress",
+      "category": "Cart",
+      "label": "Free Shipping Progress",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "HeroSection",
+      "category": "Home",
+      "label": "Hero Section",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "InspirationGallery",
+      "category": "Collections",
+      "label": "Inspiration Gallery",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "InspirationSection",
+      "category": "Home",
+      "label": "Inspiration Section",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "LicenseKeyDisplay",
+      "category": "Checkout",
+      "label": "License Key Display",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "MobileFilterDrawerBlock",
+      "category": "Products",
+      "label": "Mobile Filter Drawer",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "MobileFilterDrawer"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/MobileFilterDrawer"
+        ],
+        "role": "catalog-mobile-filters",
+        "slotTarget": "controls",
+        "runtimeSignals": [
+          "categories",
+          "searchParams"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/products/page.tsx"
+            ],
+            "componentName": "MobileFilterDrawer"
+          }
+        ]
+      }
+    },
+    {
+      "type": "NewsletterSignup",
+      "category": "Home",
+      "label": "Newsletter Signup",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "NextStepsCard",
+      "category": "Checkout",
+      "label": "Next Steps Card",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "NoResults",
+      "category": "Search",
+      "label": "No Search Results",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "NotEligibleMessage",
+      "category": "Account",
+      "label": "Not Eligible for Return",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "NotFoundState",
+      "category": "Feedback",
+      "label": "Not Found State",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "topLevel": true,
+        "matches": [
+          {
+            "textIncludes": [
+              "not found"
+            ],
+            "component": "NotFoundState"
+          }
+        ]
+      }
+    },
+    {
+      "type": "OrderDetails",
+      "category": "Account",
+      "label": "Order Details (Financial)",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "OrderEmpty",
+      "category": "Account",
+      "label": "Order Empty State",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "OrderItemList",
+      "category": "Checkout",
+      "label": "Order Item List",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "OrderNumber",
+      "category": "Checkout",
+      "label": "Order Number",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "OrderStatusBadge",
+      "category": "Account",
+      "label": "Order Status Badge",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "PageHeader",
+      "category": "Layout",
+      "label": "Page Header",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "topLevel": true,
+        "matches": [
+          {
+            "tag": "h1",
+            "classIncludes": [
+              "font-heading"
+            ],
+            "component": "PageHeader"
+          }
+        ]
+      }
+    },
+    {
+      "type": "PageWrapper",
+      "category": "Layout",
+      "label": "Page Wrapper",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "topLevel": true,
+        "slots": [
+          "children"
+        ],
+        "matches": [
+          {
+            "tag": "main",
+            "component": "PageWrapper"
+          }
+        ]
+      }
+    },
+    {
+      "type": "PaymentInfo",
+      "category": "Account",
+      "label": "Payment Info",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "PriceDisplay",
+      "category": "Products",
+      "label": "Price Display",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "PriceDisplay"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/PriceDisplay"
+        ],
+        "role": "price-display",
+        "runtimeSignals": [
+          "product.price"
+        ]
+      }
+    },
+    {
+      "type": "ProductDetailMediaColumn",
+      "category": "Products",
+      "label": "Product Detail Media Column",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "gallery",
+          "desktopTabs"
+        ],
+        "sourceJsxNames": [
+          "ProductGallery",
+          "ProductTabs"
+        ],
+        "role": "product-detail-media-column",
+        "slotTarget": "media",
+        "requiredClasses": [
+          "lg:col-span-7",
+          "mt-16",
+          "hidden",
+          "lg:block"
+        ]
+      }
+    },
+    {
+      "type": "ProductDetailMobileTabs",
+      "category": "Products",
+      "label": "Product Detail Mobile Tabs",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "content"
+        ],
+        "sourceJsxNames": [
+          "ProductTabs"
+        ],
+        "role": "product-detail-mobile-tabs",
+        "slotTarget": "mobileTabs",
+        "requiredClasses": [
+          "mt-12",
+          "lg:hidden"
+        ]
+      }
+    },
+    {
+      "type": "ProductDetailPageLayout",
+      "category": "Products",
+      "label": "Product Detail Page Layout",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "promotion",
+          "breadcrumbs",
+          "media",
+          "purchase",
+          "mobileTabs",
+          "reviews",
+          "testimonials",
+          "related"
+        ],
+        "sourceJsxNames": [
+          "main"
+        ],
+        "role": "product-detail-layout",
+        "requiredClasses": [
+          "min-h-screen",
+          "max-w-7xl",
+          "grid-cols-1",
+          "lg:grid-cols-12"
+        ]
+      }
+    },
+    {
+      "type": "ProductDetailPurchaseColumn",
+      "category": "Products",
+      "label": "Product Detail Purchase Column",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "stock",
+          "rating",
+          "price",
+          "purchase",
+          "trust"
+        ],
+        "sourceJsxNames": [
+          "StockIndicator",
+          "ProductRatingSummary",
+          "PriceDisplay",
+          "ProductDetailsClient"
+        ],
+        "role": "product-detail-purchase-column",
+        "slotTarget": "purchase",
+        "conditional": "product.rating !== undefined && product.rating > 0",
+        "runtimeSignals": [
+          "product"
+        ]
+      }
+    },
+    {
+      "type": "ProductDetailPurchaseSection",
+      "category": "Products",
+      "label": "Product Detail Purchase Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "slots": [
+          "content"
+        ],
+        "runtimeSignals": [
+          "product"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/products/[slug]/page.tsx"
+            ],
+            "component": "ProductDetailPurchaseSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ProductDetailRelatedProductsSection",
+      "category": "Products",
+      "label": "Product Detail Related Products Condition",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "content"
+        ],
+        "sourceJsxNames": [
+          "RelatedProducts"
+        ],
+        "role": "product-detail-related-condition",
+        "slotTarget": "related",
+        "conditional": "relatedProducts.length > 0",
+        "runtimeSignals": [
+          "relatedProducts"
+        ]
+      }
+    },
+    {
+      "type": "ProductDetailsClient",
+      "category": "Products",
+      "label": "Product Details (Add to Cart)",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "ProductDetailsClient"
+        ],
+        "sourceImportPaths": [
+          "@/components/templates/products/ProductDetailsClient"
+        ],
+        "role": "product-detail-purchase-controls",
+        "runtimeSignals": [
+          "product"
+        ]
+      }
+    },
+    {
+      "type": "ProductDetailSection",
+      "category": "Products",
+      "label": "Product Detail Content Section",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "content"
+        ],
+        "sourceJsxNames": [
+          "ReviewsSection",
+          "TestimonialsSection"
+        ],
+        "role": "product-detail-section",
+        "requiredClasses": [
+          "mt-24",
+          "border-t",
+          "pt-16"
+        ]
+      }
+    },
+    {
+      "type": "ProductDetailTrustBadges",
+      "category": "Products",
+      "label": "Product Detail Shipping and Returns",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "sourceJsxNames": [
+          "span"
+        ],
+        "role": "product-detail-trust-badges",
+        "slotTarget": "trust",
+        "requiredClasses": [
+          "grid-cols-2",
+          "local_shipping",
+          "assignment_return"
+        ]
+      }
+    },
+    {
+      "type": "ProductFiltersBlock",
+      "category": "Products",
+      "label": "Product Filter Sidebar",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "ProductFilters"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ProductFilters"
+        ],
+        "role": "catalog-desktop-filters",
+        "slotTarget": "filters",
+        "runtimeSignals": [
+          "categories",
+          "searchParams"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/products/page.tsx"
+            ],
+            "componentName": "ProductFilters"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ProductGallery",
+      "category": "Products",
+      "label": "Product Gallery",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "ProductGallery"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ProductGallery"
+        ],
+        "role": "product-gallery",
+        "runtimeSignals": [
+          "product.images"
+        ]
+      }
+    },
+    {
+      "type": "ProductGrid",
+      "category": "Products",
+      "label": "Product Grid",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "ProductGrid"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ProductGrid"
+        ],
+        "role": "catalog-product-grid",
+        "slotTarget": "grid",
+        "runtimeSignals": [
+          "products.items",
+          "searchParams"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/products/page.tsx"
+            ],
+            "componentName": "ProductGrid"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ProductRatingSummary",
+      "category": "Products",
+      "label": "Product Rating Summary",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "ProductRatingSummary"
+        ],
+        "sourceImportPaths": [
+          "@/components/templates/products/ProductRatingSummary"
+        ],
+        "role": "product-detail-rating",
+        "runtimeSignals": [
+          "product.rating",
+          "product.reviewCount"
+        ]
+      }
+    },
+    {
+      "type": "ProductRelatedProductsSection",
+      "category": "Products",
+      "label": "Product Related Products Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "slots": [
+          "content"
+        ],
+        "runtimeSignals": [
+          "product",
+          "relatedProducts"
+        ],
+        "matches": [
+          {
+            "componentName": "RelatedProducts",
+            "component": "ProductRelatedProductsSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ProductsCatalogLayout",
+      "category": "Products",
+      "label": "Products Catalog Layout",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "topLevel": true,
+        "slots": [
+          "header",
+          "activeFilters",
+          "content"
+        ],
+        "sourceJsxNames": [
+          "main"
+        ],
+        "sourceImportPaths": [
+          "app/products/page.tsx"
+        ],
+        "role": "catalog-layout",
+        "requiredClasses": [
+          "min-h-screen",
+          "bg-bg-base",
+          "text-text-base"
+        ]
+      }
+    },
+    {
+      "type": "ProductsCatalogStateSection",
+      "category": "Products",
+      "label": "Products Catalog State Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "slots": [
+          "breadcrumbs",
+          "heading",
+          "controls",
+          "activeFilters",
+          "filters",
+          "results",
+          "empty",
+          "error"
+        ],
+        "runtimeSignals": [
+          "searchParams",
+          "products",
+          "categories",
+          "pagination"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/products/page.tsx"
+            ],
+            "component": "ProductsCatalogStateSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ProductTabs",
+      "category": "Products",
+      "label": "Product Tabs",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "ProductTabs"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ProductTabs"
+        ],
+        "role": "product-tabs",
+        "runtimeSignals": [
+          "product",
+          "reviews"
+        ]
+      }
+    },
+    {
+      "type": "PromotionBanner",
+      "category": "Marketing",
+      "label": "Promotion Banner",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "PromotionBanner"
+        ],
+        "sourceImportPaths": [
+          "@/components/home/PromotionBanner"
+        ],
+        "role": "promotion-banner",
+        "runtimeSignals": [
+          "promotion"
+        ]
+      }
+    },
+    {
+      "type": "PurchaseTracker",
+      "category": "Checkout",
+      "label": "Purchase Tracker",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "RefundSummary",
+      "category": "Account",
+      "label": "Refund Summary",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "RelatedProducts",
+      "category": "Products",
+      "label": "Related Products",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "RelatedProducts"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/RelatedProducts"
+        ],
+        "role": "product-detail-related-products",
+        "runtimeSignals": [
+          "relatedProducts"
+        ]
+      }
+    },
+    {
+      "type": "ReturnPolicyReminder",
+      "category": "Account",
+      "label": "Return Policy Reminder",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "ReturnReason",
+      "category": "Account",
+      "label": "Return Reason",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "ReturnsEmpty",
+      "category": "Account",
+      "label": "Returns Empty State",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "ReturnStatusBadge",
+      "category": "Account",
+      "label": "Return Status Badge",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "ReturnWindowExpired",
+      "category": "Account",
+      "label": "Return Window Expired",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "ReviewsSection",
+      "category": "Products",
+      "label": "Reviews Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "ReviewsSection"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ReviewsSection"
+        ],
+        "role": "product-detail-reviews",
+        "runtimeSignals": [
+          "product",
+          "reviews"
+        ]
+      }
+    },
+    {
+      "type": "SearchHeader",
+      "category": "Search",
+      "label": "Search Header",
+      "hasDataFetcher": true,
+      "ast": {}
+    },
+    {
+      "type": "SearchStateSection",
+      "category": "Search",
+      "label": "Search State Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "slots": [
+          "results",
+          "noResults",
+          "start"
+        ],
+        "runtimeSignals": [
+          "searchParams",
+          "query",
+          "products"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/search/page.tsx"
+            ],
+            "component": "SearchStateSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "SectionHeaderWithDivider",
+      "category": "Layout",
+      "label": "Section Header With Divider",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "topLevel": true,
+        "matches": [
+          {
+            "tag": "div",
+            "classIncludes": [
+              "bg-divider"
+            ],
+            "component": "SectionHeaderWithDivider"
+          }
+        ]
+      }
+    },
+    {
+      "type": "SectionHeading",
+      "category": "Layout",
+      "label": "Section Heading",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "topLevel": true,
+        "matches": [
+          {
+            "tag": "h2",
+            "component": "SectionHeading"
+          },
+          {
+            "tag": "h3",
+            "component": "SectionHeading"
+          }
+        ]
+      }
+    },
+    {
+      "type": "SharedWishlist",
+      "category": "Account",
+      "label": "Shared Wishlist",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "SharedWishlistStateSection",
+      "category": "Wishlist",
+      "label": "Shared Wishlist State Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "runtimeSignals": [
+          "params.token",
+          "wishlist",
+          "wishlist.items"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/wishlist/shared/[token]/page.tsx"
+            ],
+            "component": "SharedWishlistStateSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ShippingAddress",
+      "category": "Account",
+      "label": "Shipping Address",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "ShippingInfo",
+      "category": "Checkout",
+      "label": "Shipping Info",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "SortDropdownBlock",
+      "category": "Products",
+      "label": "Catalog Sort Dropdown",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "SortDropdown"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/SortDropdown"
+        ],
+        "role": "catalog-sort",
+        "slotTarget": "controls",
+        "runtimeSignals": [
+          "searchParams.sort"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/products/page.tsx"
+            ],
+            "componentName": "SortDropdown"
+          }
+        ]
+      }
+    },
+    {
+      "type": "StockIndicator",
+      "category": "Products",
+      "label": "Stock Indicator",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "StockIndicator"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/StockIndicator"
+        ],
+        "role": "stock-indicator",
+        "runtimeSignals": [
+          "product.stock"
+        ]
+      }
+    },
+    {
+      "type": "SubcategoryNav",
+      "category": "Categories",
+      "label": "Subcategory Navigation",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "SubcategoryNav"
+        ],
+        "sourceImportPaths": [
+          "@/components/categories/SubcategoryNav"
+        ],
+        "role": "category-subcategory-nav",
+        "slotTarget": "subcategories",
+        "runtimeSignals": [
+          "category.siblings",
+          "params.categorySlug"
+        ]
+      }
+    },
+    {
+      "type": "SubscriptionDetailsHeader",
+      "category": "Account",
+      "label": "Subscription Details Header",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "SubscriptionDetailStateSection",
+      "category": "Account",
+      "label": "Subscription Detail State Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "topLevel": true,
+        "runtimeSignals": [
+          "params.id",
+          "subscription",
+          "billingHistory",
+          "subscriptionOrders"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/account/subscriptions/[id]/page.tsx"
+            ],
+            "component": "SubscriptionDetailStateSection"
+          }
+        ]
+      }
+    },
+    {
+      "type": "SubscriptionsEmpty",
+      "category": "Account",
+      "label": "Subscriptions Empty State",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "SubscriptionStatusBadge",
+      "category": "Account",
+      "label": "Subscription Status Badge",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "SuccessHeader",
+      "category": "Checkout",
+      "label": "Success Header",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "TestimonialsSection",
+      "category": "Social Proof",
+      "label": "Testimonials Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "TestimonialsSection"
+        ],
+        "sourceImportPaths": [
+          "@/components/testimonials/TestimonialsSection"
+        ],
+        "role": "testimonials-section",
+        "runtimeSignals": [
+          "testimonials"
+        ]
+      }
+    },
+    {
+      "type": "TrendingCategoriesSection",
+      "category": "Categories",
+      "label": "Trending Categories Section",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "slots": [
+          "cards"
+        ],
+        "sourceJsxNames": [
+          "TrendingCategoryCard"
+        ],
+        "sourceImportPaths": [
+          "@/components/categories/TrendingCategoryCard"
+        ],
+        "role": "trending-categories-section",
+        "slotTarget": "trending",
+        "conditional": "topTrending.length > 0",
+        "runtimeSignals": [
+          "categories.trending"
+        ],
+        "requiredClasses": [
+          "mb-16",
+          "items-end",
+          "justify-between",
+          "grid",
+          "md:grid-cols-2",
+          "gap-6"
+        ]
+      }
+    },
+    {
+      "type": "TrendingCategoryCard",
+      "category": "Categories",
+      "label": "Trending Category Card",
+      "hasDataFetcher": true,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "TrendingCategoryCard"
+        ],
+        "sourceImportPaths": [
+          "@/components/categories/TrendingCategoryCard"
+        ],
+        "role": "trending-category-card",
+        "slotTarget": "cards",
+        "runtimeSignals": [
+          "categories.topTrending"
+        ]
+      }
+    },
+    {
+      "type": "TrustBadges",
+      "category": "Home",
+      "label": "Trust Badges",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "TwoColumnDetail",
+      "category": "Layout",
+      "label": "Two Column Detail",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "static",
+        "topLevel": true,
+        "slots": [
+          "main",
+          "sidebar"
+        ],
+        "matches": [
+          {
+            "tag": "div",
+            "classIncludes": [
+              "grid",
+              "lg:grid-cols-12"
+            ],
+            "component": "TwoColumnDetail"
+          }
+        ]
+      }
+    },
+    {
+      "type": "ViewOrderButton",
+      "category": "Checkout",
+      "label": "View Order Button",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "ViewToggleBlock",
+      "category": "Products",
+      "label": "Catalog View Toggle",
+      "hasDataFetcher": false,
+      "ast": {
+        "kind": "runtime",
+        "sourceJsxNames": [
+          "ViewToggle"
+        ],
+        "sourceImportPaths": [
+          "@/components/products/ViewToggle"
+        ],
+        "role": "catalog-view-toggle",
+        "slotTarget": "controls",
+        "runtimeSignals": [
+          "searchParams.view"
+        ],
+        "matches": [
+          {
+            "pageIncludes": [
+              "app/products/page.tsx"
+            ],
+            "componentName": "ViewToggle"
+          }
+        ]
+      }
+    },
+    {
+      "type": "WishlistEmpty",
+      "category": "Account",
+      "label": "Wishlist Empty State",
+      "hasDataFetcher": false,
+      "ast": {}
+    },
+    {
+      "type": "WishlistSavingsCard",
+      "category": "Account",
+      "label": "Wishlist Savings Card",
+      "hasDataFetcher": false,
+      "ast": {}
+    }
+  ]
+}

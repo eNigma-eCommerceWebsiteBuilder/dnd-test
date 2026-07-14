@@ -1,0 +1,14 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "DownloadLicenseStateSection",
+      "props": {
+        "id": "downloadlicensestatesection-1",
+        "licenseKey": "",
+        "state": "invalid"
+      }
+    }
+  ],
+  "zones": {}
+}

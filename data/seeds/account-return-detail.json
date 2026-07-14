@@ -1,0 +1,15 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "PageWrapper",
+      "props": {
+        "id": "pagewrapper-1",
+        "maxWidth": "1440",
+        "paddingY": "normal",
+        "children": []
+      }
+    }
+  ],
+  "zones": {}
+}

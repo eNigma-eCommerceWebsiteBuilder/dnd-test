@@ -9,6 +9,7 @@ interface ProductGridProps {
     products: Product[];
     listName?: string;
     className?: string;
+    hrefPrefix?: string;
 }
 
 /**
@@ -18,7 +19,7 @@ interface ProductGridProps {
  * Adapts to container width (not viewport) for flexible layouts.
  * Includes analytics tracking via ProductImpressionTracker.
  */
-export function ProductGrid({ products, listName = 'Product Listing', className }: ProductGridProps) {
+export function ProductGrid({ products, listName = 'Product Listing', className, hrefPrefix }: ProductGridProps) {
     if (products.length === 0) {
         return null;
     }
@@ -56,6 +57,7 @@ export function ProductGrid({ products, listName = 'Product Listing', className 
                                 product={product}
                                 showWishlist={true}
                                 showQuickAdd={true}
+                                hrefPrefix={hrefPrefix}
                             />
                         </div>
                     );

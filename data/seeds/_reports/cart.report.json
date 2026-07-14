@@ -1,0 +1,39 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/cart/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/cart.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "CartHeader",
+      "id": "cartheader-1"
+    },
+    {
+      "type": "FreeShippingProgress",
+      "id": "freeshippingprogress-1"
+    },
+    {
+      "type": "CartList",
+      "id": "cartlist-1"
+    },
+    {
+      "type": "CartSummary",
+      "id": "cartsummary-1"
+    },
+    {
+      "type": "CartContinueShopping",
+      "id": "cartcontinueshopping-1"
+    },
+    {
+      "type": "CartEmpty",
+      "id": "cartempty-1"
+    },
+    {
+      "type": "CartStateSection",
+      "id": "cartstatesection-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": []
+}

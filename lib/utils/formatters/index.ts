@@ -16,3 +16,10 @@ export {
 export type {
   RatingResult,
 } from './rating';
+export {
+  formatStockStatus,
+} from './stock';
+export type {
+  ProductWithStock,
+  StockStatusResult,
+} from './stock';

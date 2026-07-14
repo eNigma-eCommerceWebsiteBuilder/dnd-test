@@ -7,6 +7,10 @@ interface TestimonialCardProps {
     className?: string;
 }
 
+/**
+ * TestimonialCard Component (Server)
+ * Quote, author, rating, platform, and timestamp
+ */
 export function TestimonialCard({ testimonial, className }: TestimonialCardProps) {
     const ratingInfo = formatRating(testimonial.rating);
     const timeAgo = testimonial.createdAt ? formatRelativeTime(testimonial.createdAt) : '';
@@ -51,7 +55,7 @@ export function TestimonialCard({ testimonial, className }: TestimonialCardProps
             </div>
 
             <div className="mt-4 text-text-base text-sm leading-relaxed">
-                &ldquo;{quoteText}&rdquo;
+                “{quoteText}”
             </div>
 
             <div className="mt-5 flex items-center justify-between">

@@ -1,0 +1,15 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/wishlist/shared/[token]/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/shared-wishlist.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "SharedWishlistStateSection",
+      "id": "sharedwishliststatesection-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": []
+}

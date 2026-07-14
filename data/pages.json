@@ -1,5 +1,313 @@
 [
   {
+    "slug": "auth",
+    "data": {
+      "root": {
+        "props": {}
+      },
+      "content": [
+        {
+          "type": "AuthEntryCard",
+          "props": {
+            "id": "authentrycard-1",
+            "login": {
+              "hero": {
+                "title": "Redefining Elegance",
+                "subtitle": "Join our exclusive community and access curated luxury collections from around the globe.",
+                "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDOhFWViWGcd7-qkYBD1vhGK4PdvG5ocHFtmKXPajNifVZQSVX4MUoF3eRCaXCgJ5x4eHuTaegApBlb3ZlOVcgws9r-q9NxREE7zUXyERMOokmvIlyKzPhYTGOZyQZGzu3X7gZDfmGC9ny77vecfgMJlMnc_UmUi4rIhdRjqRgnG8Wt07fAKwvJy984ef-7vviskhMjCppHc3UQdTCpMv0xi34Ei3QFu43Nz5oSS5SAJRya-rHjltI4ukkC6MwArvptoRMAsI6qqnA7",
+                "imageAlt": "Luxury minimalist fashion store interior with soft lighting"
+              },
+              "form": {
+                "title": "Welcome Back",
+                "subtitle": "Please enter your details to access your LUXE account."
+              }
+            },
+            "register": {
+              "hero": {
+                "title": "Redefining Modern Luxury",
+                "subtitle": "Experience a curated collection of world-class design and craftsmanship.",
+                "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDw9Dfl-hrxzGp-zBz1y8pJR_McT_2DQZcNTS2WVj2JCx6ImZNb3kqC51vxp4lxs_LFEyY1QQV0kIC8d41rDTIZOAXigBWV5WXkMFZaJtpipggrE-m5RjguRk6nPb-49oMjhs7gd97NIemx-QDAOOT-VBNBCLSfeTkhtMPM2GTmwPcyROnaKPZzhA2chxiL9oOKYs9UfYpNt5-2h0nGSaFJT-9NdL8Nq2QhcHZDQBQDOaR7FmGcKVN_jShyM0d9zbHyOccw9QdGKXoI",
+                "imageAlt": "Modern high-end luxury boutique interior with minimalist aesthetic"
+              },
+              "form": {
+                "title": "Create your account",
+                "subtitle": "Join our community for exclusive access and personalized experiences."
+              }
+            },
+            "entryCard": {
+              "storefrontEyebrow": "Storefront Identity",
+              "continueEyebrow": "Continue Securely",
+              "loginTitle": "Access your account",
+              "registerTitle": "Start your account",
+              "description": "Sign in or create your account using the hosted identity flow. Registration, password recovery, and social login all stay inside eNigma Identity.",
+              "featureCards": [
+                {
+                  "title": "Hosted login",
+                  "description": "Passwords, social login, verification, and recovery stay inside eNigma Identity."
+                },
+                {
+                  "title": "Unified sessions",
+                  "description": "The storefront only keeps a secure session cookie and never stores tokens in browser storage."
+                }
+              ],
+              "footerNote": "Your shopping identity is now handled by eNigma Identity. If you are already signed in there, you will come straight back here."
+            },
+            "mode": "login",
+            "storefrontEyebrow": "Storefront Identity",
+            "continueEyebrow": "Continue Securely",
+            "loginHeroTitle": "Redefining Elegance",
+            "loginHeroSubtitle": "Join our exclusive community and access curated luxury collections from around the globe.",
+            "loginHeroImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuDOhFWViWGcd7-qkYBD1vhGK4PdvG5ocHFtmKXPajNifVZQSVX4MUoF3eRCaXCgJ5x4eHuTaegApBlb3ZlOVcgws9r-q9NxREE7zUXyERMOokmvIlyKzPhYTGOZyQZGzu3X7gZDfmGC9ny77vecfgMJlMnc_UmUi4rIhdRjqRgnG8Wt07fAKwvJy984ef-7vviskhMjCppHc3UQdTCpMv0xi34Ei3QFu43Nz5oSS5SAJRya-rHjltI4ukkC6MwArvptoRMAsI6qqnA7",
+            "loginHeroImageAlt": "Luxury minimalist fashion store interior with soft lighting",
+            "registerHeroTitle": "Redefining Modern Luxury",
+            "registerHeroSubtitle": "Experience a curated collection of world-class design and craftsmanship.",
+            "registerHeroImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuDw9Dfl-hrxzGp-zBz1y8pJR_McT_2DQZcNTS2WVj2JCx6ImZNb3kqC51vxp4lxs_LFEyY1QQV0kIC8d41rDTIZOAXigBW5WXkMFZaJtpipggrE-m5RjguRk6nPb-49oMjhs7gd97NIemx-QDAOOT-VBNBCLSfeTkhtMPM2GTmwPcyROnaKPZzhA2chxiL9oOKYs9UfYpNt5-2h0nGSaFJT-9NdL8Nq2QhcHZDQBQDOaR7FmGcKVN_jShyM0d9zbHyOccw9QdGKXoI",
+            "registerHeroImageAlt": "Modern high-end luxury boutique interior with minimalist aesthetic",
+            "loginTitle": "Access your account",
+            "registerTitle": "Start your account",
+            "description": "Sign in or create your account using the hosted identity flow. Registration, password recovery, and social login all stay inside eNigma Identity.",
+            "footerNote": "Your shopping identity is now handled by eNigma Identity. If you are already signed in there, you will come straight back here.",
+            "featureCards": [
+              {
+                "title": "Hosted login",
+                "description": "Passwords, social login, verification, and recovery stay inside eNigma Identity."
+              },
+              {
+                "title": "Unified sessions",
+                "description": "The storefront only keeps a secure session cookie and never stores tokens in browser storage."
+              }
+            ]
+          }
+        },
+        {
+          "type": "ContinueShoppingButton",
+          "props": {
+            "buttonText": "Continue Shopping",
+            "href": "/products",
+            "id": "ContinueShoppingButton-110205f9-6176-47b4-83a1-a58cf4a4cb4c"
+          }
+        },
+        {
+          "type": "ConfirmationOrderSummary",
+          "props": {
+            "subtotal": 810,
+            "tax": 64.8,
+            "shipping": 0,
+            "total": 874.8,
+            "id": "ConfirmationOrderSummary-b437f2fa-344b-4708-8c7a-be25e1fb25e1"
+          }
+        },
+        {
+          "type": "WishlistEmpty",
+          "props": {
+            "title": "Your Wishlist is Empty",
+            "message": "Save items you love to your wishlist. You'll find them here when you're ready to buy.",
+            "ctaLabel": "Discover Products",
+            "ctaHref": "/products",
+            "id": "WishlistEmpty-3161c1c6-b271-4a6c-9d5b-a1fa18184e7f"
+          }
+        },
+        {
+          "type": "WishlistSavingsCard",
+          "props": {
+            "itemCount": 5,
+            "totalValue": 2480,
+            "totalSavings": 320,
+            "id": "WishlistSavingsCard-e4c87e4d-c09d-4f0e-b7a7-b3345ece215a"
+          }
+        },
+        {
+          "type": "PromotionBanner",
+          "props": {
+            "title": "Free Shipping on All Orders",
+            "subtitle": "Limited time only â€” ends soon",
+            "ctaText": "Shop Now",
+            "ctaLink": "/collections/all",
+            "startDate": "2020-01-01T00:00:00Z",
+            "endDate": "2099-12-31T23:59:59Z",
+            "id": "PromotionBanner-8a4f6364-0125-4580-82b5-2038511959f4"
+          }
+        },
+        {
+          "type": "NotEligibleMessage",
+          "props": {
+            "orderNumber": "ORD-12345",
+            "message": "This order is not eligible for a return. Some items may be non-returnable due to their category or condition.",
+            "id": "NotEligibleMessage-74aff68d-ff52-4fa5-8c21-aae34937b060"
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "products",
+    "data": {
+      "root": {
+        "props": {}
+      },
+      "content": [
+        {
+          "type": "ProductsCatalogLayout",
+          "props": {
+            "content": [
+              {
+                "type": "CatalogContentLayout",
+                "props": {
+                  "results": [
+                    {
+                      "type": "CatalogResultsState",
+                      "props": {
+                        "empty": [
+                          {
+                            "type": "EmptyState",
+                            "props": {
+                              "id": "emptystate-1"
+                            }
+                          }
+                        ],
+                        "results": [
+                          {
+                            "type": "CatalogGridBoundary",
+                            "props": {
+                              "grid": [
+                                {
+                                  "type": "ProductGrid",
+                                  "props": {
+                                    "id": "productgrid-1",
+                                    "listName": "Product Listing"
+                                  }
+                                }
+                              ],
+                              "id": "cataloggridboundary-1"
+                            }
+                          },
+                          {
+                            "type": "CatalogPaginationCondition",
+                            "props": {
+                              "content": [
+                                {
+                                  "type": "CatalogPaginationBlock",
+                                  "props": {
+                                    "id": "catalogpaginationblock-1"
+                                  }
+                                }
+                              ],
+                              "id": "catalogpaginationcondition-1",
+                              "previewMode": "visible"
+                            }
+                          }
+                        ],
+                        "id": "catalogresultsstate-1",
+                        "previewMode": "results"
+                      }
+                    }
+                  ],
+                  "sidebar": [
+                    {
+                      "type": "CatalogFilterSidebar",
+                      "props": {
+                        "filters": [
+                          {
+                            "type": "ProductFiltersBlock",
+                            "props": {
+                              "id": "productfiltersblock-1"
+                            }
+                          }
+                        ],
+                        "id": "catalogfiltersidebar-1"
+                      }
+                    },
+                    {
+                      "type": "CatalogFilterSidebar",
+                      "props": {
+                        "filters": [],
+                        "id": "CatalogFilterSidebar-1182b208-01fc-47fc-9ddd-72308303dff4"
+                      }
+                    }
+                  ],
+                  "id": "catalogcontentlayout-1"
+                }
+              }
+            ],
+            "activeFilters": [
+              {
+                "type": "CatalogActiveFiltersBoundary",
+                "props": {
+                  "content": [
+                    {
+                      "type": "ActiveFiltersBlock",
+                      "props": {
+                        "id": "activefiltersblock-1"
+                      }
+                    }
+                  ],
+                  "id": "catalogactivefiltersboundary-1"
+                }
+              }
+            ],
+            "header": [
+              {
+                "type": "CatalogHeaderLayout",
+                "props": {
+                  "controls": [
+                    {
+                      "type": "CatalogControlsLayout",
+                      "props": {
+                        "controls": [
+                          {
+                            "type": "MobileFilterDrawerBlock",
+                            "props": {
+                              "id": "mobilefilterdrawerblock-1"
+                            }
+                          },
+                          {
+                            "type": "ViewToggleBlock",
+                            "props": {
+                              "id": "viewtoggleblock-1"
+                            }
+                          },
+                          {
+                            "type": "SortDropdownBlock",
+                            "props": {
+                              "id": "sortdropdownblock-1"
+                            }
+                          }
+                        ],
+                        "id": "catalogcontrolslayout-1"
+                      }
+                    }
+                  ],
+                  "titleSummary": [
+                    {
+                      "type": "CatalogTitleSummary",
+                      "props": {
+                        "id": "catalogtitlesummary-1",
+                        "title": "All Products"
+                      }
+                    }
+                  ],
+                  "breadcrumbs": [
+                    {
+                      "type": "CatalogBreadcrumbs",
+                      "props": {
+                        "id": "catalogbreadcrumbs-1",
+                        "currentLabel": "All Products"
+                      }
+                    }
+                  ],
+                  "id": "catalogheaderlayout-1"
+                }
+              }
+            ],
+            "id": "productscataloglayout-1"
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
     "slug": "home",
     "data": {
       "root": {
@@ -7,40 +315,413 @@
       },
       "content": [
         {
+          "type": "PromotionBanner",
+          "props": {
+            "id": "promotionbanner-1",
+            "title": "Free Shipping on All Orders",
+            "subtitle": "Limited time only â€” ends soon",
+            "ctaText": "Shop Now",
+            "ctaLink": "/collections/all",
+            "startDate": "2020-01-01T00:00:00Z",
+            "endDate": "2099-12-31T23:59:59Z"
+          }
+        },
+        {
           "type": "HeroSection",
           "props": {
-            "title": "Timeless Quality for the Modern Wardrobe",
+            "id": "herosection-2",
+            "title": "Timefull quality that fades with the clock",
             "subtitle": "Discover our curated collection of high-end essentials designed for the sophisticated individual. Effortless luxury, everyday.",
             "ctaPrimary": "Shop the Collection",
             "ctaSecondary": "View Lookbook",
-            "productName": "Premium Wool Coats!!!!",
-            "productSlug": "premium-wool-coat",
-            "productDescription": "Luxurious wool coat crafted from the finest materials for the modern wardrobe.",
-            "productImage": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=1200&q=80",
-            "id": "HeroSection-3fe042a7-6d08-43da-a022-d3b53ce33214"
+            "backgroundImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuA6gp8HFBtOLhaLDZsED1w2eDKkeIHp6jt0CCvOR_XUoTQFJEpJEjhZEfhzDVSbO-0M1L7BoveRAyvHMXrc17n2O9joLLbK6-OJgyJEKJUu6k2tvyZvuAmmIhFqMIb4swMAkkEDSROBla5cwwqD4yS4Ve6lHwe3qs-MyH6SQwdlhPnT7ms_ZRYoxinaARe8iQYqsgR0E8hMueI6nHy9Jz3X8uN85CCOJ0JGGLFLfGA6NyKOwhDgbRCoJBD3qKXWi7ehVJWCX5qzs4MN",
+            "imageAlt": "Fashion model wearing minimalist high-end clothing in a bright studio",
+            "productName": "Premium Wool Coat",
+            "productSlug": "premium-wool-coat"
           }
         },
         {
-          "type": "PriceDisplay",
+          "type": "CategoryHighlights",
           "props": {
-            "price": 299,
-            "salePrice": 199,
-            "originalPrice": 299,
-            "isOnSale": "true",
-            "size": "default",
-            "id": "PriceDisplay-52d0efc5-5529-4b2a-b8f2-3b4bdad9d824"
+            "id": "categoryhighlights-3",
+            "header": "Shop by Category",
+            "subheader": "Curation",
+            "ctaLabel": "Explore All",
+            "categories": [
+              {
+                "name": "Outerwear",
+                "slug": "outerwear",
+                "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=80",
+                "productCount": 42
+              },
+              {
+                "name": "Footwear",
+                "slug": "footwear",
+                "image": "https://images.unsplash.com/photo-1549298916-b41d501d3779?w=600&q=80",
+                "productCount": 28
+              },
+              {
+                "name": "Accessories",
+                "slug": "accessories",
+                "image": "https://images.unsplash.com/photo-1611923134139-8cb8c9e1f1c1?w=600&q=80",
+                "productCount": 15
+              }
+            ]
           }
         },
         {
-          "type": "TestimonialCard",
+          "type": "FeaturedProductsGrid",
           "props": {
-            "quote": "The quality is exceptional. Every piece feels thoughtfully designed and built to last. This is what luxury should feel like.",
-            "author": "Sarah Mitchell",
-            "role": "Verified Buyer",
-            "avatar": "",
-            "rating": "5",
-            "platform": "Trustpilot",
-            "id": "TestimonialCard-2801b278-4b5b-4aa7-8c37-8f23aa6b15ca"
+            "id": "featuredproductsgrid-4",
+            "header": "Featured Products",
+            "subheader": "Essentials",
+            "products": [
+              {
+                "name": "Premium Wool Coat",
+                "slug": "premium-wool-coat",
+                "price": 450,
+                "image": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80"
+              },
+              {
+                "name": "Silk Blend Shirt",
+                "slug": "silk-blend-shirt",
+                "price": 180,
+                "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80"
+              },
+              {
+                "name": "Leather Tote Bag",
+                "slug": "leather-tote-bag",
+                "price": 550,
+                "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
+              },
+              {
+                "name": "Cashmere Sweater",
+                "slug": "cashmere-sweater",
+                "price": 320,
+                "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80"
+              }
+            ]
+          }
+        },
+        {
+          "type": "CuratedCollectionSection",
+          "props": {
+            "id": "curatedcollectionsection-5",
+            "eyebrow": "Curated Collection",
+            "ctaText": "Explore Collection",
+            "collectionName": "Autumn Essentials",
+            "collectionDescription": "A curated selection of premium pieces for the season.",
+            "collectionSlug": "autumn-essentials",
+            "mainProductName": "Signature Trench Coat",
+            "mainProductImage": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=80",
+            "relatedProducts": [
+              {
+                "name": "Premium Wool Coat",
+                "slug": "premium-wool-coat",
+                "price": 450,
+                "image": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80"
+              },
+              {
+                "name": "Silk Blend Shirt",
+                "slug": "silk-blend-shirt",
+                "price": 180,
+                "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80"
+              },
+              {
+                "name": "Leather Tote Bag",
+                "slug": "leather-tote-bag",
+                "price": 550,
+                "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
+              },
+              {
+                "name": "Cashmere Sweater",
+                "slug": "cashmere-sweater",
+                "price": 320,
+                "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80"
+              }
+            ]
+          }
+        },
+        {
+          "type": "InspirationSection",
+          "props": {
+            "id": "inspirationsection-6",
+            "header": "Autumn in the City: A Curated Look",
+            "subheader": "Inspiration",
+            "description": "Discover how we style this season's most sought-after pieces for the perfect urban ensemble.",
+            "ctaText": "Shop the Look",
+            "hotspots": [
+              {
+                "top": "30%",
+                "right": "40%",
+                "title": "Classic Blazer",
+                "price": "$320.00"
+              },
+              {
+                "bottom": "40%",
+                "right": "25%",
+                "title": "Leather Tote",
+                "price": "$550.00"
+              }
+            ],
+            "title": "Autumn Edit",
+            "ctaLink": "/collections/all",
+            "backgroundImage": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80",
+            "imageAlt": "Autumn fashion inspiration"
+          }
+        },
+        {
+          "type": "TestimonialsSection",
+          "props": {
+            "id": "testimonialssection-7",
+            "title": "Our Community",
+            "subtitle": "Testimonials",
+            "testimonials": [
+              {
+                "quote": "Exceptional quality and service. Every piece feels thoughtfully designed.",
+                "author": "Sarah Mitchell",
+                "role": "Verified Buyer",
+                "avatar": "",
+                "rating": "5",
+                "platform": "Trustpilot"
+              },
+              {
+                "quote": "Best purchase I've made this year. The craftsmanship is outstanding.",
+                "author": "James Lee",
+                "role": "Verified Buyer",
+                "avatar": "",
+                "rating": "5",
+                "platform": "Google Reviews"
+              },
+              {
+                "quote": "Luxury that lives up to the promise. Highly recommend.",
+                "author": "Emma Rodriguez",
+                "role": "Verified Buyer",
+                "avatar": "",
+                "rating": "4",
+                "platform": "Trustpilot"
+              }
+            ]
+          }
+        },
+        {
+          "type": "NewsletterSignup",
+          "props": {
+            "id": "newslettersignup-8",
+            "title": "Join the Inner Circle",
+            "description": "Sign up for early access to new drops, curated seasonal guides, and exclusive editorial content.",
+            "disclaimer": "By subscribing, you agree to our Privacy Policy and Terms of Service."
+          }
+        },
+        {
+          "type": "TrustBadges",
+          "props": {
+            "id": "trustbadges-9",
+            "badges": [
+              {
+                "icon": "local_shipping",
+                "title": "Free Global Shipping",
+                "subtitle": "On all orders over $100"
+              },
+              {
+                "icon": "restart_alt",
+                "title": "30-Day Returns",
+                "subtitle": "Hassle-free exchange policy"
+              },
+              {
+                "icon": "encrypted",
+                "title": "Secure Checkout",
+                "subtitle": "Encrypted payment processing"
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account-addresses",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "AccountAddressesStateSection",
+          "props": {
+            "id": "account-addresses-state-section",
+            "state": "content"
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account-downloads",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "AccountDigitalLibraryStateSection",
+          "props": {
+            "id": "account-digital-library-state-section",
+            "state": "empty"
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "category-detail",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "CategoryCatalogLayout",
+          "props": {
+            "id": "categorycataloglayout-1",
+            "breadcrumbs": [
+              {
+                "type": "CategoryCatalogBreadcrumbs",
+                "props": {
+                  "id": "categorycatalogbreadcrumbs-1"
+                }
+              }
+            ],
+            "hero": [
+              {
+                "type": "CategoryHero",
+                "props": {
+                  "id": "categoryhero-1"
+                }
+              }
+            ],
+            "subcategories": [
+              {
+                "type": "CategorySubcategoryCondition",
+                "props": {
+                  "id": "categorysubcategorycondition-1",
+                  "previewMode": "visible",
+                  "content": [
+                    {
+                      "type": "SubcategoryNav",
+                      "props": {
+                        "id": "subcategorynav-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "activeFilters": [
+              {
+                "type": "CatalogActiveFiltersBoundary",
+                "props": {
+                  "id": "catalogactivefiltersboundary-1",
+                  "content": [
+                    {
+                      "type": "ActiveFiltersBlock",
+                      "props": {
+                        "id": "activefiltersblock-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "content": [
+              {
+                "type": "CatalogContentLayout",
+                "props": {
+                  "id": "catalogcontentlayout-1",
+                  "sidebar": [
+                    {
+                      "type": "CategoryCatalogFilterSidebar",
+                      "props": {
+                        "id": "categorycatalogfiltersidebar-1",
+                        "filters": [
+                          {
+                            "type": "CategoryProductFiltersBlock",
+                            "props": {
+                              "id": "categoryproductfiltersblock-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "results": [
+                    {
+                      "type": "CategoryCatalogResultsState",
+                      "props": {
+                        "id": "categorycatalogresultsstate-1",
+                        "previewMode": "results",
+                        "results": [
+                          {
+                            "type": "CategoryCatalogResultsHeader",
+                            "props": {
+                              "id": "categorycatalogresultsheader-1",
+                              "controls": [
+                                {
+                                  "type": "ViewToggleBlock",
+                                  "props": {
+                                    "id": "viewtoggleblock-1"
+                                  }
+                                },
+                                {
+                                  "type": "SortDropdownBlock",
+                                  "props": {
+                                    "id": "sortdropdownblock-1"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "CategoryCatalogGridBoundary",
+                            "props": {
+                              "id": "categorycataloggridboundary-1",
+                              "grid": [
+                                {
+                                  "type": "CategoryProductGridBlock",
+                                  "props": {
+                                    "id": "categoryproductgridblock-1"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "CategoryCatalogPaginationCondition",
+                            "props": {
+                              "id": "categorycatalogpaginationcondition-1",
+                              "previewMode": "visible",
+                              "content": [
+                                {
+                                  "type": "CategoryCatalogPaginationBlock",
+                                  "props": {
+                                    "id": "categorycatalogpaginationblock-1"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ],
+                        "empty": [
+                          {
+                            "type": "EmptyCategory",
+                            "props": {
+                              "id": "emptycategory-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
           }
         }
       ],

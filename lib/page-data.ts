@@ -2,6 +2,7 @@ import { promises as fs } from "fs";
 import path from "path";
 
 const dataFilePath = path.join(process.cwd(), "data", "pages.json");
+const seedDir = path.join(process.cwd(), "data", "seeds");
 
 export interface PageEntry {
   slug: string;
@@ -22,7 +23,18 @@ export async function getAllPages(): Promise<PageEntry[]> {
 
 export async function getPageBySlug(slug: string): Promise<PageEntry | undefined> {
   const pages = await getAllPages();
-  return pages.find((p) => p.slug === slug);
+  const saved = pages.find((p) => p.slug === slug);
+  if (saved) return saved;
+
+  try {
+    const seedContent = await fs.readFile(
+      path.join(seedDir, `${slug}.json`),
+      "utf-8",
+    );
+    return { slug, data: JSON.parse(seedContent) };
+  } catch {
+    return undefined;
+  }
 }
 
 export async function savePage(slug: string, data: PageEntry["data"]): Promise<PageEntry> {

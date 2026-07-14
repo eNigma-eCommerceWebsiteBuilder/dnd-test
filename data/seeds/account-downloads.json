@@ -1,0 +1,13 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "AccountDigitalLibraryStateSection",
+      "props": {
+        "id": "accountdigitallibrarystatesection-1",
+        "state": "empty"
+      }
+    }
+  ],
+  "zones": {}
+}

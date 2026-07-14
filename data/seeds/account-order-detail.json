@@ -1,0 +1,70 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "PageWrapper",
+      "props": {
+        "id": "pagewrapper-1",
+        "maxWidth": "1440",
+        "paddingY": "normal",
+        "children": [
+          {
+            "type": "PageHeader",
+            "props": {
+              "id": "pageheader-1",
+              "title": "__STRIP__"
+            }
+          },
+          {
+            "type": "OrderStatusBadge",
+            "props": {
+              "id": "orderstatusbadge-1"
+            }
+          },
+          {
+            "type": "TwoColumnDetail",
+            "props": {
+              "id": "twocolumndetail-1",
+              "main": [
+                {
+                  "type": "SectionHeading",
+                  "props": {
+                    "id": "sectionheading-1",
+                    "title": "Order Items"
+                  }
+                },
+                {
+                  "type": "OrderItemList",
+                  "props": {
+                    "id": "orderitemlist-1"
+                  }
+                },
+                {
+                  "type": "OrderDetails",
+                  "props": {
+                    "id": "orderdetails-1"
+                  }
+                }
+              ],
+              "sidebar": [
+                {
+                  "type": "ShippingAddress",
+                  "props": {
+                    "id": "shippingaddress-1"
+                  }
+                },
+                {
+                  "type": "PaymentInfo",
+                  "props": {
+                    "id": "paymentinfo-1"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "zones": {}
+}

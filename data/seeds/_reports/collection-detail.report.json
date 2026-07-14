@@ -1,0 +1,15 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/collections/[slug]/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/collection-detail.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "CollectionDetailStateSection",
+      "id": "collectiondetailstatesection-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": []
+}

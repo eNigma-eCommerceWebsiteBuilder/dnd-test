@@ -18,7 +18,6 @@ export function ProductDetailsClient({ product }: ProductDetailsClientProps) {
   const [selectedColor, setSelectedColor] = useState<string | null>(product.colors?.[0]?.name || null);
   const [selectedSize, setSelectedSize] = useState<string | null>(product.sizes?.[0] || null);
   const [quantity, setQuantity] = useState(1);
-
   const selectedVariant = product.variants?.find(
     (variant) => variant.color?.name === selectedColor && variant.size === selectedSize,
   );
@@ -28,38 +27,13 @@ export function ProductDetailsClient({ product }: ProductDetailsClientProps) {
   return (
     <div className="space-y-6">
       {(product.colors?.length || product.sizes?.length) ? (
-        <VariantSelector
-          colors={product.colors}
-          sizes={product.sizes}
-          variants={product.variants}
-          selectedColor={selectedColor}
-          selectedSize={selectedSize}
-          onColorChange={setSelectedColor}
-          onSizeChange={setSelectedSize}
-        />
+        <VariantSelector colors={product.colors} sizes={product.sizes} variants={product.variants} selectedColor={selectedColor} selectedSize={selectedSize} onColorChange={setSelectedColor} onSizeChange={setSelectedSize} />
       ) : null}
-
       <div className="flex gap-4 pt-4">
-        <QuantityInput
-          value={quantity}
-          onChange={setQuantity}
-          min={1}
-          max={maxQuantity}
-          disabled={!isInStock}
-        />
-        <AddToCartButton
-          productId={product._id}
-          quantity={quantity}
-          variantId={selectedVariant?._id}
-          inStock={isInStock}
-        />
-        <WishlistButton
-          productId={product._id}
-          variantId={selectedVariant?._id}
-        />
+        <QuantityInput value={quantity} onChange={setQuantity} min={1} max={maxQuantity} disabled={!isInStock} />
+        <AddToCartButton productId={product._id} quantity={quantity} variantId={selectedVariant?._id} inStock={isInStock} />
+        <WishlistButton productId={product._id} variantId={selectedVariant?._id} />
       </div>
     </div>
   );
 }
-
-export default ProductDetailsClient;

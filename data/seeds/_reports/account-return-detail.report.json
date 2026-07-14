@@ -1,0 +1,17 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/account/returns/[id]/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/account-return-detail.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "PageWrapper",
+      "id": "pagewrapper-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [
+    "ReturnNotFound"
+  ],
+  "unmatchedHtml": [],
+  "runtimeConditionals": []
+}

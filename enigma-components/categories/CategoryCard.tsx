@@ -10,12 +10,13 @@ import type { Category } from '@/lib/api/types';
 
 interface CategoryCardProps {
     category: Category;
+    hrefPrefix?: string;
 }
 
-export function CategoryCard({ category }: CategoryCardProps) {
+export function CategoryCard({ category, hrefPrefix = '/categories' }: CategoryCardProps) {
     const imageUrl = category.image || category.imageUrl || '/placeholder-category.jpg';
     const itemCount = category.productCount ?? category.itemCount ?? 0;
-    const href = `/categories/${category.slug}`;
+    const href = `${hrefPrefix}/${category.slug}`;
 
     return (
         <Link

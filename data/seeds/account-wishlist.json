@@ -1,0 +1,36 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "PageWrapper",
+      "props": {
+        "id": "pagewrapper-1",
+        "maxWidth": "1440",
+        "paddingY": "normal",
+        "children": [
+          {
+            "type": "PageHeader",
+            "props": {
+              "id": "pageheader-1",
+              "title": "My Wishlist"
+            }
+          },
+          {
+            "type": "WishlistSavingsCard",
+            "props": {
+              "id": "wishlistsavingscard-1"
+            }
+          },
+          {
+            "type": "SectionHeading",
+            "props": {
+              "id": "sectionheading-1",
+              "title": "Curated for your style"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "zones": {}
+}

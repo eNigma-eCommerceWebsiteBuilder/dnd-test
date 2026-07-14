@@ -1,0 +1,21 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "CollectionStateSection",
+      "props": {
+        "id": "collectionstatesection-1",
+        "content": [],
+        "empty": [
+          {
+            "type": "EmptyCollections",
+            "props": {
+              "id": "emptycollections-1"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "zones": {}
+}

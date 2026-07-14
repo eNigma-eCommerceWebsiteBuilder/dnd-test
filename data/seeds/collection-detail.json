@@ -1,0 +1,14 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "CollectionDetailStateSection",
+      "props": {
+        "id": "collectiondetailstatesection-1",
+        "slug": "",
+        "state": "content"
+      }
+    }
+  ],
+  "zones": {}
+}

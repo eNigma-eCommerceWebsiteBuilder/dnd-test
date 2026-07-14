@@ -1,0 +1,27 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/account/sessions/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/account-sessions.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "PageHeader",
+      "id": "pageheader-1"
+    },
+    {
+      "type": "CardSection",
+      "id": "cardsection-1"
+    },
+    {
+      "type": "CardSection",
+      "id": "cardsection-2"
+    },
+    {
+      "type": "PageWrapper",
+      "id": "pagewrapper-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": []
+}

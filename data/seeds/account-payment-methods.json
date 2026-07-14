@@ -1,0 +1,36 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "PageWrapper",
+      "props": {
+        "id": "pagewrapper-1",
+        "maxWidth": "1440",
+        "paddingY": "normal",
+        "children": [
+          {
+            "type": "PageHeader",
+            "props": {
+              "id": "pageheader-1",
+              "title": "Payment Methods"
+            }
+          },
+          {
+            "type": "SectionHeading",
+            "props": {
+              "id": "sectionheading-1",
+              "title": "Saved Cards"
+            }
+          },
+          {
+            "type": "CalloutCard",
+            "props": {
+              "id": "calloutcard-1"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "zones": {}
+}

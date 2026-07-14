@@ -1,0 +1,2 @@
+import type { CatalogSlot } from './types';
+export function ProductDetailRelatedProductsSection({ visible, previewMode = 'visible', content }: { visible?: boolean; previewMode?: 'visible' | 'hidden'; content?: CatalogSlot }) { if (visible === false || (visible === undefined && previewMode === 'hidden')) return null; return <section className="mb-16 mt-24">{content?.({ style: { display: 'contents' } })}</section>; }

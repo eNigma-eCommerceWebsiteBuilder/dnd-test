@@ -1,0 +1,19 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/auth/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/auth.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "AuthEntryCard",
+      "id": "authentrycard-1"
+    },
+    {
+      "type": "PageWrapper",
+      "id": "pagewrapper-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": []
+}

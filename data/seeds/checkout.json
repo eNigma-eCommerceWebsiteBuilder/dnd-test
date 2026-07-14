@@ -1,0 +1,70 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "CheckoutStateSection",
+      "props": {
+        "id": "checkoutstatesection-1",
+        "ready": [
+          {
+            "type": "CheckoutSteps",
+            "props": {
+              "id": "checkoutsteps-1"
+            }
+          },
+          {
+            "type": "CheckoutShippingForm",
+            "props": {
+              "id": "checkoutshippingform-1"
+            }
+          },
+          {
+            "type": "CheckoutShippingMethod",
+            "props": {
+              "id": "checkoutshippingmethod-1"
+            }
+          },
+          {
+            "type": "CheckoutPaymentMethod",
+            "props": {
+              "id": "checkoutpaymentmethod-1"
+            }
+          },
+          {
+            "type": "CheckoutOrderReview",
+            "props": {
+              "id": "checkoutorderreview-1"
+            }
+          },
+          {
+            "type": "CheckoutOrderSummary",
+            "props": {
+              "id": "checkoutordersummary-1"
+            }
+          },
+          {
+            "type": "CheckoutPlaceOrderButton",
+            "props": {
+              "id": "checkoutplaceorderbutton-1"
+            }
+          },
+          {
+            "type": "CheckoutSecureBadges",
+            "props": {
+              "id": "checkoutsecurebadges-1"
+            }
+          }
+        ],
+        "empty": [
+          {
+            "type": "CartEmpty",
+            "props": {
+              "id": "cartempty-1"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "zones": {}
+}

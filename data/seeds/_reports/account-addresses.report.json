@@ -1,0 +1,15 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/account/addresses/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/account-addresses.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "AccountAddressesStateSection",
+      "id": "accountaddressesstatesection-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": []
+}

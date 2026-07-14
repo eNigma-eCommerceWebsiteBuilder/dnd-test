@@ -1,0 +1,13 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "AccountAddressesStateSection",
+      "props": {
+        "id": "accountaddressesstatesection-1",
+        "state": "content"
+      }
+    }
+  ],
+  "zones": {}
+}

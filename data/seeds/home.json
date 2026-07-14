@@ -1,0 +1,125 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "PageWrapper",
+      "props": {
+        "id": "pagewrapper-1",
+        "maxWidth": "1440",
+        "paddingY": "normal",
+        "children": [
+          {
+            "type": "PromotionBanner",
+            "props": {
+              "id": "promotionbanner-1"
+            }
+          },
+          {
+            "type": "HeroSection",
+            "props": {
+              "id": "herosection-1",
+              "title": "Timeless Quality for the Modern Wardrobe",
+              "subtitle": "Discover our curated collection of high-end essentials designed for the sophisticated individual. Effortless luxury, everyday.",
+              "ctaPrimary": "Shop the Collection",
+              "ctaSecondary": "View Lookbook",
+              "backgroundImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuA6gp8HFBtOLhaLDZsED1w2eDKkeIHp6jt0CCvOR_XUoTQFJEpJEjhZEfhzDVSbO-0M1L7BoveRAyvHMXrc17n2O9joLLbK6-OJgyJEKJUu6k2tvyZvuAmmIhFqMIb4swMAkkEDSROBla5cwwqD4yS4Ve6lHwe3qs-MyH6SQwdlhPnT7ms_ZRYoxinaARe8iQYqsgR0E8hMueI6nHy9Jz3X8uN85CCOJ0JGGLFLfGA6NyKOwhDgbRCoJBD3qKXWi7ehVJWCX5qzs4MN",
+              "imageAlt": "Fashion model wearing minimalist high-end clothing in a bright studio"
+            }
+          },
+          {
+            "type": "CategoryHighlights",
+            "props": {
+              "id": "categoryhighlights-1",
+              "header": "Shop by Category",
+              "subheader": "Curation",
+              "ctaLabel": "Explore All"
+            }
+          },
+          {
+            "type": "FeaturedProductsGrid",
+            "props": {
+              "id": "featuredproductsgrid-1",
+              "header": "Featured Products",
+              "subheader": "Essentials"
+            }
+          },
+          {
+            "type": "CuratedCollectionSection",
+            "props": {
+              "id": "curatedcollectionsection-1",
+              "eyebrow": "Curated Collection",
+              "ctaText": "Explore Collection"
+            }
+          },
+          {
+            "type": "InspirationSection",
+            "props": {
+              "id": "inspirationsection-1",
+              "header": "Autumn in the City: A Curated Look",
+              "subheader": "Inspiration",
+              "description": "Discover how we style this season's most sought-after pieces for the perfect urban ensemble.",
+              "ctaText": "Shop the Look",
+              "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCEMrhSDou2quXn3m45RGq7MZg9LrC6bfhIAUm012lCQ_f8jpBzFh738jzvkUbVSvKYNDVMBbivnX7veuwSk3TGH9bNl5BfoEo3grMYfpsMwy6PMb64zfUGaMHrKOmFpveIv6T-oTClRskrusCg2y6dvMwDuVww7KtswcekZJ6mXeuemf16PtjE2eMsmz_HCFBK4MdtRCYMLJe7t0irTEWCIfOh4J0E4vUO2HPqy-uipa55y8s2m73GkCWX_X1GYY22o1m4k7IRLlTW",
+              "alt": "Lifestyle scene of a boutique store interior with model",
+              "hotspots": [
+                {
+                  "top": "30%",
+                  "right": "40%",
+                  "title": "Classic Blazer",
+                  "price": "$320.00"
+                },
+                {
+                  "bottom": "40%",
+                  "right": "25%",
+                  "title": "Leather Tote",
+                  "price": "$550.00"
+                }
+              ]
+            }
+          },
+          {
+            "type": "TestimonialsSection",
+            "props": {
+              "id": "testimonialssection-1",
+              "title": "Our Community",
+              "subtitle": "Testimonials"
+            }
+          },
+          {
+            "type": "NewsletterSignup",
+            "props": {
+              "id": "newslettersignup-1",
+              "title": "Join the Inner Circle",
+              "description": "Sign up for early access to new drops, curated seasonal guides, and exclusive editorial content.",
+              "disclaimer": "By subscribing, you agree to our Privacy Policy and Terms of Service."
+            }
+          },
+          {
+            "type": "TrustBadges",
+            "props": {
+              "id": "trustbadges-1",
+              "badges": [
+                {
+                  "icon": "local_shipping",
+                  "title": "Free Global Shipping",
+                  "subtitle": "On all orders over $100"
+                },
+                {
+                  "icon": "restart_alt",
+                  "title": "30-Day Returns",
+                  "subtitle": "Hassle-free exchange policy"
+                },
+                {
+                  "icon": "encrypted",
+                  "title": "Secure Checkout",
+                  "subtitle": "Encrypted payment processing"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "zones": {}
+}

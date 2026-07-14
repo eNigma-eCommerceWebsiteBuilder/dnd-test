@@ -1,0 +1,31 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/account/wishlist/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/account-wishlist.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "PageHeader",
+      "id": "pageheader-1"
+    },
+    {
+      "type": "WishlistSavingsCard",
+      "id": "wishlistsavingscard-1"
+    },
+    {
+      "type": "SectionHeading",
+      "id": "sectionheading-1"
+    },
+    {
+      "type": "PageWrapper",
+      "id": "pagewrapper-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": [
+    {
+      "source": "wishlist.items.length === 0 ? (\r\n          <WishlistEmpty />\r\n        ) : (\r\n          <WishlistGrid wishlist={wishlist} />\r\n        )"
+    }
+  ]
+}

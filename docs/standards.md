@@ -74,16 +74,24 @@ components/
 
 ## View Component Requirements
 
-A View file must export exactly **four named exports** plus the component itself:
+A View file must export exactly **five named exports** plus the component itself, with one optional export:
 
 ### Required exports
 
 | Export | Type | Purpose |
 |--------|------|---------|
+| `puckComponentName` | `string` | The config key that links AST parser JSON `type` to this Puck config entry. Must match the JSX tag name used in `page.tsx` (e.g., `"HeroSection"`, `"PromotionBanner"`) |
 | `puckLabel` | `string` | Human-readable name shown in Puck's component drawer |
 | `puckCategory` | `string` | Drawer grouping (e.g., `"Home"`, `"Products"`, `"Marketing"`) |
 | `puckFields` | `Record<string, FieldDef>` | Puck field definitions, one per editable prop |
 | `puckDefaults` | `Record<string, value>` | Default prop values when component is dragged onto canvas |
+
+### Optional exports
+
+| Export | Type | Purpose |
+|--------|------|---------|
+| `puckSeedData` | `Record<string, value>` | Placeholder data for props that the AST parser strips (data-derived props like arrays of products, categories, testimonials). Keys must NOT overlap with `puckFields` keys — seed data fills gaps that aren't editable. The seed post-processor merges this into the generated seed JSON where the parser left gaps. In production, `puckDataFetcher` overrides these with real data. |
+| `puckDataFetcher` | `async (props, context?) => Promise<Partial<Props>>` | Async function that fetches real API data on the server. Called only by the server config's render function in the published page render route. If it throws, the component falls back to seed/default props. Must return a partial props object whose keys merge with (and override) the component's existing props. The `context` parameter receives `{ searchParams?: Record<string, string> }` from the current URL. |
 
 ### Component export
 
@@ -101,6 +109,41 @@ Allowed prop types:
 - `string` representing an enum value (paired with a `select` field)
 
 No-gating rule: The View component must **not** return `null` based on business logic. If a visibility toggle is needed, expose it as an explicit `visible` prop of type `select` with `true`/`false` options, and gate on that. The View may still return `null` if `visible === "false"`.
+
+### `'use client'` rule — View files must be Server Components
+
+**View files must NEVER have a `'use client'` directive.** The Puck render route uses `<Render>` from `@puckeditor/core/rsc` (a Server Component). When a View has `'use client'`, React's RSC protocol tries to pass Puck's internal props (which include functions like `renderDropZone`, `dragRef`, `isEditing`) to that Client Component. Functions cannot be serialized across the server-to-client boundary, causing a runtime error:
+
+```
+Functions cannot be passed directly to Client Components unless you explicitly
+expose it by marking it with "use server".
+```
+
+If a View needs interactivity (e.g., `useState` for tab switching, image selection, clipboard copy):
+
+1. **Extract the interactive logic into a separate `*Client.tsx` child component** with `'use client'`
+2. **The View file stays as a Server Component** — it receives flat props from Puck and passes them down to the client child
+3. **Name the child `{ComponentName}Client.tsx`** (e.g., `ProductTabsClient.tsx`, `ProductGalleryClient.tsx`, `CopyButton.tsx`)
+
+```tsx
+// ❌ WRONG — causes RSC serialization error
+'use client';  // <-- this breaks the render route
+export function ProductTabsView({ tabs, defaultTab }: Props) {
+  const [activeTab, setActiveTab] = useState(defaultTab);
+  // ...
+}
+
+// ✅ CORRECT — View is Server Component, delegates to client child
+export function ProductTabsView({ tabs, defaultTab, className }: Props) {
+  return (
+    <ProductTabsClient
+      tabs={tabs}
+      defaultTab={defaultTab}
+      className={className}
+    />
+  );
+}
+```
 
 ---
 
@@ -319,6 +362,22 @@ export const puckDefaults = {
   visible: "true",
 };
 
+export const puckSeedData = {
+  // Placeholder promotion for seed JSON — not editable in Puck,
+  // but needed so the component doesn't null-gate in the editor
+  promotion: {
+    id: "promo-1",
+    backgroundImage: "",
+    title: "Free Shipping on All Orders",
+    subtitle: "Limited time only — ends soon",
+    description: "",
+    ctaText: "Shop Now",
+    ctaLink: "/collections/all",
+    startDate: "2020-01-01T00:00:00Z",
+    endDate: "2099-12-31T23:59:59Z",
+  },
+};
+
 export function PromotionBarView({ title, subtitle, ctaText, ctaLink, visible, className }: PromotionBarViewProps) {
   if (visible === "false") return null;
 
@@ -420,23 +479,82 @@ The script **does**:
 
 1. Scan `components/**/*.tsx` for files that export `puckFields`
 2. For each matching file, dynamically import it
-3. Read the four required exports: `puckLabel`, `puckCategory`, `puckFields`, `puckDefaults`
+3. Read the five required exports: `puckComponentName`, `puckLabel`, `puckCategory`, `puckFields`, `puckDefaults`
 4. Determine the component export (default export, or named export matching filename without `View` suffix)
 5. Assemble a Puck config entry:
 
 ```
 {
-  [ComponentName]: {
-    category: puckCategory,
-    label: puckLabel,
-    fields: puckFields,
-    defaultProps: puckDefaults,
-    render: (props) => <Component {...props} />,
-  }
-}
+   [puckComponentName]: {
+     category: puckCategory,
+     label: puckLabel,
+     fields: puckFields,
+     defaultProps: puckDefaults,
+     render: (props) => <Component {...props} />,
+   }
+ }
 ```
 
 6. Write the assembled config to `lib/puck-components.jsx`
+7. Write a server config to `lib/puck-components.server.jsx` with async render functions for data-aware components
+
+### Dual config generation
+
+The script produces two files from the same View components:
+
+| File | Used by | Render function |
+|------|---------|-----------------|
+| `lib/puck-components.jsx` | Puck editor (`/editor`) | `(props) => <Component {...props} />` — synchronous, no data fetching |
+| `lib/puck-components.server.jsx` | Published page render (`/page/[slug]`) | `async (props) => { const data = await fetcher(props); return <Component {...props} {...data} />; }` — calls `puckDataFetcher` if exported, falls back to seed/defaults on error |
+
+Components without `puckDataFetcher` get identical render functions in both files.
+
+---
+
+## Data-Aware Components
+
+### Component types
+
+| Type | Exports | Behavior |
+|------|---------|----------|
+| **Content** | `puckFields` + `puckDefaults` | Static content — no data fetching. Rendered identically in editor and production. |
+| **Data-aware** | `puckFields` + `puckDefaults` + `puckSeedData` + `puckDataFetcher` | Editor shows seed/placeholder data. Production fetches real API data via `puckDataFetcher`. Falls back to seed if fetch fails. |
+| **Pure data** | (not in Puck) | Not editable in Puck. Rendered directly by `page.tsx` or as part of a data-aware component's fetcher. |
+
+### `puckDataFetcher` contract
+
+```tsx
+export async function puckDataFetcher(
+  props: Record<string, unknown>,
+  context?: { searchParams?: Record<string, string> },
+): Promise<Partial<ComponentProps>> {
+  // Call API services, return data props
+  const products = await fetchFeaturedProducts(8);
+  return { products };
+}
+```
+
+Rules:
+- **Returns partial props** — only the data-derived keys (typically the same keys as `puckSeedData`)
+- **Must NOT return `puckFields` keys** — editable props are preserved from the saved page data
+- **Must handle empty state internally** — if API returns empty array, return `{ products: [] }`; the View component renders the empty state
+- **Must throw on failure** — the server config's render function catches errors and falls back to seed/defaults
+- **Server-only** — uses `apiRequest` which calls `fetch` with server context (cookies, Next.js cache)
+- **No `'use client'`** — View files with `puckDataFetcher` must NOT have `'use client'`
+
+### `puckSeedData` for data-aware components
+
+`puckSeedData` holds placeholder data for the editor. When the editor renders a data-aware component, it uses seed data (since there's no API to call in the browser). In production, `puckDataFetcher` overrides these with real data.
+
+```tsx
+export const puckSeedData = {
+  products: [
+    { _id: "seed-1", name: "Sample Product", price: 99, images: ["/placeholder.jpg"], inStock: true, slug: "sample-product" },
+  ],
+};
+```
+
+Keys in `puckSeedData` must NOT overlap with `puckFields` keys. They represent non-editable data props.
 
 ### What the script needs to handle
 
@@ -453,6 +571,7 @@ The script **does**:
 The script skips the file and logs a warning:
 
 ```
+⚠ components/home/HeroSectionView.tsx — missing puckComponentName export, skipping
 ⚠ components/home/HeroSectionView.tsx — missing puckFields export, skipping
 ⚠ components/home/HeroSectionView.tsx — missing puckDefaults export, skipping
 ```
@@ -468,12 +587,17 @@ Before a component can be auto-processed, verify:
 - [ ] Component accepts only flat scalar props (string, number, boolean, arrays of flat objects)
 - [ ] No business logic inside the component (no date checks, no API calls, no store reads)
 - [ ] If original component had logic, a container file handles it and delegates to this View
+- [ ] `puckComponentName` exported — matches the JSX tag name used in `page.tsx`
 - [ ] `puckLabel` exported — human-readable name
 - [ ] `puckCategory` exported — drawer grouping
 - [ ] `puckFields` exported — one entry per editable prop, with correct field type and label
 - [ ] `puckDefaults` exported — sensible default for every key in `puckFields`
 - [ ] Every key in `puckFields` has a matching prop in the component's interface
 - [ ] Every key in `puckDefaults` has a matching key in `puckFields`
+- [ ] If `puckSeedData` is exported, its keys don't overlap with `puckFields` keys
+- [ ] If `puckDataFetcher` is exported, it returns partial props (only data-derived keys, not `puckFields` keys)
+- [ ] If `puckDataFetcher` is exported, it throws on failure (the server config catches and falls back)
+- [ ] If `puckDataFetcher` is exported, `puckSeedData` is also exported with matching keys (placeholder data for editor)
 - [ ] Select fields for booleans use `"true"` / `"false"` string values
 - [ ] Component does not return `null` based on business logic (only based on an explicit `visible` prop if applicable)
 - [ ] Component is imported with `@/` path alias (not relative paths that break outside the original project)

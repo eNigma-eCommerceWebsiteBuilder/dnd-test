@@ -1,0 +1,96 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "CheckoutSubscriptionStateSection",
+      "props": {
+        "id": "checkoutsubscriptionstatesection-1",
+        "ready": [
+          {
+            "type": "PageWrapper",
+            "props": {
+              "id": "pagewrapper-1",
+              "maxWidth": "1440",
+              "paddingY": "normal",
+              "children": [
+                {
+                  "type": "PageHeader",
+                  "props": {
+                    "id": "pageheader-1",
+                    "eyebrow": "Subscription checkout",
+                    "title": "Subscription Checkout",
+                    "subtitle": "Complete your subscription checkout with recurring billing details."
+                  }
+                },
+                {
+                  "type": "TwoColumnDetail",
+                  "props": {
+                    "id": "twocolumndetail-1",
+                    "main": [
+                      {
+                        "type": "CardSection",
+                        "props": {
+                          "id": "cardsection-1",
+                          "title": "Customer information",
+                          "children": [
+                            {
+                              "type": "CheckoutShippingForm",
+                              "props": {
+                                "id": "checkoutshippingform-1"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "CardSection",
+                        "props": {
+                          "id": "cardsection-2",
+                          "title": "Billing terms",
+                          "children": [
+                            {
+                              "type": "CalloutCard",
+                              "props": {
+                                "id": "calloutcard-1",
+                                "title": "Recurring billing",
+                                "body": "Review the subscription terms before continuing to payment."
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "sidebar": [
+                      {
+                        "type": "CheckoutOrderSummary",
+                        "props": {
+                          "id": "checkoutordersummary-1"
+                        }
+                      },
+                      {
+                        "type": "CheckoutPlaceOrderButton",
+                        "props": {
+                          "id": "checkoutplaceorderbutton-1",
+                          "label": "Continue to subscription checkout"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "empty": [
+          {
+            "type": "CartEmpty",
+            "props": {
+              "id": "cartempty-1"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "zones": {}
+}

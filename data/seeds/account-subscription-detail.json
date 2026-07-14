@@ -1,0 +1,14 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "SubscriptionDetailStateSection",
+      "props": {
+        "id": "subscriptiondetailstatesection-1",
+        "subscriptionId": "",
+        "state": "not-found"
+      }
+    }
+  ],
+  "zones": {}
+}

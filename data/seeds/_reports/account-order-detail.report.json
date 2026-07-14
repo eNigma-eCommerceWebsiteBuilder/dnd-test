@@ -1,0 +1,59 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/account/orders/[id]/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/account-order-detail.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "PageHeader",
+      "id": "pageheader-1"
+    },
+    {
+      "type": "OrderStatusBadge",
+      "id": "orderstatusbadge-1"
+    },
+    {
+      "type": "SectionHeading",
+      "id": "sectionheading-1"
+    },
+    {
+      "type": "OrderItemList",
+      "id": "orderitemlist-1"
+    },
+    {
+      "type": "OrderDetails",
+      "id": "orderdetails-1"
+    },
+    {
+      "type": "ShippingAddress",
+      "id": "shippingaddress-1"
+    },
+    {
+      "type": "PaymentInfo",
+      "id": "paymentinfo-1"
+    },
+    {
+      "type": "TwoColumnDetail",
+      "id": "twocolumndetail-1"
+    },
+    {
+      "type": "PageWrapper",
+      "id": "pagewrapper-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [
+    "ReorderButton"
+  ],
+  "unmatchedHtml": [],
+  "runtimeConditionals": [
+    {
+      "source": "orderHasDigitalItems ? (\r\n              <Link\r\n                href={`/account/orders/${order._id}/downloads`}\r\n                className=\"inline-flex items-center gap-2 rounded-button bg-primary px-4 py-2.5 text-sm font-semibold text-on-primary shadow-button transition-all hover:bg-primary-dark hover:shadow-button-hover\"\r\n              >\r\n                <span className=\"material-symbols-outlined text-lg\">download</span>\r\n                Downloads\r\n              </Link>\r\n            ) : null"
+    },
+    {
+      "source": "orderCanBeCancelled ? <CancelOrderButton orderId={order._id} /> : null"
+    },
+    {
+      "source": "order.billingAddress ? (\r\n              <BillingAddress address={order.billingAddress} />\r\n            ) : null"
+    }
+  ]
+}

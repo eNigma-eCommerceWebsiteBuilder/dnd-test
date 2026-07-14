@@ -1,0 +1,51 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/home.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "PromotionBanner",
+      "id": "promotionbanner-1"
+    },
+    {
+      "type": "HeroSection",
+      "id": "herosection-1"
+    },
+    {
+      "type": "CategoryHighlights",
+      "id": "categoryhighlights-1"
+    },
+    {
+      "type": "FeaturedProductsGrid",
+      "id": "featuredproductsgrid-1"
+    },
+    {
+      "type": "CuratedCollectionSection",
+      "id": "curatedcollectionsection-1"
+    },
+    {
+      "type": "InspirationSection",
+      "id": "inspirationsection-1"
+    },
+    {
+      "type": "TestimonialsSection",
+      "id": "testimonialssection-1"
+    },
+    {
+      "type": "NewsletterSignup",
+      "id": "newslettersignup-1"
+    },
+    {
+      "type": "TrustBadges",
+      "id": "trustbadges-1"
+    },
+    {
+      "type": "PageWrapper",
+      "id": "pagewrapper-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": []
+}

@@ -1,0 +1,35 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/search/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/search.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "SearchHeader",
+      "id": "searchheader-1"
+    },
+    {
+      "type": "ProductGrid",
+      "id": "productgrid-1"
+    },
+    {
+      "type": "SearchHeader",
+      "id": "searchheader-2"
+    },
+    {
+      "type": "NoResults",
+      "id": "noresults-1"
+    },
+    {
+      "type": "SectionHeading",
+      "id": "sectionheading-1"
+    },
+    {
+      "type": "SearchStateSection",
+      "id": "searchstatesection-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": []
+}

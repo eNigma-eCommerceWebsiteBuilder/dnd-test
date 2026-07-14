@@ -1,0 +1,43 @@
+{
+  "page": "app/categories/page.tsx",
+  "output": "../dnd-test/data/seeds/categories.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "TrendingCategoryCard",
+      "id": "trendingcategorycard-1"
+    },
+    {
+      "type": "TrendingCategoryCard",
+      "id": "trendingcategorycard-2"
+    },
+    {
+      "type": "TrendingCategoriesSection",
+      "id": "trendingcategoriessection-1"
+    },
+    {
+      "type": "CategoryGrid",
+      "id": "categorygrid-1"
+    },
+    {
+      "type": "DepartmentCategoriesSection",
+      "id": "departmentcategoriessection-1"
+    },
+    {
+      "type": "CategoriesPageBreadcrumbs",
+      "id": "categoriespagebreadcrumbs-1"
+    },
+    {
+      "type": "CategoriesPageIntro",
+      "id": "categoriespageintro-1"
+    },
+    {
+      "type": "CategoriesPageLayout",
+      "id": "categoriespagelayout-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": []
+}

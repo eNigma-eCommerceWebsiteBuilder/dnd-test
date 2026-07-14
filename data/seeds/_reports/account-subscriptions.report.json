@@ -1,0 +1,21 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/account/subscriptions/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/account-subscriptions.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "PageHeader",
+      "id": "pageheader-1"
+    },
+    {
+      "type": "PageWrapper",
+      "id": "pagewrapper-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [
+    "SubscriptionList"
+  ],
+  "unmatchedHtml": [],
+  "runtimeConditionals": []
+}

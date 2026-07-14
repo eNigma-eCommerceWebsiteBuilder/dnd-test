@@ -1,0 +1,37 @@
+{
+  "page": "D:/projects/eNigma-TemplateFrontend/app/account/payment-methods/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/account-payment-methods.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "PageHeader",
+      "id": "pageheader-1"
+    },
+    {
+      "type": "SectionHeading",
+      "id": "sectionheading-1"
+    },
+    {
+      "type": "CalloutCard",
+      "id": "calloutcard-1"
+    },
+    {
+      "type": "PageWrapper",
+      "id": "pagewrapper-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [
+    "AddCardButton",
+    "StripeCardForm"
+  ],
+  "unmatchedHtml": [],
+  "runtimeConditionals": [
+    {
+      "source": "stripeConfig && (\r\n                    <div className=\"mb-8\">\r\n                        <StripeCardForm stripeConfig={stripeConfig} />\r\n                    </div>\r\n                )"
+    },
+    {
+      "source": "paymentMethods.length > 0 ? (\r\n                        <PaymentMethodList paymentMethods={paymentMethods} />\r\n                    ) : (\r\n                        <EmptyPaymentMethods />\r\n                    )"
+    }
+  ]
+}

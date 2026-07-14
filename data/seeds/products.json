@@ -1,0 +1,155 @@
+{
+  "root": {},
+  "content": [
+    {
+      "type": "ProductsCatalogLayout",
+      "props": {
+        "id": "productscataloglayout-1",
+        "header": [
+          {
+            "type": "CatalogHeaderLayout",
+            "props": {
+              "id": "catalogheaderlayout-1",
+              "breadcrumbs": [
+                {
+                  "type": "CatalogBreadcrumbs",
+                  "props": {
+                    "id": "catalogbreadcrumbs-1",
+                    "currentLabel": "All Products"
+                  }
+                }
+              ],
+              "titleSummary": [
+                {
+                  "type": "CatalogTitleSummary",
+                  "props": {
+                    "id": "catalogtitlesummary-1",
+                    "title": "All Products"
+                  }
+                }
+              ],
+              "controls": [
+                {
+                  "type": "CatalogControlsLayout",
+                  "props": {
+                    "id": "catalogcontrolslayout-1",
+                    "controls": [
+                      {
+                        "type": "MobileFilterDrawerBlock",
+                        "props": {
+                          "id": "mobilefilterdrawerblock-1"
+                        }
+                      },
+                      {
+                        "type": "ViewToggleBlock",
+                        "props": {
+                          "id": "viewtoggleblock-1"
+                        }
+                      },
+                      {
+                        "type": "SortDropdownBlock",
+                        "props": {
+                          "id": "sortdropdownblock-1"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "activeFilters": [
+          {
+            "type": "CatalogActiveFiltersBoundary",
+            "props": {
+              "id": "catalogactivefiltersboundary-1",
+              "content": [
+                {
+                  "type": "ActiveFiltersBlock",
+                  "props": {
+                    "id": "activefiltersblock-1"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "CatalogContentLayout",
+            "props": {
+              "id": "catalogcontentlayout-1",
+              "sidebar": [
+                {
+                  "type": "CatalogFilterSidebar",
+                  "props": {
+                    "id": "catalogfiltersidebar-1",
+                    "filters": [
+                      {
+                        "type": "ProductFiltersBlock",
+                        "props": {
+                          "id": "productfiltersblock-1"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "results": [
+                {
+                  "type": "CatalogResultsState",
+                  "props": {
+                    "id": "catalogresultsstate-1",
+                    "previewMode": "results",
+                    "results": [
+                      {
+                        "type": "CatalogGridBoundary",
+                        "props": {
+                          "id": "cataloggridboundary-1",
+                          "grid": [
+                            {
+                              "type": "ProductGrid",
+                              "props": {
+                                "id": "productgrid-1",
+                                "listName": "Product Listing"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "CatalogPaginationCondition",
+                        "props": {
+                          "id": "catalogpaginationcondition-1",
+                          "previewMode": "visible",
+                          "content": [
+                            {
+                              "type": "CatalogPaginationBlock",
+                              "props": {
+                                "id": "catalogpaginationblock-1"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "empty": [
+                      {
+                        "type": "EmptyState",
+                        "props": {
+                          "id": "emptystate-1"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "zones": {}
+}

@@ -1,0 +1,2 @@
+import type { CatalogSlot } from './types';
+export function ProductDetailSection({ kind, content }: { kind: 'reviews' | 'testimonials'; content?: CatalogSlot }) { const isReviews = kind === 'reviews'; return <section {...(isReviews ? { id: 'reviews' } : {})} className={isReviews ? 'mt-24 border-t border-border pt-16' : 'mt-24 border-t border-border pt-16'}>{content?.({ style: { display: 'contents' } })}</section>; }

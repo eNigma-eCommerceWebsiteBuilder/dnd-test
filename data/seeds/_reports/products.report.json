@@ -1,0 +1,87 @@
+{
+  "page": "app/products/page.tsx",
+  "output": "../dnd-test/data/seeds/products.json",
+  "manifestLoaded": true,
+  "captured": [
+    {
+      "type": "MobileFilterDrawerBlock",
+      "id": "mobilefilterdrawerblock-1"
+    },
+    {
+      "type": "ViewToggleBlock",
+      "id": "viewtoggleblock-1"
+    },
+    {
+      "type": "SortDropdownBlock",
+      "id": "sortdropdownblock-1"
+    },
+    {
+      "type": "CatalogBreadcrumbs",
+      "id": "catalogbreadcrumbs-1"
+    },
+    {
+      "type": "CatalogTitleSummary",
+      "id": "catalogtitlesummary-1"
+    },
+    {
+      "type": "CatalogControlsLayout",
+      "id": "catalogcontrolslayout-1"
+    },
+    {
+      "type": "CatalogHeaderLayout",
+      "id": "catalogheaderlayout-1"
+    },
+    {
+      "type": "ActiveFiltersBlock",
+      "id": "activefiltersblock-1"
+    },
+    {
+      "type": "CatalogActiveFiltersBoundary",
+      "id": "catalogactivefiltersboundary-1"
+    },
+    {
+      "type": "ProductFiltersBlock",
+      "id": "productfiltersblock-1"
+    },
+    {
+      "type": "CatalogFilterSidebar",
+      "id": "catalogfiltersidebar-1"
+    },
+    {
+      "type": "ProductGrid",
+      "id": "productgrid-1"
+    },
+    {
+      "type": "CatalogGridBoundary",
+      "id": "cataloggridboundary-1"
+    },
+    {
+      "type": "CatalogPaginationBlock",
+      "id": "catalogpaginationblock-1"
+    },
+    {
+      "type": "CatalogPaginationCondition",
+      "id": "catalogpaginationcondition-1"
+    },
+    {
+      "type": "EmptyState",
+      "id": "emptystate-1"
+    },
+    {
+      "type": "CatalogResultsState",
+      "id": "catalogresultsstate-1"
+    },
+    {
+      "type": "CatalogContentLayout",
+      "id": "catalogcontentlayout-1"
+    },
+    {
+      "type": "ProductsCatalogLayout",
+      "id": "productscataloglayout-1"
+    }
+  ],
+  "warnings": [],
+  "droppedComponents": [],
+  "unmatchedHtml": [],
+  "runtimeConditionals": []
+}
