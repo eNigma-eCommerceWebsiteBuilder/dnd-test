@@ -15,8 +15,9 @@ and published-page rendering before the work is migrated into
 
 ## Main Flow
 
-1. `eNigma-TemplateFrontend/ast-parser.ts` reads a real source route and writes
-   Puck seed JSON into `dnd-test/data/seeds`.
+1. `scripts/templatefrontend-parser/ast-parser.ts` reads a real
+   TemplateFrontend source route and writes Puck seed JSON into
+   `dnd-test/data/seeds`.
 2. Puck loads the seed in `/editor?slug=<page-slug>` using the generated Puck
    component configuration and manifest.
 3. Editors rearrange or edit supported components and slots.
@@ -103,9 +104,13 @@ and published-page rendering before the work is migrated into
 
 - `scripts/generate-puck-config.ts`: discovers Puck metadata and generates the
   client/server configs, AST manifest, and route composition grammar.
-- `scripts/run-parser-to-dnd-test.ps1`: runs
-  `eNigma-TemplateFrontend/ast-parser.ts` for all supported source routes and
-  writes seeds plus diagnostics into DnD Test.
+- `scripts/templatefrontend-parser/`: the DnD-owned AST parser entry point,
+  recursive JSX engine, and declarative route profiles. It loads the Puck
+  manifest and route grammar from this repository while inspecting a chosen
+  TemplateFrontend source root.
+- `scripts/run-parser-to-dnd-test.ps1`: runs the DnD-owned parser for all
+  supported TemplateFrontend source routes and writes seeds plus diagnostics
+  into DnD Test. `-TemplateFrontendRoot` selects the source tree to inspect.
 - `scripts/apply-seed-to-page.ts`: validates a clean seed/report/manifest and
   copies a seed into `data/pages.json`.
 - `scripts/check-*.ts`: source-parity, canonical-structure, parser-resolution,
@@ -122,6 +127,10 @@ and published-page rendering before the work is migrated into
 - `node_modules/`: installed dependencies; can be recreated with `npm ci` and
   is ignored.
 - `tsconfig.tsbuildinfo`: TypeScript incremental cache; ignored.
+- `temporary-context/templatefrontend-preservation-2026-08-04/`: ignored local
+  recovery snapshot of the pre-cleanup TemplateFrontend canonical-parser work.
+  It includes the copied source tree, a binary patch for tracked edits, and a
+  file manifest. The active parser does not depend on this snapshot.
 
 ## Current Canonical Coverage
 

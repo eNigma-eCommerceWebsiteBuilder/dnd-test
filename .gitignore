@@ -47,5 +47,7 @@ next-env.d.ts
 /docs/published-page-qa-guide.md
 /lib/puck-route-composition.json
 
+# Local recovery copy of pre-migration TemplateFrontend source.
+/temporary-context/templatefrontend-preservation-*/
 
 /data/seeds/_reports/

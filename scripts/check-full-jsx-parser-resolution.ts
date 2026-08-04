@@ -2,8 +2,8 @@ import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
 
-import { runPuckAstParser, type ComponentData } from '../../eNigma-TemplateFrontend/ast-parser-engine';
-import { getRouteProfile } from '../../eNigma-TemplateFrontend/ast-parser-route-profiles';
+import { runPuckAstParser, type ComponentData } from './templatefrontend-parser/ast-parser-engine';
+import { getRouteProfile } from './templatefrontend-parser/ast-parser-route-profiles';
 
 interface ManifestComponent {
   type: string;

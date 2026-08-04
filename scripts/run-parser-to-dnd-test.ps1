@@ -5,6 +5,10 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+$parserEntry = Join-Path $DndTestRoot "scripts\templatefrontend-parser\ast-parser.ts"
+if (-not (Test-Path -LiteralPath $parserEntry)) {
+    throw "DnD-owned parser entry point is missing: $parserEntry"
+}
 
 $seedDir = Join-Path $DndTestRoot "data\seeds"
 if (-not (Test-Path $seedDir)) {
@@ -71,12 +75,18 @@ foreach ($page in $pages) {
         continue
     }
 
-    Push-Location $TemplateFrontendRoot
+    Push-Location $DndTestRoot
     try {
-        $result = & npx tsx (Join-Path $TemplateFrontendRoot "ast-parser.ts") $inputPath $outputPath 2>&1
+        $previousTemplateRoot = $env:TEMPLATE_FRONTEND_ROOT
+        $previousPuckRoot = $env:PUCK_PROJECT_ROOT
+        $env:TEMPLATE_FRONTEND_ROOT = $TemplateFrontendRoot
+        $env:PUCK_PROJECT_ROOT = $DndTestRoot
+        $result = & npx tsx $parserEntry $inputPath $outputPath 2>&1
         $exitCode = $LASTEXITCODE
     }
     finally {
+        $env:TEMPLATE_FRONTEND_ROOT = $previousTemplateRoot
+        $env:PUCK_PROJECT_ROOT = $previousPuckRoot
         Pop-Location
     }
 
