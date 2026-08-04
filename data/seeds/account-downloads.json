@@ -2,10 +2,93 @@
   "root": {},
   "content": [
     {
-      "type": "AccountDigitalLibraryStateSection",
+      "type": "AccountDownloadsPageLayout",
       "props": {
-        "id": "accountdigitallibrarystatesection-1",
-        "state": "empty"
+        "id": "accountdownloadspagelayout-1",
+        "content": [
+          {
+            "type": "DigitalLibraryLayout",
+            "props": {
+              "id": "digitallibrarylayout-1",
+              "header": [
+                {
+                  "type": "DigitalLibraryHeader",
+                  "props": {
+                    "id": "digitallibraryheader-1"
+                  }
+                }
+              ],
+              "metrics": [
+                {
+                  "type": "DigitalLibraryMetricsLayout",
+                  "props": {
+                    "id": "digitallibrarymetricslayout-1",
+                    "metrics": [
+                      {
+                        "type": "DigitalLibraryDownloadsMetric",
+                        "props": {
+                          "id": "digitallibrarydownloadsmetric-1"
+                        }
+                      },
+                      {
+                        "type": "DigitalLibraryAttentionMetric",
+                        "props": {
+                          "id": "digitallibraryattentionmetric-1"
+                        }
+                      },
+                      {
+                        "type": "DigitalLibraryAssetsMetric",
+                        "props": {
+                          "id": "digitallibraryassetsmetric-1"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "assets": [
+                {
+                  "type": "DigitalLibraryAssetsState",
+                  "props": {
+                    "id": "digitallibraryassetsstate-1",
+                    "assets": [
+                      {
+                        "type": "DigitalLibraryEntriesGrid",
+                        "props": {
+                          "id": "digitallibraryentriesgrid-1"
+                        }
+                      }
+                    ],
+                    "empty": [
+                      {
+                        "type": "DigitalLibraryEmptyRegion",
+                        "props": {
+                          "id": "digitallibraryemptyregion-1"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "history": [
+                {
+                  "type": "DigitalLibraryHistoryRegion",
+                  "props": {
+                    "id": "digitallibraryhistoryregion-1"
+                  }
+                }
+              ],
+              "background": [
+                {
+                  "type": "DigitalLibraryBackground",
+                  "props": {
+                    "id": "digitallibrarybackground-1"
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     }
   ],

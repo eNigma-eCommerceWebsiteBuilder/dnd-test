@@ -3,10 +3,10 @@
 import { useMemo, useState } from 'react';
 import { cn } from '@/lib/utils/cn';
 import type { WishlistItem } from '@/lib/api/types/wishlist';
-import { AvailabilityFilter } from '@/components/wishlist/AvailabilityFilter';
-import { MoveAllToCartButton } from '@/components/wishlist/MoveAllToCartButton';
-import { ShareWishlistButton } from '@/components/wishlist/ShareWishlistButton';
-import { ClearWishlistButton } from '@/components/wishlist/ClearWishlistButton';
+import { AvailabilityFilter } from '@/enigma-components/wishlist/AvailabilityFilter';
+import { MoveAllToCartButton } from '@/enigma-components/wishlist/MoveAllToCartButton';
+import { ShareWishlistButton } from '@/enigma-components/wishlist/ShareWishlistButton';
+import { ClearWishlistButton } from '@/enigma-components/wishlist/ClearWishlistButton';
 
 type AvailabilityOption = 'all' | 'in-stock' | 'low-stock' | 'out-of-stock';
 

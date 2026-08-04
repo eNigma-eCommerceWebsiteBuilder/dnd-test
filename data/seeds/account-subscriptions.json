@@ -2,17 +2,54 @@
   "root": {},
   "content": [
     {
-      "type": "PageWrapper",
+      "type": "AccountSubscriptionsPageLayout",
       "props": {
-        "id": "pagewrapper-1",
-        "maxWidth": "1440",
-        "paddingY": "normal",
-        "children": [
+        "id": "accountsubscriptionspagelayout-1",
+        "header": [
           {
-            "type": "PageHeader",
+            "type": "AccountSubscriptionsPageHeader",
             "props": {
-              "id": "pageheader-1",
-              "title": "Subscriptions"
+              "id": "accountsubscriptionspageheader-1"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "SubscriptionsListLayout",
+            "props": {
+              "id": "subscriptionslistlayout-1",
+              "content": [
+                {
+                  "type": "SubscriptionsListState",
+                  "props": {
+                    "id": "subscriptionsliststate-1",
+                    "subscriptions": [
+                      {
+                        "type": "SubscriptionsListClientRegion",
+                        "props": {
+                          "id": "subscriptionslistclientregion-1",
+                          "content": [
+                            {
+                              "type": "SubscriptionsCardsList",
+                              "props": {
+                                "id": "subscriptionscardslist-1"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "empty": [
+                      {
+                        "type": "SubscriptionsEmptyRegion",
+                        "props": {
+                          "id": "subscriptionsemptyregion-1"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ]

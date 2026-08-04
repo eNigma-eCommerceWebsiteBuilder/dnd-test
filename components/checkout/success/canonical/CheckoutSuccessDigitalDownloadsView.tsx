@@ -1,0 +1,6 @@
+import type { DigitalAsset } from '@/lib/api/types'; import { DigitalDownloads } from '@/enigma-components/checkout/success/DigitalDownloads'; import { checkoutSuccessPreviewAssets } from './preview'; import { loadCheckoutSuccessRuntime } from './checkoutSuccessRuntime';
+interface Props { assets?: DigitalAsset[]; puck?: { isEditing?: boolean }; }
+export const puckComponentName = 'CheckoutSuccessDigitalDownloads'; export const puckLabel = 'Checkout Success Digital Downloads'; export const puckCategory = 'Checkout'; export const puckFields = {}; export const puckDefaults = {};
+export const puckAst = { kind: 'runtime', sourceJsxNames: ['DigitalDownloads'], sourceImportPaths: ['@/components/checkout/success/DigitalDownloads'], role: 'checkout-success-digital-downloads', runtimeSignals: ['digitalAssets.assets'] };
+export async function puckDataFetcher(_props: Props, context?: Parameters<typeof loadCheckoutSuccessRuntime>[0]) { const runtime = await loadCheckoutSuccessRuntime(context); return { assets: runtime.digitalAssets?.assets ?? [] }; }
+export function CheckoutSuccessDigitalDownloadsView({ assets = [], puck }: Props) { return <DigitalDownloads assets={puck?.isEditing && assets.length === 0 ? checkoutSuccessPreviewAssets : assets} />; }

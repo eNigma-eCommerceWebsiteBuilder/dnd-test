@@ -2,11 +2,112 @@
   "root": {},
   "content": [
     {
-      "type": "SharedWishlistStateSection",
+      "type": "SharedWishlistPageState",
       "props": {
-        "id": "sharedwishliststatesection-1",
-        "token": "",
-        "state": "invalid"
+        "id": "sharedwishlistpagestate-1",
+        "content": [
+          {
+            "type": "SharedWishlistPageLayout",
+            "props": {
+              "id": "sharedwishlistpagelayout-1",
+              "schema": [
+                {
+                  "type": "SharedWishlistJsonLd",
+                  "props": {
+                    "id": "sharedwishlistjsonld-1",
+                    "items": []
+                  }
+                }
+              ],
+              "header": [
+                {
+                  "type": "SharedWishlistHeader",
+                  "props": {
+                    "id": "sharedwishlistheader-1",
+                    "title": "Shared Wishlist",
+                    "itemCount": 0,
+                    "actions": [
+                      {
+                        "type": "SharedWishlistHeaderActionsCondition",
+                        "props": {
+                          "id": "sharedwishlistheaderactionscondition-1",
+                          "visible": false,
+                          "content": [
+                            {
+                              "type": "SharedWishlistAddAll",
+                              "props": {
+                                "id": "sharedwishlistaddall-1",
+                                "items": []
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "content": [
+                {
+                  "type": "SharedWishlistContentLayout",
+                  "props": {
+                    "id": "sharedwishlistcontentlayout-1",
+                    "savings": [
+                      {
+                        "type": "SharedWishlistSavingsCondition",
+                        "props": {
+                          "id": "sharedwishlistsavingscondition-1",
+                          "content": [
+                            {
+                              "type": "SharedWishlistSavingsCard",
+                              "props": {
+                                "id": "sharedwishlistsavingscard-1"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "items": [
+                      {
+                        "type": "SharedWishlistItemsState",
+                        "props": {
+                          "id": "sharedwishlistitemsstate-1",
+                          "hasItems": false,
+                          "empty": [
+                            {
+                              "type": "SharedWishlistEmpty",
+                              "props": {
+                                "id": "sharedwishlistempty-1"
+                              }
+                            }
+                          ],
+                          "grid": [
+                            {
+                              "type": "SharedWishlistGrid",
+                              "props": {
+                                "id": "sharedwishlistgrid-1",
+                                "items": []
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "invalid": [
+          {
+            "type": "SharedWishlistInvalidState",
+            "props": {
+              "id": "sharedwishlistinvalidstate-1"
+            }
+          }
+        ]
       }
     }
   ],

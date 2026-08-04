@@ -1,39 +1,61 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/cart/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/cart.json",
+  "profile": "cart",
   "manifestLoaded": true,
   "captured": [
     {
-      "type": "CartHeader",
-      "id": "cartheader-1"
+      "type": "CartPageHeader",
+      "id": "cartpageheader-1"
     },
     {
-      "type": "FreeShippingProgress",
-      "id": "freeshippingprogress-1"
+      "type": "CartPageFreeShippingProgress",
+      "id": "cartpagefreeshippingprogress-1"
     },
     {
-      "type": "CartList",
-      "id": "cartlist-1"
+      "type": "CartPageItemList",
+      "id": "cartpageitemlist-1"
     },
     {
-      "type": "CartSummary",
-      "id": "cartsummary-1"
+      "type": "CartPageContinueShopping",
+      "id": "cartpagecontinueshopping-1"
     },
     {
-      "type": "CartContinueShopping",
-      "id": "cartcontinueshopping-1"
+      "type": "CartPageSummary",
+      "id": "cartpagesummary-1"
     },
     {
-      "type": "CartEmpty",
-      "id": "cartempty-1"
+      "type": "CartPageLayout",
+      "id": "cartpagelayout-1"
     },
     {
-      "type": "CartStateSection",
-      "id": "cartstatesection-1"
+      "type": "CartPageEmpty",
+      "id": "cartpageempty-1"
+    },
+    {
+      "type": "CartPageEmptyLayout",
+      "id": "cartpageemptylayout-1"
+    },
+    {
+      "type": "CartPageState",
+      "id": "cartpagestate-1"
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [
+    {
+      "source": "!loading && activeItems.length === 0",
+      "handledBy": "CartPageState"
+    }
+  ],
+  "delegates": [
+    {
+      "component": "CartPageClient",
+      "source": "D:/projects/eNigma-TemplateFrontend/components/templates/cart/CartPageClient.tsx"
+    }
+  ],
+  "fatal": false
 }

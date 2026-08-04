@@ -2,15 +2,104 @@
   "root": {},
   "content": [
     {
-      "type": "CollectionStateSection",
+      "type": "CollectionsPageLayout",
       "props": {
-        "id": "collectionstatesection-1",
-        "content": [],
-        "empty": [
+        "id": "collectionspagelayout-1",
+        "header": [
           {
-            "type": "EmptyCollections",
+            "type": "CollectionsPageHeader",
             "props": {
-              "id": "emptycollections-1"
+              "id": "collectionspageheader-1",
+              "breadcrumbs": [
+                {
+                  "type": "CollectionBreadcrumbs",
+                  "props": {
+                    "id": "collectionbreadcrumbs-1",
+                    "items": [
+                      {
+                        "label": "Home",
+                        "href": "/"
+                      },
+                      {
+                        "label": "Collections"
+                      }
+                    ],
+                    "className": "mb-4"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "filters": [
+          {
+            "type": "CollectionsFilterSection",
+            "props": {
+              "id": "collectionsfiltersection-1",
+              "content": [
+                {
+                  "type": "CollectionTypeFilter",
+                  "props": {
+                    "id": "collectiontypefilter-1"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "featured": [
+          {
+            "type": "FeaturedCuratedCollectionCondition",
+            "props": {
+              "id": "featuredcuratedcollectioncondition-1",
+              "content": [
+                {
+                  "type": "FeaturedCuratedCollection",
+                  "props": {
+                    "id": "featuredcuratedcollection-1"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "collections": [
+          {
+            "type": "CollectionsResultsState",
+            "props": {
+              "id": "collectionsresultsstate-1",
+              "results": [
+                {
+                  "type": "CollectionGrid",
+                  "props": {
+                    "id": "collectiongrid-1"
+                  }
+                }
+              ],
+              "empty": [
+                {
+                  "type": "EmptyCollections",
+                  "props": {
+                    "id": "emptycollections-1"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "inspiration": [
+          {
+            "type": "InspirationCollectionCondition",
+            "props": {
+              "id": "inspirationcollectioncondition-1",
+              "content": [
+                {
+                  "type": "InspirationCollectionSection",
+                  "props": {
+                    "id": "inspirationcollectionsection-1"
+                  }
+                }
+              ]
             }
           }
         ]

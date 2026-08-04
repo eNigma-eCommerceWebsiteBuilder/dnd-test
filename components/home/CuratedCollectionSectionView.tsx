@@ -1,9 +1,7 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { cn } from '@/lib/utils/cn';
-import { ProductCard } from '@/components/ui/ProductCard';
 import { fetchCuratedCollections } from '@/lib/api/services/collections';
-import type { Product } from '@/lib/api/types';
+import type { CuratedCollection, Product } from '@/lib/api/types';
+import type { CuratedCollectionContent } from '@/lib/content';
+import { CuratedCollectionSection } from '@/enigma-components/home/CuratedCollectionSection';
 
 interface RelatedProductItem {
   id?: string;
@@ -29,6 +27,7 @@ interface CuratedCollectionSectionViewProps {
   mainProductImage: string;
   relatedProducts: RelatedProductItem[];
   className?: string;
+  runtimeCollection?: CuratedCollection | null;
 }
 
 export const puckComponentName = 'CuratedCollectionSection';
@@ -78,35 +77,21 @@ export const puckDefaults = {
     { name: 'Cashmere Sweater', slug: 'cashmere-sweater', price: 320, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80' },
   ],
 };
+export const puckAst = { kind: 'runtime', sourceJsxNames: ['CuratedCollectionSection'], sourceImportPaths: ['@/components/home/CuratedCollectionSection'], role: 'home-curated-collection', runtimeSignals: ['curatedCollections', 'homepage.curatedCollection'] };
 
 export async function puckDataFetcher() {
-  const collections = await fetchCuratedCollections();
-  if (!collections || collections.length === 0) return {};
-  const c = collections[0];
-  return {
-    collectionName: c.name || '',
-    collectionDescription: c.description || '',
-    collectionSlug: c.slug || '',
-    mainProductName: c.mainProduct?.name || '',
-    mainProductImage: c.mainProduct?.images?.[0] ?? c.mainProduct?.imageUrl ?? '',
-    relatedProducts: (c.relatedProducts || []).map((p) => ({
-      id: p.id || p._id,
-      _id: p._id || p.id,
-      name: p.name,
-      slug: p.slug,
-      price: p.price,
-      salePrice: p.salePrice ?? undefined,
-      originalPrice: p.originalPrice,
-      inStock: p.inStock !== false,
-      stock: p.stock,
-      image: p.images?.[0] ?? p.imageUrl ?? '',
-      images: p.images || [],
-    })),
-  };
+  try {
+    const collections = await fetchCuratedCollections();
+    return { runtimeCollection: collections?.[0] ?? null };
+  } catch {
+    // This mirrors HomePage's withFallback(fetchCuratedCollections(), []).
+    return { runtimeCollection: null };
+  }
 }
 
-function toProduct(item: RelatedProductItem): Product {
-  const productId = item.id || item._id;
+function toProduct(item: RelatedProductItem, index: number): Product {
+  // The production renderer keys related cards by _id; editor seed items do not have backend IDs.
+  const productId = item.id || item._id || item.slug || `puck-related-product-${index}`;
 
   return {
     ...(productId ? { id: productId, _id: productId } : {}),
@@ -132,55 +117,18 @@ export function CuratedCollectionSectionView({
   collectionSlug,
   mainProductName,
   mainProductImage,
-  relatedProducts,
+  relatedProducts = [],
   className,
+  runtimeCollection,
 }: CuratedCollectionSectionViewProps) {
-  return (
-    <section className={cn('@container flex flex-col gap-8', className)}>
-      <div className="flex flex-col items-center gap-8 overflow-hidden rounded-card border border-border bg-bg-surface p-6 shadow-card @lg:flex-row @lg:p-10">
-        <div className="flex-1 space-y-5">
-          <span className="block text-xs font-semibold uppercase tracking-[0.24em] text-primary">
-            {eyebrow}
-          </span>
-          <h2 className="text-3xl font-black tracking-tight text-text-base @md:text-4xl">
-            {collectionName}
-          </h2>
-          <p className="text-base leading-relaxed text-text-muted @md:text-lg">
-            {collectionDescription}
-          </p>
-          <Link
-            href={`/collections/${collectionSlug}`}
-            className="inline-flex items-center justify-center rounded-button bg-cta-primary px-6 py-3 text-sm font-semibold text-on-primary shadow-button transition-all duration-normal hover:-translate-y-0.5 hover:bg-cta-primary-hover hover:shadow-button-hover"
-          >
-            {ctaText}
-          </Link>
-        </div>
-
-        {mainProductImage && (
-          <div className="relative aspect-square w-full max-w-xl flex-1 overflow-hidden rounded-image border border-border bg-bg-sunken">
-            <Image
-              src={mainProductImage}
-              alt={mainProductName}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </div>
-        )}
-      </div>
-
-      {relatedProducts && relatedProducts.length > 0 && (
-        <div className="grid grid-cols-2 @md:grid-cols-4 gap-6">
-          {relatedProducts.slice(0, 4).map((item, index) => (
-            <ProductCard
-              key={item.id || item._id || item.slug || index}
-              product={toProduct(item)}
-              showWishlist={false}
-              showQuickAdd={Boolean(item.id || item._id)}
-            />
-          ))}
-        </div>
-      )}
-    </section>
-  );
+  const seedCollection = {
+    name: collectionName,
+    description: collectionDescription,
+    slug: collectionSlug,
+    mainProduct: mainProductName ? ({ name: mainProductName, images: [mainProductImage] } as Product) : undefined,
+    relatedProducts: relatedProducts.map(toProduct),
+  } as CuratedCollection;
+  const content = { eyebrow, ctaText } as CuratedCollectionContent;
+  const collection = runtimeCollection === undefined ? seedCollection : runtimeCollection;
+  return <CuratedCollectionSection collection={collection} content={content} className={className} />;
 }

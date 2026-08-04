@@ -1,6 +1,7 @@
-import Link from 'next/link';
-import { cn } from '@/lib/utils/cn';
 import { fetchTrendingCategories } from '@/lib/api/services/categories';
+import type { Category } from '@/lib/api/types';
+import type { CategoryHighlightsContent } from '@/lib/content';
+import { CategoryHighlights } from '@/enigma-components/home/CategoryHighlights';
 
 interface CategoryItem {
   name: string;
@@ -15,6 +16,7 @@ interface CategoryHighlightsViewProps {
   ctaLabel: string;
   categories: CategoryItem[];
   className?: string;
+  runtimeCategories?: Category[];
 }
 
 export const puckComponentName = 'CategoryHighlights';
@@ -69,71 +71,27 @@ export const puckDefaults = {
     },
   ],
 };
+export const puckAst = { kind: 'runtime', sourceJsxNames: ['CategoryHighlights'], sourceImportPaths: ['@/components/home/CategoryHighlights'], role: 'home-category-highlights', runtimeSignals: ['trendingCategories', 'homepage.categories'] };
 
 export async function puckDataFetcher() {
-  const categories = await fetchTrendingCategories();
-  return {
-    categories: categories.slice(0, 3).map((c) => ({
-      name: c.name,
-      slug: c.slug,
-      image: c.image ?? c.imageUrl ?? '',
-      productCount: c.productCount ?? c.itemCount ?? 0,
-    })),
-  };
+  try {
+    return { runtimeCategories: (await fetchTrendingCategories()).slice(0, 3) };
+  } catch {
+    // This mirrors HomePage's withFallback(fetchTrendingCategories(), []).
+    return { runtimeCategories: [] };
+  }
 }
 
 export function CategoryHighlightsView({
   header,
   subheader,
   ctaLabel,
-  categories,
+  categories = [],
   className,
+  runtimeCategories,
 }: CategoryHighlightsViewProps) {
-  if (!categories || categories.length === 0) {
-    return null;
-  }
-
-  return (
-    <section className={cn('@container', className)}>
-      <div className="mb-12 flex items-end justify-between gap-6">
-        <div className="min-w-0">
-          <span className="mb-2 block text-xs font-bold uppercase tracking-widest text-primary">
-            {subheader}
-          </span>
-          <h2 className="text-3xl font-extrabold text-text-base @lg:text-4xl">
-            {header}
-          </h2>
-        </div>
-        <Link
-          href="/collections/all"
-          className="shrink-0 border-b-2 border-primary pb-1 text-sm font-bold text-text-base transition-all hover:text-primary"
-        >
-          {ctaLabel}
-        </Link>
-      </div>
-      <div className="grid grid-cols-1 gap-6 @md:grid-cols-3">
-        {categories.map((category) => (
-          <Link
-            key={category.slug}
-            href={`/collections/${category.slug}`}
-            className="group relative flex min-h-[320px] items-end overflow-hidden rounded-card bg-bg-skeleton @lg:min-h-[400px]"
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style={{
-                backgroundImage: `url(${category.image || '/placeholder-category.jpg'})`,
-              }}
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,22,22,0.12)_0%,rgba(18,22,22,0.72)_100%)] transition-opacity duration-300 group-hover:opacity-90" />
-            <div className="relative z-10 flex w-full flex-col gap-2 p-6 text-on-primary">
-              <h3 className="text-3xl font-bold">{category.name}</h3>
-              <p className="text-sm text-on-primary/80">
-                {category.productCount || 0} Products
-              </p>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </section>
-  );
+  const content = { header, subheader, ctaLabel } as CategoryHighlightsContent;
+  const seedCategories = categories.map((category, index) => ({ ...category, _id: category.slug || `category-${index}`, image: category.image }) as Category);
+  const sourceCategories = runtimeCategories === undefined ? seedCategories : runtimeCategories;
+  return <CategoryHighlights content={content} categories={sourceCategories} className={className} />;
 }

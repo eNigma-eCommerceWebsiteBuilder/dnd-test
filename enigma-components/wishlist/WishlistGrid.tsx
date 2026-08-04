@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils/cn';
 import type { Wishlist } from '@/lib/api/types/wishlist';
-import { WishlistGridClient } from '@/components/wishlist/WishlistGridClient';
+import { WishlistGridClient } from '@/enigma-components/wishlist/WishlistGridClient';
 
 interface WishlistGridProps {
   wishlist: Wishlist;

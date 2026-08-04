@@ -2,61 +2,101 @@
   "root": {},
   "content": [
     {
-      "type": "PageWrapper",
+      "type": "OrderDetailsPageState",
       "props": {
-        "id": "pagewrapper-1",
-        "maxWidth": "1440",
-        "paddingY": "normal",
-        "children": [
+        "id": "orderdetailspagestate-1",
+        "content": [
           {
-            "type": "PageHeader",
+            "type": "OrderDetailsPageLayout",
             "props": {
-              "id": "pageheader-1",
-              "title": "__STRIP__"
-            }
-          },
-          {
-            "type": "OrderStatusBadge",
-            "props": {
-              "id": "orderstatusbadge-1"
-            }
-          },
-          {
-            "type": "TwoColumnDetail",
-            "props": {
-              "id": "twocolumndetail-1",
-              "main": [
+              "id": "orderdetailspagelayout-1",
+              "breadcrumbs": [
                 {
-                  "type": "SectionHeading",
+                  "type": "OrderDetailsBreadcrumbs",
                   "props": {
-                    "id": "sectionheading-1",
-                    "title": "Order Items"
-                  }
-                },
-                {
-                  "type": "OrderItemList",
-                  "props": {
-                    "id": "orderitemlist-1"
-                  }
-                },
-                {
-                  "type": "OrderDetails",
-                  "props": {
-                    "id": "orderdetails-1"
+                    "id": "orderdetailsbreadcrumbs-1"
                   }
                 }
               ],
-              "sidebar": [
+              "header": [
                 {
-                  "type": "ShippingAddress",
+                  "type": "OrderDetailsHeader",
                   "props": {
-                    "id": "shippingaddress-1"
+                    "id": "orderdetailsheader-1",
+                    "downloads": [
+                      {
+                        "type": "OrderDetailsDownloadAction",
+                        "props": {
+                          "id": "orderdetailsdownloadaction-1"
+                        }
+                      }
+                    ],
+                    "reorder": [
+                      {
+                        "type": "OrderDetailsReorderAction",
+                        "props": {
+                          "id": "orderdetailsreorderaction-1"
+                        }
+                      }
+                    ],
+                    "cancel": [
+                      {
+                        "type": "OrderDetailsCancelAction",
+                        "props": {
+                          "id": "orderdetailscancelaction-1"
+                        }
+                      }
+                    ]
                   }
-                },
+                }
+              ],
+              "content": [
                 {
-                  "type": "PaymentInfo",
+                  "type": "OrderDetailsContentLayout",
                   "props": {
-                    "id": "paymentinfo-1"
+                    "id": "orderdetailscontentlayout-1",
+                    "primary": [
+                      {
+                        "type": "OrderDetailsItemsRegion",
+                        "props": {
+                          "id": "orderdetailsitemsregion-1"
+                        }
+                      },
+                      {
+                        "type": "OrderDetailsFinancialRegion",
+                        "props": {
+                          "id": "orderdetailsfinancialregion-1"
+                        }
+                      }
+                    ],
+                    "sidebar": [
+                      {
+                        "type": "OrderDetailsShippingRegion",
+                        "props": {
+                          "id": "orderdetailsshippingregion-1"
+                        }
+                      },
+                      {
+                        "type": "OrderDetailsBillingAddressCondition",
+                        "props": {
+                          "id": "orderdetailsbillingaddresscondition-1",
+                          "content": [
+                            {
+                              "type": "OrderDetailsBillingRegion",
+                              "props": {
+                                "id": "orderdetailsbillingregion-1"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "type": "OrderDetailsPaymentRegion",
+                        "props": {
+                          "id": "orderdetailspaymentregion-1"
+                        }
+                      }
+                    ]
                   }
                 }
               ]

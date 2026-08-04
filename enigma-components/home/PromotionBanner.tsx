@@ -23,7 +23,7 @@ export const PromotionBanner = ({ className, promotion }: PromotionBannerProps) 
 
     return (
         <div className={cn("@container w-full bg-bg-surface text-text-base border-b border-border", className)}>
-            <div className="w-full px-4 py-3 flex flex-col @md:flex-row @md:items-center @md:justify-between gap-4">
+            <div className="w-full px-4 py-3 flex flex-col gap-4 @2xl:flex-row @2xl:items-center @2xl:justify-between">
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-wrap items-center gap-2">
                         <UrgencyBadge promotion={promotion} />
@@ -32,9 +32,9 @@ export const PromotionBanner = ({ className, promotion }: PromotionBannerProps) 
                     <span className="text-xs text-text-muted">{promotion.subtitle}</span>
                 </div>
 
-                <div className="flex flex-col @md:flex-row @md:items-center gap-3 @md:gap-4">
+                <div className="flex flex-col gap-3 @2xl:flex-row @2xl:items-center @2xl:gap-4">
                     {promotion.endDate && (
-                        <CountdownTimer targetDate={promotion.endDate} className="text-text-base" />
+                        <CountdownTimer targetDate={promotion.endDate} className="text-text-base @2xl:w-60 @2xl:flex-none" />
                     )}
                     {hasCta && (
                         <Link

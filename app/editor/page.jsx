@@ -6,6 +6,56 @@ import { Puck, Button } from "@puckeditor/core";
 import "@puckeditor/core/puck.css";
 import config from "@/lib/puck-components.jsx";
 
+const pageSlugAliases = {
+  "order-detail": "account-order-detail",
+};
+
+const staticPublishedRoutes = {
+  home: "/page/home",
+  auth: "/page/auth",
+  products: "/page/products",
+  categories: "/categories",
+  collections: "/collections",
+  search: "/search",
+  cart: "/cart",
+  checkout: "/page/checkout",
+  "checkout-success": "/checkout/success",
+  "checkout-subscription": "/checkout/subscription",
+  account: "/account",
+  "account-orders": "/page/account-orders",
+  "account-addresses": "/account/addresses",
+  "account-downloads": "/page/account-downloads",
+  "account-payment-methods": "/account/payment-methods",
+  "account-returns": "/account/returns",
+  "account-settings": "/page/account-settings",
+  "account-sessions": "/account/sessions",
+  "account-subscriptions": "/account/subscriptions",
+  "account-wishlist": "/account/wishlist",
+};
+
+const entityPublishedRoutes = {
+  "category-detail": { prefix: "/categories/", defaultEntitySlug: "accessories" },
+  "product-detail": { prefix: "/products/", defaultEntitySlug: "wool-scarf" },
+  "collection-detail": { prefix: "/collections/", defaultEntitySlug: "curated-essentials" },
+  downloads: { prefix: "/downloads/" },
+  "shared-wishlist": { prefix: "/wishlist/shared/" },
+  "account-order-detail": { prefix: "/account/orders/" },
+  "account-order-downloads": { prefix: "/account/orders/", suffix: "/downloads" },
+  "account-order-return": { prefix: "/account/orders/", suffix: "/return" },
+  "account-return-detail": { prefix: "/account/returns/" },
+  "account-subscription-detail": { prefix: "/account/subscriptions/" },
+};
+
+function getPublishedHref(slug, entitySlug) {
+  const entityRoute = entityPublishedRoutes[slug];
+  if (entityRoute) {
+    const entity = entitySlug || entityRoute.defaultEntitySlug;
+    return entity ? `${entityRoute.prefix}${encodeURIComponent(entity)}${entityRoute.suffix || ""}` : null;
+  }
+
+  return staticPublishedRoutes[slug] || `/page/${slug}`;
+}
+
 function DrawerWithSearch({ children }) {
   const [search, setSearch] = useState("");
   const containerRef = useRef(null);
@@ -231,13 +281,14 @@ function DrawerWithSearch({ children }) {
 
 function EditorContent() {
   const searchParams = useSearchParams();
-  const slug = searchParams.get("slug") || "home";
+  const requestedSlug = searchParams.get("slug") || "home";
+  const slug = pageSlugAliases[requestedSlug] || requestedSlug;
   const [data, setData] = useState(null);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
-  const publishedHref = slug === "category-detail"
-    ? "/page/category-detail/accessories"
-    : `/page/${slug}`;
+  const [saveError, setSaveError] = useState("");
+  const entitySlug = searchParams.get("entitySlug");
+  const publishedHref = getPublishedHref(slug, entitySlug);
 
   useEffect(() => {
     fetch(`/api/pages/${slug}`)
@@ -249,16 +300,22 @@ function EditorContent() {
   const handlePublish = async (newData) => {
     setSaving(true);
     setSaved(false);
+    setSaveError("");
     try {
-      await fetch(`/api/pages/${slug}`, {
+      const response = await fetch(`/api/pages/${slug}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ data: newData }),
       });
+      if (!response.ok) {
+        const payload = await response.json().catch(() => null);
+        throw new Error(payload?.error || `Publish failed with status ${response.status}`);
+      }
       setSaved(true);
       setTimeout(() => setSaved(false), 3000);
     } catch (err) {
       console.error("Failed to save page:", err);
+      setSaveError(err instanceof Error ? err.message : "Unable to publish this page.");
     } finally {
       setSaving(false);
     }
@@ -274,15 +331,24 @@ function EditorContent() {
           {saved && (
             <span style={{ fontSize: "13px", color: "green" }}>Saved!</span>
           )}
-          <Button href={publishedHref} newTab size="medium">
-            View Page
-          </Button>
+          {saveError && (
+            <span style={{ fontSize: "13px", color: "#dc2626" }}>{saveError}</span>
+          )}
+          {publishedHref ? (
+            <Button href={publishedHref} newTab size="medium">
+              View Page
+            </Button>
+          ) : (
+            <span style={{ fontSize: "13px", color: "#64748b" }}>
+              Add `entitySlug` to open this dynamic published route
+            </span>
+          )}
           {children}
         </div>
       ),
       drawer: DrawerWithSearch,
     }),
-    [publishedHref, saving, saved],
+    [publishedHref, saveError, saving, saved],
   );
 
   if (!data) {

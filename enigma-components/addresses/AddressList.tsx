@@ -1,7 +1,7 @@
 'use client';
 
 import type { UserAddress } from '@/lib/api/types/auth';
-import { AddressCard } from '@/components/addresses/AddressCard';
+import { AddressCard } from '@/enigma-components/addresses/AddressCard';
 
 interface AddressListProps {
   addresses: UserAddress[];

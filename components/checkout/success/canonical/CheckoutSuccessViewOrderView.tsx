@@ -1,0 +1,6 @@
+import type { Order } from '@/lib/api/types'; import { ViewOrderButton } from '@/enigma-components/checkout/success/ViewOrderButton'; import { checkoutSuccessPreviewOrder } from './preview'; import { loadCheckoutSuccessRuntime } from './checkoutSuccessRuntime';
+interface Props { order?: Order | null; puck?: { isEditing?: boolean }; }
+export const puckComponentName = 'CheckoutSuccessViewOrder'; export const puckLabel = 'Checkout Success View Order'; export const puckCategory = 'Checkout'; export const puckFields = {}; export const puckDefaults = {};
+export const puckAst = { kind: 'runtime', sourceJsxNames: ['ViewOrderButton'], sourceImportPaths: ['@/components/checkout/success/ViewOrderButton'], role: 'checkout-success-view-order', runtimeSignals: ['order._id'] };
+export async function puckDataFetcher(_props: Props, context?: Parameters<typeof loadCheckoutSuccessRuntime>[0]) { const runtime = await loadCheckoutSuccessRuntime(context); return { order: runtime.order }; }
+export function CheckoutSuccessViewOrderView({ order = null, puck }: Props) { const resolved = puck?.isEditing ? checkoutSuccessPreviewOrder : order; return resolved ? <ViewOrderButton orderId={resolved._id} /> : null; }

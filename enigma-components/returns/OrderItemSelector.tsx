@@ -1,7 +1,7 @@
 'use client';
 
 import type { OrderItem } from '@/lib/api/types/orders';
-import { ReturnItemRow } from '@/components/returns/ReturnItemRow';
+import { ReturnItemRow } from '@/enigma-components/returns/ReturnItemRow';
 
 export interface SelectedReturnItem {
     key: string;

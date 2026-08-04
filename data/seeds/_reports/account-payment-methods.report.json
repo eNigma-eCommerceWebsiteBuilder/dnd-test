@@ -1,37 +1,73 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/account/payment-methods/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/account-payment-methods.json",
+  "profile": "account-payment-methods",
   "manifestLoaded": true,
   "captured": [
     {
-      "type": "PageHeader",
-      "id": "pageheader-1"
+      "type": "PaymentMethodsAddCardAction",
+      "id": "paymentmethodsaddcardaction-1"
     },
     {
-      "type": "SectionHeading",
-      "id": "sectionheading-1"
+      "type": "PaymentMethodsHeaderLayout",
+      "id": "paymentmethodsheaderlayout-1"
     },
     {
-      "type": "CalloutCard",
-      "id": "calloutcard-1"
+      "type": "PaymentMethodsStripeCardForm",
+      "id": "paymentmethodsstripecardform-1"
     },
     {
-      "type": "PageWrapper",
-      "id": "pagewrapper-1"
+      "type": "PaymentMethodsStripeConfigCondition",
+      "id": "paymentmethodsstripeconfigcondition-1"
+    },
+    {
+      "type": "PaymentMethodsListRegion",
+      "id": "paymentmethodslistregion-1"
+    },
+    {
+      "type": "PaymentMethodsEmptyStateRegion",
+      "id": "paymentmethodsemptystateregion-1"
+    },
+    {
+      "type": "PaymentMethodsListState",
+      "id": "paymentmethodsliststate-1"
+    },
+    {
+      "type": "PaymentMethodsSavedCardsSection",
+      "id": "paymentmethodssavedcardssection-1"
+    },
+    {
+      "type": "PaymentMethodsHelpFooter",
+      "id": "paymentmethodshelpfooter-1"
+    },
+    {
+      "type": "PaymentMethodsPageLayout",
+      "id": "paymentmethodspagelayout-1"
+    },
+    {
+      "type": "PaymentMethodsPageState",
+      "id": "paymentmethodspagestate-1"
     }
   ],
   "warnings": [],
-  "droppedComponents": [
-    "AddCardButton",
-    "StripeCardForm"
-  ],
+  "errors": [],
+  "droppedComponents": [],
   "unmatchedHtml": [],
   "runtimeConditionals": [
     {
-      "source": "stripeConfig && (\r\n                    <div className=\"mb-8\">\r\n                        <StripeCardForm stripeConfig={stripeConfig} />\r\n                    </div>\r\n                )"
+      "source": "stripeConfig",
+      "handledBy": "PaymentMethodsStripeConfigCondition"
     },
     {
-      "source": "paymentMethods.length > 0 ? (\r\n                        <PaymentMethodList paymentMethods={paymentMethods} />\r\n                    ) : (\r\n                        <EmptyPaymentMethods />\r\n                    )"
+      "source": "paymentMethods.length > 0 ? list : empty",
+      "handledBy": "PaymentMethodsListState"
     }
-  ]
+  ],
+  "delegates": [
+    {
+      "component": "PaymentMethodsCanonicalPage",
+      "source": "D:/projects/eNigma-TemplateFrontend/components/payment-methods/canonical/PaymentMethodsPage.tsx"
+    }
+  ],
+  "fatal": false
 }

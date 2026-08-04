@@ -12,6 +12,8 @@ const COMPONENTS_DIR = path.join(PROJECT_ROOT, "components");
 const OUTPUT_FILE = path.join(PROJECT_ROOT, "lib", "puck-components.jsx");
 const SERVER_OUTPUT_FILE = path.join(PROJECT_ROOT, "lib", "puck-components.server.jsx");
 const AST_MANIFEST_FILE = path.join(PROJECT_ROOT, "lib", "puck-ast-manifest.json");
+const ROUTE_COMPOSITION_FILE = path.join(PROJECT_ROOT, "lib", "puck-route-composition.json");
+const SEEDS_DIR = path.join(PROJECT_ROOT, "data", "seeds");
 
 interface ComponentEntry {
   puckComponentName: string;
@@ -26,6 +28,8 @@ interface ComponentEntry {
   defaultsAlias: string;
   hasDataFetcher: boolean;
   fetcherAlias: string;
+  serverFetcherImportPath?: string;
+  serverFetcherExportName?: string;
   ast?: Record<string, unknown>;
 }
 
@@ -50,7 +54,8 @@ const CATEGORY_ORDER = [
 ];
 
 function buildCategoriesObject(entries: ComponentEntry[]): string {
-  const usedCategories = new Set(entries.map((e) => e.category));
+  const paletteEntries = entries.filter(isEntryParserEligible);
+  const usedCategories = new Set(paletteEntries.map((e) => e.category));
   const ordered = [
     ...CATEGORY_ORDER.filter((c) => usedCategories.has(c)),
     ...[...usedCategories]
@@ -59,7 +64,7 @@ function buildCategoriesObject(entries: ComponentEntry[]): string {
   ];
 
   const byCategory: Record<string, string[]> = {};
-  for (const entry of entries) {
+  for (const entry of paletteEntries) {
     if (!byCategory[entry.category]) byCategory[entry.category] = [];
     byCategory[entry.category].push(entry.puckComponentName);
   }
@@ -218,8 +223,16 @@ async function generate(): Promise<void> {
 
     const safeAlias = puckComponentName.replace(/[^a-zA-Z0-9]/g, "_");
 
-    const hasDataFetcher =
-      typeof mod.puckDataFetcher === "function";
+    const declaredServerFetcher = mod.puckServerDataFetcher as
+      | { importPath?: unknown; exportName?: unknown }
+      | undefined;
+    const serverFetcherImportPath = typeof declaredServerFetcher?.importPath === "string"
+      ? declaredServerFetcher.importPath
+      : undefined;
+    const serverFetcherExportName = typeof declaredServerFetcher?.exportName === "string"
+      ? declaredServerFetcher.exportName
+      : "puckDataFetcher";
+    const hasDataFetcher = typeof mod.puckDataFetcher === "function" || Boolean(serverFetcherImportPath);
 
     entries.push({
       puckComponentName,
@@ -234,6 +247,8 @@ async function generate(): Promise<void> {
       defaultsAlias: `${safeAlias}_defaults`,
       hasDataFetcher,
       fetcherAlias: `${safeAlias}_fetcher`,
+      serverFetcherImportPath,
+      serverFetcherExportName,
       ast: mod.puckAst && typeof mod.puckAst === "object"
         ? (mod.puckAst as Record<string, unknown>)
         : undefined,
@@ -244,9 +259,11 @@ async function generate(): Promise<void> {
     a.puckComponentName.localeCompare(b.puckComponentName),
   );
 
+  validateParserMetadata(entries);
   generateClientConfig(entries);
   generateServerConfig(entries);
   generateAstManifest(entries);
+  generateRouteComposition(entries);
 
   const dataAwareCount = entries.filter((e) => e.hasDataFetcher).length;
   console.log(
@@ -273,11 +290,253 @@ function generateAstManifest(entries: ComponentEntry[]): void {
       category: entry.category,
       label: entry.label,
       hasDataFetcher: entry.hasDataFetcher,
+      defaults: entry.defaults,
+      fieldNames: entry.fields && typeof entry.fields === "object"
+        ? Object.keys(entry.fields as Record<string, unknown>)
+        : [],
+      canonical: isEntryParserEligible(entry),
+      legacy: !isEntryParserEligible(entry),
+      parserEligible: isEntryParserEligible(entry),
       ast: entry.ast || {},
     })),
   };
 
   fs.writeFileSync(AST_MANIFEST_FILE, JSON.stringify(manifest, null, 2), "utf-8");
+}
+
+function validateParserMetadata(entries: ComponentEntry[]): void {
+  const entryByType = new Map(entries.map((entry) => [entry.puckComponentName, entry]));
+  const roleOwners = new Map<string, string>();
+  const errors: string[] = [];
+
+  for (const entry of entries.filter(isEntryParserEligible)) {
+    const role = entry.ast?.role;
+    if (!isString(role)) {
+      errors.push(`${entry.puckComponentName}: parser-eligible component has no role.`);
+      continue;
+    }
+    const existingRoleOwner = roleOwners.get(role);
+    if (existingRoleOwner && existingRoleOwner !== entry.puckComponentName) {
+      errors.push(`${entry.puckComponentName}: role "${role}" is already owned by ${existingRoleOwner}.`);
+    } else {
+      roleOwners.set(role, entry.puckComponentName);
+    }
+
+    const fields = entry.fields && typeof entry.fields === "object"
+      ? entry.fields as Record<string, unknown>
+      : {};
+    const slots = Array.isArray(entry.ast?.slots)
+      ? entry.ast.slots.filter(isString)
+      : [];
+
+    for (const slot of slots) {
+      const field = fields[slot];
+      if (!field || typeof field !== "object" || (field as { type?: unknown }).type !== "slot") {
+        errors.push(`${entry.puckComponentName}.${slot}: puckAst slot has no matching Puck slot field.`);
+        continue;
+      }
+      const allow = (field as { allow?: unknown }).allow;
+      if (!Array.isArray(allow)) continue;
+      for (const childType of allow.filter(isString)) {
+        if (!entryByType.has(childType)) {
+          errors.push(`${entry.puckComponentName}.${slot}: unknown allowed Puck type "${childType}".`);
+        }
+      }
+    }
+
+    const list = entry.ast?.list;
+    if (list && typeof list === "object") {
+      const listSlot = (list as { slot?: unknown }).slot;
+      const previewCount = (list as { previewCount?: unknown }).previewCount;
+      if (!isString(listSlot) || !slots.includes(listSlot)) {
+        errors.push(`${entry.puckComponentName}: list metadata references an undeclared slot.`);
+      }
+      if (!Number.isInteger(previewCount) || Number(previewCount) < 1) {
+        errors.push(`${entry.puckComponentName}: list previewCount must be a positive integer.`);
+      }
+    }
+  }
+
+  if (errors.length > 0) {
+    throw new Error(`Invalid Puck parser metadata:\n- ${errors.join("\n- ")}`);
+  }
+}
+
+interface SeedComponent {
+  type?: unknown;
+  props?: Record<string, unknown>;
+}
+
+interface RouteCompositionEntry {
+  roots: string[];
+  allowedTypes: string[];
+  children: Record<string, Record<string, string[]>>;
+  slots: Array<{
+    parentType: string;
+    slot: string;
+    allowedTypes: string[];
+    minChildren: number;
+    repeatable: boolean;
+  }>;
+}
+
+function generateRouteComposition(entries: ComponentEntry[]): void {
+  const entryByType = new Map(entries.map((entry) => [entry.puckComponentName, entry]));
+  const routes: Record<string, RouteCompositionEntry> = {};
+
+  if (fs.existsSync(SEEDS_DIR)) {
+    const seedFiles = fs.readdirSync(SEEDS_DIR)
+      .filter((name) => name.endsWith(".json"))
+      .sort((a, b) => a.localeCompare(b));
+
+    for (const seedFile of seedFiles) {
+      const routeId = path.basename(seedFile, ".json");
+      const seedPath = path.join(SEEDS_DIR, seedFile);
+      let parsed: { content?: SeedComponent[] };
+      try {
+        parsed = JSON.parse(fs.readFileSync(seedPath, "utf-8")) as { content?: SeedComponent[] };
+      } catch (error) {
+        throw new Error(`Could not read route-composition seed ${seedPath}: ${String(error)}`);
+      }
+
+      const roots = Array.isArray(parsed.content)
+        ? parsed.content.map((item) => item?.type).filter(isString)
+        : [];
+      const allowedTypes = new Set<string>();
+      const childSets = new Map<string, Map<string, Set<string>>>();
+
+      collectRouteComposition(parsed.content || [], entryByType, allowedTypes, childSets);
+      expandDeclaredSlotAllowances(entryByType, allowedTypes, childSets);
+      routes[routeId] = {
+        roots: [...new Set(roots)],
+        allowedTypes: [...allowedTypes].sort((a, b) => a.localeCompare(b)),
+        children: Object.fromEntries(
+          [...childSets.entries()]
+            .sort(([left], [right]) => left.localeCompare(right))
+            .map(([parentType, slots]) => [
+              parentType,
+              Object.fromEntries(
+                [...slots.entries()]
+                  .sort(([left], [right]) => left.localeCompare(right))
+                  .map(([slot, types]) => [slot, [...types].sort((a, b) => a.localeCompare(b))]),
+              ),
+            ]),
+        ),
+        slots: [...childSets.entries()]
+          .flatMap(([parentType, slots]) => [...slots.entries()].map(([slot, types]) => ({
+            parentType,
+            slot,
+            allowedTypes: [...types].sort((a, b) => a.localeCompare(b)),
+            minChildren: 0,
+            repeatable: true,
+          })))
+          .sort((left, right) => (
+            left.parentType.localeCompare(right.parentType)
+            || left.slot.localeCompare(right.slot)
+          )),
+      };
+    }
+  }
+
+  fs.writeFileSync(
+    ROUTE_COMPOSITION_FILE,
+    JSON.stringify({ generatedAt: new Date().toISOString(), routes }, null, 2),
+    "utf-8",
+  );
+}
+
+function expandDeclaredSlotAllowances(
+  entryByType: Map<string, ComponentEntry>,
+  allowedTypes: Set<string>,
+  childSets: Map<string, Map<string, Set<string>>>,
+): void {
+  const pending = [...allowedTypes];
+  const visited = new Set<string>();
+
+  while (pending.length > 0) {
+    const parentType = pending.shift()!;
+    if (visited.has(parentType)) continue;
+    visited.add(parentType);
+    const entry = entryByType.get(parentType);
+    if (!entry || !isEntryParserEligible(entry)) continue;
+
+    const slots = Array.isArray(entry.ast?.slots)
+      ? entry.ast.slots.filter(isString)
+      : [];
+    const fields = entry.fields && typeof entry.fields === "object"
+      ? entry.fields as Record<string, unknown>
+      : {};
+
+    for (const slot of slots) {
+      const field = fields[slot];
+      const allow = field && typeof field === "object" && Array.isArray((field as { allow?: unknown }).allow)
+        ? (field as { allow: unknown[] }).allow.filter(isString)
+        : [];
+      if (!childSets.has(parentType)) childSets.set(parentType, new Map());
+      const slotsForParent = childSets.get(parentType)!;
+      if (!slotsForParent.has(slot)) slotsForParent.set(slot, new Set());
+      const allowedChildren = slotsForParent.get(slot)!;
+
+      for (const childType of allow) {
+        const childEntry = entryByType.get(childType);
+        if (!childEntry || !isEntryParserEligible(childEntry)) continue;
+        allowedChildren.add(childType);
+        if (!allowedTypes.has(childType)) {
+          allowedTypes.add(childType);
+          pending.push(childType);
+        }
+      }
+    }
+  }
+}
+
+function collectRouteComposition(
+  nodes: SeedComponent[],
+  entryByType: Map<string, ComponentEntry>,
+  allowedTypes: Set<string>,
+  childSets: Map<string, Map<string, Set<string>>>,
+): void {
+  for (const node of nodes) {
+    if (!isString(node?.type)) continue;
+    allowedTypes.add(node.type);
+    const entry = entryByType.get(node.type);
+    const slots = Array.isArray(entry?.ast?.slots)
+      ? entry.ast.slots.filter(isString)
+      : [];
+
+    for (const slot of slots) {
+      const children = node.props?.[slot];
+      if (!Array.isArray(children)) continue;
+      const slotChildren = children.filter(isSeedComponent);
+      if (!childSets.has(node.type)) childSets.set(node.type, new Map());
+      const slotsForParent = childSets.get(node.type)!;
+      if (!slotsForParent.has(slot)) slotsForParent.set(slot, new Set());
+      const allowedChildren = slotsForParent.get(slot)!;
+      for (const child of slotChildren) {
+        if (isString(child.type)) allowedChildren.add(child.type);
+      }
+      collectRouteComposition(slotChildren, entryByType, allowedTypes, childSets);
+    }
+  }
+}
+
+function isEntryParserEligible(entry: ComponentEntry): boolean {
+  if (entry.ast?.parserEligible === false) return false;
+  return Boolean(
+    isString(entry.ast?.role)
+    && Array.isArray(entry.ast?.sourceJsxNames)
+    && entry.ast.sourceJsxNames.some(isString)
+    && Array.isArray(entry.ast?.sourceImportPaths)
+    && entry.ast.sourceImportPaths.some(isString),
+  );
+}
+
+function isSeedComponent(value: unknown): value is SeedComponent {
+  return Boolean(value && typeof value === "object" && isString((value as SeedComponent).type));
+}
+
+function isString(value: unknown): value is string {
+  return typeof value === "string" && value.length > 0;
 }
 
 function generateClientConfig(entries: ComponentEntry[]): void {
@@ -371,6 +630,12 @@ function shouldUseEditorPreview(entry: ComponentEntry): boolean {
   return false;
 }
 
+function getServerDefaults(entry: ComponentEntry): unknown {
+  // Runtime components receive their values from puckDataFetcher during a
+  // published render. Never serialize editor sample records into that config.
+  return entry.hasDataFetcher ? {} : entry.defaults;
+}
+
 function generateServerConfig(entries: ComponentEntry[]): void {
   const lines: string[] = [];
   const reactImportLine = 'import React from "react";';
@@ -405,7 +670,7 @@ function generateServerConfig(entries: ComponentEntry[]): void {
   for (const entry of entries) {
     if (!entry.hasDataFetcher) continue;
     lines.push(`const ${entry.fieldsAlias} = ${serializeClientConfigValue(entry.fields)};`);
-    lines.push(`const ${entry.defaultsAlias} = ${serializeClientConfigValue(entry.defaults)};`);
+    lines.push(`const ${entry.defaultsAlias} = ${serializeClientConfigValue(getServerDefaults(entry))};`);
   }
   if (entries.some((entry) => entry.hasDataFetcher)) lines.push("");
   lines.push("const config = {");
@@ -428,19 +693,22 @@ function generateServerConfig(entries: ComponentEntry[]): void {
           ? "          const Component = mod.default;"
           : `          const Component = mod[${JSON.stringify(entry.componentExportName)}];`,
       );
-      lines.push("          const fetcher = mod.puckDataFetcher;");
-      lines.push("          const puckMetadata = props?.puck?.metadata || {};");
-      lines.push("          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};");
+      if (entry.serverFetcherImportPath) {
+        lines.push(`          const fetcherModule = await import(${JSON.stringify(entry.serverFetcherImportPath)});`);
+        lines.push(`          const fetcher = fetcherModule[${JSON.stringify(entry.serverFetcherExportName)}];`);
+      } else {
+        lines.push("          const fetcher = mod.puckDataFetcher;");
+      }
+      lines.push("          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };");
+      lines.push("          const publishedProps = { ...props, puck: publishedPuck };");
+      lines.push("          const puckMetadata = publishedPuck.metadata || {};");
+      lines.push("          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};");
       lines.push(
-        "          return <Component {...props} {...fetchedData} />;",
+        "          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;",
       );
       lines.push("        } catch (e) {");
-      lines.push(
-        `          console.warn('[puck] Data fetch failed for ${entry.puckComponentName}:', e?.message || e);`,
-      );
-      lines.push(
-        `          return <div data-puck-render-error=${JSON.stringify(entry.puckComponentName)} />;`,
-      );
+      lines.push("          // Preserve source-route failures instead of rendering an invisible fallback block.");
+      lines.push("          throw e;");
       lines.push("        }");
       lines.push("      },");
     } else {

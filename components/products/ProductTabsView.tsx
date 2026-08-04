@@ -1,97 +1,87 @@
+import type { Product } from '@/lib/api/types/products';
+import type { ReviewsResponse } from '@/lib/api/types/reviews';
+import { fetchProduct, fetchProductReviews } from '@/lib/api/services/products';
 import { ProductTabs } from './ProductTabs';
-import { fetchProduct } from '@/lib/api/services/products';
+import { buildProductTabs } from './canonical/ProductDetailContent';
 import { resolveProductDetailSlug } from './product-detail-route';
 import type { PuckFetcherContext } from '@/lib/puck-route-metadata';
-
-interface TabItem {
-  id: string;
-  label: string;
-  content: string;
-}
 
 interface ProductTabsViewProps {
   productSlug?: string;
   defaultTab?: string;
-  tabs: TabItem[];
+  product?: Product;
+  reviewsData?: ReviewsResponse;
   className?: string;
 }
+
+const previewProduct: Product = {
+  _id: 'product-detail-preview',
+  name: 'Premium Wool Coat',
+  slug: 'premium-wool-coat',
+  price: 450,
+  description: 'Crafted from premium materials for enduring comfort and style.',
+  images: ['https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=80'],
+  stock: 10,
+  inStock: true,
+  isActive: true,
+  createdAt: '2024-01-01T00:00:00Z',
+  updatedAt: '2024-01-01T00:00:00Z',
+};
+
+const emptyReviews: ReviewsResponse = {
+  items: [],
+  averageRating: 0,
+  totalReviews: 0,
+  ratingDistribution: {},
+  page: 1,
+  pageSize: 5,
+  totalItems: 0,
+  totalPages: 0,
+};
 
 export const puckComponentName = 'ProductTabs';
 export const puckLabel = 'Product Tabs';
 export const puckCategory = 'Products';
 
 export const puckFields = {
-  productSlug: { type: 'text' as const, label: 'Product Slug (auto-fill from product)' },
-  defaultTab: { type: 'text' as const, label: 'Default Tab ID' },
-  tabs: {
-    type: 'array' as const,
-    label: 'Tabs',
-    arrayFields: {
-      id: { type: 'text' as const, label: 'Tab ID' },
-      label: { type: 'text' as const, label: 'Tab Label' },
-      content: { type: 'textarea' as const, label: 'Tab Content' },
-    },
-    defaultItemProps: {
-      id: 'new-tab',
-      label: 'New Tab',
-      content: 'Tab content here.',
-    },
-    getItemSummary: (item: TabItem) => item.label,
-  },
+  productSlug: { type: 'text' as const, label: 'Product slug (auto-fill content)' },
+  defaultTab: { type: 'text' as const, label: 'Default tab ID' },
 };
 
 export const puckDefaults = {
   productSlug: 'premium-wool-coat',
   defaultTab: 'description',
-  tabs: [
-    {
-      id: 'description',
-      label: 'Description',
-      content: 'Crafted from premium materials, this piece combines timeless design with modern functionality. Perfect for the discerning individual who values both style and substance.',
-    },
-    {
-      id: 'specs',
-      label: 'Specifications',
-      content: 'Material: 100% Premium Wool\nFit: Tailored\nCare: Dry clean only\nOrigin: Made in Italy',
-    },
-    {
-      id: 'shipping',
-      label: 'Shipping & Returns',
-      content: 'Free global shipping on orders over $100. 30-day hassle-free returns. Items must be in original condition with tags attached.',
-    },
-  ],
+  product: previewProduct,
+  reviewsData: emptyReviews,
 };
-export const puckAst = { kind: 'runtime', sourceJsxNames: ['ProductTabs'], sourceImportPaths: ['@/components/products/ProductTabs'], role: 'product-tabs', runtimeSignals: ['product', 'reviews'] };
+export const puckAst = {
+  kind: 'runtime',
+  sourceJsxNames: ['ProductTabs'],
+  sourceImportPaths: ['@/components/products/ProductTabs'],
+  role: 'product-tabs',
+  runtimeSignals: ['product', 'reviews'],
+};
 
-export async function puckDataFetcher(props: { productSlug?: string }, context?: PuckFetcherContext) {
+export async function puckDataFetcher(
+  props: { productSlug?: string },
+  context?: PuckFetcherContext,
+) {
   const productSlug = resolveProductDetailSlug(props, context);
   if (!productSlug) return {};
-  const product = await fetchProduct(productSlug);
-  const tabs: TabItem[] = [
-    { id: 'description', label: 'Description', content: product.fullDescription || product.description || '' },
-  ];
-  if (product.specs && product.specs.length > 0) {
-    tabs.push({
-      id: 'specs',
-      label: 'Specifications',
-      content: product.specs.map((s) => `${s.name}: ${s.value}`).join('\n'),
-    });
-  }
-  tabs.push({
-    id: 'shipping',
-    label: 'Shipping & Returns',
-    content: 'Free global shipping on orders over $100. 30-day hassle-free returns.',
-  });
-  return { tabs };
+
+  const [product, reviewsData] = await Promise.all([
+    fetchProduct(productSlug),
+    fetchProductReviews(productSlug, { page: 1, pageSize: 5 }).catch(() => emptyReviews),
+  ]);
+  return { product, reviewsData };
 }
 
-
-export function ProductTabsView({ defaultTab, tabs, className }: ProductTabsViewProps) {
-  return (
-    <ProductTabs
-      defaultTab={defaultTab}
-      tabs={tabs}
-      className={className}
-    />
-  );
+// Delegates the exact source tab content, including rich description and specs nodes.
+export function ProductTabsView({
+  defaultTab = 'description',
+  product = previewProduct,
+  reviewsData = emptyReviews,
+  className,
+}: ProductTabsViewProps) {
+  return <ProductTabs defaultTab={defaultTab} tabs={buildProductTabs(product, reviewsData)} className={className} />;
 }

@@ -26,10 +26,25 @@ type VisitCase = {
 type PageCheck = {
   slug: string;
   title: string;
-  expectedComponents: string[];
   visitCases: VisitCase[];
   interactions: string[];
   notes?: string[];
+};
+
+type RouteComposition = {
+  routes: Record<string, {
+    roots: string[];
+    allowedTypes: string[];
+  }>;
+};
+
+type StructureAudit = {
+  status: 'ready' | 'missing';
+  expectedRoots: string[];
+  actualRoots: string[];
+  missingRoots: string[];
+  unexpectedTypes: string[];
+  componentTypes: string[];
 };
 
 type FetchResult = {
@@ -42,15 +57,15 @@ type FetchResult = {
 const rootDir = process.cwd();
 const dataPath = path.join(rootDir, 'data', 'pages.json');
 const seedDir = path.join(rootDir, 'data', 'seeds');
+const compositionPath = path.join(rootDir, 'lib', 'puck-route-composition.json');
 const outputPath = path.join(rootDir, 'docs', 'published-page-qa-guide.md');
 const reportPath = path.join(rootDir, 'docs', 'published-page-qa-report.json');
 const baseUrl = process.env.PUBLISHED_BASE_URL || 'http://localhost:3000';
 
-const checks: PageCheck[] = [
+const manualChecks: PageCheck[] = [
   {
     slug: 'products',
     title: 'Products Catalog',
-    expectedComponents: ['ProductsCatalogStateSection'],
     visitCases: [
       { label: 'All products', path: '/page/products', expect: 'Product grid and item count render.' },
       { label: 'Category filter', path: '/page/products?category=accessories', expect: 'Only accessories products appear.' },
@@ -70,7 +85,6 @@ const checks: PageCheck[] = [
   {
     slug: 'cart',
     title: 'Cart',
-    expectedComponents: ['CartStateSection'],
     visitCases: [
       { label: 'Cart page', path: '/page/cart', expect: 'Shows filled cart when cart has items, empty cart when cart has none.' },
     ],
@@ -83,19 +97,17 @@ const checks: PageCheck[] = [
   {
     slug: 'checkout',
     title: 'Checkout',
-    expectedComponents: ['CheckoutStateSection'],
     visitCases: [
-      { label: 'Checkout page', path: '/page/checkout', expect: 'Shows checkout flow only when cart has items; otherwise empty-cart branch.' },
+      { label: 'Checkout page', path: '/page/checkout', expect: 'Redirects an empty cart to /cart; a filled cart renders the source checkout flow.' },
     ],
     interactions: [
       'Visit with empty cart, then with filled cart.',
-      'Check shipping/payment/order summary sections are not visible when cart is empty.',
+      'Confirm shipping, payment, review, and summary regions follow the production step state.',
     ],
   },
   {
     slug: 'checkout-subscription',
     title: 'Subscription Checkout',
-    expectedComponents: ['CheckoutSubscriptionStateSection'],
     visitCases: [
       { label: 'Subscription checkout', path: '/page/checkout-subscription', expect: 'Ready branch only when subscription cart data exists.' },
     ],
@@ -107,7 +119,6 @@ const checks: PageCheck[] = [
   {
     slug: 'checkout-success',
     title: 'Checkout Success',
-    expectedComponents: ['CheckoutDigitalAssetsSection'],
     visitCases: [
       { label: 'Success page', path: '/page/checkout-success', expect: 'Digital assets section appears only for paid digital orders.' },
     ],
@@ -120,7 +131,6 @@ const checks: PageCheck[] = [
   {
     slug: 'categories',
     title: 'Categories',
-    expectedComponents: ['CategoryGrid'],
     visitCases: [
       { label: 'Categories landing', path: '/page/categories', expect: 'Category cards render from backend data.' },
     ],
@@ -132,7 +142,6 @@ const checks: PageCheck[] = [
   {
     slug: 'category-detail',
     title: 'Category Detail',
-    expectedComponents: ['CategoryCatalogStateSection'],
     visitCases: [
       { label: 'Category detail seed', path: '/page/category-detail', expect: 'A valid category renders products; invalid/missing slug renders not-found.' },
     ],
@@ -145,7 +154,6 @@ const checks: PageCheck[] = [
   {
     slug: 'collections',
     title: 'Collections',
-    expectedComponents: ['CollectionStateSection'],
     visitCases: [
       { label: 'Collections landing', path: '/page/collections', expect: 'Collection content branch when collections exist; empty branch otherwise.' },
     ],
@@ -157,7 +165,6 @@ const checks: PageCheck[] = [
   {
     slug: 'collection-detail',
     title: 'Collection Detail',
-    expectedComponents: ['CollectionDetailStateSection'],
     visitCases: [
       { label: 'Collection detail seed', path: '/page/collection-detail', expect: 'Curated or inspiration branch matches the selected collection.' },
     ],
@@ -171,7 +178,6 @@ const checks: PageCheck[] = [
   {
     slug: 'search',
     title: 'Search',
-    expectedComponents: ['SearchStateSection'],
     visitCases: [
       { label: 'Start state', path: '/page/search', expect: 'Start-search state.' },
       { label: 'Results state', path: '/page/search?q=coat', expect: 'Search results branch.' },
@@ -185,7 +191,6 @@ const checks: PageCheck[] = [
   {
     slug: 'account-addresses',
     title: 'Account Addresses',
-    expectedComponents: ['AccountAddressesStateSection'],
     visitCases: [
       { label: 'Addresses page', path: '/page/account-addresses', expect: 'Signed-in users see address manager; missing/error profile shows fallback.' },
     ],
@@ -197,7 +202,6 @@ const checks: PageCheck[] = [
   {
     slug: 'account-downloads',
     title: 'Account Downloads',
-    expectedComponents: ['AccountDigitalLibraryStateSection'],
     visitCases: [
       { label: 'Digital library', path: '/page/account-downloads', expect: 'Digital library appears only when paid digital assets exist.' },
     ],
@@ -210,20 +214,18 @@ const checks: PageCheck[] = [
   {
     slug: 'account-subscription-detail',
     title: 'Subscription Detail',
-    expectedComponents: ['SubscriptionDetailStateSection'],
     visitCases: [
-      { label: 'Subscription detail seed', path: '/page/account-subscription-detail', expect: 'Valid subscription renders details; missing/invalid id renders not-found/error.' },
+      { label: 'Subscription detail', path: '/account/subscriptions/<id>', expect: 'The published canonical tree renders for the requested subscription id; an invalid id uses the native not-found branch.' },
     ],
     interactions: [
-      'Publish a real `subscriptionId` before content-state testing.',
-      'Test active, paused, and invalid subscriptions if available.',
-      'Confirm pause/resume/cancel buttons match subscription status.',
+      'Open the editor seed to inspect the source-ordered outline and its editor-only preview.',
+      'Use a valid subscription id if available to compare visual structure with the real route.',
+      'Confirm lifecycle controls are controlled by the source subscription status.',
     ],
   },
   {
     slug: 'downloads',
     title: 'License Download',
-    expectedComponents: ['DownloadLicenseStateSection'],
     visitCases: [
       { label: 'Download license page', path: '/page/downloads', expect: 'Valid license enables download; invalid license disables it.' },
     ],
@@ -235,7 +237,6 @@ const checks: PageCheck[] = [
   {
     slug: 'shared-wishlist',
     title: 'Shared Wishlist',
-    expectedComponents: ['SharedWishlistStateSection'],
     visitCases: [
       { label: 'Shared wishlist page', path: '/page/shared-wishlist', expect: 'Valid token shows wishlist; empty token shows empty; invalid token shows invalid.' },
     ],
@@ -247,7 +248,6 @@ const checks: PageCheck[] = [
   {
     slug: 'product-detail',
     title: 'Product Detail',
-    expectedComponents: ['ProductDetailPurchaseSection', 'ProductRelatedProductsSection'],
     visitCases: [
       { label: 'Product detail seed', path: '/page/product-detail', expect: 'Valid product renders purchase section; missing product hides unavailable sections.' },
     ],
@@ -260,8 +260,12 @@ const checks: PageCheck[] = [
 ];
 
 async function main() {
+  const composition = await readRouteComposition();
+  const checks = buildPageChecks(composition);
   const savedPages = await readSavedPages();
-  const rows = await Promise.all(checks.map(async (check) => analyzePage(check, savedPages)));
+  const rows = await Promise.all(checks.map(async (check) => (
+    analyzePage(check, savedPages, composition.routes[check.slug])
+  )));
   const shouldFetch = process.argv.includes('--fetch');
   const fetchResults = shouldFetch ? await fetchVisitCases(checks) : {};
 
@@ -269,15 +273,21 @@ async function main() {
   await fs.writeFile(outputPath, renderGuide(rows, fetchResults, shouldFetch), 'utf8');
   await fs.writeFile(reportPath, JSON.stringify({ generatedAt: new Date().toISOString(), rows, fetchResults }, null, 2), 'utf8');
 
-  const blockers = rows.filter((row) => row.missingExpected.length > 0);
+  const seedReadyCount = rows.filter((row) => row.seedAudit.status === 'ready').length;
+  const publishedReadyCount = rows.filter((row) => row.publishedAudit.status === 'ready').length;
+  const blockers = rows.filter((row) => (
+    row.seedAudit.status !== 'ready' || row.publishedAudit.status !== 'ready'
+  ));
   console.log(`Wrote ${relative(outputPath)}`);
   console.log(`Wrote ${relative(reportPath)}`);
-  console.log(`${rows.length - blockers.length}/${rows.length} pages contain all expected state component(s).`);
+  console.log(`Canonical parser seeds: ${seedReadyCount}/${rows.length} ready.`);
+  console.log(`Saved published-page data: ${publishedReadyCount}/${rows.length} ready.`);
   if (blockers.length) {
-    console.log('Pages needing regeneration/publishing or component mapping:');
+    console.log('Pages needing regeneration or publishing:');
     for (const blocker of blockers) {
-      console.log(`- ${blocker.slug}: missing ${blocker.missingExpected.join(', ')}`);
+      console.log(`- ${blocker.slug}: seed ${formatAudit(blocker.seedAudit)}; published ${formatAudit(blocker.publishedAudit)}`);
     }
+    process.exitCode = 1;
   }
 }
 
@@ -289,27 +299,81 @@ async function readSavedPages(): Promise<PageEntry[]> {
   }
 }
 
-async function analyzePage(check: PageCheck, savedPages: PageEntry[]) {
+async function readRouteComposition(): Promise<RouteComposition> {
+  const composition = JSON.parse(await fs.readFile(compositionPath, 'utf8')) as RouteComposition;
+  if (!composition.routes || Object.keys(composition.routes).length === 0) {
+    throw new Error('Generated route composition has no route definitions. Run generate:puck-config first.');
+  }
+  return composition;
+}
+
+function buildPageChecks(composition: RouteComposition): PageCheck[] {
+  const manualBySlug = new Map(manualChecks.map((check) => [check.slug, check]));
+
+  return Object.keys(composition.routes)
+    .sort()
+    .map((slug) => manualBySlug.get(slug) || {
+      slug,
+      title: formatTitle(slug),
+      visitCases: [
+        {
+          label: 'Published page',
+          path: `/page/${slug}`,
+          expect: 'The canonical Puck tree renders without a red error overlay.',
+        },
+      ],
+      interactions: [
+        'Compare the visible region order and layout against the corresponding real TemplateFrontend route.',
+        'Confirm the Puck outline follows the canonical source tree before testing backend-dependent states.',
+      ],
+    });
+}
+
+function formatTitle(slug: string): string {
+  return slug.split('-').map((part) => part[0].toUpperCase() + part.slice(1)).join(' ');
+}
+
+async function analyzePage(
+  check: PageCheck,
+  savedPages: PageEntry[],
+  route: RouteComposition['routes'][string],
+) {
   const saved = savedPages.find((page) => page.slug === check.slug);
   const seed = await readSeed(check.slug);
-  const source = saved ? 'saved data/pages.json' : seed ? `seed data/seeds/${check.slug}.json` : 'missing';
-  const data = saved?.data || seed || {};
-  const types = collectTypes(data.content || []);
-  const missingExpected = check.expectedComponents.filter((component) => !types.includes(component));
-  const warnings = collectWarnings(check, types, data);
+  const seedAudit = auditStructure(seed, route);
+  const publishedAudit = auditStructure(saved?.data, route);
+  const warnings = collectWarnings(check, saved?.data, seedAudit, publishedAudit);
 
   return {
     slug: check.slug,
     title: check.title,
-    source,
-    expectedComponents: check.expectedComponents,
-    presentComponents: check.expectedComponents.filter((component) => types.includes(component)),
-    missingExpected,
-    componentTypes: Array.from(new Set(types)).sort(),
+    source: saved ? 'saved data/pages.json' : 'missing saved data/pages.json entry',
+    expectedComponents: route.roots,
+    seedAudit,
+    publishedAudit,
     warnings,
     visitCases: check.visitCases,
     interactions: check.interactions,
     notes: check.notes || [],
+  };
+}
+
+function auditStructure(data: PageData | undefined | null, route: RouteComposition['routes'][string]): StructureAudit {
+  const items = data?.content || [];
+  const componentTypes = Array.from(new Set(collectTypes(items))).sort();
+  const actualRoots = items.flatMap((item) => item?.type ? [item.type] : []);
+  const hasExpectedRoot = actualRoots.some((type) => route.roots.includes(type));
+  const missingRoots = hasExpectedRoot ? [] : route.roots;
+  const allowedTypes = new Set(route.allowedTypes);
+  const unexpectedTypes = componentTypes.filter((type) => !allowedTypes.has(type));
+
+  return {
+    status: data && hasExpectedRoot && unexpectedTypes.length === 0 ? 'ready' : 'missing',
+    expectedRoots: route.roots,
+    actualRoots,
+    missingRoots,
+    unexpectedTypes,
+    componentTypes,
   };
 }
 
@@ -337,53 +401,37 @@ function collectTypes(items: PuckItem[]): string[] {
   return types;
 }
 
-function collectWarnings(check: PageCheck, types: string[], data: PageData): string[] {
+function collectWarnings(
+  check: PageCheck,
+  data: PageData | undefined,
+  seedAudit: StructureAudit,
+  publishedAudit: StructureAudit,
+): string[] {
   const warnings: string[] = [];
 
-  if (check.slug === 'products' && types.includes('ProductGrid') && types.includes('ProductsCatalogStateSection')) {
-    warnings.push('Contains both static ProductGrid and dynamic ProductsCatalogStateSection; test the dynamic catalog area.');
+  if (seedAudit.status !== 'ready') {
+    warnings.push(`Fresh parser seed is invalid: ${formatAudit(seedAudit)}.`);
   }
 
-  if (check.slug === 'collection-detail' && hasProp(data, 'slug') && !hasProp(data, 'collectionSlug')) {
-    warnings.push('JSON has `slug` but not `collectionSlug`; CollectionDetailStateSection expects `collectionSlug`.');
+  if (publishedAudit.status !== 'ready') {
+    warnings.push(`Saved published-page data is stale or invalid: ${formatAudit(publishedAudit)}.`);
   }
 
-  for (const required of requiredPropsFor(check.slug)) {
-    if (!hasProp(data, required)) {
-      warnings.push(`No visible \`${required}\` prop found; valid content-state testing may need a real value.`);
-    }
+  if (!data) {
+    warnings.push('No saved page entry exists. Apply the clean parser seed before testing the published route.');
   }
 
   return warnings;
 }
 
-function requiredPropsFor(slug: string): string[] {
-  if (slug === 'category-detail') return ['categorySlug'];
-  if (slug === 'collection-detail') return ['collectionSlug'];
-  if (slug === 'account-subscription-detail') return ['subscriptionId'];
-  if (slug === 'downloads') return ['licenseKey'];
-  if (slug === 'shared-wishlist') return ['token'];
-  if (slug === 'product-detail') return ['productSlug'];
-  return [];
-}
+function formatAudit(audit: StructureAudit): string {
+  if (audit.status === 'ready') return 'ready';
 
-function hasProp(data: PageData, propName: string): boolean {
-  let found = false;
-
-  function visit(items: PuckItem[]) {
-    for (const item of items) {
-      if (item.props && Object.prototype.hasOwnProperty.call(item.props, propName)) {
-        found = true;
-        return;
-      }
-      for (const value of Object.values(item.props || {})) {
-        if (Array.isArray(value)) visit(value as PuckItem[]);
-      }
-    }
-  }
-
-  visit(data.content || []);
-  return found;
+  const issues = [
+    audit.missingRoots.length ? `missing root ${audit.missingRoots.join(' or ')}` : '',
+    audit.unexpectedTypes.length ? `unexpected ${audit.unexpectedTypes.join(', ')}` : '',
+  ].filter(Boolean);
+  return issues.join('; ') || 'missing page data';
 }
 
 async function fetchVisitCases(checksToRun: PageCheck[]): Promise<Record<string, FetchResult>> {
@@ -419,13 +467,14 @@ async function fetchWithTimeout(url: string): Promise<FetchResult> {
 
 function renderGuide(rows: Awaited<ReturnType<typeof analyzePage>>[], fetchResults: Record<string, FetchResult>, fetched: boolean): string {
   const generatedAt = new Date().toISOString();
-  const completeCount = rows.filter((row) => row.missingExpected.length === 0).length;
+  const seedReadyCount = rows.filter((row) => row.seedAudit.status === 'ready').length;
+  const publishedReadyCount = rows.filter((row) => row.publishedAudit.status === 'ready').length;
 
   return `# Published Page QA Guide
 
 Generated: ${generatedAt}
 
-This guide is optimized for browser testing. The script already checked which JSON source each page uses and whether the expected Puck state component is present.
+This guide is optimized for browser testing. The script checks every route against the generated Puck composition grammar: fresh parser seeds and saved published-page data must both use an allowed canonical root and only route-allowed components.
 
 ## Quick Start
 
@@ -443,17 +492,16 @@ npm run qa:published-pages -- --fetch
 
 3. Open the links below and follow the short interaction checklist for each page.
 
-## Automated JSON Audit
+## Canonical JSON Audit
 
-${completeCount}/${rows.length} pages currently contain all expected state component(s).
+Fresh parser seeds: ${seedReadyCount}/${rows.length} ready.
 
-| Page | JSON Source | Expected State Component(s) | Status |
+Saved published-page data: ${publishedReadyCount}/${rows.length} ready.
+
+| Page | Canonical Root | Fresh Seed | Saved Published Data |
 | --- | --- | --- | --- |
 ${rows.map((row) => {
-  const status = row.missingExpected.length
-    ? `Needs update: missing ${row.missingExpected.join(', ')}`
-    : 'Ready for browser testing';
-  return `| \`/page/${row.slug}\` | ${row.source} | ${row.expectedComponents.map((item) => `\`${item}\``).join(', ')} | ${status} |`;
+  return `| \`/page/${row.slug}\` | ${row.expectedComponents.map((item) => `\`${item}\``).join(', ')} | ${formatAudit(row.seedAudit)} | ${formatAudit(row.publishedAudit)} |`;
 }).join('\n')}
 
 ${fetched ? renderFetchResults(fetchResults) : '## Page Availability\n\nNot run. Use `npm run qa:published-pages -- --fetch` while `npm run dev` is running.\n'}
@@ -508,7 +556,7 @@ function renderPageSection(row: Awaited<ReturnType<typeof analyzePage>>): string
 
 Route: \`/page/${row.slug}\`
 
-Status: ${row.missingExpected.length ? `Needs JSON/parser update before final parity: missing ${row.missingExpected.join(', ')}` : 'Ready for browser interaction testing'}
+Canonical structure: parser seed ${formatAudit(row.seedAudit)}; saved published data ${formatAudit(row.publishedAudit)}.
 
 Open:
 ${links}

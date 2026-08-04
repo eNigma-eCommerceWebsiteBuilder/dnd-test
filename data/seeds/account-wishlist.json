@@ -2,30 +2,62 @@
   "root": {},
   "content": [
     {
-      "type": "PageWrapper",
+      "type": "AccountWishlistPageLayout",
       "props": {
-        "id": "pagewrapper-1",
-        "maxWidth": "1440",
-        "paddingY": "normal",
-        "children": [
+        "id": "accountwishlistpagelayout-1",
+        "header": [
           {
-            "type": "PageHeader",
+            "type": "WishlistPageHeaderLayout",
             "props": {
-              "id": "pageheader-1",
-              "title": "My Wishlist"
+              "id": "wishlistpageheaderlayout-1",
+              "intro": [
+                {
+                  "type": "WishlistPageIntro",
+                  "props": {
+                    "id": "wishlistpageintro-1"
+                  }
+                }
+              ],
+              "savings": [
+                {
+                  "type": "WishlistSavingsRegion",
+                  "props": {
+                    "id": "wishlistsavingsregion-1"
+                  }
+                }
+              ]
             }
-          },
+          }
+        ],
+        "content": [
           {
-            "type": "WishlistSavingsCard",
+            "type": "WishlistItemsState",
             "props": {
-              "id": "wishlistsavingscard-1"
+              "id": "wishlistitemsstate-1",
+              "empty": [
+                {
+                  "type": "WishlistEmptyRegion",
+                  "props": {
+                    "id": "wishlistemptyregion-1"
+                  }
+                }
+              ],
+              "grid": [
+                {
+                  "type": "WishlistGridRegion",
+                  "props": {
+                    "id": "wishlistgridregion-1"
+                  }
+                }
+              ]
             }
-          },
+          }
+        ],
+        "recommendations": [
           {
-            "type": "SectionHeading",
+            "type": "WishlistRecommendationsFooter",
             "props": {
-              "id": "sectionheading-1",
-              "title": "Curated for your style"
+              "id": "wishlistrecommendationsfooter-1"
             }
           }
         ]

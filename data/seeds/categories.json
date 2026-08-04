@@ -26,22 +26,21 @@
             "type": "TrendingCategoriesSection",
             "props": {
               "id": "trendingcategoriessection-1",
-              "previewMode": "visible",
               "cards": [
                 {
                   "type": "TrendingCategoryCard",
                   "props": {
                     "id": "trendingcategorycard-1",
-                    "position": 0,
-                    "badge": "Seasonal Pick"
+                    "badge": "Seasonal Pick",
+                    "position": 0
                   }
                 },
                 {
                   "type": "TrendingCategoryCard",
                   "props": {
                     "id": "trendingcategorycard-2",
-                    "position": 1,
-                    "badge": "Trending Now"
+                    "badge": "Trending Now",
+                    "position": 1
                   }
                 }
               ]

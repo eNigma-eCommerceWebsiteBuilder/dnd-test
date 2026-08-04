@@ -1,5 +1,5 @@
 import { CatalogControlsLayout } from './CatalogControlsLayout';
-import type { CatalogSlot } from './types';
+import { puckTransparentSlotProps, type CatalogSlot } from './types';
 
 interface CatalogControlsLayoutViewProps { controls?: CatalogSlot; }
 
@@ -11,7 +11,7 @@ export const puckFields = {
 };
 export const puckDefaults = { controls: [] };
 export const puckAst = {
-  kind: 'static', slots: ['controls'], sourceJsxNames: ['div'], sourceImportPaths: ['app/products/page.tsx'],
+  kind: 'static', slots: ['controls'], sourceJsxNames: ['CatalogControlsLayout'], sourceImportPaths: ['@/components/products/canonical/CatalogControlsLayout'],
   role: 'catalog-controls-layout', slotTarget: 'controls', requiredClasses: ['flex', 'items-center', 'gap-3', 'md:gap-4'],
 };
-export function CatalogControlsLayoutView({ controls }: CatalogControlsLayoutViewProps) { return <CatalogControlsLayout controls={controls?.()} />; }
+export function CatalogControlsLayoutView({ controls }: CatalogControlsLayoutViewProps) { return <CatalogControlsLayout controls={controls?.(puckTransparentSlotProps)} />; }

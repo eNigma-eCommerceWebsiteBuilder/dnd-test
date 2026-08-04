@@ -2,17 +2,54 @@
   "root": {},
   "content": [
     {
-      "type": "PageWrapper",
+      "type": "AccountOrdersLayout",
       "props": {
-        "id": "pagewrapper-1",
-        "maxWidth": "1440",
-        "paddingY": "normal",
-        "children": [
+        "id": "accountorderslayout-1",
+        "header": [
           {
-            "type": "PageHeader",
+            "type": "AccountOrdersHeader",
             "props": {
-              "id": "pageheader-1",
-              "title": "Your Orders"
+              "id": "accountordersheader-1"
+            }
+          }
+        ],
+        "filters": [
+          {
+            "type": "AccountOrdersStatusFilter",
+            "props": {
+              "id": "accountordersstatusfilter-1"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "AccountOrdersResultsState",
+            "props": {
+              "id": "accountordersresultsstate-1",
+              "hasOrders": false,
+              "results": [
+                {
+                  "type": "AccountOrdersList",
+                  "props": {
+                    "id": "accountorderslist-1",
+                    "initialOrders": [],
+                    "initialPagination": {
+                      "page": 1,
+                      "limit": 10,
+                      "total": 0,
+                      "totalPages": 0
+                    }
+                  }
+                }
+              ],
+              "empty": [
+                {
+                  "type": "AccountOrdersEmpty",
+                  "props": {
+                    "id": "accountordersempty-1"
+                  }
+                }
+              ]
             }
           }
         ]

@@ -1,0 +1,6 @@
+import { OrderReturnPageLayout } from '@/enigma-components/returns/order-return-canonical/OrderReturnPageSections';
+import { puckTransparentSlotProps, type OrderReturnSlot } from './types';
+interface Props { breadcrumbs?: OrderReturnSlot; header?: OrderReturnSlot; state?: OrderReturnSlot; }
+export const puckComponentName = 'OrderReturnPageLayout'; export const puckLabel = 'Order Return Page Layout'; export const puckCategory = 'Account'; export const puckFields = { breadcrumbs: { type: 'slot' as const, allow: ['OrderReturnBreadcrumbs'] }, header: { type: 'slot' as const, allow: ['OrderReturnHeader'] }, state: { type: 'slot' as const, allow: ['OrderReturnEligibilityState'] } }; export const puckDefaults = { breadcrumbs: [], header: [], state: [] };
+export const puckAst = { kind: 'static', slots: ['breadcrumbs', 'header', 'state'], sourceJsxNames: ['OrderReturnPageLayout'], sourceImportPaths: ['@/components/returns/canonical/OrderReturnPageSections'], role: 'order-return-page-layout', requiredClasses: ['min-h-screen', 'max-w-[1440px]', 'sm:px-6', 'lg:px-12'] };
+export function OrderReturnPageLayoutView({ breadcrumbs, header, state }: Props) { return <OrderReturnPageLayout breadcrumbs={breadcrumbs?.(puckTransparentSlotProps)} header={header?.(puckTransparentSlotProps)} state={state?.(puckTransparentSlotProps)} />; }

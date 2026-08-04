@@ -1,6 +1,7 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/auth/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/auth.json",
+  "profile": "auth",
   "manifestLoaded": true,
   "captured": [
     {
@@ -8,12 +9,24 @@
       "id": "authentrycard-1"
     },
     {
-      "type": "PageWrapper",
-      "id": "pagewrapper-1"
+      "type": "AuthPageLayout",
+      "id": "authpagelayout-1"
+    },
+    {
+      "type": "AuthPageState",
+      "id": "authpagestate-1"
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [
+    {
+      "source": "session?.user => redirect(normalizeReturnUrl(searchParams.returnUrl))",
+      "handledBy": "AuthPageState"
+    }
+  ],
+  "delegates": [],
+  "fatal": false
 }

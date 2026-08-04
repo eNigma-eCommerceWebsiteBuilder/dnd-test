@@ -1,6 +1,7 @@
-import Link from 'next/link';
-import { cn } from '@/lib/utils/cn';
 import { fetchHeroProduct } from '@/lib/api/services/menu';
+import type { HeroProduct } from '@/lib/api/types';
+import type { HeroContent } from '@/lib/content';
+import { HeroSection } from '@/enigma-components/home/HeroSection';
 
 interface HeroSectionViewProps {
   title: string;
@@ -12,6 +13,7 @@ interface HeroSectionViewProps {
   imageAlt: string;
   productSlug: string;
   className?: string;
+  runtimeHeroProduct?: HeroProduct | null;
 }
 
 export const puckComponentName = 'HeroSection';
@@ -41,15 +43,15 @@ export const puckDefaults = {
   imageAlt: 'Fashion model wearing minimalist high-end clothing in a bright studio',
   productSlug: 'premium-wool-coat',
 };
+export const puckAst = { kind: 'runtime', sourceJsxNames: ['HeroSection'], sourceImportPaths: ['@/components/home/HeroSection'], role: 'home-hero', runtimeSignals: ['heroProduct', 'homepage.hero'] };
 
 export async function puckDataFetcher() {
-  const heroProduct = await fetchHeroProduct();
-  return {
-    productName: heroProduct.name,
-    productSlug: heroProduct.slug,
-    backgroundImage: heroProduct.images?.[0] ?? heroProduct.imageUrl ?? '',
-    imageAlt: heroProduct.name,
-  };
+  try {
+    return { runtimeHeroProduct: await fetchHeroProduct() };
+  } catch {
+    // This mirrors HomePage's withNull(fetchHeroProduct()).
+    return { runtimeHeroProduct: null };
+  }
 }
 
 export function HeroSectionView({
@@ -62,44 +64,12 @@ export function HeroSectionView({
   imageAlt,
   productSlug,
   className,
+  runtimeHeroProduct,
 }: HeroSectionViewProps) {
-  return (
-    <section className={cn('@container', className)}>
-      <div className="group relative min-h-[32rem] overflow-hidden rounded-card bg-bg-surface shadow-card @lg:min-h-[44rem]">
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-          style={{ backgroundImage: `url("${backgroundImage}")` }}
-          role="img"
-          aria-label={productName}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg-overlay via-bg-overlay/60 to-transparent" />
+  const content = { title, subtitle, ctaPrimary, ctaSecondary, backgroundImage, imageAlt } as HeroContent;
+  const seedHeroProduct = { name: productName, slug: productSlug, description: subtitle, images: [backgroundImage] } as HeroProduct;
 
-        <div className="relative flex h-full max-w-3xl flex-col justify-end gap-6 p-6 @md:p-8 @lg:p-12">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-text-inverse/80">
-            {title}
-          </p>
-          <h1 className="text-4xl font-black leading-[1.05] tracking-tight text-text-inverse @md:text-5xl @lg:text-7xl">
-            {productName}
-          </h1>
-          <p className="max-w-xl text-base font-medium leading-relaxed text-text-inverse/90 @md:text-lg @lg:text-xl">
-            {subtitle}
-          </p>
-          <div className="flex flex-col gap-3 @md:flex-row">
-            <Link
-              href={`/products/${productSlug}`}
-              className="inline-flex items-center justify-center rounded-button bg-cta-primary px-6 py-3 text-sm font-semibold text-on-primary shadow-button transition-all duration-normal hover:-translate-y-0.5 hover:bg-cta-primary-hover hover:shadow-button-hover @md:px-8 @md:py-4"
-            >
-              {ctaPrimary}
-            </Link>
-            <Link
-              href="/collections/all"
-              className="inline-flex items-center justify-center rounded-button border border-border-light/60 bg-bg-surface/10 px-6 py-3 text-sm font-semibold text-text-inverse backdrop-blur-overlay transition-colors duration-normal hover:bg-bg-surface/20 @md:px-8 @md:py-4"
-            >
-              {ctaSecondary}
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  // Undefined is editor seed mode. Null preserves the source route's hidden state.
+  const heroProduct = runtimeHeroProduct === undefined ? seedHeroProduct : runtimeHeroProduct;
+  return <HeroSection content={content} heroProduct={heroProduct} className={className} />;
 }

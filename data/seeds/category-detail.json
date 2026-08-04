@@ -26,7 +26,6 @@
             "type": "CategorySubcategoryCondition",
             "props": {
               "id": "categorysubcategorycondition-1",
-              "previewMode": "visible",
               "content": [
                 {
                   "type": "SubcategoryNav",
@@ -47,7 +46,8 @@
                 {
                   "type": "ActiveFiltersBlock",
                   "props": {
-                    "id": "activefiltersblock-1"
+                    "id": "activefiltersblock-1",
+                    "className": "mb-8"
                   }
                 }
               ]
@@ -80,7 +80,6 @@
                   "type": "CategoryCatalogResultsState",
                   "props": {
                     "id": "categorycatalogresultsstate-1",
-                    "previewMode": "results",
                     "results": [
                       {
                         "type": "CategoryCatalogResultsHeader",
@@ -120,12 +119,12 @@
                         "type": "CategoryCatalogPaginationCondition",
                         "props": {
                           "id": "categorycatalogpaginationcondition-1",
-                          "previewMode": "visible",
                           "content": [
                             {
                               "type": "CategoryCatalogPaginationBlock",
                               "props": {
-                                "id": "categorycatalogpaginationblock-1"
+                                "id": "categorycatalogpaginationblock-1",
+                                "className": "mt-16 md:mt-20"
                               }
                             }
                           ]

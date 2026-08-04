@@ -2,32 +2,78 @@
   "root": {},
   "content": [
     {
-      "type": "PageWrapper",
+      "type": "OrderReturnPageState",
       "props": {
-        "id": "pagewrapper-1",
-        "maxWidth": "1440",
-        "paddingY": "normal",
-        "children": [
+        "id": "orderreturnpagestate-1",
+        "content": [
           {
-            "type": "Breadcrumbs",
+            "type": "OrderReturnPageLayout",
             "props": {
-              "id": "breadcrumbs-1",
-              "items": [
+              "id": "orderreturnpagelayout-1",
+              "breadcrumbs": [
                 {
-                  "label": "Orders",
-                  "href": "/account/orders"
-                },
+                  "type": "OrderReturnBreadcrumbs",
+                  "props": {
+                    "id": "orderreturnbreadcrumbs-1"
+                  }
+                }
+              ],
+              "header": [
                 {
-                  "label": "__STRIP__"
+                  "type": "OrderReturnHeader",
+                  "props": {
+                    "id": "orderreturnheader-1"
+                  }
+                }
+              ],
+              "state": [
+                {
+                  "type": "OrderReturnEligibilityState",
+                  "props": {
+                    "id": "orderreturneligibilitystate-1",
+                    "expired": [
+                      {
+                        "type": "OrderReturnWindowExpiredRegion",
+                        "props": {
+                          "id": "orderreturnwindowexpiredregion-1"
+                        }
+                      }
+                    ],
+                    "ineligible": [
+                      {
+                        "type": "OrderReturnNotEligibleRegion",
+                        "props": {
+                          "id": "orderreturnnoteligibleregion-1"
+                        }
+                      }
+                    ],
+                    "eligible": [
+                      {
+                        "type": "OrderReturnEligibleLayout",
+                        "props": {
+                          "id": "orderreturneligiblelayout-1",
+                          "form": [
+                            {
+                              "type": "OrderReturnRequestFormRegion",
+                              "props": {
+                                "id": "orderreturnrequestformregion-1"
+                              }
+                            }
+                          ],
+                          "policy": [
+                            {
+                              "type": "OrderReturnPolicyReminderRegion",
+                              "props": {
+                                "id": "orderreturnpolicyreminderregion-1"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
-            }
-          },
-          {
-            "type": "PageHeader",
-            "props": {
-              "id": "pageheader-1",
-              "title": "Request Return"
             }
           }
         ]

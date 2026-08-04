@@ -104,7 +104,7 @@ export function SearchFilters({ categories, className }: SearchFiltersProps) {
 
             <div className="flex flex-col border-t border-border">
                 {/* Category Accordion */}
-                {categories.length > 0 && (
+                {Array.isArray(categories) && categories.length > 0 && (
                     <details className="group py-4" open>
                         <summary className="flex cursor-pointer items-center justify-between font-bold text-sm uppercase tracking-wider text-text-base">
                             <span>Category</span>

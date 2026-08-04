@@ -1,0 +1,13 @@
+import type { OrderReturnPageData } from '@/enigma-components/returns/order-return-canonical/orderReturnRuntime';
+import { OrderReturnEligibilityState } from '@/enigma-components/returns/order-return-canonical/OrderReturnPageSections';
+import { loadOrderReturnRuntime } from './orderReturnRuntime'; import { puckTransparentSlotProps, type OrderReturnSlot } from './types'; import { resolveOrderReturnPageData } from './viewData';
+interface Props { previewState?: 'eligible' | 'expired' | 'ineligible'; expired?: OrderReturnSlot; ineligible?: OrderReturnSlot; eligible?: OrderReturnSlot; pageData?: OrderReturnPageData | null; puck?: { isEditing?: boolean }; }
+export const puckComponentName = 'OrderReturnEligibilityState'; export const puckLabel = 'Order Return Eligibility State'; export const puckCategory = 'Account';
+export const puckFields = { previewState: { type: 'select' as const, options: [{ label: 'Eligible return', value: 'eligible' }, { label: 'Expired window', value: 'expired' }, { label: 'Not eligible', value: 'ineligible' }] }, expired: { type: 'slot' as const, allow: ['OrderReturnWindowExpiredRegion'] }, ineligible: { type: 'slot' as const, allow: ['OrderReturnNotEligibleRegion'] }, eligible: { type: 'slot' as const, allow: ['OrderReturnEligibleLayout'] } }; export const puckDefaults = { previewState: 'eligible', expired: [], ineligible: [], eligible: [] };
+export const puckAst = { kind: 'runtime', slots: ['expired', 'ineligible', 'eligible'], sourceJsxNames: ['OrderReturnEligibilityState'], sourceImportPaths: ['@/components/returns/canonical/OrderReturnPageSections'], role: 'order-return-eligibility-state', slotTarget: 'state', conditional: 'isWindowExpired ? expired : !eligibility.valid ? ineligible : eligible', runtimeSignals: ['params.id', 'order.deliveredAt', 'order.items', 'order.status', 'RETURNS.WINDOW_DAYS'] };
+export async function puckDataFetcher(_props: Props, context?: Parameters<typeof loadOrderReturnRuntime>[0]) { return loadOrderReturnRuntime(context); }
+export function OrderReturnEligibilityStateView(props: Props) {
+  const value = resolveOrderReturnPageData(props); if (!value) return null;
+  const pageData = props.puck?.isEditing ? { ...value, isWindowExpired: props.previewState === 'expired', eligibility: props.previewState === 'ineligible' ? { valid: false, error: 'Preview: this order is not eligible for return.' } : { valid: true, error: null } } : value;
+  return <OrderReturnEligibilityState pageData={pageData} expired={props.expired?.(puckTransparentSlotProps)} ineligible={props.ineligible?.(puckTransparentSlotProps)} eligible={props.eligible?.(puckTransparentSlotProps)} />;
+}

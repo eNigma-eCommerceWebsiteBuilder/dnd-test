@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.mts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    "enigma-components"
+  ]
+}

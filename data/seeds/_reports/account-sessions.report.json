@@ -1,27 +1,32 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/account/sessions/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/account-sessions.json",
+  "profile": "account-sessions",
   "manifestLoaded": true,
   "captured": [
     {
-      "type": "PageHeader",
-      "id": "pageheader-1"
+      "type": "AccountSessionsBreadcrumbs",
+      "id": "accountsessionsbreadcrumbs-1"
     },
     {
-      "type": "CardSection",
-      "id": "cardsection-1"
+      "type": "AccountSessionsIdentityNotice",
+      "id": "accountsessionsidentitynotice-1"
     },
     {
-      "type": "CardSection",
-      "id": "cardsection-2"
-    },
-    {
-      "type": "PageWrapper",
-      "id": "pagewrapper-1"
+      "type": "AccountSessionsPageLayout",
+      "id": "accountsessionspagelayout-1"
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [],
+  "delegates": [
+    {
+      "component": "AccountSessionsPage",
+      "source": "D:/projects/eNigma-TemplateFrontend/components/account/sessions/canonical/AccountSessionsPage.tsx"
+    }
+  ],
+  "fatal": false
 }

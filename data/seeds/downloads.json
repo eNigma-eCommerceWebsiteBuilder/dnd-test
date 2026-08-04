@@ -2,11 +2,57 @@
   "root": {},
   "content": [
     {
-      "type": "DownloadLicenseStateSection",
+      "type": "DownloadPageLayout",
       "props": {
-        "id": "downloadlicensestatesection-1",
-        "licenseKey": "",
-        "state": "invalid"
+        "id": "downloadpagelayout-1",
+        "header": [
+          {
+            "type": "DownloadPageHeader",
+            "props": {
+              "id": "downloadpageheader-1"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "DownloadPageContentLayout",
+            "props": {
+              "id": "downloadpagecontentlayout-1",
+              "expirationNotice": [
+                {
+                  "type": "DownloadExpirationNotice",
+                  "props": {
+                    "id": "downloadexpirationnotice-1"
+                  }
+                }
+              ],
+              "assetState": [
+                {
+                  "type": "DownloadAssetState",
+                  "props": {
+                    "id": "downloadassetstate-1"
+                  }
+                }
+              ],
+              "licenseInfoPanel": [
+                {
+                  "type": "DownloadLicenseInfoPanel",
+                  "props": {
+                    "id": "downloadlicenseinfopanel-1"
+                  }
+                }
+              ],
+              "trustFooter": [
+                {
+                  "type": "DownloadTrustFooter",
+                  "props": {
+                    "id": "downloadtrustfooter-1"
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     }
   ],

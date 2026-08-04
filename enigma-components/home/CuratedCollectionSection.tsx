@@ -54,9 +54,9 @@ export const CuratedCollectionSection = ({
 
             {collection.relatedProducts && collection.relatedProducts.length > 0 && (
                 <div className="grid grid-cols-2 @md:grid-cols-4 gap-6">
-                    {collection.relatedProducts.slice(0, 4).map(product => (
+                    {collection.relatedProducts.slice(0, 4).map((product, index) => (
                         <ProductCard
-                            key={product._id}
+                            key={`${product._id || product.id || product.slug || product.name || 'product'}-${index}`}
                             product={product}
                             showWishlist={false}
                             showQuickAdd={true}

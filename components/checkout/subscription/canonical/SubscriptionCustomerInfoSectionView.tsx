@@ -1,0 +1,4 @@
+'use client'; import { SubscriptionCustomerInfoSection } from '@/enigma-components/checkout/subscription/SubscriptionCheckoutSections'; import { useSubscriptionCheckoutFlowContext } from './SubscriptionCheckoutFlowContext';
+export const puckComponentName = 'SubscriptionCustomerInfoSection'; export const puckLabel = 'Subscription Customer Information'; export const puckCategory = 'Checkout'; export const puckFields = {}; export const puckDefaults = {};
+export const puckAst = { kind: 'runtime', sourceJsxNames: ['SubscriptionCustomerInfoSection', 'section', 'CustomerInfoForm'], sourceImportPaths: ['@/components/checkout/subscription/SubscriptionCheckoutSections', '@/components/checkout/subscription/SubscriptionCheckoutClient'], role: 'subscription-customer-information' };
+export function SubscriptionCustomerInfoSectionView() { const { setCustomerInfo } = useSubscriptionCheckoutFlowContext(); return <SubscriptionCustomerInfoSection onChange={setCustomerInfo} />; }

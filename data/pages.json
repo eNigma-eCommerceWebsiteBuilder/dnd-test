@@ -2,138 +2,28 @@
   {
     "slug": "auth",
     "data": {
-      "root": {
-        "props": {}
-      },
+      "root": {},
       "content": [
         {
-          "type": "AuthEntryCard",
+          "type": "AuthPageState",
           "props": {
-            "id": "authentrycard-1",
-            "login": {
-              "hero": {
-                "title": "Redefining Elegance",
-                "subtitle": "Join our exclusive community and access curated luxury collections from around the globe.",
-                "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDOhFWViWGcd7-qkYBD1vhGK4PdvG5ocHFtmKXPajNifVZQSVX4MUoF3eRCaXCgJ5x4eHuTaegApBlb3ZlOVcgws9r-q9NxREE7zUXyERMOokmvIlyKzPhYTGOZyQZGzu3X7gZDfmGC9ny77vecfgMJlMnc_UmUi4rIhdRjqRgnG8Wt07fAKwvJy984ef-7vviskhMjCppHc3UQdTCpMv0xi34Ei3QFu43Nz5oSS5SAJRya-rHjltI4ukkC6MwArvptoRMAsI6qqnA7",
-                "imageAlt": "Luxury minimalist fashion store interior with soft lighting"
-              },
-              "form": {
-                "title": "Welcome Back",
-                "subtitle": "Please enter your details to access your LUXE account."
-              }
-            },
-            "register": {
-              "hero": {
-                "title": "Redefining Modern Luxury",
-                "subtitle": "Experience a curated collection of world-class design and craftsmanship.",
-                "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDw9Dfl-hrxzGp-zBz1y8pJR_McT_2DQZcNTS2WVj2JCx6ImZNb3kqC51vxp4lxs_LFEyY1QQV0kIC8d41rDTIZOAXigBWV5WXkMFZaJtpipggrE-m5RjguRk6nPb-49oMjhs7gd97NIemx-QDAOOT-VBNBCLSfeTkhtMPM2GTmwPcyROnaKPZzhA2chxiL9oOKYs9UfYpNt5-2h0nGSaFJT-9NdL8Nq2QhcHZDQBQDOaR7FmGcKVN_jShyM0d9zbHyOccw9QdGKXoI",
-                "imageAlt": "Modern high-end luxury boutique interior with minimalist aesthetic"
-              },
-              "form": {
-                "title": "Create your account",
-                "subtitle": "Join our community for exclusive access and personalized experiences."
-              }
-            },
-            "entryCard": {
-              "storefrontEyebrow": "Storefront Identity",
-              "continueEyebrow": "Continue Securely",
-              "loginTitle": "Access your account",
-              "registerTitle": "Start your account",
-              "description": "Sign in or create your account using the hosted identity flow. Registration, password recovery, and social login all stay inside eNigma Identity.",
-              "featureCards": [
-                {
-                  "title": "Hosted login",
-                  "description": "Passwords, social login, verification, and recovery stay inside eNigma Identity."
-                },
-                {
-                  "title": "Unified sessions",
-                  "description": "The storefront only keeps a secure session cookie and never stores tokens in browser storage."
+            "id": "authpagestate-1",
+            "content": [
+              {
+                "type": "AuthPageLayout",
+                "props": {
+                  "id": "authpagelayout-1",
+                  "content": [
+                    {
+                      "type": "AuthEntryCard",
+                      "props": {
+                        "id": "authentrycard-1"
+                      }
+                    }
+                  ]
                 }
-              ],
-              "footerNote": "Your shopping identity is now handled by eNigma Identity. If you are already signed in there, you will come straight back here."
-            },
-            "mode": "login",
-            "storefrontEyebrow": "Storefront Identity",
-            "continueEyebrow": "Continue Securely",
-            "loginHeroTitle": "Redefining Elegance",
-            "loginHeroSubtitle": "Join our exclusive community and access curated luxury collections from around the globe.",
-            "loginHeroImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuDOhFWViWGcd7-qkYBD1vhGK4PdvG5ocHFtmKXPajNifVZQSVX4MUoF3eRCaXCgJ5x4eHuTaegApBlb3ZlOVcgws9r-q9NxREE7zUXyERMOokmvIlyKzPhYTGOZyQZGzu3X7gZDfmGC9ny77vecfgMJlMnc_UmUi4rIhdRjqRgnG8Wt07fAKwvJy984ef-7vviskhMjCppHc3UQdTCpMv0xi34Ei3QFu43Nz5oSS5SAJRya-rHjltI4ukkC6MwArvptoRMAsI6qqnA7",
-            "loginHeroImageAlt": "Luxury minimalist fashion store interior with soft lighting",
-            "registerHeroTitle": "Redefining Modern Luxury",
-            "registerHeroSubtitle": "Experience a curated collection of world-class design and craftsmanship.",
-            "registerHeroImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuDw9Dfl-hrxzGp-zBz1y8pJR_McT_2DQZcNTS2WVj2JCx6ImZNb3kqC51vxp4lxs_LFEyY1QQV0kIC8d41rDTIZOAXigBW5WXkMFZaJtpipggrE-m5RjguRk6nPb-49oMjhs7gd97NIemx-QDAOOT-VBNBCLSfeTkhtMPM2GTmwPcyROnaKPZzhA2chxiL9oOKYs9UfYpNt5-2h0nGSaFJT-9NdL8Nq2QhcHZDQBQDOaR7FmGcKVN_jShyM0d9zbHyOccw9QdGKXoI",
-            "registerHeroImageAlt": "Modern high-end luxury boutique interior with minimalist aesthetic",
-            "loginTitle": "Access your account",
-            "registerTitle": "Start your account",
-            "description": "Sign in or create your account using the hosted identity flow. Registration, password recovery, and social login all stay inside eNigma Identity.",
-            "footerNote": "Your shopping identity is now handled by eNigma Identity. If you are already signed in there, you will come straight back here.",
-            "featureCards": [
-              {
-                "title": "Hosted login",
-                "description": "Passwords, social login, verification, and recovery stay inside eNigma Identity."
-              },
-              {
-                "title": "Unified sessions",
-                "description": "The storefront only keeps a secure session cookie and never stores tokens in browser storage."
               }
             ]
-          }
-        },
-        {
-          "type": "ContinueShoppingButton",
-          "props": {
-            "buttonText": "Continue Shopping",
-            "href": "/products",
-            "id": "ContinueShoppingButton-110205f9-6176-47b4-83a1-a58cf4a4cb4c"
-          }
-        },
-        {
-          "type": "ConfirmationOrderSummary",
-          "props": {
-            "subtotal": 810,
-            "tax": 64.8,
-            "shipping": 0,
-            "total": 874.8,
-            "id": "ConfirmationOrderSummary-b437f2fa-344b-4708-8c7a-be25e1fb25e1"
-          }
-        },
-        {
-          "type": "WishlistEmpty",
-          "props": {
-            "title": "Your Wishlist is Empty",
-            "message": "Save items you love to your wishlist. You'll find them here when you're ready to buy.",
-            "ctaLabel": "Discover Products",
-            "ctaHref": "/products",
-            "id": "WishlistEmpty-3161c1c6-b271-4a6c-9d5b-a1fa18184e7f"
-          }
-        },
-        {
-          "type": "WishlistSavingsCard",
-          "props": {
-            "itemCount": 5,
-            "totalValue": 2480,
-            "totalSavings": 320,
-            "id": "WishlistSavingsCard-e4c87e4d-c09d-4f0e-b7a7-b3345ece215a"
-          }
-        },
-        {
-          "type": "PromotionBanner",
-          "props": {
-            "title": "Free Shipping on All Orders",
-            "subtitle": "Limited time only â€” ends soon",
-            "ctaText": "Shop Now",
-            "ctaLink": "/collections/all",
-            "startDate": "2020-01-01T00:00:00Z",
-            "endDate": "2099-12-31T23:59:59Z",
-            "id": "PromotionBanner-8a4f6364-0125-4580-82b5-2038511959f4"
-          }
-        },
-        {
-          "type": "NotEligibleMessage",
-          "props": {
-            "orderNumber": "ORD-12345",
-            "message": "This order is not eligible for a return. Some items may be non-returnable due to their category or condition.",
-            "id": "NotEligibleMessage-74aff68d-ff52-4fa5-8c21-aae34937b060"
           }
         }
       ],
@@ -143,117 +33,40 @@
   {
     "slug": "products",
     "data": {
-      "root": {
-        "props": {}
-      },
+      "root": {},
       "content": [
         {
           "type": "ProductsCatalogLayout",
           "props": {
-            "content": [
-              {
-                "type": "CatalogContentLayout",
-                "props": {
-                  "results": [
-                    {
-                      "type": "CatalogResultsState",
-                      "props": {
-                        "empty": [
-                          {
-                            "type": "EmptyState",
-                            "props": {
-                              "id": "emptystate-1"
-                            }
-                          }
-                        ],
-                        "results": [
-                          {
-                            "type": "CatalogGridBoundary",
-                            "props": {
-                              "grid": [
-                                {
-                                  "type": "ProductGrid",
-                                  "props": {
-                                    "id": "productgrid-1",
-                                    "listName": "Product Listing"
-                                  }
-                                }
-                              ],
-                              "id": "cataloggridboundary-1"
-                            }
-                          },
-                          {
-                            "type": "CatalogPaginationCondition",
-                            "props": {
-                              "content": [
-                                {
-                                  "type": "CatalogPaginationBlock",
-                                  "props": {
-                                    "id": "catalogpaginationblock-1"
-                                  }
-                                }
-                              ],
-                              "id": "catalogpaginationcondition-1",
-                              "previewMode": "visible"
-                            }
-                          }
-                        ],
-                        "id": "catalogresultsstate-1",
-                        "previewMode": "results"
-                      }
-                    }
-                  ],
-                  "sidebar": [
-                    {
-                      "type": "CatalogFilterSidebar",
-                      "props": {
-                        "filters": [
-                          {
-                            "type": "ProductFiltersBlock",
-                            "props": {
-                              "id": "productfiltersblock-1"
-                            }
-                          }
-                        ],
-                        "id": "catalogfiltersidebar-1"
-                      }
-                    },
-                    {
-                      "type": "CatalogFilterSidebar",
-                      "props": {
-                        "filters": [],
-                        "id": "CatalogFilterSidebar-1182b208-01fc-47fc-9ddd-72308303dff4"
-                      }
-                    }
-                  ],
-                  "id": "catalogcontentlayout-1"
-                }
-              }
-            ],
-            "activeFilters": [
-              {
-                "type": "CatalogActiveFiltersBoundary",
-                "props": {
-                  "content": [
-                    {
-                      "type": "ActiveFiltersBlock",
-                      "props": {
-                        "id": "activefiltersblock-1"
-                      }
-                    }
-                  ],
-                  "id": "catalogactivefiltersboundary-1"
-                }
-              }
-            ],
+            "id": "productscataloglayout-1",
             "header": [
               {
                 "type": "CatalogHeaderLayout",
                 "props": {
+                  "id": "catalogheaderlayout-1",
+                  "breadcrumbs": [
+                    {
+                      "type": "CatalogBreadcrumbs",
+                      "props": {
+                        "id": "catalogbreadcrumbs-1",
+                        "currentLabel": "All Products"
+                      }
+                    }
+                  ],
+                  "titleSummary": [
+                    {
+                      "type": "CatalogTitleSummary",
+                      "props": {
+                        "id": "catalogtitlesummary-1",
+                        "title": "All Products"
+                      }
+                    }
+                  ],
                   "controls": [
                     {
                       "type": "CatalogControlsLayout",
                       "props": {
+                        "id": "catalogcontrolslayout-1",
                         "controls": [
                           {
                             "type": "MobileFilterDrawerBlock",
@@ -273,34 +86,103 @@
                               "id": "sortdropdownblock-1"
                             }
                           }
-                        ],
-                        "id": "catalogcontrolslayout-1"
+                        ]
                       }
                     }
-                  ],
-                  "titleSummary": [
-                    {
-                      "type": "CatalogTitleSummary",
-                      "props": {
-                        "id": "catalogtitlesummary-1",
-                        "title": "All Products"
-                      }
-                    }
-                  ],
-                  "breadcrumbs": [
-                    {
-                      "type": "CatalogBreadcrumbs",
-                      "props": {
-                        "id": "catalogbreadcrumbs-1",
-                        "currentLabel": "All Products"
-                      }
-                    }
-                  ],
-                  "id": "catalogheaderlayout-1"
+                  ]
                 }
               }
             ],
-            "id": "productscataloglayout-1"
+            "activeFilters": [
+              {
+                "type": "CatalogActiveFiltersBoundary",
+                "props": {
+                  "id": "catalogactivefiltersboundary-1",
+                  "content": [
+                    {
+                      "type": "ActiveFiltersBlock",
+                      "props": {
+                        "id": "activefiltersblock-1",
+                        "className": "mb-8"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "content": [
+              {
+                "type": "CatalogContentLayout",
+                "props": {
+                  "id": "catalogcontentlayout-1",
+                  "sidebar": [
+                    {
+                      "type": "CatalogFilterSidebar",
+                      "props": {
+                        "id": "catalogfiltersidebar-1",
+                        "filters": [
+                          {
+                            "type": "ProductFiltersBlock",
+                            "props": {
+                              "id": "productfiltersblock-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "results": [
+                    {
+                      "type": "CatalogResultsState",
+                      "props": {
+                        "id": "catalogresultsstate-1",
+                        "results": [
+                          {
+                            "type": "CatalogGridBoundary",
+                            "props": {
+                              "id": "cataloggridboundary-1",
+                              "pageSize": 12,
+                              "grid": [
+                                {
+                                  "type": "ProductGrid",
+                                  "props": {
+                                    "id": "productgrid-1"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "CatalogPaginationCondition",
+                            "props": {
+                              "id": "catalogpaginationcondition-1",
+                              "content": [
+                                {
+                                  "type": "CatalogPaginationBlock",
+                                  "props": {
+                                    "id": "catalogpaginationblock-1",
+                                    "currentPage": 1,
+                                    "className": "mt-16 md:mt-20"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ],
+                        "empty": [
+                          {
+                            "type": "EmptyState",
+                            "props": {
+                              "id": "emptystate-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
           }
         }
       ],
@@ -310,228 +192,146 @@
   {
     "slug": "home",
     "data": {
-      "root": {
-        "props": {}
-      },
+      "root": {},
       "content": [
         {
-          "type": "PromotionBanner",
+          "type": "HomePageLayout",
           "props": {
-            "id": "promotionbanner-1",
-            "title": "Free Shipping on All Orders",
-            "subtitle": "Limited time only â€” ends soon",
-            "ctaText": "Shop Now",
-            "ctaLink": "/collections/all",
-            "startDate": "2020-01-01T00:00:00Z",
-            "endDate": "2099-12-31T23:59:59Z"
-          }
-        },
-        {
-          "type": "HeroSection",
-          "props": {
-            "id": "herosection-2",
-            "title": "Timefull quality that fades with the clock",
-            "subtitle": "Discover our curated collection of high-end essentials designed for the sophisticated individual. Effortless luxury, everyday.",
-            "ctaPrimary": "Shop the Collection",
-            "ctaSecondary": "View Lookbook",
-            "backgroundImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuA6gp8HFBtOLhaLDZsED1w2eDKkeIHp6jt0CCvOR_XUoTQFJEpJEjhZEfhzDVSbO-0M1L7BoveRAyvHMXrc17n2O9joLLbK6-OJgyJEKJUu6k2tvyZvuAmmIhFqMIb4swMAkkEDSROBla5cwwqD4yS4Ve6lHwe3qs-MyH6SQwdlhPnT7ms_ZRYoxinaARe8iQYqsgR0E8hMueI6nHy9Jz3X8uN85CCOJ0JGGLFLfGA6NyKOwhDgbRCoJBD3qKXWi7ehVJWCX5qzs4MN",
-            "imageAlt": "Fashion model wearing minimalist high-end clothing in a bright studio",
-            "productName": "Premium Wool Coat",
-            "productSlug": "premium-wool-coat"
-          }
-        },
-        {
-          "type": "CategoryHighlights",
-          "props": {
-            "id": "categoryhighlights-3",
-            "header": "Shop by Category",
-            "subheader": "Curation",
-            "ctaLabel": "Explore All",
-            "categories": [
+            "id": "homepagelayout-1",
+            "promotion": [
               {
-                "name": "Outerwear",
-                "slug": "outerwear",
-                "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=80",
-                "productCount": 42
-              },
-              {
-                "name": "Footwear",
-                "slug": "footwear",
-                "image": "https://images.unsplash.com/photo-1549298916-b41d501d3779?w=600&q=80",
-                "productCount": 28
-              },
-              {
-                "name": "Accessories",
-                "slug": "accessories",
-                "image": "https://images.unsplash.com/photo-1611923134139-8cb8c9e1f1c1?w=600&q=80",
-                "productCount": 15
-              }
-            ]
-          }
-        },
-        {
-          "type": "FeaturedProductsGrid",
-          "props": {
-            "id": "featuredproductsgrid-4",
-            "header": "Featured Products",
-            "subheader": "Essentials",
-            "products": [
-              {
-                "name": "Premium Wool Coat",
-                "slug": "premium-wool-coat",
-                "price": 450,
-                "image": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80"
-              },
-              {
-                "name": "Silk Blend Shirt",
-                "slug": "silk-blend-shirt",
-                "price": 180,
-                "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80"
-              },
-              {
-                "name": "Leather Tote Bag",
-                "slug": "leather-tote-bag",
-                "price": 550,
-                "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
-              },
-              {
-                "name": "Cashmere Sweater",
-                "slug": "cashmere-sweater",
-                "price": 320,
-                "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80"
-              }
-            ]
-          }
-        },
-        {
-          "type": "CuratedCollectionSection",
-          "props": {
-            "id": "curatedcollectionsection-5",
-            "eyebrow": "Curated Collection",
-            "ctaText": "Explore Collection",
-            "collectionName": "Autumn Essentials",
-            "collectionDescription": "A curated selection of premium pieces for the season.",
-            "collectionSlug": "autumn-essentials",
-            "mainProductName": "Signature Trench Coat",
-            "mainProductImage": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=80",
-            "relatedProducts": [
-              {
-                "name": "Premium Wool Coat",
-                "slug": "premium-wool-coat",
-                "price": 450,
-                "image": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80"
-              },
-              {
-                "name": "Silk Blend Shirt",
-                "slug": "silk-blend-shirt",
-                "price": 180,
-                "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80"
-              },
-              {
-                "name": "Leather Tote Bag",
-                "slug": "leather-tote-bag",
-                "price": 550,
-                "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
-              },
-              {
-                "name": "Cashmere Sweater",
-                "slug": "cashmere-sweater",
-                "price": 320,
-                "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80"
-              }
-            ]
-          }
-        },
-        {
-          "type": "InspirationSection",
-          "props": {
-            "id": "inspirationsection-6",
-            "header": "Autumn in the City: A Curated Look",
-            "subheader": "Inspiration",
-            "description": "Discover how we style this season's most sought-after pieces for the perfect urban ensemble.",
-            "ctaText": "Shop the Look",
-            "hotspots": [
-              {
-                "top": "30%",
-                "right": "40%",
-                "title": "Classic Blazer",
-                "price": "$320.00"
-              },
-              {
-                "bottom": "40%",
-                "right": "25%",
-                "title": "Leather Tote",
-                "price": "$550.00"
+                "type": "PromotionBanner",
+                "props": {
+                  "id": "promotionbanner-1",
+                  "className": "w-full py-2 px-4"
+                }
               }
             ],
-            "title": "Autumn Edit",
-            "ctaLink": "/collections/all",
-            "backgroundImage": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80",
-            "imageAlt": "Autumn fashion inspiration"
-          }
-        },
-        {
-          "type": "TestimonialsSection",
-          "props": {
-            "id": "testimonialssection-7",
-            "title": "Our Community",
-            "subtitle": "Testimonials",
+            "hero": [
+              {
+                "type": "HeroSection",
+                "props": {
+                  "id": "herosection-1",
+                  "title": "Timeless Quality for the Modern Wardrobe",
+                  "subtitle": "Discover our curated collection of high-end essentials designed for the sophisticated individual. Effortless luxury, everyday.",
+                  "ctaPrimary": "Shop the Collection",
+                  "ctaSecondary": "View Lookbook",
+                  "backgroundImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuA6gp8HFBtOLhaLDZsED1w2eDKkeIHp6jt0CCvOR_XUoTQFJEpJEjhZEfhzDVSbO-0M1L7BoveRAyvHMXrc17n2O9joLLbK6-OJgyJEKJUu6k2tvyZvuAmmIhFqMIb4swMAkkEDSROBla5cwwqD4yS4Ve6lHwe3qs-MyH6SQwdlhPnT7ms_ZRYoxinaARe8iQYqsgR0E8hMueI6nHy9Jz3X8uN85CCOJ0JGGLFLfGA6NyKOwhDgbRCoJBD3qKXWi7ehVJWCX5qzs4MN",
+                  "imageAlt": "Fashion model wearing minimalist high-end clothing in a bright studio",
+                  "className": "p-6 lg:p-12"
+                }
+              }
+            ],
+            "categories": [
+              {
+                "type": "CategoryHighlights",
+                "props": {
+                  "id": "categoryhighlights-1",
+                  "className": "px-6 lg:px-12 py-20",
+                  "header": "Shop by Category",
+                  "subheader": "Curation",
+                  "ctaLabel": "Explore All"
+                }
+              }
+            ],
+            "featuredProducts": [
+              {
+                "type": "FeaturedProductsGrid",
+                "props": {
+                  "id": "featuredproductsgrid-1",
+                  "className": "px-6 lg:px-12 py-20",
+                  "header": "Featured Products",
+                  "subheader": "Essentials"
+                }
+              }
+            ],
+            "curatedCollection": [
+              {
+                "type": "CuratedCollectionSection",
+                "props": {
+                  "id": "curatedcollectionsection-1",
+                  "className": "px-6 lg:px-12 py-20",
+                  "eyebrow": "Curated Collection",
+                  "ctaText": "Explore Collection"
+                }
+              }
+            ],
+            "inspiration": [
+              {
+                "type": "InspirationSection",
+                "props": {
+                  "id": "inspirationsection-1",
+                  "className": "px-6 lg:px-12 py-20",
+                  "header": "Autumn in the City: A Curated Look",
+                  "subheader": "Inspiration",
+                  "description": "Discover how we style this season's most sought-after pieces for the perfect urban ensemble.",
+                  "ctaText": "Shop the Look",
+                  "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCEMrhSDou2quXn3m45RGq7MZg9LrC6bfhIAUm012lCQ_f8jpBzFh738jzvkUbVSvKYNDVMBbivnX7veuwSk3TGH9bNl5BfoEo3grMYfpsMwy6PMb64zfUGaMHrKOmFpveIv6T-oTClRskrusCg2y6dvMwDuVww7KtswcekZJ6mXeuemf16PtjE2eMsmz_HCFBK4MdtRCYMLJe7t0irTEWCIfOh4J0E4vUO2HPqy-uipa55y8s2m73GkCWX_X1GYY22o1m4k7IRLlTW",
+                  "alt": "Lifestyle scene of a boutique store interior with model",
+                  "hotspots": [
+                    {
+                      "top": "30%",
+                      "right": "40%",
+                      "title": "Classic Blazer",
+                      "price": "$320.00"
+                    },
+                    {
+                      "bottom": "40%",
+                      "right": "25%",
+                      "title": "Leather Tote",
+                      "price": "$550.00"
+                    }
+                  ]
+                }
+              }
+            ],
             "testimonials": [
               {
-                "quote": "Exceptional quality and service. Every piece feels thoughtfully designed.",
-                "author": "Sarah Mitchell",
-                "role": "Verified Buyer",
-                "avatar": "",
-                "rating": "5",
-                "platform": "Trustpilot"
-              },
-              {
-                "quote": "Best purchase I've made this year. The craftsmanship is outstanding.",
-                "author": "James Lee",
-                "role": "Verified Buyer",
-                "avatar": "",
-                "rating": "5",
-                "platform": "Google Reviews"
-              },
-              {
-                "quote": "Luxury that lives up to the promise. Highly recommend.",
-                "author": "Emma Rodriguez",
-                "role": "Verified Buyer",
-                "avatar": "",
-                "rating": "4",
-                "platform": "Trustpilot"
+                "type": "TestimonialsSection",
+                "props": {
+                  "id": "testimonialssection-1",
+                  "title": "Our Community",
+                  "subtitle": "Testimonials",
+                  "className": "px-6 lg:px-12 py-32"
+                }
               }
-            ]
-          }
-        },
-        {
-          "type": "NewsletterSignup",
-          "props": {
-            "id": "newslettersignup-8",
-            "title": "Join the Inner Circle",
-            "description": "Sign up for early access to new drops, curated seasonal guides, and exclusive editorial content.",
-            "disclaimer": "By subscribing, you agree to our Privacy Policy and Terms of Service."
-          }
-        },
-        {
-          "type": "TrustBadges",
-          "props": {
-            "id": "trustbadges-9",
-            "badges": [
+            ],
+            "newsletter": [
               {
-                "icon": "local_shipping",
-                "title": "Free Global Shipping",
-                "subtitle": "On all orders over $100"
-              },
+                "type": "NewsletterSignup",
+                "props": {
+                  "id": "newslettersignup-1",
+                  "className": "px-6 lg:px-12 py-24",
+                  "title": "Join the Inner Circle",
+                  "description": "Sign up for early access to new drops, curated seasonal guides, and exclusive editorial content.",
+                  "disclaimer": "By subscribing, you agree to our Privacy Policy and Terms of Service."
+                }
+              }
+            ],
+            "trustBadges": [
               {
-                "icon": "restart_alt",
-                "title": "30-Day Returns",
-                "subtitle": "Hassle-free exchange policy"
-              },
-              {
-                "icon": "encrypted",
-                "title": "Secure Checkout",
-                "subtitle": "Encrypted payment processing"
+                "type": "TrustBadges",
+                "props": {
+                  "id": "trustbadges-1",
+                  "badges": [
+                    {
+                      "icon": "local_shipping",
+                      "title": "Free Global Shipping",
+                      "subtitle": "On all orders over $100"
+                    },
+                    {
+                      "icon": "restart_alt",
+                      "title": "30-Day Returns",
+                      "subtitle": "Hassle-free exchange policy"
+                    },
+                    {
+                      "icon": "encrypted",
+                      "title": "Secure Checkout",
+                      "subtitle": "Encrypted payment processing"
+                    }
+                  ],
+                  "className": "px-6 lg:px-12 py-12"
+                }
               }
             ]
           }
@@ -546,10 +346,57 @@
       "root": {},
       "content": [
         {
-          "type": "AccountAddressesStateSection",
+          "type": "AddressesPageState",
           "props": {
-            "id": "account-addresses-state-section",
-            "state": "content"
+            "id": "addressespagestate-1",
+            "content": [
+              {
+                "type": "AddressesPageLayout",
+                "props": {
+                  "id": "addressespagelayout-1",
+                  "breadcrumbs": [
+                    {
+                      "type": "AddressesBreadcrumbs",
+                      "props": {
+                        "id": "addressesbreadcrumbs-1"
+                      }
+                    }
+                  ],
+                  "account": [
+                    {
+                      "type": "AddressesAccountLayout",
+                      "props": {
+                        "id": "addressesaccountlayout-1",
+                        "sidebar": [
+                          {
+                            "type": "AddressesAccountSidebar",
+                            "props": {
+                              "id": "addressesaccountsidebar-1"
+                            }
+                          }
+                        ],
+                        "content": [
+                          {
+                            "type": "AddressesContentLayout",
+                            "props": {
+                              "id": "addressescontentlayout-1",
+                              "addressManager": [
+                                {
+                                  "type": "AddressesManagerRegion",
+                                  "props": {
+                                    "id": "addressesmanagerregion-1"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
           }
         }
       ],
@@ -562,10 +409,93 @@
       "root": {},
       "content": [
         {
-          "type": "AccountDigitalLibraryStateSection",
+          "type": "AccountDownloadsPageLayout",
           "props": {
-            "id": "account-digital-library-state-section",
-            "state": "empty"
+            "id": "accountdownloadspagelayout-1",
+            "content": [
+              {
+                "type": "DigitalLibraryLayout",
+                "props": {
+                  "id": "digitallibrarylayout-1",
+                  "header": [
+                    {
+                      "type": "DigitalLibraryHeader",
+                      "props": {
+                        "id": "digitallibraryheader-1"
+                      }
+                    }
+                  ],
+                  "metrics": [
+                    {
+                      "type": "DigitalLibraryMetricsLayout",
+                      "props": {
+                        "id": "digitallibrarymetricslayout-1",
+                        "metrics": [
+                          {
+                            "type": "DigitalLibraryDownloadsMetric",
+                            "props": {
+                              "id": "digitallibrarydownloadsmetric-1"
+                            }
+                          },
+                          {
+                            "type": "DigitalLibraryAttentionMetric",
+                            "props": {
+                              "id": "digitallibraryattentionmetric-1"
+                            }
+                          },
+                          {
+                            "type": "DigitalLibraryAssetsMetric",
+                            "props": {
+                              "id": "digitallibraryassetsmetric-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "assets": [
+                    {
+                      "type": "DigitalLibraryAssetsState",
+                      "props": {
+                        "id": "digitallibraryassetsstate-1",
+                        "assets": [
+                          {
+                            "type": "DigitalLibraryEntriesGrid",
+                            "props": {
+                              "id": "digitallibraryentriesgrid-1"
+                            }
+                          }
+                        ],
+                        "empty": [
+                          {
+                            "type": "DigitalLibraryEmptyRegion",
+                            "props": {
+                              "id": "digitallibraryemptyregion-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "history": [
+                    {
+                      "type": "DigitalLibraryHistoryRegion",
+                      "props": {
+                        "id": "digitallibraryhistoryregion-1"
+                      }
+                    }
+                  ],
+                  "background": [
+                    {
+                      "type": "DigitalLibraryBackground",
+                      "props": {
+                        "id": "digitallibrarybackground-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
           }
         }
       ],
@@ -602,7 +532,6 @@
                 "type": "CategorySubcategoryCondition",
                 "props": {
                   "id": "categorysubcategorycondition-1",
-                  "previewMode": "visible",
                   "content": [
                     {
                       "type": "SubcategoryNav",
@@ -623,7 +552,8 @@
                     {
                       "type": "ActiveFiltersBlock",
                       "props": {
-                        "id": "activefiltersblock-1"
+                        "id": "activefiltersblock-1",
+                        "className": "mb-8"
                       }
                     }
                   ]
@@ -656,7 +586,6 @@
                       "type": "CategoryCatalogResultsState",
                       "props": {
                         "id": "categorycatalogresultsstate-1",
-                        "previewMode": "results",
                         "results": [
                           {
                             "type": "CategoryCatalogResultsHeader",
@@ -696,12 +625,12 @@
                             "type": "CategoryCatalogPaginationCondition",
                             "props": {
                               "id": "categorycatalogpaginationcondition-1",
-                              "previewMode": "visible",
                               "content": [
                                 {
                                   "type": "CategoryCatalogPaginationBlock",
                                   "props": {
-                                    "id": "categorycatalogpaginationblock-1"
+                                    "id": "categorycatalogpaginationblock-1",
+                                    "className": "mt-16 md:mt-20"
                                   }
                                 }
                               ]
@@ -719,6 +648,2350 @@
                       }
                     }
                   ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "collection-detail",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "CollectionDetailPageState",
+          "props": {
+            "id": "collectiondetailpagestate-1",
+            "content": [
+              {
+                "type": "CollectionDetailPageLayout",
+                "props": {
+                  "id": "collectiondetailpagelayout-1",
+                  "hero": [
+                    {
+                      "type": "CollectionDetailHero",
+                      "props": {
+                        "id": "collectiondetailhero-1"
+                      }
+                    }
+                  ],
+                  "curated": [
+                    {
+                      "type": "CuratedCollectionCondition",
+                      "props": {
+                        "id": "curatedcollectioncondition-1",
+                        "content": [
+                          {
+                            "type": "CollectionDetailCuratedDisplay",
+                            "props": {
+                              "id": "collectiondetailcurateddisplay-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "inspiration": [
+                    {
+                      "type": "InspirationDetailCondition",
+                      "props": {
+                        "id": "inspirationdetailcondition-1",
+                        "content": [
+                          {
+                            "type": "CollectionDetailInspirationGallery",
+                            "props": {
+                              "id": "collectiondetailinspirationgallery-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "notFound": [
+              {
+                "type": "CollectionDetailNotFound",
+                "props": {
+                  "id": "collectiondetailnotfound-1"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "shared-wishlist",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "SharedWishlistPageState",
+          "props": {
+            "id": "sharedwishlistpagestate-1",
+            "content": [
+              {
+                "type": "SharedWishlistPageLayout",
+                "props": {
+                  "id": "sharedwishlistpagelayout-1",
+                  "schema": [
+                    {
+                      "type": "SharedWishlistJsonLd",
+                      "props": {
+                        "id": "sharedwishlistjsonld-1",
+                        "items": []
+                      }
+                    }
+                  ],
+                  "header": [
+                    {
+                      "type": "SharedWishlistHeader",
+                      "props": {
+                        "id": "sharedwishlistheader-1",
+                        "title": "Shared Wishlist",
+                        "itemCount": 0,
+                        "actions": [
+                          {
+                            "type": "SharedWishlistHeaderActionsCondition",
+                            "props": {
+                              "id": "sharedwishlistheaderactionscondition-1",
+                              "visible": false,
+                              "content": [
+                                {
+                                  "type": "SharedWishlistAddAll",
+                                  "props": {
+                                    "id": "sharedwishlistaddall-1",
+                                    "items": []
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "content": [
+                    {
+                      "type": "SharedWishlistContentLayout",
+                      "props": {
+                        "id": "sharedwishlistcontentlayout-1",
+                        "savings": [
+                          {
+                            "type": "SharedWishlistSavingsCondition",
+                            "props": {
+                              "id": "sharedwishlistsavingscondition-1",
+                              "content": [
+                                {
+                                  "type": "SharedWishlistSavingsCard",
+                                  "props": {
+                                    "id": "sharedwishlistsavingscard-1"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ],
+                        "items": [
+                          {
+                            "type": "SharedWishlistItemsState",
+                            "props": {
+                              "id": "sharedwishlistitemsstate-1",
+                              "hasItems": false,
+                              "empty": [
+                                {
+                                  "type": "SharedWishlistEmpty",
+                                  "props": {
+                                    "id": "sharedwishlistempty-1"
+                                  }
+                                }
+                              ],
+                              "grid": [
+                                {
+                                  "type": "SharedWishlistGrid",
+                                  "props": {
+                                    "id": "sharedwishlistgrid-1",
+                                    "items": []
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "invalid": [
+              {
+                "type": "SharedWishlistInvalidState",
+                "props": {
+                  "id": "sharedwishlistinvalidstate-1"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "checkout-success",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "CheckoutSuccessPageState",
+          "props": {
+            "id": "checkoutsuccesspagestate-1",
+            "order": null,
+            "content": [
+              {
+                "type": "CheckoutSuccessPageLayout",
+                "props": {
+                  "id": "checkoutsuccesspagelayout-1",
+                  "tracker": [
+                    {
+                      "type": "CheckoutSuccessPurchaseTracker",
+                      "props": {
+                        "id": "checkoutsuccesspurchasetracker-1",
+                        "order": null
+                      }
+                    }
+                  ],
+                  "header": [
+                    {
+                      "type": "CheckoutSuccessHeaderLayout",
+                      "props": {
+                        "id": "checkoutsuccessheaderlayout-1",
+                        "header": [
+                          {
+                            "type": "CheckoutSuccessHeader",
+                            "props": {
+                              "id": "checkoutsuccessheader-1",
+                              "title": "Thank you for your order"
+                            }
+                          }
+                        ],
+                        "orderNumber": [
+                          {
+                            "type": "CheckoutSuccessOrderNumber",
+                            "props": {
+                              "id": "checkoutsuccessordernumber-1",
+                              "className": "mt-2"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "content": [
+                    {
+                      "type": "CheckoutSuccessTwoColumnLayout",
+                      "props": {
+                        "id": "checkoutsuccesstwocolumnlayout-1",
+                        "order": [
+                          {
+                            "type": "CheckoutSuccessOrderColumn",
+                            "props": {
+                              "id": "checkoutsuccessordercolumn-1",
+                              "items": [
+                                {
+                                  "type": "CheckoutSuccessOrderItemList",
+                                  "props": {
+                                    "id": "checkoutsuccessorderitemlist-1"
+                                  }
+                                }
+                              ],
+                              "summary": [
+                                {
+                                  "type": "CheckoutSuccessOrderSummary",
+                                  "props": {
+                                    "id": "checkoutsuccessordersummary-1",
+                                    "order": null
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ],
+                        "details": [
+                          {
+                            "type": "CheckoutSuccessDetailsColumn",
+                            "props": {
+                              "id": "checkoutsuccessdetailscolumn-1",
+                              "digital": [
+                                {
+                                  "type": "CheckoutSuccessDigitalAssetsCondition",
+                                  "props": {
+                                    "id": "checkoutsuccessdigitalassetscondition-1",
+                                    "content": [
+                                      {
+                                        "type": "CheckoutSuccessDigitalDownloads",
+                                        "props": {
+                                          "id": "checkoutsuccessdigitaldownloads-1",
+                                          "assets": []
+                                        }
+                                      },
+                                      {
+                                        "type": "CheckoutSuccessLicenseKeys",
+                                        "props": {
+                                          "id": "checkoutsuccesslicensekeys-1",
+                                          "assets": []
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ],
+                              "shipping": [
+                                {
+                                  "type": "CheckoutSuccessShippingInfo",
+                                  "props": {
+                                    "id": "checkoutsuccessshippinginfo-1",
+                                    "order": null
+                                  }
+                                }
+                              ],
+                              "nextSteps": [
+                                {
+                                  "type": "CheckoutSuccessNextSteps",
+                                  "props": {
+                                    "id": "checkoutsuccessnextsteps-1"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": "CheckoutSuccessActionsLayout",
+                      "props": {
+                        "id": "checkoutsuccessactionslayout-1",
+                        "continueShopping": [
+                          {
+                            "type": "CheckoutSuccessContinueShopping",
+                            "props": {
+                              "id": "checkoutsuccesscontinueshopping-1"
+                            }
+                          }
+                        ],
+                        "viewOrder": [
+                          {
+                            "type": "CheckoutSuccessViewOrder",
+                            "props": {
+                              "id": "checkoutsuccessvieworder-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "checkout-subscription",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "SubscriptionCheckoutPageState",
+          "props": {
+            "id": "subscriptioncheckoutpagestate-1",
+            "content": [
+              {
+                "type": "SubscriptionCheckoutPageLayout",
+                "props": {
+                  "id": "subscriptioncheckoutpagelayout-1",
+                  "content": [
+                    {
+                      "type": "SubscriptionCheckoutClientLayout",
+                      "props": {
+                        "id": "subscriptioncheckoutclientlayout-1",
+                        "header": [
+                          {
+                            "type": "SubscriptionCheckoutHeader",
+                            "props": {
+                              "id": "subscriptioncheckoutheader-1"
+                            }
+                          }
+                        ],
+                        "steps": [
+                          {
+                            "type": "SubscriptionCheckoutSteps",
+                            "props": {
+                              "id": "subscriptioncheckoutsteps-1"
+                            }
+                          }
+                        ],
+                        "leftColumn": [
+                          {
+                            "type": "SubscriptionCustomerInfoSection",
+                            "props": {
+                              "id": "subscriptioncustomerinfosection-1"
+                            }
+                          },
+                          {
+                            "type": "SubscriptionShippingAddressSection",
+                            "props": {
+                              "id": "subscriptionshippingaddresssection-1"
+                            }
+                          },
+                          {
+                            "type": "SubscriptionBillingTermsSection",
+                            "props": {
+                              "id": "subscriptionbillingtermssection-1"
+                            }
+                          },
+                          {
+                            "type": "SubscriptionCheckoutErrorCondition",
+                            "props": {
+                              "id": "subscriptioncheckouterrorcondition-1"
+                            }
+                          }
+                        ],
+                        "rightColumn": [
+                          {
+                            "type": "SubscriptionCartSummaryPanel",
+                            "props": {
+                              "id": "subscriptioncartsummarypanel-1"
+                            }
+                          },
+                          {
+                            "type": "SubscriptionPricingPreviewPanel",
+                            "props": {
+                              "id": "subscriptionpricingpreviewpanel-1"
+                            }
+                          },
+                          {
+                            "type": "SubscriptionSummaryPanel",
+                            "props": {
+                              "id": "subscriptionsummarypanel-1"
+                            }
+                          },
+                          {
+                            "type": "SubscriptionCheckoutActions",
+                            "props": {
+                              "id": "subscriptioncheckoutactions-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "downloads",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "DownloadPageLayout",
+          "props": {
+            "id": "downloadpagelayout-1",
+            "header": [
+              {
+                "type": "DownloadPageHeader",
+                "props": {
+                  "id": "downloadpageheader-1"
+                }
+              }
+            ],
+            "content": [
+              {
+                "type": "DownloadPageContentLayout",
+                "props": {
+                  "id": "downloadpagecontentlayout-1",
+                  "expirationNotice": [
+                    {
+                      "type": "DownloadExpirationNotice",
+                      "props": {
+                        "id": "downloadexpirationnotice-1"
+                      }
+                    }
+                  ],
+                  "assetState": [
+                    {
+                      "type": "DownloadAssetState",
+                      "props": {
+                        "id": "downloadassetstate-1"
+                      }
+                    }
+                  ],
+                  "licenseInfoPanel": [
+                    {
+                      "type": "DownloadLicenseInfoPanel",
+                      "props": {
+                        "id": "downloadlicenseinfopanel-1"
+                      }
+                    }
+                  ],
+                  "trustFooter": [
+                    {
+                      "type": "DownloadTrustFooter",
+                      "props": {
+                        "id": "downloadtrustfooter-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account-settings",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "AccountSettingsLayout",
+          "props": {
+            "id": "accountsettingslayout-1",
+            "breadcrumbs": [
+              {
+                "type": "AccountSettingsBreadcrumbs",
+                "props": {
+                  "id": "accountsettingsbreadcrumbs-1"
+                }
+              }
+            ],
+            "content": [
+              {
+                "type": "AccountIdentitySettingsCard",
+                "props": {
+                  "id": "accountidentitysettingscard-1",
+                  "explanation": [
+                    {
+                      "type": "AccountIdentityExplanation",
+                      "props": {
+                        "id": "accountidentityexplanation-1"
+                      }
+                    }
+                  ],
+                  "details": [
+                    {
+                      "type": "AccountIdentitySessionDetails",
+                      "props": {
+                        "id": "accountidentitysessiondetails-1",
+                        "fullName": "Customer"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account-orders",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "AccountOrdersLayout",
+          "props": {
+            "id": "accountorderslayout-1",
+            "header": [
+              {
+                "type": "AccountOrdersHeader",
+                "props": {
+                  "id": "accountordersheader-1"
+                }
+              }
+            ],
+            "filters": [
+              {
+                "type": "AccountOrdersStatusFilter",
+                "props": {
+                  "id": "accountordersstatusfilter-1"
+                }
+              }
+            ],
+            "content": [
+              {
+                "type": "AccountOrdersResultsState",
+                "props": {
+                  "id": "accountordersresultsstate-1",
+                  "hasOrders": false,
+                  "results": [
+                    {
+                      "type": "AccountOrdersList",
+                      "props": {
+                        "id": "accountorderslist-1",
+                        "initialOrders": [],
+                        "initialPagination": {
+                          "page": 1,
+                          "limit": 10,
+                          "total": 0,
+                          "totalPages": 0
+                        }
+                      }
+                    }
+                  ],
+                  "empty": [
+                    {
+                      "type": "AccountOrdersEmpty",
+                      "props": {
+                        "id": "accountordersempty-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "product-detail",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "ProductDetailPageLayout",
+          "props": {
+            "id": "productdetailpagelayout-1",
+            "promotion": [
+              {
+                "type": "PromotionBanner",
+                "props": {
+                  "id": "promotionbanner-1",
+                  "className": "w-full"
+                }
+              }
+            ],
+            "breadcrumbs": [
+              {
+                "type": "Breadcrumbs",
+                "props": {
+                  "id": "breadcrumbs-1",
+                  "className": "mb-8"
+                }
+              }
+            ],
+            "media": [
+              {
+                "type": "ProductDetailMediaColumn",
+                "props": {
+                  "id": "productdetailmediacolumn-1",
+                  "gallery": [
+                    {
+                      "type": "ProductGallery",
+                      "props": {
+                        "id": "productgallery-1",
+                        "images": []
+                      }
+                    }
+                  ],
+                  "desktopTabs": [
+                    {
+                      "type": "ProductTabs",
+                      "props": {
+                        "id": "producttabs-1",
+                        "defaultTab": "description"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "purchase": [
+              {
+                "type": "ProductDetailPurchaseColumn",
+                "props": {
+                  "id": "productdetailpurchasecolumn-1",
+                  "stock": [
+                    {
+                      "type": "StockIndicator",
+                      "props": {
+                        "id": "stockindicator-1"
+                      }
+                    }
+                  ],
+                  "rating": [
+                    {
+                      "type": "ProductRatingSummary",
+                      "props": {
+                        "id": "productratingsummary-1",
+                        "rating": 0
+                      }
+                    }
+                  ],
+                  "price": [
+                    {
+                      "type": "PriceDisplay",
+                      "props": {
+                        "id": "pricedisplay-1",
+                        "size": "large"
+                      }
+                    }
+                  ],
+                  "purchase": [
+                    {
+                      "type": "ProductDetailsClient",
+                      "props": {
+                        "id": "productdetailsclient-1"
+                      }
+                    }
+                  ],
+                  "trust": [
+                    {
+                      "type": "ProductDetailTrustBadges",
+                      "props": {
+                        "id": "productdetailtrustbadges-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "mobileTabs": [
+              {
+                "type": "ProductDetailMobileTabs",
+                "props": {
+                  "id": "productdetailmobiletabs-1",
+                  "content": [
+                    {
+                      "type": "ProductTabs",
+                      "props": {
+                        "id": "producttabs-2",
+                        "defaultTab": "description"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "reviews": [
+              {
+                "type": "ProductDetailSection",
+                "props": {
+                  "id": "productdetailsection-1",
+                  "kind": "reviews",
+                  "content": [
+                    {
+                      "type": "ReviewsSection",
+                      "props": {
+                        "id": "reviewssection-1",
+                        "averageRating": 0,
+                        "totalReviews": 0,
+                        "ratingDistribution": {}
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "testimonials": [
+              {
+                "type": "ProductDetailSection",
+                "props": {
+                  "id": "productdetailsection-2",
+                  "kind": "testimonials",
+                  "content": [
+                    {
+                      "type": "TestimonialsSection",
+                      "props": {
+                        "id": "testimonialssection-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "related": [
+              {
+                "type": "ProductDetailRelatedProductsSection",
+                "props": {
+                  "id": "productdetailrelatedproductssection-1",
+                  "content": [
+                    {
+                      "type": "RelatedProducts",
+                      "props": {
+                        "id": "relatedproducts-1",
+                        "title": "Complete the Look"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "categories",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "CategoriesPageLayout",
+          "props": {
+            "id": "categoriespagelayout-1",
+            "breadcrumbs": [
+              {
+                "type": "CategoriesPageBreadcrumbs",
+                "props": {
+                  "id": "categoriespagebreadcrumbs-1"
+                }
+              }
+            ],
+            "intro": [
+              {
+                "type": "CategoriesPageIntro",
+                "props": {
+                  "id": "categoriespageintro-1"
+                }
+              }
+            ],
+            "trending": [
+              {
+                "type": "TrendingCategoriesSection",
+                "props": {
+                  "id": "trendingcategoriessection-1",
+                  "cards": [
+                    {
+                      "type": "TrendingCategoryCard",
+                      "props": {
+                        "id": "trendingcategorycard-1",
+                        "badge": "Seasonal Pick",
+                        "position": 0
+                      }
+                    },
+                    {
+                      "type": "TrendingCategoryCard",
+                      "props": {
+                        "id": "trendingcategorycard-2",
+                        "badge": "Trending Now",
+                        "position": 1
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "departments": [
+              {
+                "type": "DepartmentCategoriesSection",
+                "props": {
+                  "id": "departmentcategoriessection-1",
+                  "grid": [
+                    {
+                      "type": "CategoryGrid",
+                      "props": {
+                        "id": "categorygrid-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "search",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "SearchPageLayout",
+          "props": {
+            "id": "searchpagelayout-1",
+            "breadcrumbs": [
+              {
+                "type": "SearchBreadcrumbs",
+                "props": {
+                  "id": "searchbreadcrumbs-1"
+                }
+              }
+            ],
+            "header": [
+              {
+                "type": "SearchHeader",
+                "props": {
+                  "id": "searchheader-1",
+                  "query": "",
+                  "totalItems": 0
+                }
+              }
+            ],
+            "analytics": [
+              {
+                "type": "SearchAnalytics",
+                "props": {
+                  "id": "searchanalytics-1",
+                  "query": "",
+                  "resultCount": 0
+                }
+              }
+            ],
+            "recentSearches": [
+              {
+                "type": "SearchRecentSearchesBoundary",
+                "props": {
+                  "id": "searchrecentsearchesboundary-1",
+                  "content": [
+                    {
+                      "type": "RecentSearches",
+                      "props": {
+                        "id": "recentsearches-1",
+                        "currentQuery": ""
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "content": [
+              {
+                "type": "SearchContentLayout",
+                "props": {
+                  "id": "searchcontentlayout-1",
+                  "sidebar": [
+                    {
+                      "type": "SearchFilterSidebar",
+                      "props": {
+                        "id": "searchfiltersidebar-1",
+                        "filters": [
+                          {
+                            "type": "SearchFilters",
+                            "props": {
+                              "id": "searchfilters-1",
+                              "categories": []
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "results": [
+                    {
+                      "type": "SearchQueryState",
+                      "props": {
+                        "id": "searchquerystate-1",
+                        "query": "",
+                        "hasResults": false,
+                        "results": [
+                          {
+                            "type": "SearchResultsBlock",
+                            "props": {
+                              "id": "searchresultsblock-1",
+                              "controls": [
+                                {
+                                  "type": "SearchSortControls",
+                                  "props": {
+                                    "id": "searchsortcontrols-1",
+                                    "totalItems": 0,
+                                    "content": [
+                                      {
+                                        "type": "SearchSortDropdown",
+                                        "props": {
+                                          "id": "searchsortdropdown-1"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ],
+                              "grid": [
+                                {
+                                  "type": "SearchGridBoundary",
+                                  "props": {
+                                    "id": "searchgridboundary-1",
+                                    "content": [
+                                      {
+                                        "type": "SearchProductGrid",
+                                        "props": {
+                                          "id": "searchproductgrid-1",
+                                          "products": [],
+                                          "listName": "Search Results"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ],
+                              "pagination": [
+                                {
+                                  "type": "SearchPaginationCondition",
+                                  "props": {
+                                    "id": "searchpaginationcondition-1",
+                                    "hasPagination": false,
+                                    "content": [
+                                      {
+                                        "type": "SearchPagination",
+                                        "props": {
+                                          "id": "searchpagination-1",
+                                          "totalPages": 0,
+                                          "className": "mt-16 md:mt-20"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ],
+                        "noResults": [
+                          {
+                            "type": "NoResults",
+                            "props": {
+                              "id": "noresults-1",
+                              "query": ""
+                            }
+                          }
+                        ],
+                        "start": [
+                          {
+                            "type": "SearchStartPrompt",
+                            "props": {
+                              "id": "searchstartprompt-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "collections",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "CollectionsPageLayout",
+          "props": {
+            "id": "collectionspagelayout-1",
+            "header": [
+              {
+                "type": "CollectionsPageHeader",
+                "props": {
+                  "id": "collectionspageheader-1",
+                  "breadcrumbs": [
+                    {
+                      "type": "CollectionBreadcrumbs",
+                      "props": {
+                        "id": "collectionbreadcrumbs-1",
+                        "items": [
+                          {
+                            "label": "Home",
+                            "href": "/"
+                          },
+                          {
+                            "label": "Collections"
+                          }
+                        ],
+                        "className": "mb-4"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "filters": [
+              {
+                "type": "CollectionsFilterSection",
+                "props": {
+                  "id": "collectionsfiltersection-1",
+                  "content": [
+                    {
+                      "type": "CollectionTypeFilter",
+                      "props": {
+                        "id": "collectiontypefilter-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "featured": [
+              {
+                "type": "FeaturedCuratedCollectionCondition",
+                "props": {
+                  "id": "featuredcuratedcollectioncondition-1",
+                  "content": [
+                    {
+                      "type": "FeaturedCuratedCollection",
+                      "props": {
+                        "id": "featuredcuratedcollection-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "collections": [
+              {
+                "type": "CollectionsResultsState",
+                "props": {
+                  "id": "collectionsresultsstate-1",
+                  "results": [
+                    {
+                      "type": "CollectionGrid",
+                      "props": {
+                        "id": "collectiongrid-1"
+                      }
+                    }
+                  ],
+                  "empty": [
+                    {
+                      "type": "EmptyCollections",
+                      "props": {
+                        "id": "emptycollections-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "inspiration": [
+              {
+                "type": "InspirationCollectionCondition",
+                "props": {
+                  "id": "inspirationcollectioncondition-1",
+                  "content": [
+                    {
+                      "type": "InspirationCollectionSection",
+                      "props": {
+                        "id": "inspirationcollectionsection-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "cart",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "CartPageState",
+          "props": {
+            "id": "cartpagestate-1",
+            "filled": [
+              {
+                "type": "CartPageLayout",
+                "props": {
+                  "id": "cartpagelayout-1",
+                  "header": [
+                    {
+                      "type": "CartPageHeader",
+                      "props": {
+                        "id": "cartpageheader-1"
+                      }
+                    }
+                  ],
+                  "progress": [
+                    {
+                      "type": "CartPageFreeShippingProgress",
+                      "props": {
+                        "id": "cartpagefreeshippingprogress-1"
+                      }
+                    }
+                  ],
+                  "items": [
+                    {
+                      "type": "CartPageItemList",
+                      "props": {
+                        "id": "cartpageitemlist-1"
+                      }
+                    }
+                  ],
+                  "continueShopping": [
+                    {
+                      "type": "CartPageContinueShopping",
+                      "props": {
+                        "id": "cartpagecontinueshopping-1"
+                      }
+                    }
+                  ],
+                  "summary": [
+                    {
+                      "type": "CartPageSummary",
+                      "props": {
+                        "id": "cartpagesummary-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "empty": [
+              {
+                "type": "CartPageEmptyLayout",
+                "props": {
+                  "id": "cartpageemptylayout-1",
+                  "content": [
+                    {
+                      "type": "CartPageEmpty",
+                      "props": {
+                        "id": "cartpageempty-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "checkout",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "CheckoutPageState",
+          "props": {
+            "id": "checkoutpagestate-1",
+            "content": [
+              {
+                "type": "CheckoutPageClientLayout",
+                "props": {
+                  "id": "checkoutpageclientlayout-1",
+                  "steps": [
+                    {
+                      "type": "CheckoutStepsRegion",
+                      "props": {
+                        "id": "checkoutstepsregion-1"
+                      }
+                    }
+                  ],
+                  "header": [
+                    {
+                      "type": "CheckoutPageHeader",
+                      "props": {
+                        "id": "checkoutpageheader-1"
+                      }
+                    }
+                  ],
+                  "error": [
+                    {
+                      "type": "CheckoutErrorCondition",
+                      "props": {
+                        "id": "checkouterrorcondition-1",
+                        "content": []
+                      }
+                    }
+                  ],
+                  "shipping": [
+                    {
+                      "type": "CheckoutShippingSection",
+                      "props": {
+                        "id": "checkoutshippingsection-1",
+                        "form": [
+                          {
+                            "type": "CheckoutShippingForm",
+                            "props": {
+                              "id": "checkoutshippingform-1"
+                            }
+                          }
+                        ],
+                        "shippingMethod": [
+                          {
+                            "type": "CheckoutShippingMethodCondition",
+                            "props": {
+                              "id": "checkoutshippingmethodcondition-1",
+                              "content": [
+                                {
+                                  "type": "CheckoutShippingMethod",
+                                  "props": {
+                                    "id": "checkoutshippingmethod-1"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "payment": [
+                    {
+                      "type": "CheckoutPaymentCondition",
+                      "props": {
+                        "id": "checkoutpaymentcondition-1",
+                        "content": [
+                          {
+                            "type": "CheckoutPaymentStepRegion",
+                            "props": {
+                              "id": "checkoutpaymentstepregion-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "review": [
+                    {
+                      "type": "CheckoutReviewCondition",
+                      "props": {
+                        "id": "checkoutreviewcondition-1",
+                        "content": [
+                          {
+                            "type": "CheckoutReviewSection",
+                            "props": {
+                              "id": "checkoutreviewsection-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "confirmation": [
+                    {
+                      "type": "CheckoutConfirmationCondition",
+                      "props": {
+                        "id": "checkoutconfirmationcondition-1",
+                        "content": []
+                      }
+                    }
+                  ],
+                  "summary": [
+                    {
+                      "type": "CheckoutOrderSummaryPanel",
+                      "props": {
+                        "id": "checkoutordersummarypanel-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account-subscription-detail",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "SubscriptionDetailsPageState",
+          "props": {
+            "id": "subscriptiondetailspagestate-1",
+            "content": [
+              {
+                "type": "SubscriptionDetailsPageLayout",
+                "props": {
+                  "id": "subscriptiondetailspagelayout-1",
+                  "breadcrumbs": [
+                    {
+                      "type": "SubscriptionDetailsBreadcrumbs",
+                      "props": {
+                        "id": "subscriptiondetailsbreadcrumbs-1"
+                      }
+                    }
+                  ],
+                  "header": [
+                    {
+                      "type": "SubscriptionDetailHeaderRegion",
+                      "props": {
+                        "id": "subscriptiondetailheaderregion-1"
+                      }
+                    }
+                  ],
+                  "content": [
+                    {
+                      "type": "SubscriptionDetailContentLayout",
+                      "props": {
+                        "id": "subscriptiondetailcontentlayout-1",
+                        "primary": [
+                          {
+                            "type": "SubscriptionItemsPanel",
+                            "props": {
+                              "id": "subscriptionitemspanel-1"
+                            }
+                          },
+                          {
+                            "type": "SubscriptionModifyPanel",
+                            "props": {
+                              "id": "subscriptionmodifypanel-1"
+                            }
+                          },
+                          {
+                            "type": "SubscriptionOrdersPanel",
+                            "props": {
+                              "id": "subscriptionorderspanel-1"
+                            }
+                          }
+                        ],
+                        "sidebar": [
+                          {
+                            "type": "SubscriptionNextDeliveryRegion",
+                            "props": {
+                              "id": "subscriptionnextdeliveryregion-1"
+                            }
+                          },
+                          {
+                            "type": "SubscriptionUpcomingAmountRegion",
+                            "props": {
+                              "id": "subscriptionupcomingamountregion-1"
+                            }
+                          },
+                          {
+                            "type": "SubscriptionLifecycleActionsPanel",
+                            "props": {
+                              "id": "subscriptionlifecycleactionspanel-1",
+                              "pause": [
+                                {
+                                  "type": "SubscriptionPauseAction",
+                                  "props": {
+                                    "id": "subscriptionpauseaction-1"
+                                  }
+                                }
+                              ],
+                              "resume": [
+                                {
+                                  "type": "SubscriptionResumeAction",
+                                  "props": {
+                                    "id": "subscriptionresumeaction-1"
+                                  }
+                                }
+                              ],
+                              "skip": [
+                                {
+                                  "type": "SubscriptionSkipDeliveryAction",
+                                  "props": {
+                                    "id": "subscriptionskipdeliveryaction-1"
+                                  }
+                                }
+                              ],
+                              "cancel": [
+                                {
+                                  "type": "SubscriptionCancelAction",
+                                  "props": {
+                                    "id": "subscriptioncancelaction-1"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "SubscriptionBillingHistoryPanel",
+                            "props": {
+                              "id": "subscriptionbillinghistorypanel-1",
+                              "alert": [
+                                {
+                                  "type": "SubscriptionFailedPaymentAlert",
+                                  "props": {
+                                    "id": "subscriptionfailedpaymentalert-1"
+                                  }
+                                }
+                              ],
+                              "history": [
+                                {
+                                  "type": "SubscriptionBillingHistory",
+                                  "props": {
+                                    "id": "subscriptionbillinghistory-1"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "SubscriptionPaymentPanel",
+                            "props": {
+                              "id": "subscriptionpaymentpanel-1",
+                              "updatePayment": [
+                                {
+                                  "type": "SubscriptionUpdatePaymentAction",
+                                  "props": {
+                                    "id": "subscriptionupdatepaymentaction-1"
+                                  }
+                                }
+                              ],
+                              "billingPortal": [
+                                {
+                                  "type": "SubscriptionBillingPortalAction",
+                                  "props": {
+                                    "id": "subscriptionbillingportalaction-1"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account-order-detail",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "OrderDetailsPageState",
+          "props": {
+            "id": "orderdetailspagestate-1",
+            "content": [
+              {
+                "type": "OrderDetailsPageLayout",
+                "props": {
+                  "id": "orderdetailspagelayout-1",
+                  "breadcrumbs": [
+                    {
+                      "type": "OrderDetailsBreadcrumbs",
+                      "props": {
+                        "id": "orderdetailsbreadcrumbs-1"
+                      }
+                    }
+                  ],
+                  "header": [
+                    {
+                      "type": "OrderDetailsHeader",
+                      "props": {
+                        "id": "orderdetailsheader-1",
+                        "downloads": [
+                          {
+                            "type": "OrderDetailsDownloadAction",
+                            "props": {
+                              "id": "orderdetailsdownloadaction-1"
+                            }
+                          }
+                        ],
+                        "reorder": [
+                          {
+                            "type": "OrderDetailsReorderAction",
+                            "props": {
+                              "id": "orderdetailsreorderaction-1"
+                            }
+                          }
+                        ],
+                        "cancel": [
+                          {
+                            "type": "OrderDetailsCancelAction",
+                            "props": {
+                              "id": "orderdetailscancelaction-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "content": [
+                    {
+                      "type": "OrderDetailsContentLayout",
+                      "props": {
+                        "id": "orderdetailscontentlayout-1",
+                        "primary": [
+                          {
+                            "type": "OrderDetailsItemsRegion",
+                            "props": {
+                              "id": "orderdetailsitemsregion-1"
+                            }
+                          },
+                          {
+                            "type": "OrderDetailsFinancialRegion",
+                            "props": {
+                              "id": "orderdetailsfinancialregion-1"
+                            }
+                          }
+                        ],
+                        "sidebar": [
+                          {
+                            "type": "OrderDetailsShippingRegion",
+                            "props": {
+                              "id": "orderdetailsshippingregion-1"
+                            }
+                          },
+                          {
+                            "type": "OrderDetailsBillingAddressCondition",
+                            "props": {
+                              "id": "orderdetailsbillingaddresscondition-1",
+                              "content": [
+                                {
+                                  "type": "OrderDetailsBillingRegion",
+                                  "props": {
+                                    "id": "orderdetailsbillingregion-1"
+                                  }
+                                }
+                              ]
+                            }
+                          },
+                          {
+                            "type": "OrderDetailsPaymentRegion",
+                            "props": {
+                              "id": "orderdetailspaymentregion-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account-return-detail",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "ReturnDetailsPageState",
+          "props": {
+            "id": "returndetailspagestate-1",
+            "notFound": [
+              {
+                "type": "ReturnDetailsNotFoundLayout",
+                "props": {
+                  "id": "returndetailsnotfoundlayout-1"
+                }
+              }
+            ],
+            "content": [
+              {
+                "type": "ReturnDetailsPageLayout",
+                "props": {
+                  "id": "returndetailspagelayout-1",
+                  "header": [
+                    {
+                      "type": "ReturnDetailsHeaderRegion",
+                      "props": {
+                        "id": "returndetailsheaderregion-1"
+                      }
+                    }
+                  ],
+                  "timeline": [
+                    {
+                      "type": "ReturnDetailsTimelineRegion",
+                      "props": {
+                        "id": "returndetailstimelineregion-1"
+                      }
+                    }
+                  ],
+                  "content": [
+                    {
+                      "type": "ReturnDetailsContentLayout",
+                      "props": {
+                        "id": "returndetailscontentlayout-1",
+                        "primary": [
+                          {
+                            "type": "ReturnDetailsItemsRegion",
+                            "props": {
+                              "id": "returndetailsitemsregion-1"
+                            }
+                          },
+                          {
+                            "type": "ReturnDetailsReasonRegion",
+                            "props": {
+                              "id": "returndetailsreasonregion-1"
+                            }
+                          },
+                          {
+                            "type": "ReturnDetailsAdminNotesCondition",
+                            "props": {
+                              "id": "returndetailsadminnotescondition-1",
+                              "content": [
+                                {
+                                  "type": "ReturnDetailsAdminNotesRegion",
+                                  "props": {
+                                    "id": "returndetailsadminnotesregion-1"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ],
+                        "sidebar": [
+                          {
+                            "type": "ReturnDetailsTrackingRegion",
+                            "props": {
+                              "id": "returndetailstrackingregion-1"
+                            }
+                          },
+                          {
+                            "type": "ReturnDetailsLabelRegion",
+                            "props": {
+                              "id": "returndetailslabelregion-1"
+                            }
+                          },
+                          {
+                            "type": "ReturnDetailsRefundSummaryRegion",
+                            "props": {
+                              "id": "returndetailsrefundsummaryregion-1"
+                            }
+                          },
+                          {
+                            "type": "ReturnDetailsRefundBreakdownRegion",
+                            "props": {
+                              "id": "returndetailsrefundbreakdownregion-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": "ReturnDetailsActionsRegion",
+                      "props": {
+                        "id": "returndetailsactionsregion-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account-order-return",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "OrderReturnPageState",
+          "props": {
+            "id": "orderreturnpagestate-1",
+            "content": [
+              {
+                "type": "OrderReturnPageLayout",
+                "props": {
+                  "id": "orderreturnpagelayout-1",
+                  "breadcrumbs": [
+                    {
+                      "type": "OrderReturnBreadcrumbs",
+                      "props": {
+                        "id": "orderreturnbreadcrumbs-1"
+                      }
+                    }
+                  ],
+                  "header": [
+                    {
+                      "type": "OrderReturnHeader",
+                      "props": {
+                        "id": "orderreturnheader-1"
+                      }
+                    }
+                  ],
+                  "state": [
+                    {
+                      "type": "OrderReturnEligibilityState",
+                      "props": {
+                        "id": "orderreturneligibilitystate-1",
+                        "expired": [
+                          {
+                            "type": "OrderReturnWindowExpiredRegion",
+                            "props": {
+                              "id": "orderreturnwindowexpiredregion-1"
+                            }
+                          }
+                        ],
+                        "ineligible": [
+                          {
+                            "type": "OrderReturnNotEligibleRegion",
+                            "props": {
+                              "id": "orderreturnnoteligibleregion-1"
+                            }
+                          }
+                        ],
+                        "eligible": [
+                          {
+                            "type": "OrderReturnEligibleLayout",
+                            "props": {
+                              "id": "orderreturneligiblelayout-1",
+                              "form": [
+                                {
+                                  "type": "OrderReturnRequestFormRegion",
+                                  "props": {
+                                    "id": "orderreturnrequestformregion-1"
+                                  }
+                                }
+                              ],
+                              "policy": [
+                                {
+                                  "type": "OrderReturnPolicyReminderRegion",
+                                  "props": {
+                                    "id": "orderreturnpolicyreminderregion-1"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account-payment-methods",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "PaymentMethodsPageState",
+          "props": {
+            "id": "paymentmethodspagestate-1",
+            "content": [
+              {
+                "type": "PaymentMethodsPageLayout",
+                "props": {
+                  "id": "paymentmethodspagelayout-1",
+                  "header": [
+                    {
+                      "type": "PaymentMethodsHeaderLayout",
+                      "props": {
+                        "id": "paymentmethodsheaderlayout-1",
+                        "addCard": [
+                          {
+                            "type": "PaymentMethodsAddCardAction",
+                            "props": {
+                              "id": "paymentmethodsaddcardaction-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "cardForm": [
+                    {
+                      "type": "PaymentMethodsStripeConfigCondition",
+                      "props": {
+                        "id": "paymentmethodsstripeconfigcondition-1",
+                        "content": [
+                          {
+                            "type": "PaymentMethodsStripeCardForm",
+                            "props": {
+                              "id": "paymentmethodsstripecardform-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "savedCards": [
+                    {
+                      "type": "PaymentMethodsSavedCardsSection",
+                      "props": {
+                        "id": "paymentmethodssavedcardssection-1",
+                        "state": [
+                          {
+                            "type": "PaymentMethodsListState",
+                            "props": {
+                              "id": "paymentmethodsliststate-1",
+                              "list": [
+                                {
+                                  "type": "PaymentMethodsListRegion",
+                                  "props": {
+                                    "id": "paymentmethodslistregion-1"
+                                  }
+                                }
+                              ],
+                              "empty": [
+                                {
+                                  "type": "PaymentMethodsEmptyStateRegion",
+                                  "props": {
+                                    "id": "paymentmethodsemptystateregion-1"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "help": [
+                    {
+                      "type": "PaymentMethodsHelpFooter",
+                      "props": {
+                        "id": "paymentmethodshelpfooter-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account-order-downloads",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "OrderDownloadsPageState",
+          "props": {
+            "id": "orderdownloadspagestate-1",
+            "content": [
+              {
+                "type": "OrderDownloadsPageLayout",
+                "props": {
+                  "id": "orderdownloadspagelayout-1",
+                  "breadcrumbs": [
+                    {
+                      "type": "OrderDownloadsBreadcrumbs",
+                      "props": {
+                        "id": "orderdownloadsbreadcrumbs-1"
+                      }
+                    }
+                  ],
+                  "header": [
+                    {
+                      "type": "OrderDownloadsHeader",
+                      "props": {
+                        "id": "orderdownloadsheader-1"
+                      }
+                    }
+                  ],
+                  "paymentPending": [
+                    {
+                      "type": "OrderDownloadsPaymentPendingCondition",
+                      "props": {
+                        "id": "orderdownloadspaymentpendingcondition-1",
+                        "content": [
+                          {
+                            "type": "OrderDownloadsPaymentPendingNotice",
+                            "props": {
+                              "id": "orderdownloadspaymentpendingnotice-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "downloads": [
+                    {
+                      "type": "OrderDownloadsAssetsState",
+                      "props": {
+                        "id": "orderdownloadsassetsstate-1",
+                        "assets": [
+                          {
+                            "type": "OrderDownloadsAssetsLayout",
+                            "props": {
+                              "id": "orderdownloadsassetslayout-1",
+                              "downloads": [
+                                {
+                                  "type": "OrderDownloadsListRegion",
+                                  "props": {
+                                    "id": "orderdownloadslistregion-1"
+                                  }
+                                }
+                              ],
+                              "licenses": [
+                                {
+                                  "type": "OrderDownloadsLicenseKeysRegion",
+                                  "props": {
+                                    "id": "orderdownloadslicensekeysregion-1"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ],
+                        "empty": [
+                          {
+                            "type": "OrderDownloadsEmptyRegion",
+                            "props": {
+                              "id": "orderdownloadsemptyregion-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "back": [
+                    {
+                      "type": "OrderDownloadsBackLink",
+                      "props": {
+                        "id": "orderdownloadsbacklink-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account-returns",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "ReturnsPageLayout",
+          "props": {
+            "id": "returnspagelayout-1",
+            "header": [
+              {
+                "type": "ReturnsPageHeader",
+                "props": {
+                  "id": "returnspageheader-1"
+                }
+              }
+            ],
+            "content": [
+              {
+                "type": "ReturnsListLayout",
+                "props": {
+                  "id": "returnslistlayout-1",
+                  "filter": [
+                    {
+                      "type": "ReturnsStatusFilterRegion",
+                      "props": {
+                        "id": "returnsstatusfilterregion-1"
+                      }
+                    }
+                  ],
+                  "notice": [
+                    {
+                      "type": "ReturnsProcessingNotice",
+                      "props": {
+                        "id": "returnsprocessingnotice-1"
+                      }
+                    }
+                  ],
+                  "results": [
+                    {
+                      "type": "ReturnsResultsState",
+                      "props": {
+                        "id": "returnsresultsstate-1",
+                        "results": [
+                          {
+                            "type": "ReturnsCardsList",
+                            "props": {
+                              "id": "returnscardslist-1"
+                            }
+                          }
+                        ],
+                        "empty": [
+                          {
+                            "type": "ReturnsEmptyRegion",
+                            "props": {
+                              "id": "returnsemptyregion-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "pagination": [
+                    {
+                      "type": "ReturnsPaginationRegion",
+                      "props": {
+                        "id": "returnspaginationregion-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account-subscriptions",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "AccountSubscriptionsPageLayout",
+          "props": {
+            "id": "accountsubscriptionspagelayout-1",
+            "header": [
+              {
+                "type": "AccountSubscriptionsPageHeader",
+                "props": {
+                  "id": "accountsubscriptionspageheader-1"
+                }
+              }
+            ],
+            "content": [
+              {
+                "type": "SubscriptionsListLayout",
+                "props": {
+                  "id": "subscriptionslistlayout-1",
+                  "content": [
+                    {
+                      "type": "SubscriptionsListState",
+                      "props": {
+                        "id": "subscriptionsliststate-1",
+                        "subscriptions": [
+                          {
+                            "type": "SubscriptionsListClientRegion",
+                            "props": {
+                              "id": "subscriptionslistclientregion-1",
+                              "content": [
+                                {
+                                  "type": "SubscriptionsCardsList",
+                                  "props": {
+                                    "id": "subscriptionscardslist-1"
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ],
+                        "empty": [
+                          {
+                            "type": "SubscriptionsEmptyRegion",
+                            "props": {
+                              "id": "subscriptionsemptyregion-1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account-wishlist",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "AccountWishlistPageLayout",
+          "props": {
+            "id": "accountwishlistpagelayout-1",
+            "header": [
+              {
+                "type": "WishlistPageHeaderLayout",
+                "props": {
+                  "id": "wishlistpageheaderlayout-1",
+                  "intro": [
+                    {
+                      "type": "WishlistPageIntro",
+                      "props": {
+                        "id": "wishlistpageintro-1"
+                      }
+                    }
+                  ],
+                  "savings": [
+                    {
+                      "type": "WishlistSavingsRegion",
+                      "props": {
+                        "id": "wishlistsavingsregion-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "content": [
+              {
+                "type": "WishlistItemsState",
+                "props": {
+                  "id": "wishlistitemsstate-1",
+                  "empty": [
+                    {
+                      "type": "WishlistEmptyRegion",
+                      "props": {
+                        "id": "wishlistemptyregion-1"
+                      }
+                    }
+                  ],
+                  "grid": [
+                    {
+                      "type": "WishlistGridRegion",
+                      "props": {
+                        "id": "wishlistgridregion-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "recommendations": [
+              {
+                "type": "WishlistRecommendationsFooter",
+                "props": {
+                  "id": "wishlistrecommendationsfooter-1"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account-sessions",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "AccountSessionsPageLayout",
+          "props": {
+            "id": "accountsessionspagelayout-1",
+            "breadcrumbs": [
+              {
+                "type": "AccountSessionsBreadcrumbs",
+                "props": {
+                  "id": "accountsessionsbreadcrumbs-1"
+                }
+              }
+            ],
+            "content": [
+              {
+                "type": "AccountSessionsIdentityNotice",
+                "props": {
+                  "id": "accountsessionsidentitynotice-1"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "zones": {}
+    }
+  },
+  {
+    "slug": "account",
+    "data": {
+      "root": {},
+      "content": [
+        {
+          "type": "AccountDashboardPageLayout",
+          "props": {
+            "id": "accountdashboardpagelayout-1",
+            "hero": [
+              {
+                "type": "AccountDashboardHeroLayout",
+                "props": {
+                  "id": "accountdashboardherolayout-1",
+                  "welcome": [
+                    {
+                      "type": "AccountDashboardWelcome",
+                      "props": {
+                        "id": "accountdashboardwelcome-1"
+                      }
+                    }
+                  ],
+                  "identity": [
+                    {
+                      "type": "AccountDashboardIdentity",
+                      "props": {
+                        "id": "accountdashboardidentity-1"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "links": [
+              {
+                "type": "AccountDashboardLinks",
+                "props": {
+                  "id": "accountdashboardlinks-1"
                 }
               }
             ]

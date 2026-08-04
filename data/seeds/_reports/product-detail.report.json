@@ -1,8 +1,17 @@
 {
-  "page": "app/products/[slug]/page.tsx",
-  "output": "../dnd-test/data/seeds/product-detail.json",
+  "page": "D:/projects/eNigma-TemplateFrontend/app/products/[slug]/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/product-detail.json",
+  "profile": "product-detail",
   "manifestLoaded": true,
   "captured": [
+    {
+      "type": "PromotionBanner",
+      "id": "promotionbanner-1"
+    },
+    {
+      "type": "Breadcrumbs",
+      "id": "breadcrumbs-1"
+    },
     {
       "type": "ProductGallery",
       "id": "productgallery-1"
@@ -72,20 +81,24 @@
       "id": "productdetailrelatedproductssection-1"
     },
     {
-      "type": "PromotionBanner",
-      "id": "promotionbanner-1"
-    },
-    {
-      "type": "Breadcrumbs",
-      "id": "breadcrumbs-1"
-    },
-    {
       "type": "ProductDetailPageLayout",
       "id": "productdetailpagelayout-1"
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [
+    {
+      "source": "product.rating !== undefined && product.rating > 0",
+      "handledBy": "ProductDetailPurchaseColumn"
+    },
+    {
+      "source": "relatedProducts.length > 0",
+      "handledBy": "ProductDetailRelatedProductsSection"
+    }
+  ],
+  "delegates": [],
+  "fatal": false
 }

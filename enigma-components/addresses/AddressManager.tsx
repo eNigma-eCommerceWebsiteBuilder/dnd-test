@@ -3,9 +3,9 @@
 import { useMemo, useState } from 'react';
 import type { User, UserAddress } from '@/lib/api/types/auth';
 import { useUserAddresses } from '@/lib/hooks';
-import { AddressList } from '@/components/addresses/AddressList';
-import { AddAddressButton } from '@/components/addresses/AddAddressButton';
-import { AddAddressModal } from '@/components/addresses/AddAddressModal';
+import { AddressList } from '@/enigma-components/addresses/AddressList';
+import { AddAddressButton } from '@/enigma-components/addresses/AddAddressButton';
+import { AddAddressModal } from '@/enigma-components/addresses/AddAddressModal';
 
 interface AddressManagerProps {
   user: User;

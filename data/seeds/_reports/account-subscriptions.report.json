@@ -1,21 +1,61 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/account/subscriptions/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/account-subscriptions.json",
+  "profile": "account-subscriptions",
   "manifestLoaded": true,
   "captured": [
     {
-      "type": "PageHeader",
-      "id": "pageheader-1"
+      "type": "AccountSubscriptionsPageHeader",
+      "id": "accountsubscriptionspageheader-1"
     },
     {
-      "type": "PageWrapper",
-      "id": "pagewrapper-1"
+      "type": "SubscriptionsCardsList",
+      "id": "subscriptionscardslist-1"
+    },
+    {
+      "type": "SubscriptionsListClientRegion",
+      "id": "subscriptionslistclientregion-1"
+    },
+    {
+      "type": "SubscriptionsEmptyRegion",
+      "id": "subscriptionsemptyregion-1"
+    },
+    {
+      "type": "SubscriptionsListState",
+      "id": "subscriptionsliststate-1"
+    },
+    {
+      "type": "SubscriptionsListLayout",
+      "id": "subscriptionslistlayout-1"
+    },
+    {
+      "type": "AccountSubscriptionsPageLayout",
+      "id": "accountsubscriptionspagelayout-1"
     }
   ],
   "warnings": [],
-  "droppedComponents": [
-    "SubscriptionList"
-  ],
+  "errors": [],
+  "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [
+    {
+      "source": "context.filter && context.filter !== status",
+      "handledBy": "SubscriptionsListClientRegion"
+    },
+    {
+      "source": "data.subscriptions.length > 0 ? subscriptions : empty",
+      "handledBy": "SubscriptionsListState"
+    }
+  ],
+  "delegates": [
+    {
+      "component": "SubscriptionsPage",
+      "source": "D:/projects/eNigma-TemplateFrontend/components/subscriptions/canonical/SubscriptionsPage.tsx"
+    },
+    {
+      "component": "SubscriptionList",
+      "source": "D:/projects/eNigma-TemplateFrontend/components/subscriptions/SubscriptionList.tsx"
+    }
+  ],
+  "fatal": false
 }

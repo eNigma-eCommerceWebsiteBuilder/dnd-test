@@ -3,14 +3,14 @@
 import { useMemo, useState } from 'react';
 import type { Order } from '@/lib/api/types/orders';
 import type { ReturnReason } from '@/lib/api/types/returns';
-import { OrderItemSelector, type SelectedReturnItem } from '@/components/returns/OrderItemSelector';
-import { ReasonSelector } from '@/components/returns/ReasonSelector';
-import { ReasonDetailsInput } from '@/components/returns/ReasonDetailsInput';
-import { ImageUploader } from '@/components/returns/ImageUploader';
-import { ReturnMethodSelector } from '@/components/returns/ReturnMethodSelector';
-import { RefundPreview } from '@/components/returns/RefundPreview';
-import { RefundBreakdown } from '@/components/returns/RefundBreakdown';
-import { SubmitReturnButton } from '@/components/returns/SubmitReturnButton';
+import { OrderItemSelector, type SelectedReturnItem } from '@/enigma-components/returns/OrderItemSelector';
+import { ReasonSelector } from '@/enigma-components/returns/ReasonSelector';
+import { ReasonDetailsInput } from '@/enigma-components/returns/ReasonDetailsInput';
+import { ImageUploader } from '@/enigma-components/returns/ImageUploader';
+import { ReturnMethodSelector } from '@/enigma-components/returns/ReturnMethodSelector';
+import { RefundPreview } from '@/enigma-components/returns/RefundPreview';
+import { RefundBreakdown } from '@/enigma-components/returns/RefundBreakdown';
+import { SubmitReturnButton } from '@/enigma-components/returns/SubmitReturnButton';
 
 interface ReturnRequestFormProps {
     order: Order;

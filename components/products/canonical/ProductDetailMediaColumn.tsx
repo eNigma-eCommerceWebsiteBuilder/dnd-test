@@ -1,5 +1,17 @@
-import type { CatalogSlot } from './types';
+import type { ReactNode } from 'react';
 
-export function ProductDetailMediaColumn({ gallery, desktopTabs }: { gallery?: CatalogSlot; desktopTabs?: CatalogSlot }) {
-  return <div className="lg:col-span-7">{gallery?.({ style: { display: 'contents' } })}<div className="mt-16 hidden border-t border-border pt-8 lg:block">{desktopTabs?.({ style: { display: 'contents' } })}</div></div>;
+interface ProductDetailMediaColumnProps {
+  gallery?: ReactNode;
+  desktopTabs?: ReactNode;
+}
+
+export function ProductDetailMediaColumn({ gallery, desktopTabs }: ProductDetailMediaColumnProps) {
+  return (
+    <div className="lg:col-span-7">
+      {gallery}
+      <div className="mt-16 hidden border-t border-border pt-8 lg:block">
+        {desktopTabs}
+      </div>
+    </div>
+  );
 }

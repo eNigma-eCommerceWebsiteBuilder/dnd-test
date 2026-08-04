@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils/cn';
-import { PaymentMethodSelector } from '@/components/checkout/PaymentMethodSelector';
+import { PaymentMethodSelector } from '@/enigma-components/checkout/PaymentMethodSelector';
 import { CHECKOUT_PAYMENT_METHODS } from './checkoutPageUtils';
 
 interface CheckoutPaymentStepProps {

@@ -2,18 +2,19 @@
   "root": {},
   "content": [
     {
-      "type": "PageWrapper",
+      "type": "HomePageLayout",
       "props": {
-        "id": "pagewrapper-1",
-        "maxWidth": "1440",
-        "paddingY": "normal",
-        "children": [
+        "id": "homepagelayout-1",
+        "promotion": [
           {
             "type": "PromotionBanner",
             "props": {
-              "id": "promotionbanner-1"
+              "id": "promotionbanner-1",
+              "className": "w-full py-2 px-4"
             }
-          },
+          }
+        ],
+        "hero": [
           {
             "type": "HeroSection",
             "props": {
@@ -23,38 +24,51 @@
               "ctaPrimary": "Shop the Collection",
               "ctaSecondary": "View Lookbook",
               "backgroundImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuA6gp8HFBtOLhaLDZsED1w2eDKkeIHp6jt0CCvOR_XUoTQFJEpJEjhZEfhzDVSbO-0M1L7BoveRAyvHMXrc17n2O9joLLbK6-OJgyJEKJUu6k2tvyZvuAmmIhFqMIb4swMAkkEDSROBla5cwwqD4yS4Ve6lHwe3qs-MyH6SQwdlhPnT7ms_ZRYoxinaARe8iQYqsgR0E8hMueI6nHy9Jz3X8uN85CCOJ0JGGLFLfGA6NyKOwhDgbRCoJBD3qKXWi7ehVJWCX5qzs4MN",
-              "imageAlt": "Fashion model wearing minimalist high-end clothing in a bright studio"
+              "imageAlt": "Fashion model wearing minimalist high-end clothing in a bright studio",
+              "className": "p-6 lg:p-12"
             }
-          },
+          }
+        ],
+        "categories": [
           {
             "type": "CategoryHighlights",
             "props": {
               "id": "categoryhighlights-1",
+              "className": "px-6 lg:px-12 py-20",
               "header": "Shop by Category",
               "subheader": "Curation",
               "ctaLabel": "Explore All"
             }
-          },
+          }
+        ],
+        "featuredProducts": [
           {
             "type": "FeaturedProductsGrid",
             "props": {
               "id": "featuredproductsgrid-1",
+              "className": "px-6 lg:px-12 py-20",
               "header": "Featured Products",
               "subheader": "Essentials"
             }
-          },
+          }
+        ],
+        "curatedCollection": [
           {
             "type": "CuratedCollectionSection",
             "props": {
               "id": "curatedcollectionsection-1",
+              "className": "px-6 lg:px-12 py-20",
               "eyebrow": "Curated Collection",
               "ctaText": "Explore Collection"
             }
-          },
+          }
+        ],
+        "inspiration": [
           {
             "type": "InspirationSection",
             "props": {
               "id": "inspirationsection-1",
+              "className": "px-6 lg:px-12 py-20",
               "header": "Autumn in the City: A Curated Look",
               "subheader": "Inspiration",
               "description": "Discover how we style this season's most sought-after pieces for the perfect urban ensemble.",
@@ -76,24 +90,32 @@
                 }
               ]
             }
-          },
+          }
+        ],
+        "testimonials": [
           {
             "type": "TestimonialsSection",
             "props": {
               "id": "testimonialssection-1",
               "title": "Our Community",
-              "subtitle": "Testimonials"
+              "subtitle": "Testimonials",
+              "className": "px-6 lg:px-12 py-32"
             }
-          },
+          }
+        ],
+        "newsletter": [
           {
             "type": "NewsletterSignup",
             "props": {
               "id": "newslettersignup-1",
+              "className": "px-6 lg:px-12 py-24",
               "title": "Join the Inner Circle",
               "description": "Sign up for early access to new drops, curated seasonal guides, and exclusive editorial content.",
               "disclaimer": "By subscribing, you agree to our Privacy Policy and Terms of Service."
             }
-          },
+          }
+        ],
+        "trustBadges": [
           {
             "type": "TrustBadges",
             "props": {
@@ -114,7 +136,8 @@
                   "title": "Secure Checkout",
                   "subtitle": "Encrypted payment processing"
                 }
-              ]
+              ],
+              "className": "px-6 lg:px-12 py-12"
             }
           }
         ]

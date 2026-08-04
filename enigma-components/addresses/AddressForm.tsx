@@ -4,13 +4,13 @@ import { useState, useTransition } from 'react';
 import { addAddressAction } from '@/lib/actions/auth-actions';
 import { cn } from '@/lib/utils/cn';
 import { COUNTRIES } from '@/lib/utils/constants';
-import { StreetInput } from '@/components/addresses/StreetInput';
-import { CityInput } from '@/components/addresses/CityInput';
-import { StateSelector } from '@/components/addresses/StateSelector';
-import { PostalCodeInput } from '@/components/addresses/PostalCodeInput';
-import { CountrySelector } from '@/components/addresses/CountrySelector';
-import { IsDefaultCheckbox } from '@/components/addresses/IsDefaultCheckbox';
-import { SaveButton } from '@/components/addresses/SaveButton';
+import { StreetInput } from '@/enigma-components/addresses/StreetInput';
+import { CityInput } from '@/enigma-components/addresses/CityInput';
+import { StateSelector } from '@/enigma-components/addresses/StateSelector';
+import { PostalCodeInput } from '@/enigma-components/addresses/PostalCodeInput';
+import { CountrySelector } from '@/enigma-components/addresses/CountrySelector';
+import { IsDefaultCheckbox } from '@/enigma-components/addresses/IsDefaultCheckbox';
+import { SaveButton } from '@/enigma-components/addresses/SaveButton';
 import {
   DEFAULT_ADDRESS_FORM_STATE,
   validateAddressForm,

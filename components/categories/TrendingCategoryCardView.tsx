@@ -6,6 +6,8 @@ interface TrendingCategoryCardViewProps {
   category?: Category;
   position?: number;
   badge?: string;
+  runtimeCategory?: Category | null;
+  runtimeBadge?: string;
 }
 
 const previewCategory: Category = {
@@ -30,10 +32,18 @@ export const puckAst = {
 export async function puckDataFetcher(props: TrendingCategoryCardViewProps) {
   const runtime = await loadCategoriesPageRuntimeData();
   const position = props.position ?? 0;
-  const category = runtime.topTrending[position];
-  if (!category) return {};
-  return { category, badge: position === 0 ? 'Seasonal Pick' : 'Trending Now' };
+  return {
+    runtimeCategory: runtime.topTrending[position] ?? null,
+    runtimeBadge: position === 0 ? 'Seasonal Pick' : 'Trending Now',
+  };
 }
-export function TrendingCategoryCardView({ category = previewCategory, badge = 'Trending Now' }: TrendingCategoryCardViewProps) {
-  return <TrendingCategoryCard category={category} badge={badge} hrefPrefix="/page/category-detail" />;
+export function TrendingCategoryCardView({
+  category = previewCategory,
+  badge = 'Trending Now',
+  runtimeCategory,
+  runtimeBadge,
+}: TrendingCategoryCardViewProps) {
+  const sourceCategory = runtimeCategory === undefined ? category : runtimeCategory;
+  if (!sourceCategory) return null;
+  return <TrendingCategoryCard category={sourceCategory} badge={runtimeBadge ?? badge} />;
 }

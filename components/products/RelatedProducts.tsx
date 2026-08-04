@@ -6,7 +6,6 @@ interface RelatedProductsProps {
     products: Product[];
     title?: string;
     className?: string;
-    hrefPrefix?: string;
 }
 
 /**
@@ -18,8 +17,7 @@ interface RelatedProductsProps {
 export function RelatedProducts({
     products,
     title = 'Complete the Look',
-    className,
-    hrefPrefix
+    className
 }: RelatedProductsProps) {
     if (!products || products.length === 0) {
         return null;
@@ -52,13 +50,12 @@ export function RelatedProducts({
 
             {/* Products Grid */}
             <div className="grid grid-cols-2 @lg:grid-cols-4 gap-6">
-            {products.slice(0, 4).map((product, index) => (
+                {products.slice(0, 4).map((product) => (
                     <ProductCard
-                        key={product._id ?? index}
+                        key={product._id}
                         product={product}
                         showWishlist={true}
                         showQuickAdd={true}
-                        hrefPrefix={hrefPrefix}
                     />
                 ))}
             </div>

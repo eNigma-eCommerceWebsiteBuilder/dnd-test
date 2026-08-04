@@ -2,90 +2,90 @@
   "root": {},
   "content": [
     {
-      "type": "CheckoutSubscriptionStateSection",
+      "type": "SubscriptionCheckoutPageState",
       "props": {
-        "id": "checkoutsubscriptionstatesection-1",
-        "ready": [
+        "id": "subscriptioncheckoutpagestate-1",
+        "content": [
           {
-            "type": "PageWrapper",
+            "type": "SubscriptionCheckoutPageLayout",
             "props": {
-              "id": "pagewrapper-1",
-              "maxWidth": "1440",
-              "paddingY": "normal",
-              "children": [
+              "id": "subscriptioncheckoutpagelayout-1",
+              "content": [
                 {
-                  "type": "PageHeader",
+                  "type": "SubscriptionCheckoutClientLayout",
                   "props": {
-                    "id": "pageheader-1",
-                    "eyebrow": "Subscription checkout",
-                    "title": "Subscription Checkout",
-                    "subtitle": "Complete your subscription checkout with recurring billing details."
-                  }
-                },
-                {
-                  "type": "TwoColumnDetail",
-                  "props": {
-                    "id": "twocolumndetail-1",
-                    "main": [
+                    "id": "subscriptioncheckoutclientlayout-1",
+                    "header": [
                       {
-                        "type": "CardSection",
+                        "type": "SubscriptionCheckoutHeader",
                         "props": {
-                          "id": "cardsection-1",
-                          "title": "Customer information",
-                          "children": [
-                            {
-                              "type": "CheckoutShippingForm",
-                              "props": {
-                                "id": "checkoutshippingform-1"
-                              }
-                            }
-                          ]
-                        }
-                      },
-                      {
-                        "type": "CardSection",
-                        "props": {
-                          "id": "cardsection-2",
-                          "title": "Billing terms",
-                          "children": [
-                            {
-                              "type": "CalloutCard",
-                              "props": {
-                                "id": "calloutcard-1",
-                                "title": "Recurring billing",
-                                "body": "Review the subscription terms before continuing to payment."
-                              }
-                            }
-                          ]
+                          "id": "subscriptioncheckoutheader-1"
                         }
                       }
                     ],
-                    "sidebar": [
+                    "steps": [
                       {
-                        "type": "CheckoutOrderSummary",
+                        "type": "SubscriptionCheckoutSteps",
                         "props": {
-                          "id": "checkoutordersummary-1"
+                          "id": "subscriptioncheckoutsteps-1"
+                        }
+                      }
+                    ],
+                    "leftColumn": [
+                      {
+                        "type": "SubscriptionCustomerInfoSection",
+                        "props": {
+                          "id": "subscriptioncustomerinfosection-1"
                         }
                       },
                       {
-                        "type": "CheckoutPlaceOrderButton",
+                        "type": "SubscriptionShippingAddressSection",
                         "props": {
-                          "id": "checkoutplaceorderbutton-1",
-                          "label": "Continue to subscription checkout"
+                          "id": "subscriptionshippingaddresssection-1"
+                        }
+                      },
+                      {
+                        "type": "SubscriptionBillingTermsSection",
+                        "props": {
+                          "id": "subscriptionbillingtermssection-1"
+                        }
+                      },
+                      {
+                        "type": "SubscriptionCheckoutErrorCondition",
+                        "props": {
+                          "id": "subscriptioncheckouterrorcondition-1"
+                        }
+                      }
+                    ],
+                    "rightColumn": [
+                      {
+                        "type": "SubscriptionCartSummaryPanel",
+                        "props": {
+                          "id": "subscriptioncartsummarypanel-1"
+                        }
+                      },
+                      {
+                        "type": "SubscriptionPricingPreviewPanel",
+                        "props": {
+                          "id": "subscriptionpricingpreviewpanel-1"
+                        }
+                      },
+                      {
+                        "type": "SubscriptionSummaryPanel",
+                        "props": {
+                          "id": "subscriptionsummarypanel-1"
+                        }
+                      },
+                      {
+                        "type": "SubscriptionCheckoutActions",
+                        "props": {
+                          "id": "subscriptioncheckoutactions-1"
                         }
                       }
                     ]
                   }
                 }
               ]
-            }
-          }
-        ],
-        "empty": [
-          {
-            "type": "CartEmpty",
-            "props": {
-              "id": "cartempty-1"
             }
           }
         ]

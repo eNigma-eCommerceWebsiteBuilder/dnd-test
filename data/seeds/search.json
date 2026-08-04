@@ -2,45 +2,165 @@
   "root": {},
   "content": [
     {
-      "type": "SearchStateSection",
+      "type": "SearchPageLayout",
       "props": {
-        "id": "searchstatesection-1",
-        "results": [
+        "id": "searchpagelayout-1",
+        "breadcrumbs": [
           {
-            "type": "SearchHeader",
+            "type": "SearchBreadcrumbs",
             "props": {
-              "id": "searchheader-1"
-            }
-          },
-          {
-            "type": "ProductGrid",
-            "props": {
-              "id": "productgrid-1",
-              "listName": "Search Results"
+              "id": "searchbreadcrumbs-1"
             }
           }
         ],
-        "noResults": [
+        "header": [
           {
             "type": "SearchHeader",
             "props": {
-              "id": "searchheader-2"
-            }
-          },
-          {
-            "type": "NoResults",
-            "props": {
-              "id": "noresults-1"
+              "id": "searchheader-1",
+              "query": "",
+              "totalItems": 0
             }
           }
         ],
-        "start": [
+        "analytics": [
           {
-            "type": "SectionHeading",
+            "type": "SearchAnalytics",
             "props": {
-              "id": "sectionheading-1",
-              "title": "Start Your Search",
-              "subtitle": "Enter a search term in the navigation bar to find products."
+              "id": "searchanalytics-1",
+              "query": "",
+              "resultCount": 0
+            }
+          }
+        ],
+        "recentSearches": [
+          {
+            "type": "SearchRecentSearchesBoundary",
+            "props": {
+              "id": "searchrecentsearchesboundary-1",
+              "content": [
+                {
+                  "type": "RecentSearches",
+                  "props": {
+                    "id": "recentsearches-1",
+                    "currentQuery": ""
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "SearchContentLayout",
+            "props": {
+              "id": "searchcontentlayout-1",
+              "sidebar": [
+                {
+                  "type": "SearchFilterSidebar",
+                  "props": {
+                    "id": "searchfiltersidebar-1",
+                    "filters": [
+                      {
+                        "type": "SearchFilters",
+                        "props": {
+                          "id": "searchfilters-1",
+                          "categories": []
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "results": [
+                {
+                  "type": "SearchQueryState",
+                  "props": {
+                    "id": "searchquerystate-1",
+                    "query": "",
+                    "hasResults": false,
+                    "results": [
+                      {
+                        "type": "SearchResultsBlock",
+                        "props": {
+                          "id": "searchresultsblock-1",
+                          "controls": [
+                            {
+                              "type": "SearchSortControls",
+                              "props": {
+                                "id": "searchsortcontrols-1",
+                                "totalItems": 0,
+                                "content": [
+                                  {
+                                    "type": "SearchSortDropdown",
+                                    "props": {
+                                      "id": "searchsortdropdown-1"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ],
+                          "grid": [
+                            {
+                              "type": "SearchGridBoundary",
+                              "props": {
+                                "id": "searchgridboundary-1",
+                                "content": [
+                                  {
+                                    "type": "SearchProductGrid",
+                                    "props": {
+                                      "id": "searchproductgrid-1",
+                                      "products": [],
+                                      "listName": "Search Results"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ],
+                          "pagination": [
+                            {
+                              "type": "SearchPaginationCondition",
+                              "props": {
+                                "id": "searchpaginationcondition-1",
+                                "hasPagination": false,
+                                "content": [
+                                  {
+                                    "type": "SearchPagination",
+                                    "props": {
+                                      "id": "searchpagination-1",
+                                      "totalPages": 0,
+                                      "className": "mt-16 md:mt-20"
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "noResults": [
+                      {
+                        "type": "NoResults",
+                        "props": {
+                          "id": "noresults-1",
+                          "query": ""
+                        }
+                      }
+                    ],
+                    "start": [
+                      {
+                        "type": "SearchStartPrompt",
+                        "props": {
+                          "id": "searchstartprompt-1"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           }
         ]

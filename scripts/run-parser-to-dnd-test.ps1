@@ -81,13 +81,41 @@ foreach ($page in $pages) {
     }
 
     $generatedLine = ($result | Where-Object { $_ -match "Generated" } | Select-Object -First 1)
-    if ($exitCode -eq 0 -and $generatedLine) {
+    $reportPath = Join-Path $seedDir "_reports\$($page[1]).report.json"
+    $reportIsClean = $false
+    $reportError = $null
+    if (Test-Path -LiteralPath $reportPath) {
+        try {
+            $report = Get-Content -Raw -LiteralPath $reportPath | ConvertFrom-Json
+            $reportIsClean = (
+                -not $report.fatal -and
+                @($report.errors).Count -eq 0 -and
+                @($report.warnings).Count -eq 0 -and
+                @($report.droppedComponents).Count -eq 0 -and
+                @($report.unmatchedHtml).Count -eq 0
+            )
+            if (-not $reportIsClean) {
+                $reportError = "diagnostics are not clean"
+            }
+        }
+        catch {
+            $reportError = "diagnostics report is invalid: $($_.Exception.Message)"
+        }
+    }
+    else {
+        $reportError = "diagnostics report was not generated"
+    }
+
+    if ($exitCode -eq 0 -and $generatedLine -and $reportIsClean -and (Test-Path -LiteralPath $outputPath)) {
         $success++
         $results += "PASS: $($page[1]) - $generatedLine"
     }
     else {
         $fail++
         $errorLine = ($result | Where-Object { $_ -match "Error|error" } | Select-Object -First 1)
+        if (-not $errorLine) {
+            $errorLine = $reportError
+        }
         if (-not $errorLine) {
             $errorLine = ($result | Select-Object -Last 1)
         }

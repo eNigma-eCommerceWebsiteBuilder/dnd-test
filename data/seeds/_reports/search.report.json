@@ -1,35 +1,100 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/search/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/search.json",
+  "profile": "search",
   "manifestLoaded": true,
   "captured": [
+    {
+      "type": "SearchBreadcrumbs",
+      "id": "searchbreadcrumbs-1"
+    },
     {
       "type": "SearchHeader",
       "id": "searchheader-1"
     },
     {
-      "type": "ProductGrid",
-      "id": "productgrid-1"
+      "type": "SearchAnalytics",
+      "id": "searchanalytics-1"
     },
     {
-      "type": "SearchHeader",
-      "id": "searchheader-2"
+      "type": "RecentSearches",
+      "id": "recentsearches-1"
+    },
+    {
+      "type": "SearchRecentSearchesBoundary",
+      "id": "searchrecentsearchesboundary-1"
+    },
+    {
+      "type": "SearchFilters",
+      "id": "searchfilters-1"
+    },
+    {
+      "type": "SearchFilterSidebar",
+      "id": "searchfiltersidebar-1"
+    },
+    {
+      "type": "SearchSortDropdown",
+      "id": "searchsortdropdown-1"
+    },
+    {
+      "type": "SearchSortControls",
+      "id": "searchsortcontrols-1"
+    },
+    {
+      "type": "SearchProductGrid",
+      "id": "searchproductgrid-1"
+    },
+    {
+      "type": "SearchGridBoundary",
+      "id": "searchgridboundary-1"
+    },
+    {
+      "type": "SearchPagination",
+      "id": "searchpagination-1"
+    },
+    {
+      "type": "SearchPaginationCondition",
+      "id": "searchpaginationcondition-1"
+    },
+    {
+      "type": "SearchResultsBlock",
+      "id": "searchresultsblock-1"
     },
     {
       "type": "NoResults",
       "id": "noresults-1"
     },
     {
-      "type": "SectionHeading",
-      "id": "sectionheading-1"
+      "type": "SearchStartPrompt",
+      "id": "searchstartprompt-1"
     },
     {
-      "type": "SearchStateSection",
-      "id": "searchstatesection-1"
+      "type": "SearchQueryState",
+      "id": "searchquerystate-1"
+    },
+    {
+      "type": "SearchContentLayout",
+      "id": "searchcontentlayout-1"
+    },
+    {
+      "type": "SearchPageLayout",
+      "id": "searchpagelayout-1"
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [
+    {
+      "source": "totalPages > 1",
+      "handledBy": "SearchPaginationCondition"
+    },
+    {
+      "source": "query ? products.length > 0 ? results : noResults : start",
+      "handledBy": "SearchQueryState"
+    }
+  ],
+  "delegates": [],
+  "fatal": false
 }

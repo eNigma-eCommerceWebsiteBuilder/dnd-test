@@ -1,4 +1,21 @@
 import type { Testimonial } from '@/lib/api/types/testimonials';
+export type { CuratedCollection, CuratedProduct } from './collections';
+export { getAllCollectionProducts } from './collections';
+export {
+  formatCardExpiry,
+  getPaymentMethodLabel,
+  isCardExpired,
+  maskCardNumber,
+  requiresBillingAddress,
+} from './payments';
+export { calculateCartSavings, calculateCartSubtotal, calculateCartTotal, calculateItemTotal } from './cart';
+export {
+  canCancelOrder,
+  canReturnOrder,
+  generateOrderNumber,
+  getDownloadableItems,
+  hasDigitalItems,
+} from './orders';
 
 export type RatingDistribution = Record<1 | 2 | 3 | 4 | 5, number>;
 

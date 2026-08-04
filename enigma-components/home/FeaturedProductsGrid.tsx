@@ -17,7 +17,7 @@ export const FeaturedProductsGrid = ({
   content,
   products,
 }: FeaturedProductsGridProps) => {
-  if (!products || products.length === 0) {
+  if (!Array.isArray(products) || products.length === 0) {
     return null;
   }
 
@@ -43,7 +43,7 @@ export const FeaturedProductsGrid = ({
 
             return (
               <div
-                key={product._id}
+                key={product._id ?? index}
                 className="w-full"
                 data-analytics-product-id={product._id}
                 data-analytics-product-name={product.name}

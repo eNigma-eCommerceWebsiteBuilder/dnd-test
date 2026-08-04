@@ -2,10 +2,10 @@ import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils/cn';
 import { formatDate } from '@/lib/utils/formatters';
 import type { ReturnsListResponse } from '@/lib/api/types/returns';
-import { ReturnStatusBadge } from '@/components/returns/ReturnStatusBadge';
-import { RefundAmount } from '@/components/returns/RefundAmount';
-import { ReturnItems, type ReturnItemSummary } from '@/components/returns/ReturnItems';
-import { ViewDetailsButton } from '@/components/returns/ViewDetailsButton';
+import { ReturnStatusBadge } from '@/enigma-components/returns/ReturnStatusBadge';
+import { RefundAmount } from '@/enigma-components/returns/RefundAmount';
+import { ReturnItems, type ReturnItemSummary } from '@/enigma-components/returns/ReturnItems';
+import { ViewDetailsButton } from '@/enigma-components/returns/ViewDetailsButton';
 
 interface ReturnCardProps {
     returnRequest: ReturnsListResponse['data'][number];

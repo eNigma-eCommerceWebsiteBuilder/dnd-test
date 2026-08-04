@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils/cn';
 import { formatDate } from '@/lib/utils/formatters';
 import type { ReturnRequest } from '@/lib/api/types/returns';
-import { ReturnStatusBadge } from '@/components/returns/ReturnStatusBadge';
+import { ReturnStatusBadge } from '@/enigma-components/returns/ReturnStatusBadge';
 
 interface ReturnDetailsHeaderProps {
     returnRequest: ReturnRequest;

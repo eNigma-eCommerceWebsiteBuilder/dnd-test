@@ -1,25 +1,48 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/account/orders/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/account-orders.json",
+  "profile": "account-orders",
   "manifestLoaded": true,
   "captured": [
     {
-      "type": "PageHeader",
-      "id": "pageheader-1"
+      "type": "AccountOrdersHeader",
+      "id": "accountordersheader-1"
     },
     {
-      "type": "PageWrapper",
-      "id": "pagewrapper-1"
+      "type": "AccountOrdersStatusFilter",
+      "id": "accountordersstatusfilter-1"
+    },
+    {
+      "type": "AccountOrdersList",
+      "id": "accountorderslist-1"
+    },
+    {
+      "type": "AccountOrdersEmpty",
+      "id": "accountordersempty-1"
+    },
+    {
+      "type": "AccountOrdersResultsState",
+      "id": "accountordersresultsstate-1"
+    },
+    {
+      "type": "AccountOrdersLayout",
+      "id": "accountorderslayout-1"
     }
   ],
   "warnings": [],
-  "droppedComponents": [
-    "OrderStatusFilter"
-  ],
+  "errors": [],
+  "droppedComponents": [],
   "unmatchedHtml": [],
   "runtimeConditionals": [
     {
-      "source": "orders.length > 0 ? (\r\n                    <OrderList\r\n                        initialOrders={orders}\r\n                        initialPagination={pagination}\r\n                        statusFilter={status}\r\n                    />\r\n                ) : (\r\n                    <OrderEmpty />\r\n                )"
+      "source": "pagination.totalPages > 1",
+      "handledBy": "AccountOrdersList"
+    },
+    {
+      "source": "orders.length > 0",
+      "handledBy": "AccountOrdersResultsState"
     }
-  ]
+  ],
+  "delegates": [],
+  "fatal": false
 }

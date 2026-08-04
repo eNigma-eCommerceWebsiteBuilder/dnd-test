@@ -7,6 +7,9 @@ import { SEARCH } from '@/lib/utils/constants';
 
 const RECENT_SEARCHES_KEY = 'enigma-recent-searches';
 const RECENT_SEARCHES_EVENT = 'enigma:recent-searches-updated';
+const EMPTY_RECENT_SEARCHES: string[] = [];
+let cachedStoredValue: string | null | undefined;
+let cachedRecentSearches: string[] = EMPTY_RECENT_SEARCHES;
 
 interface RecentSearchesProps {
     currentQuery: string;
@@ -15,20 +18,28 @@ interface RecentSearchesProps {
 
 function readRecentSearches(): string[] {
     if (typeof window === 'undefined') {
-        return [];
+        return EMPTY_RECENT_SEARCHES;
     }
 
     try {
         const stored = window.localStorage.getItem(RECENT_SEARCHES_KEY);
+        if (stored === cachedStoredValue) {
+            return cachedRecentSearches;
+        }
+
+        cachedStoredValue = stored;
         if (!stored) {
-            return [];
+            cachedRecentSearches = EMPTY_RECENT_SEARCHES;
+            return cachedRecentSearches;
         }
 
         const parsed = JSON.parse(stored);
-        return Array.isArray(parsed) ? parsed : [];
+        cachedRecentSearches = Array.isArray(parsed) ? parsed : EMPTY_RECENT_SEARCHES;
+        return cachedRecentSearches;
     } catch (error) {
         console.warn('Failed to read recent searches:', error);
-        return [];
+        cachedRecentSearches = EMPTY_RECENT_SEARCHES;
+        return cachedRecentSearches;
     }
 }
 
@@ -50,12 +61,16 @@ function subscribeToRecentSearches(onStoreChange: () => void): () => void {
     };
 }
 
+function getServerRecentSearches(): string[] {
+    return EMPTY_RECENT_SEARCHES;
+}
+
 export function RecentSearches({ currentQuery, className }: RecentSearchesProps) {
     const router = useRouter();
     const recentSearches = useSyncExternalStore(
         subscribeToRecentSearches,
         readRecentSearches,
-        () => [],
+        getServerRecentSearches,
     );
 
     useEffect(() => {

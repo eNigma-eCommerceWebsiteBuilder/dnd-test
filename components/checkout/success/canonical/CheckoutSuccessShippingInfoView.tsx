@@ -1,0 +1,6 @@
+import type { Order } from '@/lib/api/types'; import { ShippingInfo } from '@/enigma-components/checkout/success/ShippingInfo'; import { checkoutSuccessPreviewOrder } from './preview'; import { loadCheckoutSuccessRuntime } from './checkoutSuccessRuntime';
+interface Props { order?: Order | null; puck?: { isEditing?: boolean }; }
+export const puckComponentName = 'CheckoutSuccessShippingInfo'; export const puckLabel = 'Checkout Success Shipping Info'; export const puckCategory = 'Checkout'; export const puckFields = {}; export const puckDefaults = {};
+export const puckAst = { kind: 'runtime', sourceJsxNames: ['ShippingInfo'], sourceImportPaths: ['@/components/checkout/success/ShippingInfo'], role: 'checkout-success-shipping-info', runtimeSignals: ['order.shippingAddress'] };
+export async function puckDataFetcher(_props: Props, context?: Parameters<typeof loadCheckoutSuccessRuntime>[0]) { const runtime = await loadCheckoutSuccessRuntime(context); return { order: runtime.order }; }
+export function CheckoutSuccessShippingInfoView({ order = null, puck }: Props) { const resolved = puck?.isEditing ? checkoutSuccessPreviewOrder : order; return resolved ? <ShippingInfo order={resolved} /> : null; }

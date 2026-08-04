@@ -22,6 +22,7 @@ import { cn } from '@/lib/utils/cn';
 interface OrderStatusFilterProps {
     activeStatus?: string;
     className?: string;
+    basePath?: string;
 }
 
 const FILTER_OPTIONS = [
@@ -32,7 +33,11 @@ const FILTER_OPTIONS = [
     { value: 'cancelled', label: 'Cancelled' },
 ] as const;
 
-export function OrderStatusFilter({ activeStatus, className }: OrderStatusFilterProps) {
+export function OrderStatusFilter({
+    activeStatus,
+    className,
+    basePath = '/account/orders',
+}: OrderStatusFilterProps) {
     const router = useRouter();
     const searchParams = useSearchParams();
 
@@ -48,8 +53,8 @@ export function OrderStatusFilter({ activeStatus, className }: OrderStatusFilter
         // Reset to page 1 when changing filter
         params.delete('page');
 
-        router.push(`/account/orders?${params.toString()}`);
-    }, [router, searchParams]);
+        router.push(`${basePath}?${params.toString()}`);
+    }, [basePath, router, searchParams]);
 
     return (
         <div

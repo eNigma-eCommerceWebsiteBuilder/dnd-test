@@ -1,55 +1,85 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/checkout/subscription/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/checkout-subscription.json",
+  "profile": "checkout-subscription",
   "manifestLoaded": true,
   "captured": [
     {
-      "type": "PageHeader",
-      "id": "pageheader-1"
+      "type": "SubscriptionCheckoutHeader",
+      "id": "subscriptioncheckoutheader-1"
     },
     {
-      "type": "CheckoutShippingForm",
-      "id": "checkoutshippingform-1"
+      "type": "SubscriptionCheckoutSteps",
+      "id": "subscriptioncheckoutsteps-1"
     },
     {
-      "type": "CardSection",
-      "id": "cardsection-1"
+      "type": "SubscriptionCustomerInfoSection",
+      "id": "subscriptioncustomerinfosection-1"
     },
     {
-      "type": "CalloutCard",
-      "id": "calloutcard-1"
+      "type": "SubscriptionShippingAddressSection",
+      "id": "subscriptionshippingaddresssection-1"
     },
     {
-      "type": "CardSection",
-      "id": "cardsection-2"
+      "type": "SubscriptionBillingTermsSection",
+      "id": "subscriptionbillingtermssection-1"
     },
     {
-      "type": "CheckoutOrderSummary",
-      "id": "checkoutordersummary-1"
+      "type": "SubscriptionCheckoutErrorCondition",
+      "id": "subscriptioncheckouterrorcondition-1"
     },
     {
-      "type": "CheckoutPlaceOrderButton",
-      "id": "checkoutplaceorderbutton-1"
+      "type": "SubscriptionCartSummaryPanel",
+      "id": "subscriptioncartsummarypanel-1"
     },
     {
-      "type": "TwoColumnDetail",
-      "id": "twocolumndetail-1"
+      "type": "SubscriptionPricingPreviewPanel",
+      "id": "subscriptionpricingpreviewpanel-1"
     },
     {
-      "type": "PageWrapper",
-      "id": "pagewrapper-1"
+      "type": "SubscriptionSummaryPanel",
+      "id": "subscriptionsummarypanel-1"
     },
     {
-      "type": "CartEmpty",
-      "id": "cartempty-1"
+      "type": "SubscriptionCheckoutActions",
+      "id": "subscriptioncheckoutactions-1"
     },
     {
-      "type": "CheckoutSubscriptionStateSection",
-      "id": "checkoutsubscriptionstatesection-1"
+      "type": "SubscriptionCheckoutClientLayout",
+      "id": "subscriptioncheckoutclientlayout-1"
+    },
+    {
+      "type": "SubscriptionCheckoutPageLayout",
+      "id": "subscriptioncheckoutpagelayout-1"
+    },
+    {
+      "type": "SubscriptionCheckoutPageState",
+      "id": "subscriptioncheckoutpagestate-1"
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [
+    {
+      "source": "displayError ? ... : null",
+      "handledBy": "SubscriptionCheckoutErrorCondition"
+    },
+    {
+      "source": "pricingPreview ? pricing details : unavailable message",
+      "handledBy": "SubscriptionPricingPreviewPanel"
+    },
+    {
+      "source": "!checkoutData => redirect(ROUTES.CART)",
+      "handledBy": "SubscriptionCheckoutPageState"
+    }
+  ],
+  "delegates": [
+    {
+      "component": "SubscriptionCheckoutClient",
+      "source": "D:/projects/eNigma-TemplateFrontend/components/checkout/subscription/SubscriptionCheckoutClient.tsx"
+    }
+  ],
+  "fatal": false
 }

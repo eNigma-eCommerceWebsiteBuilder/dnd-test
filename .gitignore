@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Generated parser and QA artifacts
+/data/seeds/_reports/
+/data/parser-fixtures/
+/docs/published-page-qa-report.json
+/docs/published-page-qa-guide.md
+/lib/puck-route-composition.json
+
+
+/data/seeds/_reports/

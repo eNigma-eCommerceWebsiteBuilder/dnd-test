@@ -1,19 +1,76 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/collections/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/collections.json",
+  "profile": "collections",
   "manifestLoaded": true,
   "captured": [
+    {
+      "type": "CollectionBreadcrumbs",
+      "id": "collectionbreadcrumbs-1"
+    },
+    {
+      "type": "CollectionsPageHeader",
+      "id": "collectionspageheader-1"
+    },
+    {
+      "type": "CollectionTypeFilter",
+      "id": "collectiontypefilter-1"
+    },
+    {
+      "type": "CollectionsFilterSection",
+      "id": "collectionsfiltersection-1"
+    },
+    {
+      "type": "FeaturedCuratedCollection",
+      "id": "featuredcuratedcollection-1"
+    },
+    {
+      "type": "FeaturedCuratedCollectionCondition",
+      "id": "featuredcuratedcollectioncondition-1"
+    },
+    {
+      "type": "CollectionGrid",
+      "id": "collectiongrid-1"
+    },
     {
       "type": "EmptyCollections",
       "id": "emptycollections-1"
     },
     {
-      "type": "CollectionStateSection",
-      "id": "collectionstatesection-1"
+      "type": "CollectionsResultsState",
+      "id": "collectionsresultsstate-1"
+    },
+    {
+      "type": "InspirationCollectionSection",
+      "id": "inspirationcollectionsection-1"
+    },
+    {
+      "type": "InspirationCollectionCondition",
+      "id": "inspirationcollectioncondition-1"
+    },
+    {
+      "type": "CollectionsPageLayout",
+      "id": "collectionspagelayout-1"
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [
+    {
+      "source": "hasFeaturedCurated",
+      "handledBy": "FeaturedCuratedCollectionCondition"
+    },
+    {
+      "source": "hasCollections",
+      "handledBy": "CollectionsResultsState"
+    },
+    {
+      "source": "hasInspiration",
+      "handledBy": "InspirationCollectionCondition"
+    }
+  ],
+  "delegates": [],
+  "fatal": false
 }

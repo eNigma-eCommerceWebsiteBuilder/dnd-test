@@ -1,68 +1,100 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/checkout/success/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/checkout-success.json",
+  "profile": "checkout-success",
   "manifestLoaded": true,
   "captured": [
     {
-      "type": "PurchaseTracker",
-      "id": "purchasetracker-1"
+      "type": "CheckoutSuccessPurchaseTracker",
+      "id": "checkoutsuccesspurchasetracker-1"
     },
     {
-      "type": "SuccessHeader",
-      "id": "successheader-1"
+      "type": "CheckoutSuccessHeader",
+      "id": "checkoutsuccessheader-1"
     },
     {
-      "type": "OrderNumber",
-      "id": "ordernumber-1"
+      "type": "CheckoutSuccessOrderNumber",
+      "id": "checkoutsuccessordernumber-1"
     },
     {
-      "type": "SectionHeading",
-      "id": "sectionheading-1"
+      "type": "CheckoutSuccessHeaderLayout",
+      "id": "checkoutsuccessheaderlayout-1"
     },
     {
-      "type": "OrderItemList",
-      "id": "orderitemlist-1"
+      "type": "CheckoutSuccessOrderItemList",
+      "id": "checkoutsuccessorderitemlist-1"
     },
     {
-      "type": "ConfirmationOrderSummary",
-      "id": "confirmationordersummary-1"
+      "type": "CheckoutSuccessOrderSummary",
+      "id": "checkoutsuccessordersummary-1"
     },
     {
-      "type": "CheckoutDigitalAssetsSection",
-      "id": "checkoutdigitalassetssection-1"
+      "type": "CheckoutSuccessOrderColumn",
+      "id": "checkoutsuccessordercolumn-1"
     },
     {
-      "type": "ShippingInfo",
-      "id": "shippinginfo-1"
+      "type": "CheckoutSuccessDigitalDownloads",
+      "id": "checkoutsuccessdigitaldownloads-1"
     },
     {
-      "type": "NextStepsCard",
-      "id": "nextstepscard-1"
+      "type": "CheckoutSuccessLicenseKeys",
+      "id": "checkoutsuccesslicensekeys-1"
     },
     {
-      "type": "TwoColumnDetail",
-      "id": "twocolumndetail-1"
+      "type": "CheckoutSuccessDigitalAssetsCondition",
+      "id": "checkoutsuccessdigitalassetscondition-1"
     },
     {
-      "type": "ContinueShoppingButton",
-      "id": "continueshoppingbutton-1"
+      "type": "CheckoutSuccessShippingInfo",
+      "id": "checkoutsuccessshippinginfo-1"
     },
     {
-      "type": "ViewOrderButton",
-      "id": "vieworderbutton-1"
+      "type": "CheckoutSuccessNextSteps",
+      "id": "checkoutsuccessnextsteps-1"
     },
     {
-      "type": "PageWrapper",
-      "id": "pagewrapper-1"
+      "type": "CheckoutSuccessDetailsColumn",
+      "id": "checkoutsuccessdetailscolumn-1"
+    },
+    {
+      "type": "CheckoutSuccessTwoColumnLayout",
+      "id": "checkoutsuccesstwocolumnlayout-1"
+    },
+    {
+      "type": "CheckoutSuccessContinueShopping",
+      "id": "checkoutsuccesscontinueshopping-1"
+    },
+    {
+      "type": "CheckoutSuccessViewOrder",
+      "id": "checkoutsuccessvieworder-1"
+    },
+    {
+      "type": "CheckoutSuccessActionsLayout",
+      "id": "checkoutsuccessactionslayout-1"
+    },
+    {
+      "type": "CheckoutSuccessPageLayout",
+      "id": "checkoutsuccesspagelayout-1"
+    },
+    {
+      "type": "CheckoutSuccessPageState",
+      "id": "checkoutsuccesspagestate-1"
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
   "runtimeConditionals": [
     {
-      "source": "digitalAssets && digitalAssets.hasDigitalItems && digitalAssets.assets && digitalAssets.assets.length > 0 && (\r\n                            <div className=\"space-y-4\">\r\n                                {/* Download Buttons Section */}\r\n                                <DigitalDownloads assets={digitalAssets.assets} />\r\n\r\n                                {/* License Keys Section */}\r\n                                <div className=\"bg-bg-surface rounded-card p-4 md:p-6 shadow-card border border-border\">\r\n                                    <h3 className=\"font-bold text-text-base mb-4\">License Keys</h3>\r\n                                    {digitalAssets.assets.map((asset, idx) => (\r\n                                        <LicenseKeyDisplay\r\n                                            key={asset.licenseKey || idx}\r\n                                            licenseKey={asset.licenseKey}\r\n                                            productName={asset.productName}\r\n                                        />\r\n                                    ))}\r\n                                </div>\r\n                            </div>\r\n                        )",
-      "handledBy": "CheckoutDigitalAssetsSection"
+      "source": "digitalAssets && digitalAssets.hasDigitalItems && digitalAssets.assets && digitalAssets.assets.length > 0",
+      "handledBy": "CheckoutSuccessDigitalAssetsCondition"
+    },
+    {
+      "source": "!order => redirect(ROUTES.HOME)",
+      "handledBy": "CheckoutSuccessPageState"
     }
-  ]
+  ],
+  "delegates": [],
+  "fatal": false
 }

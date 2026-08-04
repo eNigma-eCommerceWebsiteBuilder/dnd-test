@@ -36,6 +36,34 @@ interface SearchProductsResponse {
   searchQuery: string;
 }
 
+type ProductApiRecord = Omit<Product, '_id' | 'images'> & {
+  _id?: string;
+  id?: string;
+  images?: string[] | null;
+};
+
+// The Puck test backend returns `id`, while the production component contract uses `_id`.
+// Normalize at the service boundary so source-equivalent UI leaves need no testbed props.
+function normalizeProduct(product: Product | ProductApiRecord): Product {
+  const _id = product._id ?? product.id;
+  if (!_id) {
+    throw new Error(`Product response is missing an identity: ${product.slug}`);
+  }
+
+  return {
+    ...product,
+    _id,
+    images: product.images ?? [],
+  };
+}
+
+function normalizePaginatedProducts(response: PaginatedProducts): PaginatedProducts {
+  return {
+    ...response,
+    items: (response.items ?? []).map(normalizeProduct),
+  };
+}
+
 export interface SearchProductsParams {
   category?: string;
   minPrice?: number;
@@ -71,7 +99,7 @@ export async function fetchProducts(params: FetchProductsParams = {}): Promise<P
     validatePrice(params.maxPrice);
   }
 
-  return apiRequest<PaginatedProducts>('/products', {
+  return normalizePaginatedProducts(await apiRequest<PaginatedProducts>('/products', {
     params: {
       ...params,
       ...(searchQuery !== undefined ? { q: searchQuery } : {}),
@@ -79,7 +107,7 @@ export async function fetchProducts(params: FetchProductsParams = {}): Promise<P
     },
     revalidate: 30,
     tags: ['products'],
-  });
+  }));
 }
 
 export async function searchProducts(
@@ -105,7 +133,7 @@ export async function searchProducts(
     validatePrice(params.maxPrice);
   }
 
-  return apiRequest<SearchProductsResponse>('/products/search', {
+  const response = await apiRequest<SearchProductsResponse>('/products/search', {
     params: {
       q: query.trim(),
       ...params,
@@ -115,6 +143,11 @@ export async function searchProducts(
     revalidate: 60,
     tags: ['products', 'search'],
   });
+
+  return {
+    ...response,
+    items: response.items.map(normalizeProduct),
+  };
 }
 
 export async function fetchFeaturedProducts(limit: number = 8): Promise<Product[]> {
@@ -123,7 +156,7 @@ export async function fetchFeaturedProducts(limit: number = 8): Promise<Product[
     revalidate: 60,
     tags: ['products', 'featured'],
   });
-  return response.items ?? [];
+  return (response.items ?? []).map(normalizeProduct);
 }
 
 export async function fetchProductCategories(): Promise<string[]> {
@@ -134,10 +167,10 @@ export async function fetchProductCategories(): Promise<string[]> {
 }
 
 export async function fetchProduct(id: string): Promise<Product> {
-  return apiRequest<Product>(`/products/${id}`, {
+  return normalizeProduct(await apiRequest<Product>(`/products/${id}`, {
     revalidate: 60,
     tags: ['products', `product-${id}`],
-  });
+  }));
 }
 
 export async function fetchRelatedProducts(id: string, limit: number = 4): Promise<Product[]> {
@@ -146,7 +179,7 @@ export async function fetchRelatedProducts(id: string, limit: number = 4): Promi
     revalidate: 120,
     tags: ['products', `product-${id}-related`],
   });
-  return response.items ?? [];
+  return (response.items ?? []).map(normalizeProduct);
 }
 
 export async function fetchProductReviews(

@@ -2,8 +2,8 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { cn } from '@/lib/utils/cn';
-import { WishlistItem } from '@/components/wishlist/WishlistItem';
-import { WishlistBulkActionsBar } from '@/components/wishlist/WishlistBulkActionsBar';
+import { WishlistItem } from '@/enigma-components/wishlist/WishlistItem';
+import { WishlistBulkActionsBar } from '@/enigma-components/wishlist/WishlistBulkActionsBar';
 import { useWishlistStore } from '@/lib/stores/wishlist-store';
 import { getWishlistItemKey, groupWishlistByAvailability, isProductInWishlist } from '@/lib/utils/wishlist';
 import type { Wishlist, WishlistItem as WishlistItemType } from '@/lib/api/types/wishlist';

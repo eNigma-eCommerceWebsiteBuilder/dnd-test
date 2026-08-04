@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils/cn';
-import { AddressForm } from '@/components/addresses/AddressForm';
+import { AddressForm } from '@/enigma-components/addresses/AddressForm';
 
 interface AddAddressModalProps {
   isOpen: boolean;

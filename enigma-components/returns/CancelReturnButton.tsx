@@ -6,7 +6,7 @@ import { useToast } from '@/lib/hooks';
 import { cancelReturnAction } from '@/lib/actions/returns-actions';
 import { useReturnActions } from '@/lib/hooks';
 import type { ReturnStatus } from '@/lib/api/types/returns';
-import { CancelConfirmModal } from '@/components/returns/CancelConfirmModal';
+import { CancelConfirmModal } from '@/enigma-components/returns/CancelConfirmModal';
 
 interface CancelReturnButtonProps {
     returnId: string;

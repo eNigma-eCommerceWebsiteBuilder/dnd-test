@@ -2,46 +2,70 @@
   "root": {},
   "content": [
     {
-      "type": "CartStateSection",
+      "type": "CartPageState",
       "props": {
-        "id": "cartstatesection-1",
+        "id": "cartpagestate-1",
         "filled": [
           {
-            "type": "CartHeader",
+            "type": "CartPageLayout",
             "props": {
-              "id": "cartheader-1"
-            }
-          },
-          {
-            "type": "FreeShippingProgress",
-            "props": {
-              "id": "freeshippingprogress-1"
-            }
-          },
-          {
-            "type": "CartList",
-            "props": {
-              "id": "cartlist-1"
-            }
-          },
-          {
-            "type": "CartSummary",
-            "props": {
-              "id": "cartsummary-1"
-            }
-          },
-          {
-            "type": "CartContinueShopping",
-            "props": {
-              "id": "cartcontinueshopping-1"
+              "id": "cartpagelayout-1",
+              "header": [
+                {
+                  "type": "CartPageHeader",
+                  "props": {
+                    "id": "cartpageheader-1"
+                  }
+                }
+              ],
+              "progress": [
+                {
+                  "type": "CartPageFreeShippingProgress",
+                  "props": {
+                    "id": "cartpagefreeshippingprogress-1"
+                  }
+                }
+              ],
+              "items": [
+                {
+                  "type": "CartPageItemList",
+                  "props": {
+                    "id": "cartpageitemlist-1"
+                  }
+                }
+              ],
+              "continueShopping": [
+                {
+                  "type": "CartPageContinueShopping",
+                  "props": {
+                    "id": "cartpagecontinueshopping-1"
+                  }
+                }
+              ],
+              "summary": [
+                {
+                  "type": "CartPageSummary",
+                  "props": {
+                    "id": "cartpagesummary-1"
+                  }
+                }
+              ]
             }
           }
         ],
         "empty": [
           {
-            "type": "CartEmpty",
+            "type": "CartPageEmptyLayout",
             "props": {
-              "id": "cartempty-1"
+              "id": "cartpageemptylayout-1",
+              "content": [
+                {
+                  "type": "CartPageEmpty",
+                  "props": {
+                    "id": "cartpageempty-1"
+                  }
+                }
+              ]
             }
           }
         ]

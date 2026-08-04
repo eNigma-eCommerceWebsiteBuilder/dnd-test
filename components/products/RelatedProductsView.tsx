@@ -37,5 +37,5 @@ export async function puckDataFetcher(
 }
 
 export function RelatedProductsView({ title, products, className }: RelatedProductsViewProps) {
-  return <RelatedProducts title={title} products={products} className={className} hrefPrefix="/page/product-detail" />;
+  return <RelatedProducts title={title} products={products} className={className} />;
 }

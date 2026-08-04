@@ -1,5 +1,5 @@
 import { ProductsCatalogLayout } from './ProductsCatalogLayout';
-import type { CatalogSlot } from './types';
+import { puckTransparentSlotProps, type CatalogSlot } from './types';
 
 interface ProductsCatalogLayoutViewProps {
   header?: CatalogSlot;
@@ -18,10 +18,10 @@ export const puckFields = {
 export const puckDefaults = { header: [], activeFilters: [], content: [] };
 export const puckAst = {
   kind: 'static', topLevel: true, slots: ['header', 'activeFilters', 'content'],
-  sourceJsxNames: ['main'], sourceImportPaths: ['app/products/page.tsx'],
+  sourceJsxNames: ['ProductsCatalogLayout'], sourceImportPaths: ['@/components/products/canonical/ProductsCatalogLayout'],
   role: 'catalog-layout', requiredClasses: ['min-h-screen', 'bg-bg-base', 'text-text-base'],
 };
 
 export function ProductsCatalogLayoutView({ header, activeFilters, content }: ProductsCatalogLayoutViewProps) {
-  return <ProductsCatalogLayout header={header?.()} activeFilters={activeFilters?.()} content={content?.()} />;
+  return <ProductsCatalogLayout header={header?.(puckTransparentSlotProps)} activeFilters={activeFilters?.(puckTransparentSlotProps)} content={content?.(puckTransparentSlotProps)} />;
 }

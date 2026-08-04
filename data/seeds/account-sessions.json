@@ -2,34 +2,22 @@
   "root": {},
   "content": [
     {
-      "type": "PageWrapper",
+      "type": "AccountSessionsPageLayout",
       "props": {
-        "id": "pagewrapper-1",
-        "maxWidth": "1440",
-        "paddingY": "normal",
-        "children": [
+        "id": "accountsessionspagelayout-1",
+        "breadcrumbs": [
           {
-            "type": "CardSection",
+            "type": "AccountSessionsBreadcrumbs",
             "props": {
-              "id": "cardsection-2",
-              "title": "Session management moved to eNigma Identity.",
-              "children": [
-                {
-                  "type": "PageHeader",
-                  "props": {
-                    "id": "pageheader-1",
-                    "title": "Session management moved to eNigma Identity."
-                  }
-                },
-                {
-                  "type": "CardSection",
-                  "props": {
-                    "id": "cardsection-1",
-                    "title": "",
-                    "children": []
-                  }
-                }
-              ]
+              "id": "accountsessionsbreadcrumbs-1"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "AccountSessionsIdentityNotice",
+            "props": {
+              "id": "accountsessionsidentitynotice-1"
             }
           }
         ]

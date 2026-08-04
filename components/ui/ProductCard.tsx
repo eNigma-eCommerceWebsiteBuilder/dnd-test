@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useTransition } from 'react';
 import { cn } from '@/lib/utils/cn';
 import { useCart, useToast, useWishlist } from '@/lib/hooks';
@@ -18,29 +19,24 @@ interface ProductCardProps {
     showWishlist?: boolean;
     showQuickAdd?: boolean;
     className?: string;
-    hrefPrefix?: string;
 }
 
 export const ProductCard = ({
     product,
     showWishlist = true,
     showQuickAdd = true,
-    className,
-    hrefPrefix = '/products'
+    className
 }: ProductCardProps) => {
     const { addItem } = useCart(false);
     const { addItem: addWishlistItem, removeItem: removeWishlistItem, isInWishlist } = useWishlist();
     const { success, error: showError } = useToast();
     const [isAdding, setIsAdding] = useState(false);
     const [isWishlistPending, startWishlistTransition] = useTransition();
-    const productId = product.id || product._id;
-    const productHref = `${hrefPrefix}/${product.slug || productId}`;
-    const isInStock = product.inStock !== false;
-    const isWishlisted = productId ? isInWishlist(productId) : false;
+    const isWishlisted = isInWishlist(product._id);
 
     const stockStatus = formatStockStatus({
         stock: product.stock,
-        inStock: isInStock,
+        inStock: product.inStock,
         stockThreshold: product.stockThreshold,
     });
     const priceInfo = formatProductPrice({
@@ -57,19 +53,14 @@ export const ProductCard = ({
         event.preventDefault();
         event.stopPropagation();
 
-        if (!productId) {
-            showError('Product is missing an ID');
-            return;
-        }
-
-        if (!isInStock) {
+        if (!product.inStock) {
             showError('Product is out of stock');
             return;
         }
 
         setIsAdding(true);
         try {
-            await addItem(productId, 1);
+            await addItem(product._id, 1);
             success('Added to cart');
         } catch {
             showError('Failed to add to cart');
@@ -83,17 +74,12 @@ export const ProductCard = ({
         event.stopPropagation();
 
         startWishlistTransition(async () => {
-            if (!productId) {
-                showError('Product is missing an ID');
-                return;
-            }
-
             try {
                 if (isWishlisted) {
-                    await removeWishlistItem(productId);
+                    await removeWishlistItem(product._id);
                     success('Removed from wishlist');
                 } else {
-                    await addWishlistItem(productId);
+                    await addWishlistItem(product._id);
                     success('Added to wishlist');
                 }
             } catch {
@@ -103,19 +89,18 @@ export const ProductCard = ({
     };
 
     return (
-        <article
-            className={cn("@container group w-full", className)}
+        <Link
+            href={`/products/${product.slug || product._id}`}
+            className={cn("@container group block w-full cursor-pointer", className)}
         >
             <ProductCardMedia
                 badge={badge}
                 hoverImage={hoverImage}
                 isAdding={isAdding}
-                isInStock={isInStock}
                 isWishlistPending={isWishlistPending}
                 isWishlisted={isWishlisted}
                 primaryImage={primaryImage}
                 product={product}
-                productHref={productHref}
                 showQuickAdd={showQuickAdd}
                 showWishlist={showWishlist}
                 onQuickAdd={handleQuickAdd}
@@ -131,7 +116,7 @@ export const ProductCard = ({
                 subtitle={subtitle}
                 onWishlistToggle={handleWishlistToggle}
             />
-        </article>
+        </Link>
     );
 };
 

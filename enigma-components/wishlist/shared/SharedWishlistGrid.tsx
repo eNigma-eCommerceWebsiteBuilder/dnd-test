@@ -1,5 +1,5 @@
 import type { WishlistItem } from '@/lib/api/types/wishlist';
-import { SharedWishlistItem } from '@/components/wishlist/shared/SharedWishlistItem';
+import { SharedWishlistItem } from '@/enigma-components/wishlist/shared/SharedWishlistItem';
 
 interface SharedWishlistGridProps {
   items: WishlistItem[];

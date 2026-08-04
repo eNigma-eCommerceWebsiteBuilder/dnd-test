@@ -6,15 +6,49 @@ import React from "react";
 
 import { AccountAddressesStateSectionView, puckFields as AccountAddressesStateSection_fields, puckDefaults as AccountAddressesStateSection_defaults } from "@/components/account/AccountAddressesStateSectionView";
 import { AccountDashboardView, puckFields as AccountDashboard_fields, puckDefaults as AccountDashboard_defaults } from "@/components/account/AccountDashboardView";
+import { AccountDashboardHeroLayout, puckFields as AccountDashboardHeroLayout_fields, puckDefaults as AccountDashboardHeroLayout_defaults } from "@/components/account/dashboard/canonical/AccountDashboardHeroLayoutView";
+import { AccountDashboardIdentity, puckFields as AccountDashboardIdentity_fields, puckDefaults as AccountDashboardIdentity_defaults } from "@/components/account/dashboard/canonical/AccountDashboardIdentityView";
+import { AccountDashboardLinks, puckFields as AccountDashboardLinks_fields, puckDefaults as AccountDashboardLinks_defaults } from "@/components/account/dashboard/canonical/AccountDashboardLinksView";
+import { AccountDashboardPageLayout, puckFields as AccountDashboardPageLayout_fields, puckDefaults as AccountDashboardPageLayout_defaults } from "@/components/account/dashboard/canonical/AccountDashboardPageLayoutView";
+import { AccountDashboardWelcome, puckFields as AccountDashboardWelcome_fields, puckDefaults as AccountDashboardWelcome_defaults } from "@/components/account/dashboard/canonical/AccountDashboardWelcomeView";
 import { AccountDigitalLibraryStateSectionView, puckFields as AccountDigitalLibraryStateSection_fields, puckDefaults as AccountDigitalLibraryStateSection_defaults } from "@/components/account/AccountDigitalLibraryStateSectionView";
+import { AccountDownloadsPageLayout, puckFields as AccountDownloadsPageLayout_fields, puckDefaults as AccountDownloadsPageLayout_defaults } from "@/components/account/downloads/canonical/AccountDownloadsPageLayoutView";
+import { AccountIdentityExplanationView, puckFields as AccountIdentityExplanation_fields, puckDefaults as AccountIdentityExplanation_defaults } from "@/components/account/canonical/AccountIdentityExplanationView";
+import { AccountIdentitySessionDetailsView, puckFields as AccountIdentitySessionDetails_fields, puckDefaults as AccountIdentitySessionDetails_defaults } from "@/components/account/canonical/AccountIdentitySessionDetailsView";
+import { AccountIdentitySettingsCardView, puckFields as AccountIdentitySettingsCard_fields, puckDefaults as AccountIdentitySettingsCard_defaults } from "@/components/account/canonical/AccountIdentitySettingsCardView";
 import { AccountLinkGridView, puckFields as AccountLinkGrid_fields, puckDefaults as AccountLinkGrid_defaults } from "@/components/account/AccountLinkGridView";
+import { AccountOrdersEmptyView, puckFields as AccountOrdersEmpty_fields, puckDefaults as AccountOrdersEmpty_defaults } from "@/components/account/orders/canonical/AccountOrdersEmptyView";
+import { AccountOrdersHeaderView, puckFields as AccountOrdersHeader_fields, puckDefaults as AccountOrdersHeader_defaults } from "@/components/account/orders/canonical/AccountOrdersHeaderView";
+import { AccountOrdersLayoutView, puckFields as AccountOrdersLayout_fields, puckDefaults as AccountOrdersLayout_defaults } from "@/components/account/orders/canonical/AccountOrdersLayoutView";
+import { AccountOrdersListView, puckFields as AccountOrdersList_fields, puckDefaults as AccountOrdersList_defaults } from "@/components/account/orders/canonical/AccountOrdersListView";
+import { AccountOrdersResultsStateView, puckFields as AccountOrdersResultsState_fields, puckDefaults as AccountOrdersResultsState_defaults } from "@/components/account/orders/canonical/AccountOrdersResultsStateView";
+import { AccountOrdersStateView, puckFields as AccountOrdersState_fields, puckDefaults as AccountOrdersState_defaults } from "@/components/account/orders/canonical/AccountOrdersStateView";
+import { AccountOrdersStatusFilterView, puckFields as AccountOrdersStatusFilter_fields, puckDefaults as AccountOrdersStatusFilter_defaults } from "@/components/account/orders/canonical/AccountOrdersStatusFilterView";
 import { AccountSessionPanelView, puckFields as AccountSessionPanel_fields, puckDefaults as AccountSessionPanel_defaults } from "@/components/account/AccountSessionPanelView";
 import { AccountSessionsView, puckFields as AccountSessions_fields, puckDefaults as AccountSessions_defaults } from "@/components/account/AccountSessionsView";
+import { AccountSessionsBreadcrumbs, puckFields as AccountSessionsBreadcrumbs_fields, puckDefaults as AccountSessionsBreadcrumbs_defaults } from "@/components/account/sessions/canonical/AccountSessionsBreadcrumbsView";
+import { AccountSessionsIdentityNotice, puckFields as AccountSessionsIdentityNotice_fields, puckDefaults as AccountSessionsIdentityNotice_defaults } from "@/components/account/sessions/canonical/AccountSessionsIdentityNoticeView";
+import { AccountSessionsPageLayout, puckFields as AccountSessionsPageLayout_fields, puckDefaults as AccountSessionsPageLayout_defaults } from "@/components/account/sessions/canonical/AccountSessionsPageLayoutView";
 import { AccountSettingsView, puckFields as AccountSettings_fields, puckDefaults as AccountSettings_defaults } from "@/components/account/AccountSettingsView";
+import { AccountSettingsBreadcrumbsView, puckFields as AccountSettingsBreadcrumbs_fields, puckDefaults as AccountSettingsBreadcrumbs_defaults } from "@/components/account/canonical/AccountSettingsBreadcrumbsView";
+import { AccountSettingsLayoutView, puckFields as AccountSettingsLayout_fields, puckDefaults as AccountSettingsLayout_defaults } from "@/components/account/canonical/AccountSettingsLayoutView";
+import { AccountSettingsStateView, puckFields as AccountSettingsState_fields, puckDefaults as AccountSettingsState_defaults } from "@/components/account/canonical/AccountSettingsStateView";
+import { AccountSubscriptionsPageHeader, puckFields as AccountSubscriptionsPageHeader_fields, puckDefaults as AccountSubscriptionsPageHeader_defaults } from "@/components/account/subscriptions/list/canonical/AccountSubscriptionsPageHeaderView";
+import { AccountSubscriptionsPageLayout, puckFields as AccountSubscriptionsPageLayout_fields, puckDefaults as AccountSubscriptionsPageLayout_defaults } from "@/components/account/subscriptions/list/canonical/AccountSubscriptionsPageLayoutView";
+import { AccountWishlistPageLayout, puckFields as AccountWishlistPageLayout_fields, puckDefaults as AccountWishlistPageLayout_defaults } from "@/components/account/wishlist/canonical/AccountWishlistPageLayoutView";
 import { ActiveFiltersBlockView, puckFields as ActiveFiltersBlock_fields, puckDefaults as ActiveFiltersBlock_defaults } from "@/components/products/ActiveFiltersBlockView";
+import { AddressesAccountLayoutView, puckFields as AddressesAccountLayout_fields, puckDefaults as AddressesAccountLayout_defaults } from "@/components/account/addresses/canonical/AddressesAccountLayoutView";
+import { AddressesAccountSidebarView, puckFields as AddressesAccountSidebar_fields, puckDefaults as AddressesAccountSidebar_defaults } from "@/components/account/addresses/canonical/AddressesAccountSidebarView";
+import { AddressesBreadcrumbsView, puckFields as AddressesBreadcrumbs_fields, puckDefaults as AddressesBreadcrumbs_defaults } from "@/components/account/addresses/canonical/AddressesBreadcrumbsView";
+import { AddressesContentLayoutView, puckFields as AddressesContentLayout_fields, puckDefaults as AddressesContentLayout_defaults } from "@/components/account/addresses/canonical/AddressesContentLayoutView";
+import { AddressesManagerRegionView, puckFields as AddressesManagerRegion_fields, puckDefaults as AddressesManagerRegion_defaults } from "@/components/account/addresses/canonical/AddressesManagerRegionView";
+import { AddressesPageLayoutView, puckFields as AddressesPageLayout_fields, puckDefaults as AddressesPageLayout_defaults } from "@/components/account/addresses/canonical/AddressesPageLayoutView";
+import { AddressesPageStateView, puckFields as AddressesPageState_fields, puckDefaults as AddressesPageState_defaults } from "@/components/account/addresses/canonical/AddressesPageStateView";
 import { AddressListView, puckFields as AddressList_fields, puckDefaults as AddressList_defaults } from "@/components/account/AddressListView";
 import { AdminNotesView, puckFields as AdminNotes_fields, puckDefaults as AdminNotes_defaults } from "@/components/account/AdminNotesView";
 import { AuthEntryCardView, puckFields as AuthEntryCard_fields, puckDefaults as AuthEntryCard_defaults } from "@/components/auth/AuthEntryCardView";
+import { AuthPageLayoutView, puckFields as AuthPageLayout_fields, puckDefaults as AuthPageLayout_defaults } from "@/components/auth/canonical/AuthPageLayoutView";
+import { AuthPageStateView, puckFields as AuthPageState_fields, puckDefaults as AuthPageState_defaults } from "@/components/auth/canonical/AuthPageStateView";
 import { BillingAddressView, puckFields as BillingAddress_fields, puckDefaults as BillingAddress_defaults } from "@/components/account/BillingAddressView";
 import { BreadcrumbsView, puckFields as Breadcrumbs_fields, puckDefaults as Breadcrumbs_defaults } from "@/components/products/BreadcrumbsView";
 import { CalloutCardView, puckFields as CalloutCard_fields, puckDefaults as CalloutCard_defaults } from "@/components/layout/CalloutCardView";
@@ -23,6 +57,15 @@ import { CartContinueShoppingView, puckFields as CartContinueShopping_fields, pu
 import { CartEmptyView, puckFields as CartEmpty_fields, puckDefaults as CartEmpty_defaults } from "@/components/cart/CartEmptyView";
 import { CartHeaderView, puckFields as CartHeader_fields, puckDefaults as CartHeader_defaults } from "@/components/cart/CartHeaderView";
 import { CartListView, puckFields as CartList_fields, puckDefaults as CartList_defaults } from "@/components/cart/CartListView";
+import { CartPageContinueShoppingView, puckFields as CartPageContinueShopping_fields, puckDefaults as CartPageContinueShopping_defaults } from "@/components/cart/canonical/CartPageContinueShoppingView";
+import { CartPageEmptyView, puckFields as CartPageEmpty_fields, puckDefaults as CartPageEmpty_defaults } from "@/components/cart/canonical/CartPageEmptyView";
+import { CartPageEmptyLayoutView, puckFields as CartPageEmptyLayout_fields, puckDefaults as CartPageEmptyLayout_defaults } from "@/components/cart/canonical/CartPageEmptyLayoutView";
+import { CartPageFreeShippingProgressView, puckFields as CartPageFreeShippingProgress_fields, puckDefaults as CartPageFreeShippingProgress_defaults } from "@/components/cart/canonical/CartPageFreeShippingProgressView";
+import { CartPageHeaderView, puckFields as CartPageHeader_fields, puckDefaults as CartPageHeader_defaults } from "@/components/cart/canonical/CartPageHeaderView";
+import { CartPageItemListView, puckFields as CartPageItemList_fields, puckDefaults as CartPageItemList_defaults } from "@/components/cart/canonical/CartPageItemListView";
+import { CartPageLayoutView, puckFields as CartPageLayout_fields, puckDefaults as CartPageLayout_defaults } from "@/components/cart/canonical/CartPageLayoutView";
+import { CartPageStateView, puckFields as CartPageState_fields, puckDefaults as CartPageState_defaults } from "@/components/cart/canonical/CartPageStateView";
+import { CartPageSummaryView, puckFields as CartPageSummary_fields, puckDefaults as CartPageSummary_defaults } from "@/components/cart/canonical/CartPageSummaryView";
 import { CartStateSectionView, puckFields as CartStateSection_fields, puckDefaults as CartStateSection_defaults } from "@/components/cart/CartStateSectionView";
 import { CartSummaryView, puckFields as CartSummary_fields, puckDefaults as CartSummary_defaults } from "@/components/cart/CartSummaryView";
 import { CatalogActiveFiltersBoundaryView, puckFields as CatalogActiveFiltersBoundary_fields, puckDefaults as CatalogActiveFiltersBoundary_defaults } from "@/components/products/canonical/CatalogActiveFiltersBoundaryView";
@@ -56,39 +99,106 @@ import { CategoryProductFiltersBlockView, puckFields as CategoryProductFiltersBl
 import { CategoryProductGridBlockView, puckFields as CategoryProductGridBlock_fields, puckDefaults as CategoryProductGridBlock_defaults } from "@/components/categories/canonical/CategoryProductGridBlockView";
 import { CategorySubcategoryConditionView, puckFields as CategorySubcategoryCondition_fields, puckDefaults as CategorySubcategoryCondition_defaults } from "@/components/categories/canonical/CategorySubcategoryConditionView";
 import { CheckoutConfirmationView, puckFields as CheckoutConfirmation_fields, puckDefaults as CheckoutConfirmation_defaults } from "@/components/checkout/CheckoutConfirmationView";
+import { CheckoutConfirmationConditionView, puckFields as CheckoutConfirmationCondition_fields, puckDefaults as CheckoutConfirmationCondition_defaults } from "@/components/checkout/canonical/CheckoutConfirmationConditionView";
 import { CheckoutDigitalAssetsSectionView, puckFields as CheckoutDigitalAssetsSection_fields, puckDefaults as CheckoutDigitalAssetsSection_defaults } from "@/components/checkout/success/CheckoutDigitalAssetsSectionView";
+import { CheckoutErrorConditionView, puckFields as CheckoutErrorCondition_fields, puckDefaults as CheckoutErrorCondition_defaults } from "@/components/checkout/canonical/CheckoutErrorConditionView";
 import { CheckoutOrderReviewView, puckFields as CheckoutOrderReview_fields, puckDefaults as CheckoutOrderReview_defaults } from "@/components/checkout/CheckoutOrderReviewView";
 import { CheckoutOrderSummaryView, puckFields as CheckoutOrderSummary_fields, puckDefaults as CheckoutOrderSummary_defaults } from "@/components/checkout/CheckoutOrderSummaryView";
+import { CheckoutOrderSummaryPanelView, puckFields as CheckoutOrderSummaryPanel_fields, puckDefaults as CheckoutOrderSummaryPanel_defaults } from "@/components/checkout/canonical/CheckoutOrderSummaryPanelView";
+import { CheckoutPageClientLayoutView, puckFields as CheckoutPageClientLayout_fields, puckDefaults as CheckoutPageClientLayout_defaults } from "@/components/checkout/canonical/CheckoutPageClientLayoutView";
+import { CheckoutPageHeaderView, puckFields as CheckoutPageHeader_fields, puckDefaults as CheckoutPageHeader_defaults } from "@/components/checkout/canonical/CheckoutPageHeaderView";
+import { CheckoutPageStateView, puckFields as CheckoutPageState_fields, puckDefaults as CheckoutPageState_defaults } from "@/components/checkout/canonical/CheckoutPageStateView";
+import { CheckoutPaymentConditionView, puckFields as CheckoutPaymentCondition_fields, puckDefaults as CheckoutPaymentCondition_defaults } from "@/components/checkout/canonical/CheckoutPaymentConditionView";
 import { CheckoutPaymentMethodView, puckFields as CheckoutPaymentMethod_fields, puckDefaults as CheckoutPaymentMethod_defaults } from "@/components/checkout/CheckoutPaymentMethodView";
+import { CheckoutPaymentStepRegionView, puckFields as CheckoutPaymentStepRegion_fields, puckDefaults as CheckoutPaymentStepRegion_defaults } from "@/components/checkout/canonical/CheckoutPaymentStepRegionView";
 import { CheckoutPlaceOrderButtonView, puckFields as CheckoutPlaceOrderButton_fields, puckDefaults as CheckoutPlaceOrderButton_defaults } from "@/components/checkout/CheckoutPlaceOrderButtonView";
+import { CheckoutReviewConditionView, puckFields as CheckoutReviewCondition_fields, puckDefaults as CheckoutReviewCondition_defaults } from "@/components/checkout/canonical/CheckoutReviewConditionView";
+import { CheckoutReviewSectionView, puckFields as CheckoutReviewSection_fields, puckDefaults as CheckoutReviewSection_defaults } from "@/components/checkout/canonical/CheckoutReviewSectionView";
 import { CheckoutSecureBadgesView, puckFields as CheckoutSecureBadges_fields, puckDefaults as CheckoutSecureBadges_defaults } from "@/components/checkout/CheckoutSecureBadgesView";
 import { CheckoutShippingFormView, puckFields as CheckoutShippingForm_fields, puckDefaults as CheckoutShippingForm_defaults } from "@/components/checkout/CheckoutShippingFormView";
 import { CheckoutShippingMethodView, puckFields as CheckoutShippingMethod_fields, puckDefaults as CheckoutShippingMethod_defaults } from "@/components/checkout/CheckoutShippingMethodView";
-import { CheckoutStateSectionView, puckFields as CheckoutStateSection_fields, puckDefaults as CheckoutStateSection_defaults } from "@/components/checkout/CheckoutStateSectionView";
+import { CheckoutShippingMethodConditionView, puckFields as CheckoutShippingMethodCondition_fields, puckDefaults as CheckoutShippingMethodCondition_defaults } from "@/components/checkout/canonical/CheckoutShippingMethodConditionView";
+import { CheckoutShippingSectionView, puckFields as CheckoutShippingSection_fields, puckDefaults as CheckoutShippingSection_defaults } from "@/components/checkout/canonical/CheckoutShippingSectionView";
 import { CheckoutStepsView, puckFields as CheckoutSteps_fields, puckDefaults as CheckoutSteps_defaults } from "@/components/checkout/CheckoutStepsView";
+import { CheckoutStepsRegionView, puckFields as CheckoutStepsRegion_fields, puckDefaults as CheckoutStepsRegion_defaults } from "@/components/checkout/canonical/CheckoutStepsRegionView";
 import { CheckoutSubscriptionStateSectionView, puckFields as CheckoutSubscriptionStateSection_fields, puckDefaults as CheckoutSubscriptionStateSection_defaults } from "@/components/checkout/CheckoutSubscriptionStateSectionView";
+import { CheckoutSuccessActionsLayoutView, puckFields as CheckoutSuccessActionsLayout_fields, puckDefaults as CheckoutSuccessActionsLayout_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessActionsLayoutView";
+import { CheckoutSuccessContinueShoppingView, puckFields as CheckoutSuccessContinueShopping_fields, puckDefaults as CheckoutSuccessContinueShopping_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessContinueShoppingView";
+import { CheckoutSuccessDetailsColumnView, puckFields as CheckoutSuccessDetailsColumn_fields, puckDefaults as CheckoutSuccessDetailsColumn_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessDetailsColumnView";
+import { CheckoutSuccessDigitalAssetsConditionView, puckFields as CheckoutSuccessDigitalAssetsCondition_fields, puckDefaults as CheckoutSuccessDigitalAssetsCondition_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessDigitalAssetsConditionView";
+import { CheckoutSuccessDigitalDownloadsView, puckFields as CheckoutSuccessDigitalDownloads_fields, puckDefaults as CheckoutSuccessDigitalDownloads_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessDigitalDownloadsView";
+import { CheckoutSuccessHeaderView, puckFields as CheckoutSuccessHeader_fields, puckDefaults as CheckoutSuccessHeader_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessHeaderView";
+import { CheckoutSuccessHeaderLayoutView, puckFields as CheckoutSuccessHeaderLayout_fields, puckDefaults as CheckoutSuccessHeaderLayout_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessHeaderLayoutView";
+import { CheckoutSuccessLicenseKeysView, puckFields as CheckoutSuccessLicenseKeys_fields, puckDefaults as CheckoutSuccessLicenseKeys_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessLicenseKeysView";
+import { CheckoutSuccessNextStepsView, puckFields as CheckoutSuccessNextSteps_fields, puckDefaults as CheckoutSuccessNextSteps_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessNextStepsView";
+import { CheckoutSuccessOrderColumnView, puckFields as CheckoutSuccessOrderColumn_fields, puckDefaults as CheckoutSuccessOrderColumn_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessOrderColumnView";
+import { CheckoutSuccessOrderItemListView, puckFields as CheckoutSuccessOrderItemList_fields, puckDefaults as CheckoutSuccessOrderItemList_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessOrderItemListView";
+import { CheckoutSuccessOrderNumberView, puckFields as CheckoutSuccessOrderNumber_fields, puckDefaults as CheckoutSuccessOrderNumber_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessOrderNumberView";
+import { CheckoutSuccessOrderSummaryView, puckFields as CheckoutSuccessOrderSummary_fields, puckDefaults as CheckoutSuccessOrderSummary_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessOrderSummaryView";
+import { CheckoutSuccessPageLayoutView, puckFields as CheckoutSuccessPageLayout_fields, puckDefaults as CheckoutSuccessPageLayout_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessPageLayoutView";
+import { CheckoutSuccessPageStateView, puckFields as CheckoutSuccessPageState_fields, puckDefaults as CheckoutSuccessPageState_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessPageStateView";
+import { CheckoutSuccessPurchaseTrackerView, puckFields as CheckoutSuccessPurchaseTracker_fields, puckDefaults as CheckoutSuccessPurchaseTracker_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessPurchaseTrackerView";
+import { CheckoutSuccessShippingInfoView, puckFields as CheckoutSuccessShippingInfo_fields, puckDefaults as CheckoutSuccessShippingInfo_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessShippingInfoView";
+import { CheckoutSuccessTwoColumnLayoutView, puckFields as CheckoutSuccessTwoColumnLayout_fields, puckDefaults as CheckoutSuccessTwoColumnLayout_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessTwoColumnLayoutView";
+import { CheckoutSuccessViewOrderView, puckFields as CheckoutSuccessViewOrder_fields, puckDefaults as CheckoutSuccessViewOrder_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessViewOrderView";
+import { CollectionBreadcrumbsView, puckFields as CollectionBreadcrumbs_fields, puckDefaults as CollectionBreadcrumbs_defaults } from "@/components/collections/canonical/CollectionBreadcrumbsView";
+import { CollectionDetailCuratedDisplayView, puckFields as CollectionDetailCuratedDisplay_fields, puckDefaults as CollectionDetailCuratedDisplay_defaults } from "@/components/collections/canonical/CollectionDetailCuratedDisplayView";
+import { CollectionDetailHeroView, puckFields as CollectionDetailHero_fields, puckDefaults as CollectionDetailHero_defaults } from "@/components/collections/canonical/CollectionDetailHeroView";
+import { CollectionDetailInspirationGalleryView, puckFields as CollectionDetailInspirationGallery_fields, puckDefaults as CollectionDetailInspirationGallery_defaults } from "@/components/collections/canonical/CollectionDetailInspirationGalleryView";
+import { CollectionDetailNotFoundView, puckFields as CollectionDetailNotFound_fields, puckDefaults as CollectionDetailNotFound_defaults } from "@/components/collections/canonical/CollectionDetailNotFoundView";
+import { CollectionDetailPageLayoutView, puckFields as CollectionDetailPageLayout_fields, puckDefaults as CollectionDetailPageLayout_defaults } from "@/components/collections/canonical/CollectionDetailPageLayoutView";
+import { CollectionDetailPageStateView, puckFields as CollectionDetailPageState_fields, puckDefaults as CollectionDetailPageState_defaults } from "@/components/collections/canonical/CollectionDetailPageStateView";
 import { CollectionDetailStateSectionView, puckFields as CollectionDetailStateSection_fields, puckDefaults as CollectionDetailStateSection_defaults } from "@/components/collections/CollectionDetailStateSectionView";
 import { CollectionGridView, puckFields as CollectionGrid_fields, puckDefaults as CollectionGrid_defaults } from "@/components/collections/CollectionGridView";
 import { CollectionHeroView, puckFields as CollectionHero_fields, puckDefaults as CollectionHero_defaults } from "@/components/collections/CollectionHeroView";
+import { CollectionsFilterSectionView, puckFields as CollectionsFilterSection_fields, puckDefaults as CollectionsFilterSection_defaults } from "@/components/collections/canonical/CollectionsFilterSectionView";
+import { CollectionsPageHeaderView, puckFields as CollectionsPageHeader_fields, puckDefaults as CollectionsPageHeader_defaults } from "@/components/collections/canonical/CollectionsPageHeaderView";
+import { CollectionsPageLayoutView, puckFields as CollectionsPageLayout_fields, puckDefaults as CollectionsPageLayout_defaults } from "@/components/collections/canonical/CollectionsPageLayoutView";
+import { CollectionsResultsStateView, puckFields as CollectionsResultsState_fields, puckDefaults as CollectionsResultsState_defaults } from "@/components/collections/canonical/CollectionsResultsStateView";
 import { CollectionStateSectionView, puckFields as CollectionStateSection_fields, puckDefaults as CollectionStateSection_defaults } from "@/components/collections/CollectionStateSectionView";
+import { CollectionTypeFilterView, puckFields as CollectionTypeFilter_fields, puckDefaults as CollectionTypeFilter_defaults } from "@/components/collections/canonical/CollectionTypeFilterView";
 import { ConditionalSectionView, puckFields as ConditionalSection_fields, puckDefaults as ConditionalSection_defaults } from "@/components/layout/ConditionalSectionView";
 import { OrderSummaryView, puckFields as ConfirmationOrderSummary_fields, puckDefaults as ConfirmationOrderSummary_defaults } from "@/components/checkout/success/OrderSummaryView";
 import { ContinueShoppingButtonView, puckFields as ContinueShoppingButton_fields, puckDefaults as ContinueShoppingButton_defaults } from "@/components/checkout/success/ContinueShoppingButtonView";
+import { CuratedCollectionConditionView, puckFields as CuratedCollectionCondition_fields, puckDefaults as CuratedCollectionCondition_defaults } from "@/components/collections/canonical/CuratedCollectionConditionView";
 import { CuratedCollectionSectionView, puckFields as CuratedCollectionSection_fields, puckDefaults as CuratedCollectionSection_defaults } from "@/components/home/CuratedCollectionSectionView";
 import { CuratedProductDisplayView, puckFields as CuratedProductDisplay_fields, puckDefaults as CuratedProductDisplay_defaults } from "@/components/collections/CuratedProductDisplayView";
 import { DepartmentCategoriesSectionView, puckFields as DepartmentCategoriesSection_fields, puckDefaults as DepartmentCategoriesSection_defaults } from "@/components/categories/canonical/DepartmentCategoriesSectionView";
 import { DigitalDownloadsView, puckFields as DigitalDownloads_fields, puckDefaults as DigitalDownloads_defaults } from "@/components/checkout/success/DigitalDownloadsView";
-import { DownloadLicenseStateSectionView, puckFields as DownloadLicenseStateSection_fields, puckDefaults as DownloadLicenseStateSection_defaults } from "@/components/downloads/DownloadLicenseStateSectionView";
+import { DigitalLibraryAssetsMetric, puckFields as DigitalLibraryAssetsMetric_fields, puckDefaults as DigitalLibraryAssetsMetric_defaults } from "@/components/account/downloads/canonical/DigitalLibraryAssetsMetricView";
+import { DigitalLibraryAssetsState, puckFields as DigitalLibraryAssetsState_fields, puckDefaults as DigitalLibraryAssetsState_defaults } from "@/components/account/downloads/canonical/DigitalLibraryAssetsStateView";
+import { DigitalLibraryAttentionMetric, puckFields as DigitalLibraryAttentionMetric_fields, puckDefaults as DigitalLibraryAttentionMetric_defaults } from "@/components/account/downloads/canonical/DigitalLibraryAttentionMetricView";
+import { DigitalLibraryBackground, puckFields as DigitalLibraryBackground_fields, puckDefaults as DigitalLibraryBackground_defaults } from "@/components/account/downloads/canonical/DigitalLibraryBackgroundView";
+import { DigitalLibraryDownloadsMetric, puckFields as DigitalLibraryDownloadsMetric_fields, puckDefaults as DigitalLibraryDownloadsMetric_defaults } from "@/components/account/downloads/canonical/DigitalLibraryDownloadsMetricView";
+import { DigitalLibraryEmptyRegion, puckFields as DigitalLibraryEmptyRegion_fields, puckDefaults as DigitalLibraryEmptyRegion_defaults } from "@/components/account/downloads/canonical/DigitalLibraryEmptyRegionView";
+import { DigitalLibraryEntriesGrid, puckFields as DigitalLibraryEntriesGrid_fields, puckDefaults as DigitalLibraryEntriesGrid_defaults } from "@/components/account/downloads/canonical/DigitalLibraryEntriesGridView";
+import { DigitalLibraryHeader, puckFields as DigitalLibraryHeader_fields, puckDefaults as DigitalLibraryHeader_defaults } from "@/components/account/downloads/canonical/DigitalLibraryHeaderView";
+import { DigitalLibraryHistoryRegion, puckFields as DigitalLibraryHistoryRegion_fields, puckDefaults as DigitalLibraryHistoryRegion_defaults } from "@/components/account/downloads/canonical/DigitalLibraryHistoryRegionView";
+import { DigitalLibraryLayout, puckFields as DigitalLibraryLayout_fields, puckDefaults as DigitalLibraryLayout_defaults } from "@/components/account/downloads/canonical/DigitalLibraryLayoutView";
+import { DigitalLibraryMetricsLayout, puckFields as DigitalLibraryMetricsLayout_fields, puckDefaults as DigitalLibraryMetricsLayout_defaults } from "@/components/account/downloads/canonical/DigitalLibraryMetricsLayoutView";
+import { DownloadAssetStateView, puckFields as DownloadAssetState_fields, puckDefaults as DownloadAssetState_defaults } from "@/components/downloads/canonical/DownloadAssetStateView";
+import { DownloadExpirationNoticeView, puckFields as DownloadExpirationNotice_fields, puckDefaults as DownloadExpirationNotice_defaults } from "@/components/downloads/canonical/DownloadExpirationNoticeView";
+import { DownloadLicenseInfoPanelView, puckFields as DownloadLicenseInfoPanel_fields, puckDefaults as DownloadLicenseInfoPanel_defaults } from "@/components/downloads/canonical/DownloadLicenseInfoPanelView";
+import { DownloadPageContentLayoutView, puckFields as DownloadPageContentLayout_fields, puckDefaults as DownloadPageContentLayout_defaults } from "@/components/downloads/canonical/DownloadPageContentLayoutView";
+import { DownloadPageHeaderView, puckFields as DownloadPageHeader_fields, puckDefaults as DownloadPageHeader_defaults } from "@/components/downloads/canonical/DownloadPageHeaderView";
+import { DownloadPageLayoutView, puckFields as DownloadPageLayout_fields, puckDefaults as DownloadPageLayout_defaults } from "@/components/downloads/canonical/DownloadPageLayoutView";
 import { DownloadsEmptyView, puckFields as DownloadsEmpty_fields, puckDefaults as DownloadsEmpty_defaults } from "@/components/account/DownloadsEmptyView";
+import { DownloadTrustFooterView, puckFields as DownloadTrustFooter_fields, puckDefaults as DownloadTrustFooter_defaults } from "@/components/downloads/canonical/DownloadTrustFooterView";
 import { EmptyCategoryView, puckFields as EmptyCategory_fields, puckDefaults as EmptyCategory_defaults } from "@/components/categories/EmptyCategoryView";
 import { EmptyCollectionsView, puckFields as EmptyCollections_fields, puckDefaults as EmptyCollections_defaults } from "@/components/collections/EmptyCollectionsView";
 import { EmptyPaymentMethodsView, puckFields as EmptyPaymentMethods_fields, puckDefaults as EmptyPaymentMethods_defaults } from "@/components/account/EmptyPaymentMethodsView";
 import { EmptyStateView, puckFields as EmptyState_fields, puckDefaults as EmptyState_defaults } from "@/components/products/EmptyStateView";
 import { ErrorStateView, puckFields as ErrorState_fields, puckDefaults as ErrorState_defaults } from "@/components/layout/ErrorStateView";
+import { FeaturedCuratedCollectionView, puckFields as FeaturedCuratedCollection_fields, puckDefaults as FeaturedCuratedCollection_defaults } from "@/components/collections/canonical/FeaturedCuratedCollectionView";
+import { FeaturedCuratedCollectionConditionView, puckFields as FeaturedCuratedCollectionCondition_fields, puckDefaults as FeaturedCuratedCollectionCondition_defaults } from "@/components/collections/canonical/FeaturedCuratedCollectionConditionView";
 import { FeaturedProductsGridView, puckFields as FeaturedProductsGrid_fields, puckDefaults as FeaturedProductsGrid_defaults } from "@/components/home/FeaturedProductsGridView";
 import { FeatureIconListView, puckFields as FeatureIconList_fields, puckDefaults as FeatureIconList_defaults } from "@/components/layout/FeatureIconListView";
 import { FreeShippingProgressView, puckFields as FreeShippingProgress_fields, puckDefaults as FreeShippingProgress_defaults } from "@/components/cart/FreeShippingProgressView";
 import { HeroSectionView, puckFields as HeroSection_fields, puckDefaults as HeroSection_defaults } from "@/components/home/HeroSectionView";
+import { HomePageLayoutView, puckFields as HomePageLayout_fields, puckDefaults as HomePageLayout_defaults } from "@/components/home/canonical/HomePageLayoutView";
+import { InspirationCollectionConditionView, puckFields as InspirationCollectionCondition_fields, puckDefaults as InspirationCollectionCondition_defaults } from "@/components/collections/canonical/InspirationCollectionConditionView";
+import { InspirationCollectionSectionView, puckFields as InspirationCollectionSection_fields, puckDefaults as InspirationCollectionSection_defaults } from "@/components/collections/canonical/InspirationCollectionSectionView";
+import { InspirationDetailConditionView, puckFields as InspirationDetailCondition_fields, puckDefaults as InspirationDetailCondition_defaults } from "@/components/collections/canonical/InspirationDetailConditionView";
 import { InspirationGalleryView, puckFields as InspirationGallery_fields, puckDefaults as InspirationGallery_defaults } from "@/components/collections/InspirationGalleryView";
 import { InspirationSectionView, puckFields as InspirationSection_fields, puckDefaults as InspirationSection_defaults } from "@/components/home/InspirationSectionView";
 import { LicenseKeyDisplayView, puckFields as LicenseKeyDisplay_fields, puckDefaults as LicenseKeyDisplay_defaults } from "@/components/checkout/success/LicenseKeyDisplayView";
@@ -99,13 +209,60 @@ import { NoResultsView, puckFields as NoResults_fields, puckDefaults as NoResult
 import { NotEligibleMessageView, puckFields as NotEligibleMessage_fields, puckDefaults as NotEligibleMessage_defaults } from "@/components/account/NotEligibleMessageView";
 import { NotFoundStateView, puckFields as NotFoundState_fields, puckDefaults as NotFoundState_defaults } from "@/components/layout/NotFoundStateView";
 import { OrderDetailsView, puckFields as OrderDetails_fields, puckDefaults as OrderDetails_defaults } from "@/components/account/OrderDetailsView";
+import { OrderDetailsBillingAddressConditionView, puckFields as OrderDetailsBillingAddressCondition_fields, puckDefaults as OrderDetailsBillingAddressCondition_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsBillingAddressConditionView";
+import { OrderDetailsBillingRegionView, puckFields as OrderDetailsBillingRegion_fields, puckDefaults as OrderDetailsBillingRegion_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsBillingRegionView";
+import { OrderDetailsBreadcrumbsView, puckFields as OrderDetailsBreadcrumbs_fields, puckDefaults as OrderDetailsBreadcrumbs_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsBreadcrumbsView";
+import { OrderDetailsCancelActionView, puckFields as OrderDetailsCancelAction_fields, puckDefaults as OrderDetailsCancelAction_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsCancelActionView";
+import { OrderDetailsContentLayoutView, puckFields as OrderDetailsContentLayout_fields, puckDefaults as OrderDetailsContentLayout_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsContentLayoutView";
+import { OrderDetailsDownloadActionView, puckFields as OrderDetailsDownloadAction_fields, puckDefaults as OrderDetailsDownloadAction_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsDownloadActionView";
+import { OrderDetailsFinancialRegionView, puckFields as OrderDetailsFinancialRegion_fields, puckDefaults as OrderDetailsFinancialRegion_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsFinancialRegionView";
+import { OrderDetailsHeaderView, puckFields as OrderDetailsHeader_fields, puckDefaults as OrderDetailsHeader_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsHeaderView";
+import { OrderDetailsItemsRegionView, puckFields as OrderDetailsItemsRegion_fields, puckDefaults as OrderDetailsItemsRegion_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsItemsRegionView";
+import { OrderDetailsPageLayoutView, puckFields as OrderDetailsPageLayout_fields, puckDefaults as OrderDetailsPageLayout_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsPageLayoutView";
+import { OrderDetailsPageStateView, puckFields as OrderDetailsPageState_fields, puckDefaults as OrderDetailsPageState_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsPageStateView";
+import { OrderDetailsPaymentRegionView, puckFields as OrderDetailsPaymentRegion_fields, puckDefaults as OrderDetailsPaymentRegion_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsPaymentRegionView";
+import { OrderDetailsReorderActionView, puckFields as OrderDetailsReorderAction_fields, puckDefaults as OrderDetailsReorderAction_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsReorderActionView";
+import { OrderDetailsShippingRegionView, puckFields as OrderDetailsShippingRegion_fields, puckDefaults as OrderDetailsShippingRegion_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsShippingRegionView";
+import { OrderDownloadsAssetsLayoutView, puckFields as OrderDownloadsAssetsLayout_fields, puckDefaults as OrderDownloadsAssetsLayout_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsAssetsLayoutView";
+import { OrderDownloadsAssetsStateView, puckFields as OrderDownloadsAssetsState_fields, puckDefaults as OrderDownloadsAssetsState_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsAssetsStateView";
+import { OrderDownloadsBackLinkView, puckFields as OrderDownloadsBackLink_fields, puckDefaults as OrderDownloadsBackLink_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsBackLinkView";
+import { OrderDownloadsBreadcrumbsView, puckFields as OrderDownloadsBreadcrumbs_fields, puckDefaults as OrderDownloadsBreadcrumbs_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsBreadcrumbsView";
+import { OrderDownloadsEmptyRegionView, puckFields as OrderDownloadsEmptyRegion_fields, puckDefaults as OrderDownloadsEmptyRegion_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsEmptyRegionView";
+import { OrderDownloadsHeaderView, puckFields as OrderDownloadsHeader_fields, puckDefaults as OrderDownloadsHeader_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsHeaderView";
+import { OrderDownloadsLicenseKeysRegionView, puckFields as OrderDownloadsLicenseKeysRegion_fields, puckDefaults as OrderDownloadsLicenseKeysRegion_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsLicenseKeysRegionView";
+import { OrderDownloadsListRegionView, puckFields as OrderDownloadsListRegion_fields, puckDefaults as OrderDownloadsListRegion_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsListRegionView";
+import { OrderDownloadsPageLayoutView, puckFields as OrderDownloadsPageLayout_fields, puckDefaults as OrderDownloadsPageLayout_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsPageLayoutView";
+import { OrderDownloadsPageStateView, puckFields as OrderDownloadsPageState_fields, puckDefaults as OrderDownloadsPageState_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsPageStateView";
+import { OrderDownloadsPaymentPendingConditionView, puckFields as OrderDownloadsPaymentPendingCondition_fields, puckDefaults as OrderDownloadsPaymentPendingCondition_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsPaymentPendingConditionView";
+import { OrderDownloadsPaymentPendingNoticeView, puckFields as OrderDownloadsPaymentPendingNotice_fields, puckDefaults as OrderDownloadsPaymentPendingNotice_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsPaymentPendingNoticeView";
 import { OrderEmptyView, puckFields as OrderEmpty_fields, puckDefaults as OrderEmpty_defaults } from "@/components/account/OrderEmptyView";
 import { OrderItemListView, puckFields as OrderItemList_fields, puckDefaults as OrderItemList_defaults } from "@/components/checkout/success/OrderItemListView";
 import { OrderNumberView, puckFields as OrderNumber_fields, puckDefaults as OrderNumber_defaults } from "@/components/checkout/success/OrderNumberView";
+import { OrderReturnBreadcrumbsView, puckFields as OrderReturnBreadcrumbs_fields, puckDefaults as OrderReturnBreadcrumbs_defaults } from "@/components/account/orders/return/canonical/OrderReturnBreadcrumbsView";
+import { OrderReturnEligibilityStateView, puckFields as OrderReturnEligibilityState_fields, puckDefaults as OrderReturnEligibilityState_defaults } from "@/components/account/orders/return/canonical/OrderReturnEligibilityStateView";
+import { OrderReturnEligibleLayoutView, puckFields as OrderReturnEligibleLayout_fields, puckDefaults as OrderReturnEligibleLayout_defaults } from "@/components/account/orders/return/canonical/OrderReturnEligibleLayoutView";
+import { OrderReturnHeaderView, puckFields as OrderReturnHeader_fields, puckDefaults as OrderReturnHeader_defaults } from "@/components/account/orders/return/canonical/OrderReturnHeaderView";
+import { OrderReturnNotEligibleRegionView, puckFields as OrderReturnNotEligibleRegion_fields, puckDefaults as OrderReturnNotEligibleRegion_defaults } from "@/components/account/orders/return/canonical/OrderReturnNotEligibleRegionView";
+import { OrderReturnPageLayoutView, puckFields as OrderReturnPageLayout_fields, puckDefaults as OrderReturnPageLayout_defaults } from "@/components/account/orders/return/canonical/OrderReturnPageLayoutView";
+import { OrderReturnPageStateView, puckFields as OrderReturnPageState_fields, puckDefaults as OrderReturnPageState_defaults } from "@/components/account/orders/return/canonical/OrderReturnPageStateView";
+import { OrderReturnPolicyReminderRegionView, puckFields as OrderReturnPolicyReminderRegion_fields, puckDefaults as OrderReturnPolicyReminderRegion_defaults } from "@/components/account/orders/return/canonical/OrderReturnPolicyReminderRegionView";
+import { OrderReturnRequestFormRegionView, puckFields as OrderReturnRequestFormRegion_fields, puckDefaults as OrderReturnRequestFormRegion_defaults } from "@/components/account/orders/return/canonical/OrderReturnRequestFormRegionView";
+import { OrderReturnWindowExpiredRegionView, puckFields as OrderReturnWindowExpiredRegion_fields, puckDefaults as OrderReturnWindowExpiredRegion_defaults } from "@/components/account/orders/return/canonical/OrderReturnWindowExpiredRegionView";
 import { OrderStatusBadgeView, puckFields as OrderStatusBadge_fields, puckDefaults as OrderStatusBadge_defaults } from "@/components/account/OrderStatusBadgeView";
 import { PageHeaderView, puckFields as PageHeader_fields, puckDefaults as PageHeader_defaults } from "@/components/layout/PageHeaderView";
 import { PageWrapperView, puckFields as PageWrapper_fields, puckDefaults as PageWrapper_defaults } from "@/components/layout/PageWrapperView";
 import { PaymentInfoView, puckFields as PaymentInfo_fields, puckDefaults as PaymentInfo_defaults } from "@/components/account/PaymentInfoView";
+import { PaymentMethodsAddCardActionView, puckFields as PaymentMethodsAddCardAction_fields, puckDefaults as PaymentMethodsAddCardAction_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsAddCardActionView";
+import { PaymentMethodsEmptyStateRegionView, puckFields as PaymentMethodsEmptyStateRegion_fields, puckDefaults as PaymentMethodsEmptyStateRegion_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsEmptyStateRegionView";
+import { PaymentMethodsHeaderLayoutView, puckFields as PaymentMethodsHeaderLayout_fields, puckDefaults as PaymentMethodsHeaderLayout_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsHeaderLayoutView";
+import { PaymentMethodsHelpFooterView, puckFields as PaymentMethodsHelpFooter_fields, puckDefaults as PaymentMethodsHelpFooter_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsHelpFooterView";
+import { PaymentMethodsListRegionView, puckFields as PaymentMethodsListRegion_fields, puckDefaults as PaymentMethodsListRegion_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsListRegionView";
+import { PaymentMethodsListStateView, puckFields as PaymentMethodsListState_fields, puckDefaults as PaymentMethodsListState_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsListStateView";
+import { PaymentMethodsPageLayoutView, puckFields as PaymentMethodsPageLayout_fields, puckDefaults as PaymentMethodsPageLayout_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsPageLayoutView";
+import { PaymentMethodsPageStateView, puckFields as PaymentMethodsPageState_fields, puckDefaults as PaymentMethodsPageState_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsPageStateView";
+import { PaymentMethodsSavedCardsSectionView, puckFields as PaymentMethodsSavedCardsSection_fields, puckDefaults as PaymentMethodsSavedCardsSection_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsSavedCardsSectionView";
+import { PaymentMethodsStripeCardFormView, puckFields as PaymentMethodsStripeCardForm_fields, puckDefaults as PaymentMethodsStripeCardForm_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsStripeCardFormView";
+import { PaymentMethodsStripeConfigConditionView, puckFields as PaymentMethodsStripeConfigCondition_fields, puckDefaults as PaymentMethodsStripeConfigCondition_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsStripeConfigConditionView";
 import { PriceDisplayView, puckFields as PriceDisplay_fields, puckDefaults as PriceDisplay_defaults } from "@/components/products/PriceDisplayView";
 import { ProductDetailMediaColumnView, puckFields as ProductDetailMediaColumn_fields, puckDefaults as ProductDetailMediaColumn_defaults } from "@/components/products/canonical/ProductDetailMediaColumnView";
 import { ProductDetailMobileTabsView, puckFields as ProductDetailMobileTabs_fields, puckDefaults as ProductDetailMobileTabs_defaults } from "@/components/products/canonical/ProductDetailMobileTabsView";
@@ -126,29 +283,121 @@ import { ProductsCatalogStateSectionView, puckFields as ProductsCatalogStateSect
 import { ProductTabsView, puckFields as ProductTabs_fields, puckDefaults as ProductTabs_defaults } from "@/components/products/ProductTabsView";
 import { PromotionBannerView, puckFields as PromotionBanner_fields, puckDefaults as PromotionBanner_defaults } from "@/components/home/PromotionBannerView";
 import { PurchaseTrackerView, puckFields as PurchaseTracker_fields, puckDefaults as PurchaseTracker_defaults } from "@/components/checkout/success/PurchaseTrackerView";
+import { RecentSearchesView, puckFields as RecentSearches_fields, puckDefaults as RecentSearches_defaults } from "@/components/search/RecentSearchesView";
 import { RefundSummaryView, puckFields as RefundSummary_fields, puckDefaults as RefundSummary_defaults } from "@/components/account/RefundSummaryView";
 import { RelatedProductsView, puckFields as RelatedProducts_fields, puckDefaults as RelatedProducts_defaults } from "@/components/products/RelatedProductsView";
+import { ReturnDetailsActionsRegionView, puckFields as ReturnDetailsActionsRegion_fields, puckDefaults as ReturnDetailsActionsRegion_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsActionsRegionView";
+import { ReturnDetailsAdminNotesConditionView, puckFields as ReturnDetailsAdminNotesCondition_fields, puckDefaults as ReturnDetailsAdminNotesCondition_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsAdminNotesConditionView";
+import { ReturnDetailsAdminNotesRegionView, puckFields as ReturnDetailsAdminNotesRegion_fields, puckDefaults as ReturnDetailsAdminNotesRegion_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsAdminNotesRegionView";
+import { ReturnDetailsContentLayoutView, puckFields as ReturnDetailsContentLayout_fields, puckDefaults as ReturnDetailsContentLayout_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsContentLayoutView";
+import { ReturnDetailsHeaderRegionView, puckFields as ReturnDetailsHeaderRegion_fields, puckDefaults as ReturnDetailsHeaderRegion_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsHeaderRegionView";
+import { ReturnDetailsItemsRegionView, puckFields as ReturnDetailsItemsRegion_fields, puckDefaults as ReturnDetailsItemsRegion_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsItemsRegionView";
+import { ReturnDetailsLabelRegionView, puckFields as ReturnDetailsLabelRegion_fields, puckDefaults as ReturnDetailsLabelRegion_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsLabelRegionView";
+import { ReturnDetailsNotFoundLayoutView, puckFields as ReturnDetailsNotFoundLayout_fields, puckDefaults as ReturnDetailsNotFoundLayout_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsNotFoundLayoutView";
+import { ReturnDetailsPageLayoutView, puckFields as ReturnDetailsPageLayout_fields, puckDefaults as ReturnDetailsPageLayout_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsPageLayoutView";
+import { ReturnDetailsPageStateView, puckFields as ReturnDetailsPageState_fields, puckDefaults as ReturnDetailsPageState_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsPageStateView";
+import { ReturnDetailsReasonRegionView, puckFields as ReturnDetailsReasonRegion_fields, puckDefaults as ReturnDetailsReasonRegion_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsReasonRegionView";
+import { ReturnDetailsRefundBreakdownRegionView, puckFields as ReturnDetailsRefundBreakdownRegion_fields, puckDefaults as ReturnDetailsRefundBreakdownRegion_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsRefundBreakdownRegionView";
+import { ReturnDetailsRefundSummaryRegionView, puckFields as ReturnDetailsRefundSummaryRegion_fields, puckDefaults as ReturnDetailsRefundSummaryRegion_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsRefundSummaryRegionView";
+import { ReturnDetailsTimelineRegionView, puckFields as ReturnDetailsTimelineRegion_fields, puckDefaults as ReturnDetailsTimelineRegion_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsTimelineRegionView";
+import { ReturnDetailsTrackingRegionView, puckFields as ReturnDetailsTrackingRegion_fields, puckDefaults as ReturnDetailsTrackingRegion_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsTrackingRegionView";
 import { ReturnPolicyReminderView, puckFields as ReturnPolicyReminder_fields, puckDefaults as ReturnPolicyReminder_defaults } from "@/components/account/ReturnPolicyReminderView";
 import { ReturnReasonView, puckFields as ReturnReason_fields, puckDefaults as ReturnReason_defaults } from "@/components/account/ReturnReasonView";
+import { ReturnsCardsList, puckFields as ReturnsCardsList_fields, puckDefaults as ReturnsCardsList_defaults } from "@/components/account/returns/canonical/ReturnsCardsListView";
 import { ReturnsEmptyView, puckFields as ReturnsEmpty_fields, puckDefaults as ReturnsEmpty_defaults } from "@/components/account/ReturnsEmptyView";
+import { ReturnsEmptyRegion, puckFields as ReturnsEmptyRegion_fields, puckDefaults as ReturnsEmptyRegion_defaults } from "@/components/account/returns/canonical/ReturnsEmptyRegionView";
+import { ReturnsListLayout, puckFields as ReturnsListLayout_fields, puckDefaults as ReturnsListLayout_defaults } from "@/components/account/returns/canonical/ReturnsListLayoutView";
+import { ReturnsPageHeader, puckFields as ReturnsPageHeader_fields, puckDefaults as ReturnsPageHeader_defaults } from "@/components/account/returns/canonical/ReturnsPageHeaderView";
+import { ReturnsPageLayout, puckFields as ReturnsPageLayout_fields, puckDefaults as ReturnsPageLayout_defaults } from "@/components/account/returns/canonical/ReturnsPageLayoutView";
+import { ReturnsPaginationRegion, puckFields as ReturnsPaginationRegion_fields, puckDefaults as ReturnsPaginationRegion_defaults } from "@/components/account/returns/canonical/ReturnsPaginationRegionView";
+import { ReturnsProcessingNotice, puckFields as ReturnsProcessingNotice_fields, puckDefaults as ReturnsProcessingNotice_defaults } from "@/components/account/returns/canonical/ReturnsProcessingNoticeView";
+import { ReturnsResultsState, puckFields as ReturnsResultsState_fields, puckDefaults as ReturnsResultsState_defaults } from "@/components/account/returns/canonical/ReturnsResultsStateView";
+import { ReturnsStatusFilterRegion, puckFields as ReturnsStatusFilterRegion_fields, puckDefaults as ReturnsStatusFilterRegion_defaults } from "@/components/account/returns/canonical/ReturnsStatusFilterRegionView";
 import { ReturnStatusBadgeView, puckFields as ReturnStatusBadge_fields, puckDefaults as ReturnStatusBadge_defaults } from "@/components/account/ReturnStatusBadgeView";
 import { ReturnWindowExpiredView, puckFields as ReturnWindowExpired_fields, puckDefaults as ReturnWindowExpired_defaults } from "@/components/account/ReturnWindowExpiredView";
 import { ReviewsSectionView, puckFields as ReviewsSection_fields, puckDefaults as ReviewsSection_defaults } from "@/components/products/ReviewsSectionView";
+import { SearchAnalyticsView, puckFields as SearchAnalytics_fields, puckDefaults as SearchAnalytics_defaults } from "@/components/search/SearchAnalyticsView";
+import { SearchBreadcrumbsView, puckFields as SearchBreadcrumbs_fields, puckDefaults as SearchBreadcrumbs_defaults } from "@/components/search/canonical/SearchBreadcrumbsView";
+import { SearchContentLayoutView, puckFields as SearchContentLayout_fields, puckDefaults as SearchContentLayout_defaults } from "@/components/search/canonical/SearchContentLayoutView";
+import { SearchFiltersView, puckFields as SearchFilters_fields, puckDefaults as SearchFilters_defaults } from "@/components/search/SearchFiltersView";
+import { SearchFilterSidebarView, puckFields as SearchFilterSidebar_fields, puckDefaults as SearchFilterSidebar_defaults } from "@/components/search/canonical/SearchFilterSidebarView";
+import { SearchGridBoundaryView, puckFields as SearchGridBoundary_fields, puckDefaults as SearchGridBoundary_defaults } from "@/components/search/canonical/SearchGridBoundaryView";
 import { SearchHeaderView, puckFields as SearchHeader_fields, puckDefaults as SearchHeader_defaults } from "@/components/search/SearchHeaderView";
+import { SearchPageLayoutView, puckFields as SearchPageLayout_fields, puckDefaults as SearchPageLayout_defaults } from "@/components/search/canonical/SearchPageLayoutView";
+import { SearchPaginationView, puckFields as SearchPagination_fields, puckDefaults as SearchPagination_defaults } from "@/components/search/SearchPaginationView";
+import { SearchPaginationConditionView, puckFields as SearchPaginationCondition_fields, puckDefaults as SearchPaginationCondition_defaults } from "@/components/search/canonical/SearchPaginationConditionView";
+import { SearchProductGridView, puckFields as SearchProductGrid_fields, puckDefaults as SearchProductGrid_defaults } from "@/components/search/SearchProductGridView";
+import { SearchQueryStateView, puckFields as SearchQueryState_fields, puckDefaults as SearchQueryState_defaults } from "@/components/search/canonical/SearchQueryStateView";
+import { SearchRecentSearchesBoundaryView, puckFields as SearchRecentSearchesBoundary_fields, puckDefaults as SearchRecentSearchesBoundary_defaults } from "@/components/search/canonical/SearchRecentSearchesBoundaryView";
+import { SearchResultsBlockView, puckFields as SearchResultsBlock_fields, puckDefaults as SearchResultsBlock_defaults } from "@/components/search/canonical/SearchResultsBlockView";
+import { SearchSortControlsView, puckFields as SearchSortControls_fields, puckDefaults as SearchSortControls_defaults } from "@/components/search/canonical/SearchSortControlsView";
+import { SearchSortDropdownView, puckFields as SearchSortDropdown_fields, puckDefaults as SearchSortDropdown_defaults } from "@/components/search/SearchSortDropdownView";
+import { SearchStartPromptView, puckFields as SearchStartPrompt_fields, puckDefaults as SearchStartPrompt_defaults } from "@/components/search/canonical/SearchStartPromptView";
 import { SearchStateSectionView, puckFields as SearchStateSection_fields, puckDefaults as SearchStateSection_defaults } from "@/components/search/SearchStateSectionView";
 import { SectionHeaderWithDividerView, puckFields as SectionHeaderWithDivider_fields, puckDefaults as SectionHeaderWithDivider_defaults } from "@/components/layout/SectionHeaderWithDividerView";
 import { SectionHeadingView, puckFields as SectionHeading_fields, puckDefaults as SectionHeading_defaults } from "@/components/layout/SectionHeadingView";
 import { SharedWishlistView, puckFields as SharedWishlist_fields, puckDefaults as SharedWishlist_defaults } from "@/components/account/SharedWishlistView";
+import { SharedWishlistAddAllView, puckFields as SharedWishlistAddAll_fields, puckDefaults as SharedWishlistAddAll_defaults } from "@/components/wishlist/canonical/SharedWishlistAddAllView";
+import { SharedWishlistContentLayoutView, puckFields as SharedWishlistContentLayout_fields, puckDefaults as SharedWishlistContentLayout_defaults } from "@/components/wishlist/canonical/SharedWishlistContentLayoutView";
+import { SharedWishlistEmptyView, puckFields as SharedWishlistEmpty_fields, puckDefaults as SharedWishlistEmpty_defaults } from "@/components/wishlist/canonical/SharedWishlistEmptyView";
+import { SharedWishlistGridView, puckFields as SharedWishlistGrid_fields, puckDefaults as SharedWishlistGrid_defaults } from "@/components/wishlist/canonical/SharedWishlistGridView";
+import { SharedWishlistHeaderView, puckFields as SharedWishlistHeader_fields, puckDefaults as SharedWishlistHeader_defaults } from "@/components/wishlist/canonical/SharedWishlistHeaderView";
+import { SharedWishlistHeaderActionsConditionView, puckFields as SharedWishlistHeaderActionsCondition_fields, puckDefaults as SharedWishlistHeaderActionsCondition_defaults } from "@/components/wishlist/canonical/SharedWishlistHeaderActionsConditionView";
+import { SharedWishlistInvalidStateView, puckFields as SharedWishlistInvalidState_fields, puckDefaults as SharedWishlistInvalidState_defaults } from "@/components/wishlist/canonical/SharedWishlistInvalidStateView";
+import { SharedWishlistItemsStateView, puckFields as SharedWishlistItemsState_fields, puckDefaults as SharedWishlistItemsState_defaults } from "@/components/wishlist/canonical/SharedWishlistItemsStateView";
+import { SharedWishlistJsonLdView, puckFields as SharedWishlistJsonLd_fields, puckDefaults as SharedWishlistJsonLd_defaults } from "@/components/wishlist/canonical/SharedWishlistJsonLdView";
+import { SharedWishlistPageLayoutView, puckFields as SharedWishlistPageLayout_fields, puckDefaults as SharedWishlistPageLayout_defaults } from "@/components/wishlist/canonical/SharedWishlistPageLayoutView";
+import { SharedWishlistPageStateView, puckFields as SharedWishlistPageState_fields, puckDefaults as SharedWishlistPageState_defaults } from "@/components/wishlist/canonical/SharedWishlistPageStateView";
+import { SharedWishlistSavingsCardView, puckFields as SharedWishlistSavingsCard_fields, puckDefaults as SharedWishlistSavingsCard_defaults } from "@/components/wishlist/canonical/SharedWishlistSavingsCardView";
+import { SharedWishlistSavingsConditionView, puckFields as SharedWishlistSavingsCondition_fields, puckDefaults as SharedWishlistSavingsCondition_defaults } from "@/components/wishlist/canonical/SharedWishlistSavingsConditionView";
 import { SharedWishlistStateSectionView, puckFields as SharedWishlistStateSection_fields, puckDefaults as SharedWishlistStateSection_defaults } from "@/components/wishlist/SharedWishlistStateSectionView";
 import { ShippingAddressView, puckFields as ShippingAddress_fields, puckDefaults as ShippingAddress_defaults } from "@/components/account/ShippingAddressView";
 import { ShippingInfoView, puckFields as ShippingInfo_fields, puckDefaults as ShippingInfo_defaults } from "@/components/checkout/success/ShippingInfoView";
 import { SortDropdownBlockView, puckFields as SortDropdownBlock_fields, puckDefaults as SortDropdownBlock_defaults } from "@/components/products/SortDropdownBlockView";
 import { StockIndicatorView, puckFields as StockIndicator_fields, puckDefaults as StockIndicator_defaults } from "@/components/products/StockIndicatorView";
 import { SubcategoryNavView, puckFields as SubcategoryNav_fields, puckDefaults as SubcategoryNav_defaults } from "@/components/categories/SubcategoryNavView";
+import { SubscriptionBillingHistoryView, puckFields as SubscriptionBillingHistory_fields, puckDefaults as SubscriptionBillingHistory_defaults } from "@/components/account/subscriptions/canonical/SubscriptionBillingHistoryView";
+import { SubscriptionBillingHistoryPanelView, puckFields as SubscriptionBillingHistoryPanel_fields, puckDefaults as SubscriptionBillingHistoryPanel_defaults } from "@/components/account/subscriptions/canonical/SubscriptionBillingHistoryPanelView";
+import { SubscriptionBillingPortalActionView, puckFields as SubscriptionBillingPortalAction_fields, puckDefaults as SubscriptionBillingPortalAction_defaults } from "@/components/account/subscriptions/canonical/SubscriptionBillingPortalActionView";
+import { SubscriptionBillingTermsSectionView, puckFields as SubscriptionBillingTermsSection_fields, puckDefaults as SubscriptionBillingTermsSection_defaults } from "@/components/checkout/subscription/canonical/SubscriptionBillingTermsSectionView";
+import { SubscriptionCancelActionView, puckFields as SubscriptionCancelAction_fields, puckDefaults as SubscriptionCancelAction_defaults } from "@/components/account/subscriptions/canonical/SubscriptionCancelActionView";
+import { SubscriptionCartSummaryPanelView, puckFields as SubscriptionCartSummaryPanel_fields, puckDefaults as SubscriptionCartSummaryPanel_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCartSummaryPanelView";
+import { SubscriptionCheckoutActionsView, puckFields as SubscriptionCheckoutActions_fields, puckDefaults as SubscriptionCheckoutActions_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCheckoutActionsView";
+import { SubscriptionCheckoutClientLayoutView, puckFields as SubscriptionCheckoutClientLayout_fields, puckDefaults as SubscriptionCheckoutClientLayout_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCheckoutClientLayoutView";
+import { SubscriptionCheckoutErrorConditionView, puckFields as SubscriptionCheckoutErrorCondition_fields, puckDefaults as SubscriptionCheckoutErrorCondition_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCheckoutErrorConditionView";
+import { SubscriptionCheckoutHeaderView, puckFields as SubscriptionCheckoutHeader_fields, puckDefaults as SubscriptionCheckoutHeader_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCheckoutHeaderView";
+import { SubscriptionCheckoutPageLayoutView, puckFields as SubscriptionCheckoutPageLayout_fields, puckDefaults as SubscriptionCheckoutPageLayout_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCheckoutPageLayoutView";
+import { SubscriptionCheckoutPageStateView, puckFields as SubscriptionCheckoutPageState_fields, puckDefaults as SubscriptionCheckoutPageState_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCheckoutPageStateView";
+import { SubscriptionCheckoutStepsView, puckFields as SubscriptionCheckoutSteps_fields, puckDefaults as SubscriptionCheckoutSteps_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCheckoutStepsView";
+import { SubscriptionCustomerInfoSectionView, puckFields as SubscriptionCustomerInfoSection_fields, puckDefaults as SubscriptionCustomerInfoSection_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCustomerInfoSectionView";
+import { SubscriptionDetailContentLayoutView, puckFields as SubscriptionDetailContentLayout_fields, puckDefaults as SubscriptionDetailContentLayout_defaults } from "@/components/account/subscriptions/canonical/SubscriptionDetailContentLayoutView";
+import { SubscriptionDetailHeaderRegionView, puckFields as SubscriptionDetailHeaderRegion_fields, puckDefaults as SubscriptionDetailHeaderRegion_defaults } from "@/components/account/subscriptions/canonical/SubscriptionDetailHeaderRegionView";
+import { SubscriptionDetailsBreadcrumbsView, puckFields as SubscriptionDetailsBreadcrumbs_fields, puckDefaults as SubscriptionDetailsBreadcrumbs_defaults } from "@/components/account/subscriptions/canonical/SubscriptionDetailsBreadcrumbsView";
 import { SubscriptionDetailsHeaderView, puckFields as SubscriptionDetailsHeader_fields, puckDefaults as SubscriptionDetailsHeader_defaults } from "@/components/account/SubscriptionDetailsHeaderView";
-import { SubscriptionDetailStateSectionView, puckFields as SubscriptionDetailStateSection_fields, puckDefaults as SubscriptionDetailStateSection_defaults } from "@/components/account/SubscriptionDetailStateSectionView";
+import { SubscriptionDetailsPageLayoutView, puckFields as SubscriptionDetailsPageLayout_fields, puckDefaults as SubscriptionDetailsPageLayout_defaults } from "@/components/account/subscriptions/canonical/SubscriptionDetailsPageLayoutView";
+import { SubscriptionDetailsPageStateView, puckFields as SubscriptionDetailsPageState_fields, puckDefaults as SubscriptionDetailsPageState_defaults } from "@/components/account/subscriptions/canonical/SubscriptionDetailsPageStateView";
+import { SubscriptionFailedPaymentAlertView, puckFields as SubscriptionFailedPaymentAlert_fields, puckDefaults as SubscriptionFailedPaymentAlert_defaults } from "@/components/account/subscriptions/canonical/SubscriptionFailedPaymentAlertView";
+import { SubscriptionItemsPanelView, puckFields as SubscriptionItemsPanel_fields, puckDefaults as SubscriptionItemsPanel_defaults } from "@/components/account/subscriptions/canonical/SubscriptionItemsPanelView";
+import { SubscriptionLifecycleActionsPanelView, puckFields as SubscriptionLifecycleActionsPanel_fields, puckDefaults as SubscriptionLifecycleActionsPanel_defaults } from "@/components/account/subscriptions/canonical/SubscriptionLifecycleActionsPanelView";
+import { SubscriptionModifyPanelView, puckFields as SubscriptionModifyPanel_fields, puckDefaults as SubscriptionModifyPanel_defaults } from "@/components/account/subscriptions/canonical/SubscriptionModifyPanelView";
+import { SubscriptionNextDeliveryRegionView, puckFields as SubscriptionNextDeliveryRegion_fields, puckDefaults as SubscriptionNextDeliveryRegion_defaults } from "@/components/account/subscriptions/canonical/SubscriptionNextDeliveryRegionView";
+import { SubscriptionOrdersPanelView, puckFields as SubscriptionOrdersPanel_fields, puckDefaults as SubscriptionOrdersPanel_defaults } from "@/components/account/subscriptions/canonical/SubscriptionOrdersPanelView";
+import { SubscriptionPauseActionView, puckFields as SubscriptionPauseAction_fields, puckDefaults as SubscriptionPauseAction_defaults } from "@/components/account/subscriptions/canonical/SubscriptionPauseActionView";
+import { SubscriptionPaymentPanelView, puckFields as SubscriptionPaymentPanel_fields, puckDefaults as SubscriptionPaymentPanel_defaults } from "@/components/account/subscriptions/canonical/SubscriptionPaymentPanelView";
+import { SubscriptionPricingPreviewPanelView, puckFields as SubscriptionPricingPreviewPanel_fields, puckDefaults as SubscriptionPricingPreviewPanel_defaults } from "@/components/checkout/subscription/canonical/SubscriptionPricingPreviewPanelView";
+import { SubscriptionResumeActionView, puckFields as SubscriptionResumeAction_fields, puckDefaults as SubscriptionResumeAction_defaults } from "@/components/account/subscriptions/canonical/SubscriptionResumeActionView";
+import { SubscriptionsCardsList, puckFields as SubscriptionsCardsList_fields, puckDefaults as SubscriptionsCardsList_defaults } from "@/components/account/subscriptions/list/canonical/SubscriptionsCardsListView";
 import { SubscriptionsEmptyView, puckFields as SubscriptionsEmpty_fields, puckDefaults as SubscriptionsEmpty_defaults } from "@/components/account/SubscriptionsEmptyView";
+import { SubscriptionsEmptyRegion, puckFields as SubscriptionsEmptyRegion_fields, puckDefaults as SubscriptionsEmptyRegion_defaults } from "@/components/account/subscriptions/list/canonical/SubscriptionsEmptyRegionView";
+import { SubscriptionShippingAddressSectionView, puckFields as SubscriptionShippingAddressSection_fields, puckDefaults as SubscriptionShippingAddressSection_defaults } from "@/components/checkout/subscription/canonical/SubscriptionShippingAddressSectionView";
+import { SubscriptionSkipDeliveryActionView, puckFields as SubscriptionSkipDeliveryAction_fields, puckDefaults as SubscriptionSkipDeliveryAction_defaults } from "@/components/account/subscriptions/canonical/SubscriptionSkipDeliveryActionView";
+import { SubscriptionsListClientRegion, puckFields as SubscriptionsListClientRegion_fields, puckDefaults as SubscriptionsListClientRegion_defaults } from "@/components/account/subscriptions/list/canonical/SubscriptionsListClientRegionView";
+import { SubscriptionsListLayout, puckFields as SubscriptionsListLayout_fields, puckDefaults as SubscriptionsListLayout_defaults } from "@/components/account/subscriptions/list/canonical/SubscriptionsListLayoutView";
+import { SubscriptionsListState, puckFields as SubscriptionsListState_fields, puckDefaults as SubscriptionsListState_defaults } from "@/components/account/subscriptions/list/canonical/SubscriptionsListStateView";
 import { SubscriptionStatusBadgeView, puckFields as SubscriptionStatusBadge_fields, puckDefaults as SubscriptionStatusBadge_defaults } from "@/components/account/SubscriptionStatusBadgeView";
+import { SubscriptionSummaryPanelView, puckFields as SubscriptionSummaryPanel_fields, puckDefaults as SubscriptionSummaryPanel_defaults } from "@/components/checkout/subscription/canonical/SubscriptionSummaryPanelView";
+import { SubscriptionUpcomingAmountRegionView, puckFields as SubscriptionUpcomingAmountRegion_fields, puckDefaults as SubscriptionUpcomingAmountRegion_defaults } from "@/components/account/subscriptions/canonical/SubscriptionUpcomingAmountRegionView";
+import { SubscriptionUpdatePaymentActionView, puckFields as SubscriptionUpdatePaymentAction_fields, puckDefaults as SubscriptionUpdatePaymentAction_defaults } from "@/components/account/subscriptions/canonical/SubscriptionUpdatePaymentActionView";
 import { SuccessHeaderView, puckFields as SuccessHeader_fields, puckDefaults as SuccessHeader_defaults } from "@/components/checkout/success/SuccessHeaderView";
 import { TestimonialsSectionView, puckFields as TestimonialsSection_fields, puckDefaults as TestimonialsSection_defaults } from "@/components/testimonials/TestimonialsSectionView";
 import { TrendingCategoriesSectionView, puckFields as TrendingCategoriesSection_fields, puckDefaults as TrendingCategoriesSection_defaults } from "@/components/categories/canonical/TrendingCategoriesSectionView";
@@ -158,49 +407,56 @@ import { TwoColumnDetailView, puckFields as TwoColumnDetail_fields, puckDefaults
 import { ViewOrderButtonView, puckFields as ViewOrderButton_fields, puckDefaults as ViewOrderButton_defaults } from "@/components/checkout/success/ViewOrderButtonView";
 import { ViewToggleBlockView, puckFields as ViewToggleBlock_fields, puckDefaults as ViewToggleBlock_defaults } from "@/components/products/ViewToggleBlockView";
 import { WishlistEmptyView, puckFields as WishlistEmpty_fields, puckDefaults as WishlistEmpty_defaults } from "@/components/account/WishlistEmptyView";
+import { WishlistEmptyRegion, puckFields as WishlistEmptyRegion_fields, puckDefaults as WishlistEmptyRegion_defaults } from "@/components/account/wishlist/canonical/WishlistEmptyRegionView";
+import { WishlistGridRegion, puckFields as WishlistGridRegion_fields, puckDefaults as WishlistGridRegion_defaults } from "@/components/account/wishlist/canonical/WishlistGridRegionView";
+import { WishlistItemsState, puckFields as WishlistItemsState_fields, puckDefaults as WishlistItemsState_defaults } from "@/components/account/wishlist/canonical/WishlistItemsStateView";
+import { WishlistPageHeaderLayout, puckFields as WishlistPageHeaderLayout_fields, puckDefaults as WishlistPageHeaderLayout_defaults } from "@/components/account/wishlist/canonical/WishlistPageHeaderLayoutView";
+import { WishlistPageIntro, puckFields as WishlistPageIntro_fields, puckDefaults as WishlistPageIntro_defaults } from "@/components/account/wishlist/canonical/WishlistPageIntroView";
+import { WishlistRecommendationsFooter, puckFields as WishlistRecommendationsFooter_fields, puckDefaults as WishlistRecommendationsFooter_defaults } from "@/components/account/wishlist/canonical/WishlistRecommendationsFooterView";
 import { WishlistSavingsCardView, puckFields as WishlistSavingsCard_fields, puckDefaults as WishlistSavingsCard_defaults } from "@/components/account/WishlistSavingsCardView";
+import { WishlistSavingsRegion, puckFields as WishlistSavingsRegion_fields, puckDefaults as WishlistSavingsRegion_defaults } from "@/components/account/wishlist/canonical/WishlistSavingsRegionView";
 
 const config = {
   categories: {
     "Home": {
       title: "Home",
       defaultExpanded: true,
-      components: ["CategoryHighlights", "CuratedCollectionSection", "FeaturedProductsGrid", "HeroSection", "InspirationSection", "NewsletterSignup", "TrustBadges"],
+      components: ["CategoryHighlights", "CuratedCollectionSection", "FeaturedProductsGrid", "HeroSection", "HomePageLayout", "InspirationSection", "NewsletterSignup", "TrustBadges"],
     },
     "Products": {
       title: "Products",
       defaultExpanded: true,
-      components: ["ActiveFiltersBlock", "Breadcrumbs", "CatalogActiveFiltersBoundary", "CatalogBreadcrumbs", "CatalogContentLayout", "CatalogControlsLayout", "CatalogFilterSidebar", "CatalogGridBoundary", "CatalogHeaderLayout", "CatalogHeading", "CatalogPaginationBlock", "CatalogPaginationCondition", "CatalogResultsState", "CatalogTitleSummary", "EmptyState", "MobileFilterDrawerBlock", "PriceDisplay", "ProductDetailMediaColumn", "ProductDetailMobileTabs", "ProductDetailPageLayout", "ProductDetailPurchaseColumn", "ProductDetailPurchaseSection", "ProductDetailRelatedProductsSection", "ProductDetailsClient", "ProductDetailSection", "ProductDetailTrustBadges", "ProductFiltersBlock", "ProductGallery", "ProductGrid", "ProductRatingSummary", "ProductRelatedProductsSection", "ProductsCatalogLayout", "ProductsCatalogStateSection", "ProductTabs", "RelatedProducts", "ReviewsSection", "SortDropdownBlock", "StockIndicator", "ViewToggleBlock"],
+      components: ["ActiveFiltersBlock", "Breadcrumbs", "CatalogActiveFiltersBoundary", "CatalogBreadcrumbs", "CatalogContentLayout", "CatalogControlsLayout", "CatalogFilterSidebar", "CatalogGridBoundary", "CatalogHeaderLayout", "CatalogHeading", "CatalogPaginationBlock", "CatalogPaginationCondition", "CatalogResultsState", "CatalogTitleSummary", "EmptyState", "MobileFilterDrawerBlock", "PriceDisplay", "ProductDetailMediaColumn", "ProductDetailMobileTabs", "ProductDetailPageLayout", "ProductDetailPurchaseColumn", "ProductDetailRelatedProductsSection", "ProductDetailsClient", "ProductDetailSection", "ProductDetailTrustBadges", "ProductFiltersBlock", "ProductGallery", "ProductGrid", "ProductRatingSummary", "ProductsCatalogLayout", "ProductTabs", "RelatedProducts", "ReviewsSection", "SortDropdownBlock", "StockIndicator", "ViewToggleBlock"],
     },
     "Categories": {
       title: "Categories",
       defaultExpanded: true,
-      components: ["CategoriesPageBreadcrumbs", "CategoriesPageIntro", "CategoriesPageLayout", "CategoryCatalogBreadcrumbs", "CategoryCatalogFilterSidebar", "CategoryCatalogGridBoundary", "CategoryCatalogLayout", "CategoryCatalogPaginationBlock", "CategoryCatalogPaginationCondition", "CategoryCatalogResultsHeader", "CategoryCatalogResultsState", "CategoryCatalogStateSection", "CategoryGrid", "CategoryHero", "CategoryProductFiltersBlock", "CategoryProductGridBlock", "CategorySubcategoryCondition", "DepartmentCategoriesSection", "EmptyCategory", "SubcategoryNav", "TrendingCategoriesSection", "TrendingCategoryCard"],
+      components: ["CategoriesPageBreadcrumbs", "CategoriesPageIntro", "CategoriesPageLayout", "CategoryCatalogBreadcrumbs", "CategoryCatalogFilterSidebar", "CategoryCatalogGridBoundary", "CategoryCatalogLayout", "CategoryCatalogPaginationBlock", "CategoryCatalogPaginationCondition", "CategoryCatalogResultsHeader", "CategoryCatalogResultsState", "CategoryGrid", "CategoryHero", "CategoryProductFiltersBlock", "CategoryProductGridBlock", "CategorySubcategoryCondition", "DepartmentCategoriesSection", "EmptyCategory", "SubcategoryNav", "TrendingCategoriesSection", "TrendingCategoryCard"],
     },
     "Collections": {
       title: "Collections",
       defaultExpanded: false,
-      components: ["CollectionDetailStateSection", "CollectionGrid", "CollectionHero", "CollectionStateSection", "CuratedProductDisplay", "EmptyCollections", "InspirationGallery"],
+      components: ["CollectionBreadcrumbs", "CollectionDetailCuratedDisplay", "CollectionDetailHero", "CollectionDetailInspirationGallery", "CollectionDetailNotFound", "CollectionDetailPageLayout", "CollectionDetailPageState", "CollectionGrid", "CollectionsFilterSection", "CollectionsPageHeader", "CollectionsPageLayout", "CollectionsResultsState", "CollectionTypeFilter", "CuratedCollectionCondition", "EmptyCollections", "FeaturedCuratedCollection", "FeaturedCuratedCollectionCondition", "InspirationCollectionCondition", "InspirationCollectionSection", "InspirationDetailCondition"],
     },
     "Search": {
       title: "Search",
       defaultExpanded: false,
-      components: ["NoResults", "SearchHeader", "SearchStateSection"],
+      components: ["NoResults", "RecentSearches", "SearchAnalytics", "SearchBreadcrumbs", "SearchContentLayout", "SearchFilters", "SearchFilterSidebar", "SearchGridBoundary", "SearchHeader", "SearchPageLayout", "SearchPagination", "SearchPaginationCondition", "SearchProductGrid", "SearchQueryState", "SearchRecentSearchesBoundary", "SearchResultsBlock", "SearchSortControls", "SearchSortDropdown", "SearchStartPrompt"],
     },
     "Cart": {
       title: "Cart",
       defaultExpanded: false,
-      components: ["CartContinueShopping", "CartEmpty", "CartHeader", "CartList", "CartStateSection", "CartSummary", "FreeShippingProgress"],
+      components: ["CartPageContinueShopping", "CartPageEmpty", "CartPageEmptyLayout", "CartPageFreeShippingProgress", "CartPageHeader", "CartPageItemList", "CartPageLayout", "CartPageState", "CartPageSummary"],
     },
     "Checkout": {
       title: "Checkout",
       defaultExpanded: false,
-      components: ["CheckoutConfirmation", "CheckoutDigitalAssetsSection", "CheckoutOrderReview", "CheckoutOrderSummary", "CheckoutPaymentMethod", "CheckoutPlaceOrderButton", "CheckoutSecureBadges", "CheckoutShippingForm", "CheckoutShippingMethod", "CheckoutStateSection", "CheckoutSteps", "CheckoutSubscriptionStateSection", "ConfirmationOrderSummary", "ContinueShoppingButton", "DigitalDownloads", "LicenseKeyDisplay", "NextStepsCard", "OrderItemList", "OrderNumber", "PurchaseTracker", "ShippingInfo", "SuccessHeader", "ViewOrderButton"],
+      components: ["CheckoutConfirmationCondition", "CheckoutErrorCondition", "CheckoutOrderSummaryPanel", "CheckoutPageClientLayout", "CheckoutPageHeader", "CheckoutPageState", "CheckoutPaymentCondition", "CheckoutPaymentStepRegion", "CheckoutReviewCondition", "CheckoutReviewSection", "CheckoutShippingForm", "CheckoutShippingMethod", "CheckoutShippingMethodCondition", "CheckoutShippingSection", "CheckoutStepsRegion", "CheckoutSuccessActionsLayout", "CheckoutSuccessContinueShopping", "CheckoutSuccessDetailsColumn", "CheckoutSuccessDigitalAssetsCondition", "CheckoutSuccessDigitalDownloads", "CheckoutSuccessHeader", "CheckoutSuccessHeaderLayout", "CheckoutSuccessLicenseKeys", "CheckoutSuccessNextSteps", "CheckoutSuccessOrderColumn", "CheckoutSuccessOrderItemList", "CheckoutSuccessOrderNumber", "CheckoutSuccessOrderSummary", "CheckoutSuccessPageLayout", "CheckoutSuccessPageState", "CheckoutSuccessPurchaseTracker", "CheckoutSuccessShippingInfo", "CheckoutSuccessTwoColumnLayout", "CheckoutSuccessViewOrder", "SubscriptionBillingTermsSection", "SubscriptionCartSummaryPanel", "SubscriptionCheckoutActions", "SubscriptionCheckoutClientLayout", "SubscriptionCheckoutErrorCondition", "SubscriptionCheckoutHeader", "SubscriptionCheckoutPageLayout", "SubscriptionCheckoutPageState", "SubscriptionCheckoutSteps", "SubscriptionCustomerInfoSection", "SubscriptionPricingPreviewPanel", "SubscriptionShippingAddressSection", "SubscriptionSummaryPanel"],
     },
     "Account": {
       title: "Account",
       defaultExpanded: false,
-      components: ["AccountAddressesStateSection", "AccountDashboard", "AccountDigitalLibraryStateSection", "AccountLinkGrid", "AccountSessionPanel", "AccountSessions", "AccountSettings", "AddressList", "AdminNotes", "BillingAddress", "DownloadsEmpty", "EmptyPaymentMethods", "NotEligibleMessage", "OrderDetails", "OrderEmpty", "OrderStatusBadge", "PaymentInfo", "RefundSummary", "ReturnPolicyReminder", "ReturnReason", "ReturnsEmpty", "ReturnStatusBadge", "ReturnWindowExpired", "SharedWishlist", "ShippingAddress", "SubscriptionDetailsHeader", "SubscriptionDetailStateSection", "SubscriptionsEmpty", "SubscriptionStatusBadge", "WishlistEmpty", "WishlistSavingsCard"],
+      components: ["AccountDashboardHeroLayout", "AccountDashboardIdentity", "AccountDashboardLinks", "AccountDashboardPageLayout", "AccountDashboardWelcome", "AccountDownloadsPageLayout", "AccountIdentityExplanation", "AccountIdentitySessionDetails", "AccountIdentitySettingsCard", "AccountOrdersEmpty", "AccountOrdersHeader", "AccountOrdersLayout", "AccountOrdersList", "AccountOrdersResultsState", "AccountOrdersStatusFilter", "AccountSessionsBreadcrumbs", "AccountSessionsIdentityNotice", "AccountSessionsPageLayout", "AccountSettingsBreadcrumbs", "AccountSettingsLayout", "AccountSubscriptionsPageHeader", "AccountSubscriptionsPageLayout", "AccountWishlistPageLayout", "AddressesAccountLayout", "AddressesAccountSidebar", "AddressesBreadcrumbs", "AddressesContentLayout", "AddressesManagerRegion", "AddressesPageLayout", "AddressesPageState", "DigitalLibraryAssetsMetric", "DigitalLibraryAssetsState", "DigitalLibraryAttentionMetric", "DigitalLibraryBackground", "DigitalLibraryDownloadsMetric", "DigitalLibraryEmptyRegion", "DigitalLibraryEntriesGrid", "DigitalLibraryHeader", "DigitalLibraryHistoryRegion", "DigitalLibraryLayout", "DigitalLibraryMetricsLayout", "OrderDetailsBillingAddressCondition", "OrderDetailsBillingRegion", "OrderDetailsBreadcrumbs", "OrderDetailsCancelAction", "OrderDetailsContentLayout", "OrderDetailsDownloadAction", "OrderDetailsFinancialRegion", "OrderDetailsHeader", "OrderDetailsItemsRegion", "OrderDetailsPageLayout", "OrderDetailsPageState", "OrderDetailsPaymentRegion", "OrderDetailsReorderAction", "OrderDetailsShippingRegion", "OrderDownloadsAssetsLayout", "OrderDownloadsAssetsState", "OrderDownloadsBackLink", "OrderDownloadsBreadcrumbs", "OrderDownloadsEmptyRegion", "OrderDownloadsHeader", "OrderDownloadsLicenseKeysRegion", "OrderDownloadsListRegion", "OrderDownloadsPageLayout", "OrderDownloadsPageState", "OrderDownloadsPaymentPendingCondition", "OrderDownloadsPaymentPendingNotice", "OrderReturnBreadcrumbs", "OrderReturnEligibilityState", "OrderReturnEligibleLayout", "OrderReturnHeader", "OrderReturnNotEligibleRegion", "OrderReturnPageLayout", "OrderReturnPageState", "OrderReturnPolicyReminderRegion", "OrderReturnRequestFormRegion", "OrderReturnWindowExpiredRegion", "PaymentMethodsAddCardAction", "PaymentMethodsEmptyStateRegion", "PaymentMethodsHeaderLayout", "PaymentMethodsHelpFooter", "PaymentMethodsListRegion", "PaymentMethodsListState", "PaymentMethodsPageLayout", "PaymentMethodsPageState", "PaymentMethodsSavedCardsSection", "PaymentMethodsStripeCardForm", "PaymentMethodsStripeConfigCondition", "ReturnDetailsActionsRegion", "ReturnDetailsAdminNotesCondition", "ReturnDetailsAdminNotesRegion", "ReturnDetailsContentLayout", "ReturnDetailsHeaderRegion", "ReturnDetailsItemsRegion", "ReturnDetailsLabelRegion", "ReturnDetailsNotFoundLayout", "ReturnDetailsPageLayout", "ReturnDetailsPageState", "ReturnDetailsReasonRegion", "ReturnDetailsRefundBreakdownRegion", "ReturnDetailsRefundSummaryRegion", "ReturnDetailsTimelineRegion", "ReturnDetailsTrackingRegion", "ReturnsCardsList", "ReturnsEmptyRegion", "ReturnsListLayout", "ReturnsPageHeader", "ReturnsPageLayout", "ReturnsPaginationRegion", "ReturnsProcessingNotice", "ReturnsResultsState", "ReturnsStatusFilterRegion", "SubscriptionBillingHistory", "SubscriptionBillingHistoryPanel", "SubscriptionBillingPortalAction", "SubscriptionCancelAction", "SubscriptionDetailContentLayout", "SubscriptionDetailHeaderRegion", "SubscriptionDetailsBreadcrumbs", "SubscriptionDetailsPageLayout", "SubscriptionDetailsPageState", "SubscriptionFailedPaymentAlert", "SubscriptionItemsPanel", "SubscriptionLifecycleActionsPanel", "SubscriptionModifyPanel", "SubscriptionNextDeliveryRegion", "SubscriptionOrdersPanel", "SubscriptionPauseAction", "SubscriptionPaymentPanel", "SubscriptionResumeAction", "SubscriptionsCardsList", "SubscriptionsEmptyRegion", "SubscriptionSkipDeliveryAction", "SubscriptionsListClientRegion", "SubscriptionsListLayout", "SubscriptionsListState", "SubscriptionUpcomingAmountRegion", "SubscriptionUpdatePaymentAction", "WishlistEmptyRegion", "WishlistGridRegion", "WishlistItemsState", "WishlistPageHeaderLayout", "WishlistPageIntro", "WishlistRecommendationsFooter", "WishlistSavingsRegion"],
     },
     "Social Proof": {
       title: "Social Proof",
@@ -210,22 +466,12 @@ const config = {
     "Auth": {
       title: "Auth",
       defaultExpanded: false,
-      components: ["AuthEntryCard"],
+      components: ["AuthEntryCard", "AuthPageLayout", "AuthPageState"],
     },
     "Downloads": {
       title: "Downloads",
       defaultExpanded: false,
-      components: ["DownloadLicenseStateSection"],
-    },
-    "Feedback": {
-      title: "Feedback",
-      defaultExpanded: false,
-      components: ["ErrorState", "NotFoundState"],
-    },
-    "Layout": {
-      title: "Layout",
-      defaultExpanded: false,
-      components: ["CalloutCard", "CardSection", "ConditionalSection", "FeatureIconList", "PageHeader", "PageWrapper", "SectionHeaderWithDivider", "SectionHeading", "TwoColumnDetail"],
+      components: ["DownloadAssetState", "DownloadExpirationNotice", "DownloadLicenseInfoPanel", "DownloadPageContentLayout", "DownloadPageHeader", "DownloadPageLayout", "DownloadTrustFooter"],
     },
     "Marketing": {
       title: "Marketing",
@@ -235,7 +481,7 @@ const config = {
     "Wishlist": {
       title: "Wishlist",
       defaultExpanded: false,
-      components: ["SharedWishlistStateSection"],
+      components: ["SharedWishlistAddAll", "SharedWishlistContentLayout", "SharedWishlistEmpty", "SharedWishlistGrid", "SharedWishlistHeader", "SharedWishlistHeaderActionsCondition", "SharedWishlistInvalidState", "SharedWishlistItemsState", "SharedWishlistJsonLd", "SharedWishlistPageLayout", "SharedWishlistPageState", "SharedWishlistSavingsCard", "SharedWishlistSavingsCondition"],
     },
   },
   components: {
@@ -253,6 +499,41 @@ const config = {
       defaultProps: AccountDashboard_defaults,
       render: (props) => <AccountDashboardView {...props} />,
     },
+    AccountDashboardHeroLayout: {
+      category: "Account",
+      label: "Account Dashboard Hero Layout",
+      fields: AccountDashboardHeroLayout_fields,
+      defaultProps: AccountDashboardHeroLayout_defaults,
+      render: (props) => <AccountDashboardHeroLayout {...props} />,
+    },
+    AccountDashboardIdentity: {
+      category: "Account",
+      label: "Account Dashboard Identity",
+      fields: AccountDashboardIdentity_fields,
+      defaultProps: AccountDashboardIdentity_defaults,
+      render: (props) => <AccountDashboardIdentity {...props} />,
+    },
+    AccountDashboardLinks: {
+      category: "Account",
+      label: "Account Dashboard Links",
+      fields: AccountDashboardLinks_fields,
+      defaultProps: AccountDashboardLinks_defaults,
+      render: (props) => <AccountDashboardLinks {...props} />,
+    },
+    AccountDashboardPageLayout: {
+      category: "Account",
+      label: "Account Dashboard Page Layout",
+      fields: AccountDashboardPageLayout_fields,
+      defaultProps: AccountDashboardPageLayout_defaults,
+      render: (props) => <AccountDashboardPageLayout {...props} />,
+    },
+    AccountDashboardWelcome: {
+      category: "Account",
+      label: "Account Dashboard Welcome",
+      fields: AccountDashboardWelcome_fields,
+      defaultProps: AccountDashboardWelcome_defaults,
+      render: (props) => <AccountDashboardWelcome {...props} />,
+    },
     AccountDigitalLibraryStateSection: {
       category: "Account",
       label: "Account Digital Library State Section",
@@ -260,12 +541,89 @@ const config = {
       defaultProps: AccountDigitalLibraryStateSection_defaults,
       render: (props) => <AccountDigitalLibraryStateSectionView {...props} />,
     },
+    AccountDownloadsPageLayout: {
+      category: "Account",
+      label: "Account Downloads Page Layout",
+      fields: AccountDownloadsPageLayout_fields,
+      defaultProps: AccountDownloadsPageLayout_defaults,
+      render: (props) => <AccountDownloadsPageLayout {...props} />,
+    },
+    AccountIdentityExplanation: {
+      category: "Account",
+      label: "Account Identity Explanation",
+      fields: AccountIdentityExplanation_fields,
+      defaultProps: AccountIdentityExplanation_defaults,
+      render: (props) => <AccountIdentityExplanationView {...props} />,
+    },
+    AccountIdentitySessionDetails: {
+      category: "Account",
+      label: "Account Identity Session Details",
+      fields: AccountIdentitySessionDetails_fields,
+      defaultProps: AccountIdentitySessionDetails_defaults,
+      render: (props) => <AccountIdentitySessionDetailsView {...props} />,
+    },
+    AccountIdentitySettingsCard: {
+      category: "Account",
+      label: "Account Identity Settings Card",
+      fields: AccountIdentitySettingsCard_fields,
+      defaultProps: AccountIdentitySettingsCard_defaults,
+      render: (props) => <AccountIdentitySettingsCardView {...props} />,
+    },
     AccountLinkGrid: {
       category: "Account",
       label: "Account Link Grid",
       fields: AccountLinkGrid_fields,
       defaultProps: AccountLinkGrid_defaults,
       render: (props) => <AccountLinkGridView {...props} />,
+    },
+    AccountOrdersEmpty: {
+      category: "Account",
+      label: "Account Orders Empty State",
+      fields: AccountOrdersEmpty_fields,
+      defaultProps: AccountOrdersEmpty_defaults,
+      render: (props) => <AccountOrdersEmptyView {...props} />,
+    },
+    AccountOrdersHeader: {
+      category: "Account",
+      label: "Account Orders Header",
+      fields: AccountOrdersHeader_fields,
+      defaultProps: AccountOrdersHeader_defaults,
+      render: (props) => <AccountOrdersHeaderView {...props} />,
+    },
+    AccountOrdersLayout: {
+      category: "Account",
+      label: "Account Orders Layout",
+      fields: AccountOrdersLayout_fields,
+      defaultProps: AccountOrdersLayout_defaults,
+      render: (props) => <AccountOrdersLayoutView {...props} />,
+    },
+    AccountOrdersList: {
+      category: "Account",
+      label: "Account Orders List",
+      fields: AccountOrdersList_fields,
+      defaultProps: AccountOrdersList_defaults,
+      render: (props) => <AccountOrdersListView {...props} />,
+    },
+    AccountOrdersResultsState: {
+      category: "Account",
+      label: "Account Orders Results State",
+      fields: AccountOrdersResultsState_fields,
+      defaultProps: AccountOrdersResultsState_defaults,
+      render: (props) => <AccountOrdersResultsStateView {...props} />,
+    },
+    AccountOrdersState: {
+      category: "Account",
+      label: "Account Orders State",
+      fields: AccountOrdersState_fields,
+      defaultProps: AccountOrdersState_defaults,
+      render: (props) => <AccountOrdersStateView {...props} />,
+    },
+    AccountOrdersStatusFilter: {
+      category: "Account",
+      label: "Account Orders Status Filter",
+      fields: AccountOrdersStatusFilter_fields,
+      defaultProps: AccountOrdersStatusFilter_defaults,
+      render: (props) => <AccountOrdersStatusFilterView {...props} />,
     },
     AccountSessionPanel: {
       category: "Account",
@@ -281,6 +639,27 @@ const config = {
       defaultProps: AccountSessions_defaults,
       render: (props) => <AccountSessionsView {...props} />,
     },
+    AccountSessionsBreadcrumbs: {
+      category: "Account",
+      label: "Account Sessions Breadcrumbs",
+      fields: AccountSessionsBreadcrumbs_fields,
+      defaultProps: AccountSessionsBreadcrumbs_defaults,
+      render: (props) => <AccountSessionsBreadcrumbs {...props} />,
+    },
+    AccountSessionsIdentityNotice: {
+      category: "Account",
+      label: "Account Sessions Identity Notice",
+      fields: AccountSessionsIdentityNotice_fields,
+      defaultProps: AccountSessionsIdentityNotice_defaults,
+      render: (props) => <AccountSessionsIdentityNotice {...props} />,
+    },
+    AccountSessionsPageLayout: {
+      category: "Account",
+      label: "Account Sessions Page Layout",
+      fields: AccountSessionsPageLayout_fields,
+      defaultProps: AccountSessionsPageLayout_defaults,
+      render: (props) => <AccountSessionsPageLayout {...props} />,
+    },
     AccountSettings: {
       category: "Account",
       label: "Account Settings",
@@ -288,12 +667,103 @@ const config = {
       defaultProps: AccountSettings_defaults,
       render: (props) => <AccountSettingsView {...props} />,
     },
+    AccountSettingsBreadcrumbs: {
+      category: "Account",
+      label: "Account Settings Breadcrumbs",
+      fields: AccountSettingsBreadcrumbs_fields,
+      defaultProps: AccountSettingsBreadcrumbs_defaults,
+      render: (props) => <AccountSettingsBreadcrumbsView {...props} />,
+    },
+    AccountSettingsLayout: {
+      category: "Account",
+      label: "Account Settings Layout",
+      fields: AccountSettingsLayout_fields,
+      defaultProps: AccountSettingsLayout_defaults,
+      render: (props) => <AccountSettingsLayoutView {...props} />,
+    },
+    AccountSettingsState: {
+      category: "Account",
+      label: "Account Settings State",
+      fields: AccountSettingsState_fields,
+      defaultProps: AccountSettingsState_defaults,
+      render: (props) => <AccountSettingsStateView {...props} />,
+    },
+    AccountSubscriptionsPageHeader: {
+      category: "Account",
+      label: "Account Subscriptions Page Header",
+      fields: AccountSubscriptionsPageHeader_fields,
+      defaultProps: AccountSubscriptionsPageHeader_defaults,
+      render: (props) => <AccountSubscriptionsPageHeader {...props} />,
+    },
+    AccountSubscriptionsPageLayout: {
+      category: "Account",
+      label: "Account Subscriptions Page Layout",
+      fields: AccountSubscriptionsPageLayout_fields,
+      defaultProps: AccountSubscriptionsPageLayout_defaults,
+      render: (props) => <AccountSubscriptionsPageLayout {...props} />,
+    },
+    AccountWishlistPageLayout: {
+      category: "Account",
+      label: "Account Wishlist Page Layout",
+      fields: AccountWishlistPageLayout_fields,
+      defaultProps: AccountWishlistPageLayout_defaults,
+      render: (props) => <AccountWishlistPageLayout {...props} />,
+    },
     ActiveFiltersBlock: {
       category: "Products",
       label: "Active Product Filters",
       fields: ActiveFiltersBlock_fields,
       defaultProps: ActiveFiltersBlock_defaults,
       render: (props) => <ActiveFiltersBlockView {...props} />,
+    },
+    AddressesAccountLayout: {
+      category: "Account",
+      label: "Addresses Account Layout",
+      fields: AddressesAccountLayout_fields,
+      defaultProps: AddressesAccountLayout_defaults,
+      render: (props) => <AddressesAccountLayoutView {...props} />,
+    },
+    AddressesAccountSidebar: {
+      category: "Account",
+      label: "Addresses Account Sidebar",
+      fields: AddressesAccountSidebar_fields,
+      defaultProps: AddressesAccountSidebar_defaults,
+      render: (props) => <AddressesAccountSidebarView {...props} />,
+    },
+    AddressesBreadcrumbs: {
+      category: "Account",
+      label: "Addresses Breadcrumbs",
+      fields: AddressesBreadcrumbs_fields,
+      defaultProps: AddressesBreadcrumbs_defaults,
+      render: (props) => <AddressesBreadcrumbsView {...props} />,
+    },
+    AddressesContentLayout: {
+      category: "Account",
+      label: "Addresses Content Layout",
+      fields: AddressesContentLayout_fields,
+      defaultProps: AddressesContentLayout_defaults,
+      render: (props) => <AddressesContentLayoutView {...props} />,
+    },
+    AddressesManagerRegion: {
+      category: "Account",
+      label: "Address Manager",
+      fields: AddressesManagerRegion_fields,
+      defaultProps: AddressesManagerRegion_defaults,
+      render: (props) => <AddressesManagerRegionView {...props} />,
+    },
+    AddressesPageLayout: {
+      category: "Account",
+      label: "Addresses Page Layout",
+      fields: AddressesPageLayout_fields,
+      defaultProps: AddressesPageLayout_defaults,
+      render: (props) => <AddressesPageLayoutView {...props} />,
+    },
+    AddressesPageState: {
+      category: "Account",
+      label: "Addresses Page State",
+      fields: AddressesPageState_fields,
+      defaultProps: AddressesPageState_defaults,
+      render: (props) => <AddressesPageStateView {...props} />,
     },
     AddressList: {
       category: "Account",
@@ -315,6 +785,20 @@ const config = {
       fields: AuthEntryCard_fields,
       defaultProps: AuthEntryCard_defaults,
       render: (props) => <AuthEntryCardView {...props} />,
+    },
+    AuthPageLayout: {
+      category: "Auth",
+      label: "Auth Page Layout",
+      fields: AuthPageLayout_fields,
+      defaultProps: AuthPageLayout_defaults,
+      render: (props) => <AuthPageLayoutView {...props} />,
+    },
+    AuthPageState: {
+      category: "Auth",
+      label: "Auth Page State",
+      fields: AuthPageState_fields,
+      defaultProps: AuthPageState_defaults,
+      render: (props) => <AuthPageStateView {...props} />,
     },
     BillingAddress: {
       category: "Account",
@@ -371,6 +855,69 @@ const config = {
       fields: CartList_fields,
       defaultProps: CartList_defaults,
       render: (props) => <CartListView {...props} />,
+    },
+    CartPageContinueShopping: {
+      category: "Cart",
+      label: "Cart Continue Shopping",
+      fields: CartPageContinueShopping_fields,
+      defaultProps: CartPageContinueShopping_defaults,
+      render: (props) => <CartPageContinueShoppingView {...props} />,
+    },
+    CartPageEmpty: {
+      category: "Cart",
+      label: "Cart Empty State",
+      fields: CartPageEmpty_fields,
+      defaultProps: CartPageEmpty_defaults,
+      render: (props) => <CartPageEmptyView {...props} />,
+    },
+    CartPageEmptyLayout: {
+      category: "Cart",
+      label: "Cart Empty Layout",
+      fields: CartPageEmptyLayout_fields,
+      defaultProps: CartPageEmptyLayout_defaults,
+      render: (props) => <CartPageEmptyLayoutView {...props} />,
+    },
+    CartPageFreeShippingProgress: {
+      category: "Cart",
+      label: "Cart Free Shipping Progress",
+      fields: CartPageFreeShippingProgress_fields,
+      defaultProps: CartPageFreeShippingProgress_defaults,
+      render: (props) => <CartPageFreeShippingProgressView {...props} />,
+    },
+    CartPageHeader: {
+      category: "Cart",
+      label: "Cart Page Header",
+      fields: CartPageHeader_fields,
+      defaultProps: CartPageHeader_defaults,
+      render: (props) => <CartPageHeaderView {...props} />,
+    },
+    CartPageItemList: {
+      category: "Cart",
+      label: "Cart Page Item List",
+      fields: CartPageItemList_fields,
+      defaultProps: CartPageItemList_defaults,
+      render: (props) => <CartPageItemListView {...props} />,
+    },
+    CartPageLayout: {
+      category: "Cart",
+      label: "Cart Page Layout",
+      fields: CartPageLayout_fields,
+      defaultProps: CartPageLayout_defaults,
+      render: (props) => <CartPageLayoutView {...props} />,
+    },
+    CartPageState: {
+      category: "Cart",
+      label: "Cart Page State",
+      fields: CartPageState_fields,
+      defaultProps: CartPageState_defaults,
+      render: (props) => <CartPageStateView {...props} />,
+    },
+    CartPageSummary: {
+      category: "Cart",
+      label: "Cart Page Summary",
+      fields: CartPageSummary_fields,
+      defaultProps: CartPageSummary_defaults,
+      render: (props) => <CartPageSummaryView {...props} />,
     },
     CartStateSection: {
       category: "Cart",
@@ -603,12 +1150,26 @@ const config = {
       defaultProps: CheckoutConfirmation_defaults,
       render: (props) => <CheckoutConfirmationView {...props} />,
     },
+    CheckoutConfirmationCondition: {
+      category: "Checkout",
+      label: "Checkout Confirmation Condition",
+      fields: CheckoutConfirmationCondition_fields,
+      defaultProps: CheckoutConfirmationCondition_defaults,
+      render: (props) => <CheckoutConfirmationConditionView {...props} />,
+    },
     CheckoutDigitalAssetsSection: {
       category: "Checkout",
       label: "Checkout Digital Assets Section",
       fields: CheckoutDigitalAssetsSection_fields,
       defaultProps: CheckoutDigitalAssetsSection_defaults,
       render: (props) => <CheckoutDigitalAssetsSectionView {...props} />,
+    },
+    CheckoutErrorCondition: {
+      category: "Checkout",
+      label: "Checkout Error Condition",
+      fields: CheckoutErrorCondition_fields,
+      defaultProps: CheckoutErrorCondition_defaults,
+      render: (props) => <CheckoutErrorConditionView {...props} />,
     },
     CheckoutOrderReview: {
       category: "Checkout",
@@ -624,6 +1185,41 @@ const config = {
       defaultProps: CheckoutOrderSummary_defaults,
       render: (props) => <CheckoutOrderSummaryView {...props} />,
     },
+    CheckoutOrderSummaryPanel: {
+      category: "Checkout",
+      label: "Checkout Order Summary",
+      fields: CheckoutOrderSummaryPanel_fields,
+      defaultProps: CheckoutOrderSummaryPanel_defaults,
+      render: (props) => <CheckoutOrderSummaryPanelView {...props} />,
+    },
+    CheckoutPageClientLayout: {
+      category: "Checkout",
+      label: "Checkout Page Layout",
+      fields: CheckoutPageClientLayout_fields,
+      defaultProps: CheckoutPageClientLayout_defaults,
+      render: (props) => <CheckoutPageClientLayoutView {...props} />,
+    },
+    CheckoutPageHeader: {
+      category: "Checkout",
+      label: "Checkout Header",
+      fields: CheckoutPageHeader_fields,
+      defaultProps: CheckoutPageHeader_defaults,
+      render: (props) => <CheckoutPageHeaderView {...props} />,
+    },
+    CheckoutPageState: {
+      category: "Checkout",
+      label: "Checkout Page State",
+      fields: CheckoutPageState_fields,
+      defaultProps: CheckoutPageState_defaults,
+      render: (props) => <CheckoutPageStateView {...props} />,
+    },
+    CheckoutPaymentCondition: {
+      category: "Checkout",
+      label: "Checkout Payment Condition",
+      fields: CheckoutPaymentCondition_fields,
+      defaultProps: CheckoutPaymentCondition_defaults,
+      render: (props) => <CheckoutPaymentConditionView {...props} />,
+    },
     CheckoutPaymentMethod: {
       category: "Checkout",
       label: "Checkout Payment Method",
@@ -631,12 +1227,33 @@ const config = {
       defaultProps: CheckoutPaymentMethod_defaults,
       render: (props) => <CheckoutPaymentMethodView {...props} />,
     },
+    CheckoutPaymentStepRegion: {
+      category: "Checkout",
+      label: "Checkout Payment Step",
+      fields: CheckoutPaymentStepRegion_fields,
+      defaultProps: CheckoutPaymentStepRegion_defaults,
+      render: (props) => <CheckoutPaymentStepRegionView {...props} />,
+    },
     CheckoutPlaceOrderButton: {
       category: "Checkout",
       label: "Place Order Button",
       fields: CheckoutPlaceOrderButton_fields,
       defaultProps: CheckoutPlaceOrderButton_defaults,
       render: (props) => <CheckoutPlaceOrderButtonView {...props} />,
+    },
+    CheckoutReviewCondition: {
+      category: "Checkout",
+      label: "Checkout Review Condition",
+      fields: CheckoutReviewCondition_fields,
+      defaultProps: CheckoutReviewCondition_defaults,
+      render: (props) => <CheckoutReviewConditionView {...props} />,
+    },
+    CheckoutReviewSection: {
+      category: "Checkout",
+      label: "Checkout Review",
+      fields: CheckoutReviewSection_fields,
+      defaultProps: CheckoutReviewSection_defaults,
+      render: (props) => <CheckoutReviewSectionView {...props} />,
     },
     CheckoutSecureBadges: {
       category: "Checkout",
@@ -659,12 +1276,19 @@ const config = {
       defaultProps: CheckoutShippingMethod_defaults,
       render: (props) => <CheckoutShippingMethodView {...props} />,
     },
-    CheckoutStateSection: {
+    CheckoutShippingMethodCondition: {
       category: "Checkout",
-      label: "Checkout State Section",
-      fields: CheckoutStateSection_fields,
-      defaultProps: CheckoutStateSection_defaults,
-      render: (props) => <CheckoutStateSectionView {...props} />,
+      label: "Shipping Method Condition",
+      fields: CheckoutShippingMethodCondition_fields,
+      defaultProps: CheckoutShippingMethodCondition_defaults,
+      render: (props) => <CheckoutShippingMethodConditionView {...props} />,
+    },
+    CheckoutShippingSection: {
+      category: "Checkout",
+      label: "Checkout Shipping Section",
+      fields: CheckoutShippingSection_fields,
+      defaultProps: CheckoutShippingSection_defaults,
+      render: (props) => <CheckoutShippingSectionView {...props} />,
     },
     CheckoutSteps: {
       category: "Checkout",
@@ -673,12 +1297,201 @@ const config = {
       defaultProps: CheckoutSteps_defaults,
       render: (props) => <CheckoutStepsView {...props} />,
     },
+    CheckoutStepsRegion: {
+      category: "Checkout",
+      label: "Checkout Steps",
+      fields: CheckoutStepsRegion_fields,
+      defaultProps: CheckoutStepsRegion_defaults,
+      render: (props) => <CheckoutStepsRegionView {...props} />,
+    },
     CheckoutSubscriptionStateSection: {
       category: "Checkout",
       label: "Checkout Subscription State Section",
       fields: CheckoutSubscriptionStateSection_fields,
       defaultProps: CheckoutSubscriptionStateSection_defaults,
       render: (props) => <CheckoutSubscriptionStateSectionView {...props} />,
+    },
+    CheckoutSuccessActionsLayout: {
+      category: "Checkout",
+      label: "Checkout Success Actions",
+      fields: CheckoutSuccessActionsLayout_fields,
+      defaultProps: CheckoutSuccessActionsLayout_defaults,
+      render: (props) => <CheckoutSuccessActionsLayoutView {...props} />,
+    },
+    CheckoutSuccessContinueShopping: {
+      category: "Checkout",
+      label: "Checkout Success Continue Shopping",
+      fields: CheckoutSuccessContinueShopping_fields,
+      defaultProps: CheckoutSuccessContinueShopping_defaults,
+      render: (props) => <CheckoutSuccessContinueShoppingView {...props} />,
+    },
+    CheckoutSuccessDetailsColumn: {
+      category: "Checkout",
+      label: "Checkout Success Details Column",
+      fields: CheckoutSuccessDetailsColumn_fields,
+      defaultProps: CheckoutSuccessDetailsColumn_defaults,
+      render: (props) => <CheckoutSuccessDetailsColumnView {...props} />,
+    },
+    CheckoutSuccessDigitalAssetsCondition: {
+      category: "Checkout",
+      label: "Checkout Success Digital Assets Condition",
+      fields: CheckoutSuccessDigitalAssetsCondition_fields,
+      defaultProps: CheckoutSuccessDigitalAssetsCondition_defaults,
+      render: (props) => <CheckoutSuccessDigitalAssetsConditionView {...props} />,
+    },
+    CheckoutSuccessDigitalDownloads: {
+      category: "Checkout",
+      label: "Checkout Success Digital Downloads",
+      fields: CheckoutSuccessDigitalDownloads_fields,
+      defaultProps: CheckoutSuccessDigitalDownloads_defaults,
+      render: (props) => <CheckoutSuccessDigitalDownloadsView {...props} />,
+    },
+    CheckoutSuccessHeader: {
+      category: "Checkout",
+      label: "Checkout Success Header",
+      fields: CheckoutSuccessHeader_fields,
+      defaultProps: CheckoutSuccessHeader_defaults,
+      render: (props) => <CheckoutSuccessHeaderView {...props} />,
+    },
+    CheckoutSuccessHeaderLayout: {
+      category: "Checkout",
+      label: "Checkout Confirmation Header",
+      fields: CheckoutSuccessHeaderLayout_fields,
+      defaultProps: CheckoutSuccessHeaderLayout_defaults,
+      render: (props) => <CheckoutSuccessHeaderLayoutView {...props} />,
+    },
+    CheckoutSuccessLicenseKeys: {
+      category: "Checkout",
+      label: "Checkout Success License Keys",
+      fields: CheckoutSuccessLicenseKeys_fields,
+      defaultProps: CheckoutSuccessLicenseKeys_defaults,
+      render: (props) => <CheckoutSuccessLicenseKeysView {...props} />,
+    },
+    CheckoutSuccessNextSteps: {
+      category: "Checkout",
+      label: "Checkout Success Next Steps",
+      fields: CheckoutSuccessNextSteps_fields,
+      defaultProps: CheckoutSuccessNextSteps_defaults,
+      render: (props) => <CheckoutSuccessNextStepsView {...props} />,
+    },
+    CheckoutSuccessOrderColumn: {
+      category: "Checkout",
+      label: "Checkout Success Order Column",
+      fields: CheckoutSuccessOrderColumn_fields,
+      defaultProps: CheckoutSuccessOrderColumn_defaults,
+      render: (props) => <CheckoutSuccessOrderColumnView {...props} />,
+    },
+    CheckoutSuccessOrderItemList: {
+      category: "Checkout",
+      label: "Checkout Success Order Items",
+      fields: CheckoutSuccessOrderItemList_fields,
+      defaultProps: CheckoutSuccessOrderItemList_defaults,
+      render: (props) => <CheckoutSuccessOrderItemListView {...props} />,
+    },
+    CheckoutSuccessOrderNumber: {
+      category: "Checkout",
+      label: "Checkout Success Order Number",
+      fields: CheckoutSuccessOrderNumber_fields,
+      defaultProps: CheckoutSuccessOrderNumber_defaults,
+      render: (props) => <CheckoutSuccessOrderNumberView {...props} />,
+    },
+    CheckoutSuccessOrderSummary: {
+      category: "Checkout",
+      label: "Checkout Success Order Summary",
+      fields: CheckoutSuccessOrderSummary_fields,
+      defaultProps: CheckoutSuccessOrderSummary_defaults,
+      render: (props) => <CheckoutSuccessOrderSummaryView {...props} />,
+    },
+    CheckoutSuccessPageLayout: {
+      category: "Checkout",
+      label: "Checkout Success Page Layout",
+      fields: CheckoutSuccessPageLayout_fields,
+      defaultProps: CheckoutSuccessPageLayout_defaults,
+      render: (props) => <CheckoutSuccessPageLayoutView {...props} />,
+    },
+    CheckoutSuccessPageState: {
+      category: "Checkout",
+      label: "Checkout Success Page State",
+      fields: CheckoutSuccessPageState_fields,
+      defaultProps: CheckoutSuccessPageState_defaults,
+      render: (props) => <CheckoutSuccessPageStateView {...props} />,
+    },
+    CheckoutSuccessPurchaseTracker: {
+      category: "Checkout",
+      label: "Checkout Success Purchase Tracker",
+      fields: CheckoutSuccessPurchaseTracker_fields,
+      defaultProps: CheckoutSuccessPurchaseTracker_defaults,
+      render: (props) => <CheckoutSuccessPurchaseTrackerView {...props} />,
+    },
+    CheckoutSuccessShippingInfo: {
+      category: "Checkout",
+      label: "Checkout Success Shipping Info",
+      fields: CheckoutSuccessShippingInfo_fields,
+      defaultProps: CheckoutSuccessShippingInfo_defaults,
+      render: (props) => <CheckoutSuccessShippingInfoView {...props} />,
+    },
+    CheckoutSuccessTwoColumnLayout: {
+      category: "Checkout",
+      label: "Checkout Success Two Columns",
+      fields: CheckoutSuccessTwoColumnLayout_fields,
+      defaultProps: CheckoutSuccessTwoColumnLayout_defaults,
+      render: (props) => <CheckoutSuccessTwoColumnLayoutView {...props} />,
+    },
+    CheckoutSuccessViewOrder: {
+      category: "Checkout",
+      label: "Checkout Success View Order",
+      fields: CheckoutSuccessViewOrder_fields,
+      defaultProps: CheckoutSuccessViewOrder_defaults,
+      render: (props) => <CheckoutSuccessViewOrderView {...props} />,
+    },
+    CollectionBreadcrumbs: {
+      category: "Collections",
+      label: "Collection Breadcrumbs",
+      fields: CollectionBreadcrumbs_fields,
+      defaultProps: CollectionBreadcrumbs_defaults,
+      render: (props) => <CollectionBreadcrumbsView {...props} />,
+    },
+    CollectionDetailCuratedDisplay: {
+      category: "Collections",
+      label: "Collection Detail Curated Display",
+      fields: CollectionDetailCuratedDisplay_fields,
+      defaultProps: CollectionDetailCuratedDisplay_defaults,
+      render: (props) => <CollectionDetailCuratedDisplayView {...props} />,
+    },
+    CollectionDetailHero: {
+      category: "Collections",
+      label: "Collection Detail Hero",
+      fields: CollectionDetailHero_fields,
+      defaultProps: CollectionDetailHero_defaults,
+      render: (props) => <CollectionDetailHeroView {...props} />,
+    },
+    CollectionDetailInspirationGallery: {
+      category: "Collections",
+      label: "Collection Detail Inspiration Gallery",
+      fields: CollectionDetailInspirationGallery_fields,
+      defaultProps: CollectionDetailInspirationGallery_defaults,
+      render: (props) => <CollectionDetailInspirationGalleryView {...props} />,
+    },
+    CollectionDetailNotFound: {
+      category: "Collections",
+      label: "Collection Detail Not Found",
+      fields: CollectionDetailNotFound_fields,
+      defaultProps: CollectionDetailNotFound_defaults,
+      render: (props) => <CollectionDetailNotFoundView {...props} />,
+    },
+    CollectionDetailPageLayout: {
+      category: "Collections",
+      label: "Collection Detail Page Layout",
+      fields: CollectionDetailPageLayout_fields,
+      defaultProps: CollectionDetailPageLayout_defaults,
+      render: (props) => <CollectionDetailPageLayoutView {...props} />,
+    },
+    CollectionDetailPageState: {
+      category: "Collections",
+      label: "Collection Detail Page State",
+      fields: CollectionDetailPageState_fields,
+      defaultProps: CollectionDetailPageState_defaults,
+      render: (props) => <CollectionDetailPageStateView {...props} />,
     },
     CollectionDetailStateSection: {
       category: "Collections",
@@ -701,12 +1514,47 @@ const config = {
       defaultProps: CollectionHero_defaults,
       render: (props) => <CollectionHeroView {...props} />,
     },
+    CollectionsFilterSection: {
+      category: "Collections",
+      label: "Collections Filter Section",
+      fields: CollectionsFilterSection_fields,
+      defaultProps: CollectionsFilterSection_defaults,
+      render: (props) => <CollectionsFilterSectionView {...props} />,
+    },
+    CollectionsPageHeader: {
+      category: "Collections",
+      label: "Collections Page Header",
+      fields: CollectionsPageHeader_fields,
+      defaultProps: CollectionsPageHeader_defaults,
+      render: (props) => <CollectionsPageHeaderView {...props} />,
+    },
+    CollectionsPageLayout: {
+      category: "Collections",
+      label: "Collections Page Layout",
+      fields: CollectionsPageLayout_fields,
+      defaultProps: CollectionsPageLayout_defaults,
+      render: (props) => <CollectionsPageLayoutView {...props} />,
+    },
+    CollectionsResultsState: {
+      category: "Collections",
+      label: "Collections Results State",
+      fields: CollectionsResultsState_fields,
+      defaultProps: CollectionsResultsState_defaults,
+      render: (props) => <CollectionsResultsStateView {...props} />,
+    },
     CollectionStateSection: {
       category: "Collections",
       label: "Collection State Section",
       fields: CollectionStateSection_fields,
       defaultProps: CollectionStateSection_defaults,
       render: (props) => <CollectionStateSectionView {...props} />,
+    },
+    CollectionTypeFilter: {
+      category: "Collections",
+      label: "Collection Type Filter",
+      fields: CollectionTypeFilter_fields,
+      defaultProps: CollectionTypeFilter_defaults,
+      render: (props) => <CollectionTypeFilterView {...props} />,
     },
     ConditionalSection: {
       category: "Layout",
@@ -728,6 +1576,13 @@ const config = {
       fields: ContinueShoppingButton_fields,
       defaultProps: ContinueShoppingButton_defaults,
       render: (props) => <ContinueShoppingButtonView {...props} />,
+    },
+    CuratedCollectionCondition: {
+      category: "Collections",
+      label: "Curated Collection Condition",
+      fields: CuratedCollectionCondition_fields,
+      defaultProps: CuratedCollectionCondition_defaults,
+      render: (props) => <CuratedCollectionConditionView {...props} />,
     },
     CuratedCollectionSection: {
       category: "Home",
@@ -757,12 +1612,124 @@ const config = {
       defaultProps: DigitalDownloads_defaults,
       render: (props) => <DigitalDownloadsView {...props} />,
     },
-    DownloadLicenseStateSection: {
+    DigitalLibraryAssetsMetric: {
+      category: "Account",
+      label: "Digital Library Assets Metric",
+      fields: DigitalLibraryAssetsMetric_fields,
+      defaultProps: DigitalLibraryAssetsMetric_defaults,
+      render: (props) => <DigitalLibraryAssetsMetric {...props} />,
+    },
+    DigitalLibraryAssetsState: {
+      category: "Account",
+      label: "Digital Library Assets State",
+      fields: DigitalLibraryAssetsState_fields,
+      defaultProps: DigitalLibraryAssetsState_defaults,
+      render: (props) => <DigitalLibraryAssetsState {...props} />,
+    },
+    DigitalLibraryAttentionMetric: {
+      category: "Account",
+      label: "Digital Library Attention Metric",
+      fields: DigitalLibraryAttentionMetric_fields,
+      defaultProps: DigitalLibraryAttentionMetric_defaults,
+      render: (props) => <DigitalLibraryAttentionMetric {...props} />,
+    },
+    DigitalLibraryBackground: {
+      category: "Account",
+      label: "Digital Library Background",
+      fields: DigitalLibraryBackground_fields,
+      defaultProps: DigitalLibraryBackground_defaults,
+      render: (props) => <DigitalLibraryBackground {...props} />,
+    },
+    DigitalLibraryDownloadsMetric: {
+      category: "Account",
+      label: "Downloads Remaining Metric",
+      fields: DigitalLibraryDownloadsMetric_fields,
+      defaultProps: DigitalLibraryDownloadsMetric_defaults,
+      render: (props) => <DigitalLibraryDownloadsMetric {...props} />,
+    },
+    DigitalLibraryEmptyRegion: {
+      category: "Account",
+      label: "Digital Library Empty State",
+      fields: DigitalLibraryEmptyRegion_fields,
+      defaultProps: DigitalLibraryEmptyRegion_defaults,
+      render: (props) => <DigitalLibraryEmptyRegion {...props} />,
+    },
+    DigitalLibraryEntriesGrid: {
+      category: "Account",
+      label: "Digital Library Asset Grid",
+      fields: DigitalLibraryEntriesGrid_fields,
+      defaultProps: DigitalLibraryEntriesGrid_defaults,
+      render: (props) => <DigitalLibraryEntriesGrid {...props} />,
+    },
+    DigitalLibraryHeader: {
+      category: "Account",
+      label: "Digital Library Header",
+      fields: DigitalLibraryHeader_fields,
+      defaultProps: DigitalLibraryHeader_defaults,
+      render: (props) => <DigitalLibraryHeader {...props} />,
+    },
+    DigitalLibraryHistoryRegion: {
+      category: "Account",
+      label: "Digital Library History",
+      fields: DigitalLibraryHistoryRegion_fields,
+      defaultProps: DigitalLibraryHistoryRegion_defaults,
+      render: (props) => <DigitalLibraryHistoryRegion {...props} />,
+    },
+    DigitalLibraryLayout: {
+      category: "Account",
+      label: "Digital Library Layout",
+      fields: DigitalLibraryLayout_fields,
+      defaultProps: DigitalLibraryLayout_defaults,
+      render: (props) => <DigitalLibraryLayout {...props} />,
+    },
+    DigitalLibraryMetricsLayout: {
+      category: "Account",
+      label: "Digital Library Metrics Layout",
+      fields: DigitalLibraryMetricsLayout_fields,
+      defaultProps: DigitalLibraryMetricsLayout_defaults,
+      render: (props) => <DigitalLibraryMetricsLayout {...props} />,
+    },
+    DownloadAssetState: {
       category: "Downloads",
-      label: "Download License State Section",
-      fields: DownloadLicenseStateSection_fields,
-      defaultProps: DownloadLicenseStateSection_defaults,
-      render: (props) => <DownloadLicenseStateSectionView {...props} />,
+      label: "Download Asset State",
+      fields: DownloadAssetState_fields,
+      defaultProps: DownloadAssetState_defaults,
+      render: (props) => <DownloadAssetStateView {...props} />,
+    },
+    DownloadExpirationNotice: {
+      category: "Downloads",
+      label: "Download Expiration Notice",
+      fields: DownloadExpirationNotice_fields,
+      defaultProps: DownloadExpirationNotice_defaults,
+      render: (props) => <DownloadExpirationNoticeView {...props} />,
+    },
+    DownloadLicenseInfoPanel: {
+      category: "Downloads",
+      label: "Download License Information",
+      fields: DownloadLicenseInfoPanel_fields,
+      defaultProps: DownloadLicenseInfoPanel_defaults,
+      render: (props) => <DownloadLicenseInfoPanelView {...props} />,
+    },
+    DownloadPageContentLayout: {
+      category: "Downloads",
+      label: "Download Page Content",
+      fields: DownloadPageContentLayout_fields,
+      defaultProps: DownloadPageContentLayout_defaults,
+      render: (props) => <DownloadPageContentLayoutView {...props} />,
+    },
+    DownloadPageHeader: {
+      category: "Downloads",
+      label: "Download Page Header",
+      fields: DownloadPageHeader_fields,
+      defaultProps: DownloadPageHeader_defaults,
+      render: (props) => <DownloadPageHeaderView {...props} />,
+    },
+    DownloadPageLayout: {
+      category: "Downloads",
+      label: "Download Page Layout",
+      fields: DownloadPageLayout_fields,
+      defaultProps: DownloadPageLayout_defaults,
+      render: (props) => <DownloadPageLayoutView {...props} />,
     },
     DownloadsEmpty: {
       category: "Account",
@@ -770,6 +1737,13 @@ const config = {
       fields: DownloadsEmpty_fields,
       defaultProps: DownloadsEmpty_defaults,
       render: (props) => <DownloadsEmptyView {...props} />,
+    },
+    DownloadTrustFooter: {
+      category: "Downloads",
+      label: "Download Trust Footer",
+      fields: DownloadTrustFooter_fields,
+      defaultProps: DownloadTrustFooter_defaults,
+      render: (props) => <DownloadTrustFooterView {...props} />,
     },
     EmptyCategory: {
       category: "Categories",
@@ -806,6 +1780,20 @@ const config = {
       defaultProps: ErrorState_defaults,
       render: (props) => <ErrorStateView {...props} />,
     },
+    FeaturedCuratedCollection: {
+      category: "Collections",
+      label: "Featured Curated Collection",
+      fields: FeaturedCuratedCollection_fields,
+      defaultProps: FeaturedCuratedCollection_defaults,
+      render: (props) => <FeaturedCuratedCollectionView {...props} />,
+    },
+    FeaturedCuratedCollectionCondition: {
+      category: "Collections",
+      label: "Featured Curated Collection Condition",
+      fields: FeaturedCuratedCollectionCondition_fields,
+      defaultProps: FeaturedCuratedCollectionCondition_defaults,
+      render: (props) => <FeaturedCuratedCollectionConditionView {...props} />,
+    },
     FeaturedProductsGrid: {
       category: "Home",
       label: "Featured Products Grid",
@@ -833,6 +1821,34 @@ const config = {
       fields: HeroSection_fields,
       defaultProps: HeroSection_defaults,
       render: (props) => <HeroSectionView {...props} />,
+    },
+    HomePageLayout: {
+      category: "Home",
+      label: "Home Page Layout",
+      fields: HomePageLayout_fields,
+      defaultProps: HomePageLayout_defaults,
+      render: (props) => <HomePageLayoutView {...props} />,
+    },
+    InspirationCollectionCondition: {
+      category: "Collections",
+      label: "Inspiration Collection Condition",
+      fields: InspirationCollectionCondition_fields,
+      defaultProps: InspirationCollectionCondition_defaults,
+      render: (props) => <InspirationCollectionConditionView {...props} />,
+    },
+    InspirationCollectionSection: {
+      category: "Collections",
+      label: "Inspiration Collection Section",
+      fields: InspirationCollectionSection_fields,
+      defaultProps: InspirationCollectionSection_defaults,
+      render: (props) => <InspirationCollectionSectionView {...props} />,
+    },
+    InspirationDetailCondition: {
+      category: "Collections",
+      label: "Inspiration Detail Condition",
+      fields: InspirationDetailCondition_fields,
+      defaultProps: InspirationDetailCondition_defaults,
+      render: (props) => <InspirationDetailConditionView {...props} />,
     },
     InspirationGallery: {
       category: "Collections",
@@ -904,6 +1920,188 @@ const config = {
       defaultProps: OrderDetails_defaults,
       render: (props) => <OrderDetailsView {...props} />,
     },
+    OrderDetailsBillingAddressCondition: {
+      category: "Account",
+      label: "Order Billing Address Condition",
+      fields: OrderDetailsBillingAddressCondition_fields,
+      defaultProps: OrderDetailsBillingAddressCondition_defaults,
+      render: (props) => <OrderDetailsBillingAddressConditionView {...props} />,
+    },
+    OrderDetailsBillingRegion: {
+      category: "Account",
+      label: "Order Billing Address",
+      fields: OrderDetailsBillingRegion_fields,
+      defaultProps: OrderDetailsBillingRegion_defaults,
+      render: (props) => <OrderDetailsBillingRegionView {...props} />,
+    },
+    OrderDetailsBreadcrumbs: {
+      category: "Account",
+      label: "Order Details Breadcrumbs",
+      fields: OrderDetailsBreadcrumbs_fields,
+      defaultProps: OrderDetailsBreadcrumbs_defaults,
+      render: (props) => <OrderDetailsBreadcrumbsView {...props} />,
+    },
+    OrderDetailsCancelAction: {
+      category: "Account",
+      label: "Order Cancel Action",
+      fields: OrderDetailsCancelAction_fields,
+      defaultProps: OrderDetailsCancelAction_defaults,
+      render: (props) => <OrderDetailsCancelActionView {...props} />,
+    },
+    OrderDetailsContentLayout: {
+      category: "Account",
+      label: "Order Details Content Layout",
+      fields: OrderDetailsContentLayout_fields,
+      defaultProps: OrderDetailsContentLayout_defaults,
+      render: (props) => <OrderDetailsContentLayoutView {...props} />,
+    },
+    OrderDetailsDownloadAction: {
+      category: "Account",
+      label: "Order Downloads Action",
+      fields: OrderDetailsDownloadAction_fields,
+      defaultProps: OrderDetailsDownloadAction_defaults,
+      render: (props) => <OrderDetailsDownloadActionView {...props} />,
+    },
+    OrderDetailsFinancialRegion: {
+      category: "Account",
+      label: "Order Financial Details",
+      fields: OrderDetailsFinancialRegion_fields,
+      defaultProps: OrderDetailsFinancialRegion_defaults,
+      render: (props) => <OrderDetailsFinancialRegionView {...props} />,
+    },
+    OrderDetailsHeader: {
+      category: "Account",
+      label: "Order Details Header",
+      fields: OrderDetailsHeader_fields,
+      defaultProps: OrderDetailsHeader_defaults,
+      render: (props) => <OrderDetailsHeaderView {...props} />,
+    },
+    OrderDetailsItemsRegion: {
+      category: "Account",
+      label: "Order Items Region",
+      fields: OrderDetailsItemsRegion_fields,
+      defaultProps: OrderDetailsItemsRegion_defaults,
+      render: (props) => <OrderDetailsItemsRegionView {...props} />,
+    },
+    OrderDetailsPageLayout: {
+      category: "Account",
+      label: "Order Details Page Layout",
+      fields: OrderDetailsPageLayout_fields,
+      defaultProps: OrderDetailsPageLayout_defaults,
+      render: (props) => <OrderDetailsPageLayoutView {...props} />,
+    },
+    OrderDetailsPageState: {
+      category: "Account",
+      label: "Order Details Page State",
+      fields: OrderDetailsPageState_fields,
+      defaultProps: OrderDetailsPageState_defaults,
+      render: (props) => <OrderDetailsPageStateView {...props} />,
+    },
+    OrderDetailsPaymentRegion: {
+      category: "Account",
+      label: "Order Payment Information",
+      fields: OrderDetailsPaymentRegion_fields,
+      defaultProps: OrderDetailsPaymentRegion_defaults,
+      render: (props) => <OrderDetailsPaymentRegionView {...props} />,
+    },
+    OrderDetailsReorderAction: {
+      category: "Account",
+      label: "Order Buy Again Action",
+      fields: OrderDetailsReorderAction_fields,
+      defaultProps: OrderDetailsReorderAction_defaults,
+      render: (props) => <OrderDetailsReorderActionView {...props} />,
+    },
+    OrderDetailsShippingRegion: {
+      category: "Account",
+      label: "Order Shipping Address",
+      fields: OrderDetailsShippingRegion_fields,
+      defaultProps: OrderDetailsShippingRegion_defaults,
+      render: (props) => <OrderDetailsShippingRegionView {...props} />,
+    },
+    OrderDownloadsAssetsLayout: {
+      category: "Account",
+      label: "Order Downloads Assets Layout",
+      fields: OrderDownloadsAssetsLayout_fields,
+      defaultProps: OrderDownloadsAssetsLayout_defaults,
+      render: (props) => <OrderDownloadsAssetsLayoutView {...props} />,
+    },
+    OrderDownloadsAssetsState: {
+      category: "Account",
+      label: "Order Downloads Assets State",
+      fields: OrderDownloadsAssetsState_fields,
+      defaultProps: OrderDownloadsAssetsState_defaults,
+      render: (props) => <OrderDownloadsAssetsStateView {...props} />,
+    },
+    OrderDownloadsBackLink: {
+      category: "Account",
+      label: "Back To Order Details",
+      fields: OrderDownloadsBackLink_fields,
+      defaultProps: OrderDownloadsBackLink_defaults,
+      render: (props) => <OrderDownloadsBackLinkView {...props} />,
+    },
+    OrderDownloadsBreadcrumbs: {
+      category: "Account",
+      label: "Order Downloads Breadcrumbs",
+      fields: OrderDownloadsBreadcrumbs_fields,
+      defaultProps: OrderDownloadsBreadcrumbs_defaults,
+      render: (props) => <OrderDownloadsBreadcrumbsView {...props} />,
+    },
+    OrderDownloadsEmptyRegion: {
+      category: "Account",
+      label: "No Downloads Available",
+      fields: OrderDownloadsEmptyRegion_fields,
+      defaultProps: OrderDownloadsEmptyRegion_defaults,
+      render: (props) => <OrderDownloadsEmptyRegionView {...props} />,
+    },
+    OrderDownloadsHeader: {
+      category: "Account",
+      label: "Order Downloads Header",
+      fields: OrderDownloadsHeader_fields,
+      defaultProps: OrderDownloadsHeader_defaults,
+      render: (props) => <OrderDownloadsHeaderView {...props} />,
+    },
+    OrderDownloadsLicenseKeysRegion: {
+      category: "Account",
+      label: "Order License Keys",
+      fields: OrderDownloadsLicenseKeysRegion_fields,
+      defaultProps: OrderDownloadsLicenseKeysRegion_defaults,
+      render: (props) => <OrderDownloadsLicenseKeysRegionView {...props} />,
+    },
+    OrderDownloadsListRegion: {
+      category: "Account",
+      label: "Order Digital Downloads",
+      fields: OrderDownloadsListRegion_fields,
+      defaultProps: OrderDownloadsListRegion_defaults,
+      render: (props) => <OrderDownloadsListRegionView {...props} />,
+    },
+    OrderDownloadsPageLayout: {
+      category: "Account",
+      label: "Order Downloads Page Layout",
+      fields: OrderDownloadsPageLayout_fields,
+      defaultProps: OrderDownloadsPageLayout_defaults,
+      render: (props) => <OrderDownloadsPageLayoutView {...props} />,
+    },
+    OrderDownloadsPageState: {
+      category: "Account",
+      label: "Order Downloads Page State",
+      fields: OrderDownloadsPageState_fields,
+      defaultProps: OrderDownloadsPageState_defaults,
+      render: (props) => <OrderDownloadsPageStateView {...props} />,
+    },
+    OrderDownloadsPaymentPendingCondition: {
+      category: "Account",
+      label: "Payment Pending Condition",
+      fields: OrderDownloadsPaymentPendingCondition_fields,
+      defaultProps: OrderDownloadsPaymentPendingCondition_defaults,
+      render: (props) => <OrderDownloadsPaymentPendingConditionView {...props} />,
+    },
+    OrderDownloadsPaymentPendingNotice: {
+      category: "Account",
+      label: "Payment Pending Notice",
+      fields: OrderDownloadsPaymentPendingNotice_fields,
+      defaultProps: OrderDownloadsPaymentPendingNotice_defaults,
+      render: (props) => <OrderDownloadsPaymentPendingNoticeView {...props} />,
+    },
     OrderEmpty: {
       category: "Account",
       label: "Order Empty State",
@@ -924,6 +2122,76 @@ const config = {
       fields: OrderNumber_fields,
       defaultProps: OrderNumber_defaults,
       render: (props) => <OrderNumberView {...props} />,
+    },
+    OrderReturnBreadcrumbs: {
+      category: "Account",
+      label: "Order Return Breadcrumbs",
+      fields: OrderReturnBreadcrumbs_fields,
+      defaultProps: OrderReturnBreadcrumbs_defaults,
+      render: (props) => <OrderReturnBreadcrumbsView {...props} />,
+    },
+    OrderReturnEligibilityState: {
+      category: "Account",
+      label: "Order Return Eligibility State",
+      fields: OrderReturnEligibilityState_fields,
+      defaultProps: OrderReturnEligibilityState_defaults,
+      render: (props) => <OrderReturnEligibilityStateView {...props} />,
+    },
+    OrderReturnEligibleLayout: {
+      category: "Account",
+      label: "Order Return Eligible Layout",
+      fields: OrderReturnEligibleLayout_fields,
+      defaultProps: OrderReturnEligibleLayout_defaults,
+      render: (props) => <OrderReturnEligibleLayoutView {...props} />,
+    },
+    OrderReturnHeader: {
+      category: "Account",
+      label: "Order Return Header",
+      fields: OrderReturnHeader_fields,
+      defaultProps: OrderReturnHeader_defaults,
+      render: (props) => <OrderReturnHeaderView {...props} />,
+    },
+    OrderReturnNotEligibleRegion: {
+      category: "Account",
+      label: "Order Return Not Eligible",
+      fields: OrderReturnNotEligibleRegion_fields,
+      defaultProps: OrderReturnNotEligibleRegion_defaults,
+      render: (props) => <OrderReturnNotEligibleRegionView {...props} />,
+    },
+    OrderReturnPageLayout: {
+      category: "Account",
+      label: "Order Return Page Layout",
+      fields: OrderReturnPageLayout_fields,
+      defaultProps: OrderReturnPageLayout_defaults,
+      render: (props) => <OrderReturnPageLayoutView {...props} />,
+    },
+    OrderReturnPageState: {
+      category: "Account",
+      label: "Order Return Page State",
+      fields: OrderReturnPageState_fields,
+      defaultProps: OrderReturnPageState_defaults,
+      render: (props) => <OrderReturnPageStateView {...props} />,
+    },
+    OrderReturnPolicyReminderRegion: {
+      category: "Account",
+      label: "Order Return Policy Reminder",
+      fields: OrderReturnPolicyReminderRegion_fields,
+      defaultProps: OrderReturnPolicyReminderRegion_defaults,
+      render: (props) => <OrderReturnPolicyReminderRegionView {...props} />,
+    },
+    OrderReturnRequestFormRegion: {
+      category: "Account",
+      label: "Order Return Request Form",
+      fields: OrderReturnRequestFormRegion_fields,
+      defaultProps: OrderReturnRequestFormRegion_defaults,
+      render: (props) => <OrderReturnRequestFormRegionView {...props} />,
+    },
+    OrderReturnWindowExpiredRegion: {
+      category: "Account",
+      label: "Order Return Window Expired",
+      fields: OrderReturnWindowExpiredRegion_fields,
+      defaultProps: OrderReturnWindowExpiredRegion_defaults,
+      render: (props) => <OrderReturnWindowExpiredRegionView {...props} />,
     },
     OrderStatusBadge: {
       category: "Account",
@@ -952,6 +2220,83 @@ const config = {
       fields: PaymentInfo_fields,
       defaultProps: PaymentInfo_defaults,
       render: (props) => <PaymentInfoView {...props} />,
+    },
+    PaymentMethodsAddCardAction: {
+      category: "Account",
+      label: "Add Card Action",
+      fields: PaymentMethodsAddCardAction_fields,
+      defaultProps: PaymentMethodsAddCardAction_defaults,
+      render: (props) => <PaymentMethodsAddCardActionView {...props} />,
+    },
+    PaymentMethodsEmptyStateRegion: {
+      category: "Account",
+      label: "No Saved Payment Methods",
+      fields: PaymentMethodsEmptyStateRegion_fields,
+      defaultProps: PaymentMethodsEmptyStateRegion_defaults,
+      render: (props) => <PaymentMethodsEmptyStateRegionView {...props} />,
+    },
+    PaymentMethodsHeaderLayout: {
+      category: "Account",
+      label: "Payment Methods Header",
+      fields: PaymentMethodsHeaderLayout_fields,
+      defaultProps: PaymentMethodsHeaderLayout_defaults,
+      render: (props) => <PaymentMethodsHeaderLayoutView {...props} />,
+    },
+    PaymentMethodsHelpFooter: {
+      category: "Account",
+      label: "Payment Methods Help Footer",
+      fields: PaymentMethodsHelpFooter_fields,
+      defaultProps: PaymentMethodsHelpFooter_defaults,
+      render: (props) => <PaymentMethodsHelpFooterView {...props} />,
+    },
+    PaymentMethodsListRegion: {
+      category: "Account",
+      label: "Saved Payment Method List",
+      fields: PaymentMethodsListRegion_fields,
+      defaultProps: PaymentMethodsListRegion_defaults,
+      render: (props) => <PaymentMethodsListRegionView {...props} />,
+    },
+    PaymentMethodsListState: {
+      category: "Account",
+      label: "Saved Cards State",
+      fields: PaymentMethodsListState_fields,
+      defaultProps: PaymentMethodsListState_defaults,
+      render: (props) => <PaymentMethodsListStateView {...props} />,
+    },
+    PaymentMethodsPageLayout: {
+      category: "Account",
+      label: "Payment Methods Page Layout",
+      fields: PaymentMethodsPageLayout_fields,
+      defaultProps: PaymentMethodsPageLayout_defaults,
+      render: (props) => <PaymentMethodsPageLayoutView {...props} />,
+    },
+    PaymentMethodsPageState: {
+      category: "Account",
+      label: "Payment Methods Page State",
+      fields: PaymentMethodsPageState_fields,
+      defaultProps: PaymentMethodsPageState_defaults,
+      render: (props) => <PaymentMethodsPageStateView {...props} />,
+    },
+    PaymentMethodsSavedCardsSection: {
+      category: "Account",
+      label: "Saved Cards Section",
+      fields: PaymentMethodsSavedCardsSection_fields,
+      defaultProps: PaymentMethodsSavedCardsSection_defaults,
+      render: (props) => <PaymentMethodsSavedCardsSectionView {...props} />,
+    },
+    PaymentMethodsStripeCardForm: {
+      category: "Account",
+      label: "Stripe Card Form",
+      fields: PaymentMethodsStripeCardForm_fields,
+      defaultProps: PaymentMethodsStripeCardForm_defaults,
+      render: (props) => <PaymentMethodsStripeCardFormView {...props} />,
+    },
+    PaymentMethodsStripeConfigCondition: {
+      category: "Account",
+      label: "Stripe Card Form Condition",
+      fields: PaymentMethodsStripeConfigCondition_fields,
+      defaultProps: PaymentMethodsStripeConfigCondition_defaults,
+      render: (props) => <PaymentMethodsStripeConfigConditionView {...props} />,
     },
     PriceDisplay: {
       category: "Products",
@@ -1093,6 +2438,13 @@ const config = {
       defaultProps: PurchaseTracker_defaults,
       render: (props) => <PurchaseTrackerView {...props} />,
     },
+    RecentSearches: {
+      category: "Search",
+      label: "Recent Searches",
+      fields: RecentSearches_fields,
+      defaultProps: RecentSearches_defaults,
+      render: (props) => <RecentSearchesView {...props} />,
+    },
     RefundSummary: {
       category: "Account",
       label: "Refund Summary",
@@ -1106,6 +2458,111 @@ const config = {
       fields: RelatedProducts_fields,
       defaultProps: RelatedProducts_defaults,
       render: (props) => <RelatedProductsView {...props} />,
+    },
+    ReturnDetailsActionsRegion: {
+      category: "Account",
+      label: "Return Actions",
+      fields: ReturnDetailsActionsRegion_fields,
+      defaultProps: ReturnDetailsActionsRegion_defaults,
+      render: (props) => <ReturnDetailsActionsRegionView {...props} />,
+    },
+    ReturnDetailsAdminNotesCondition: {
+      category: "Account",
+      label: "Return Admin Notes Condition",
+      fields: ReturnDetailsAdminNotesCondition_fields,
+      defaultProps: ReturnDetailsAdminNotesCondition_defaults,
+      render: (props) => <ReturnDetailsAdminNotesConditionView {...props} />,
+    },
+    ReturnDetailsAdminNotesRegion: {
+      category: "Account",
+      label: "Return Admin Notes",
+      fields: ReturnDetailsAdminNotesRegion_fields,
+      defaultProps: ReturnDetailsAdminNotesRegion_defaults,
+      render: (props) => <ReturnDetailsAdminNotesRegionView {...props} />,
+    },
+    ReturnDetailsContentLayout: {
+      category: "Account",
+      label: "Return Details Content Layout",
+      fields: ReturnDetailsContentLayout_fields,
+      defaultProps: ReturnDetailsContentLayout_defaults,
+      render: (props) => <ReturnDetailsContentLayoutView {...props} />,
+    },
+    ReturnDetailsHeaderRegion: {
+      category: "Account",
+      label: "Return Details Header",
+      fields: ReturnDetailsHeaderRegion_fields,
+      defaultProps: ReturnDetailsHeaderRegion_defaults,
+      render: (props) => <ReturnDetailsHeaderRegionView {...props} />,
+    },
+    ReturnDetailsItemsRegion: {
+      category: "Account",
+      label: "Return Items",
+      fields: ReturnDetailsItemsRegion_fields,
+      defaultProps: ReturnDetailsItemsRegion_defaults,
+      render: (props) => <ReturnDetailsItemsRegionView {...props} />,
+    },
+    ReturnDetailsLabelRegion: {
+      category: "Account",
+      label: "Return Label Download",
+      fields: ReturnDetailsLabelRegion_fields,
+      defaultProps: ReturnDetailsLabelRegion_defaults,
+      render: (props) => <ReturnDetailsLabelRegionView {...props} />,
+    },
+    ReturnDetailsNotFoundLayout: {
+      category: "Account",
+      label: "Return Not Found Layout",
+      fields: ReturnDetailsNotFoundLayout_fields,
+      defaultProps: ReturnDetailsNotFoundLayout_defaults,
+      render: (props) => <ReturnDetailsNotFoundLayoutView {...props} />,
+    },
+    ReturnDetailsPageLayout: {
+      category: "Account",
+      label: "Return Details Page Layout",
+      fields: ReturnDetailsPageLayout_fields,
+      defaultProps: ReturnDetailsPageLayout_defaults,
+      render: (props) => <ReturnDetailsPageLayoutView {...props} />,
+    },
+    ReturnDetailsPageState: {
+      category: "Account",
+      label: "Return Details Page State",
+      fields: ReturnDetailsPageState_fields,
+      defaultProps: ReturnDetailsPageState_defaults,
+      render: (props) => <ReturnDetailsPageStateView {...props} />,
+    },
+    ReturnDetailsReasonRegion: {
+      category: "Account",
+      label: "Return Reason",
+      fields: ReturnDetailsReasonRegion_fields,
+      defaultProps: ReturnDetailsReasonRegion_defaults,
+      render: (props) => <ReturnDetailsReasonRegionView {...props} />,
+    },
+    ReturnDetailsRefundBreakdownRegion: {
+      category: "Account",
+      label: "Return Refund Breakdown",
+      fields: ReturnDetailsRefundBreakdownRegion_fields,
+      defaultProps: ReturnDetailsRefundBreakdownRegion_defaults,
+      render: (props) => <ReturnDetailsRefundBreakdownRegionView {...props} />,
+    },
+    ReturnDetailsRefundSummaryRegion: {
+      category: "Account",
+      label: "Return Refund Summary",
+      fields: ReturnDetailsRefundSummaryRegion_fields,
+      defaultProps: ReturnDetailsRefundSummaryRegion_defaults,
+      render: (props) => <ReturnDetailsRefundSummaryRegionView {...props} />,
+    },
+    ReturnDetailsTimelineRegion: {
+      category: "Account",
+      label: "Return Status Timeline",
+      fields: ReturnDetailsTimelineRegion_fields,
+      defaultProps: ReturnDetailsTimelineRegion_defaults,
+      render: (props) => <ReturnDetailsTimelineRegionView {...props} />,
+    },
+    ReturnDetailsTrackingRegion: {
+      category: "Account",
+      label: "Return Tracking",
+      fields: ReturnDetailsTrackingRegion_fields,
+      defaultProps: ReturnDetailsTrackingRegion_defaults,
+      render: (props) => <ReturnDetailsTrackingRegionView {...props} />,
     },
     ReturnPolicyReminder: {
       category: "Account",
@@ -1121,12 +2578,75 @@ const config = {
       defaultProps: ReturnReason_defaults,
       render: (props) => <ReturnReasonView {...props} />,
     },
+    ReturnsCardsList: {
+      category: "Account",
+      label: "Return Requests List",
+      fields: ReturnsCardsList_fields,
+      defaultProps: ReturnsCardsList_defaults,
+      render: (props) => <ReturnsCardsList {...props} />,
+    },
     ReturnsEmpty: {
       category: "Account",
       label: "Returns Empty State",
       fields: ReturnsEmpty_fields,
       defaultProps: ReturnsEmpty_defaults,
       render: (props) => <ReturnsEmptyView {...props} />,
+    },
+    ReturnsEmptyRegion: {
+      category: "Account",
+      label: "Returns Empty State",
+      fields: ReturnsEmptyRegion_fields,
+      defaultProps: ReturnsEmptyRegion_defaults,
+      render: (props) => <ReturnsEmptyRegion {...props} />,
+    },
+    ReturnsListLayout: {
+      category: "Account",
+      label: "Returns List Layout",
+      fields: ReturnsListLayout_fields,
+      defaultProps: ReturnsListLayout_defaults,
+      render: (props) => <ReturnsListLayout {...props} />,
+    },
+    ReturnsPageHeader: {
+      category: "Account",
+      label: "Returns Page Header",
+      fields: ReturnsPageHeader_fields,
+      defaultProps: ReturnsPageHeader_defaults,
+      render: (props) => <ReturnsPageHeader {...props} />,
+    },
+    ReturnsPageLayout: {
+      category: "Account",
+      label: "Returns Page Layout",
+      fields: ReturnsPageLayout_fields,
+      defaultProps: ReturnsPageLayout_defaults,
+      render: (props) => <ReturnsPageLayout {...props} />,
+    },
+    ReturnsPaginationRegion: {
+      category: "Account",
+      label: "Returns Pagination",
+      fields: ReturnsPaginationRegion_fields,
+      defaultProps: ReturnsPaginationRegion_defaults,
+      render: (props) => <ReturnsPaginationRegion {...props} />,
+    },
+    ReturnsProcessingNotice: {
+      category: "Account",
+      label: "Returns Processing Notice",
+      fields: ReturnsProcessingNotice_fields,
+      defaultProps: ReturnsProcessingNotice_defaults,
+      render: (props) => <ReturnsProcessingNotice {...props} />,
+    },
+    ReturnsResultsState: {
+      category: "Account",
+      label: "Returns Results State",
+      fields: ReturnsResultsState_fields,
+      defaultProps: ReturnsResultsState_defaults,
+      render: (props) => <ReturnsResultsState {...props} />,
+    },
+    ReturnsStatusFilterRegion: {
+      category: "Account",
+      label: "Return Status Filter",
+      fields: ReturnsStatusFilterRegion_fields,
+      defaultProps: ReturnsStatusFilterRegion_defaults,
+      render: (props) => <ReturnsStatusFilterRegion {...props} />,
     },
     ReturnStatusBadge: {
       category: "Account",
@@ -1149,12 +2669,124 @@ const config = {
       defaultProps: ReviewsSection_defaults,
       render: (props) => <ReviewsSectionView {...props} />,
     },
+    SearchAnalytics: {
+      category: "Search",
+      label: "Search Analytics",
+      fields: SearchAnalytics_fields,
+      defaultProps: SearchAnalytics_defaults,
+      render: (props) => <SearchAnalyticsView {...props} />,
+    },
+    SearchBreadcrumbs: {
+      category: "Search",
+      label: "Search Breadcrumbs",
+      fields: SearchBreadcrumbs_fields,
+      defaultProps: SearchBreadcrumbs_defaults,
+      render: (props) => <SearchBreadcrumbsView {...props} />,
+    },
+    SearchContentLayout: {
+      category: "Search",
+      label: "Search Content Layout",
+      fields: SearchContentLayout_fields,
+      defaultProps: SearchContentLayout_defaults,
+      render: (props) => <SearchContentLayoutView {...props} />,
+    },
+    SearchFilters: {
+      category: "Search",
+      label: "Search Filters",
+      fields: SearchFilters_fields,
+      defaultProps: SearchFilters_defaults,
+      render: (props) => <SearchFiltersView {...props} />,
+    },
+    SearchFilterSidebar: {
+      category: "Search",
+      label: "Search Filter Sidebar",
+      fields: SearchFilterSidebar_fields,
+      defaultProps: SearchFilterSidebar_defaults,
+      render: (props) => <SearchFilterSidebarView {...props} />,
+    },
+    SearchGridBoundary: {
+      category: "Search",
+      label: "Search Grid Boundary",
+      fields: SearchGridBoundary_fields,
+      defaultProps: SearchGridBoundary_defaults,
+      render: (props) => <SearchGridBoundaryView {...props} />,
+    },
     SearchHeader: {
       category: "Search",
       label: "Search Header",
       fields: SearchHeader_fields,
       defaultProps: SearchHeader_defaults,
       render: (props) => <SearchHeaderView {...props} />,
+    },
+    SearchPageLayout: {
+      category: "Search",
+      label: "Search Page Layout",
+      fields: SearchPageLayout_fields,
+      defaultProps: SearchPageLayout_defaults,
+      render: (props) => <SearchPageLayoutView {...props} />,
+    },
+    SearchPagination: {
+      category: "Search",
+      label: "Search Pagination",
+      fields: SearchPagination_fields,
+      defaultProps: SearchPagination_defaults,
+      render: (props) => <SearchPaginationView {...props} />,
+    },
+    SearchPaginationCondition: {
+      category: "Search",
+      label: "Search Pagination Condition",
+      fields: SearchPaginationCondition_fields,
+      defaultProps: SearchPaginationCondition_defaults,
+      render: (props) => <SearchPaginationConditionView {...props} />,
+    },
+    SearchProductGrid: {
+      category: "Search",
+      label: "Search Product Grid",
+      fields: SearchProductGrid_fields,
+      defaultProps: SearchProductGrid_defaults,
+      render: (props) => <SearchProductGridView {...props} />,
+    },
+    SearchQueryState: {
+      category: "Search",
+      label: "Search Query State",
+      fields: SearchQueryState_fields,
+      defaultProps: SearchQueryState_defaults,
+      render: (props) => <SearchQueryStateView {...props} />,
+    },
+    SearchRecentSearchesBoundary: {
+      category: "Search",
+      label: "Recent Searches Boundary",
+      fields: SearchRecentSearchesBoundary_fields,
+      defaultProps: SearchRecentSearchesBoundary_defaults,
+      render: (props) => <SearchRecentSearchesBoundaryView {...props} />,
+    },
+    SearchResultsBlock: {
+      category: "Search",
+      label: "Search Results Block",
+      fields: SearchResultsBlock_fields,
+      defaultProps: SearchResultsBlock_defaults,
+      render: (props) => <SearchResultsBlockView {...props} />,
+    },
+    SearchSortControls: {
+      category: "Search",
+      label: "Search Sort Controls",
+      fields: SearchSortControls_fields,
+      defaultProps: SearchSortControls_defaults,
+      render: (props) => <SearchSortControlsView {...props} />,
+    },
+    SearchSortDropdown: {
+      category: "Search",
+      label: "Search Sort Dropdown",
+      fields: SearchSortDropdown_fields,
+      defaultProps: SearchSortDropdown_defaults,
+      render: (props) => <SearchSortDropdownView {...props} />,
+    },
+    SearchStartPrompt: {
+      category: "Search",
+      label: "Search Start Prompt",
+      fields: SearchStartPrompt_fields,
+      defaultProps: SearchStartPrompt_defaults,
+      render: (props) => <SearchStartPromptView {...props} />,
     },
     SearchStateSection: {
       category: "Search",
@@ -1183,6 +2815,97 @@ const config = {
       fields: SharedWishlist_fields,
       defaultProps: SharedWishlist_defaults,
       render: (props) => <SharedWishlistView {...props} />,
+    },
+    SharedWishlistAddAll: {
+      category: "Wishlist",
+      label: "Shared Wishlist Add All",
+      fields: SharedWishlistAddAll_fields,
+      defaultProps: SharedWishlistAddAll_defaults,
+      render: (props) => <SharedWishlistAddAllView {...props} />,
+    },
+    SharedWishlistContentLayout: {
+      category: "Wishlist",
+      label: "Shared Wishlist Content Layout",
+      fields: SharedWishlistContentLayout_fields,
+      defaultProps: SharedWishlistContentLayout_defaults,
+      render: (props) => <SharedWishlistContentLayoutView {...props} />,
+    },
+    SharedWishlistEmpty: {
+      category: "Wishlist",
+      label: "Shared Wishlist Empty",
+      fields: SharedWishlistEmpty_fields,
+      defaultProps: SharedWishlistEmpty_defaults,
+      render: (props) => <SharedWishlistEmptyView {...props} />,
+    },
+    SharedWishlistGrid: {
+      category: "Wishlist",
+      label: "Shared Wishlist Grid",
+      fields: SharedWishlistGrid_fields,
+      defaultProps: SharedWishlistGrid_defaults,
+      render: (props) => <SharedWishlistGridView {...props} />,
+    },
+    SharedWishlistHeader: {
+      category: "Wishlist",
+      label: "Shared Wishlist Header",
+      fields: SharedWishlistHeader_fields,
+      defaultProps: SharedWishlistHeader_defaults,
+      render: (props) => <SharedWishlistHeaderView {...props} />,
+    },
+    SharedWishlistHeaderActionsCondition: {
+      category: "Wishlist",
+      label: "Shared Wishlist Header Actions Condition",
+      fields: SharedWishlistHeaderActionsCondition_fields,
+      defaultProps: SharedWishlistHeaderActionsCondition_defaults,
+      render: (props) => <SharedWishlistHeaderActionsConditionView {...props} />,
+    },
+    SharedWishlistInvalidState: {
+      category: "Wishlist",
+      label: "Shared Wishlist Invalid State",
+      fields: SharedWishlistInvalidState_fields,
+      defaultProps: SharedWishlistInvalidState_defaults,
+      render: (props) => <SharedWishlistInvalidStateView {...props} />,
+    },
+    SharedWishlistItemsState: {
+      category: "Wishlist",
+      label: "Shared Wishlist Items State",
+      fields: SharedWishlistItemsState_fields,
+      defaultProps: SharedWishlistItemsState_defaults,
+      render: (props) => <SharedWishlistItemsStateView {...props} />,
+    },
+    SharedWishlistJsonLd: {
+      category: "Wishlist",
+      label: "Shared Wishlist Structured Data",
+      fields: SharedWishlistJsonLd_fields,
+      defaultProps: SharedWishlistJsonLd_defaults,
+      render: (props) => <SharedWishlistJsonLdView {...props} />,
+    },
+    SharedWishlistPageLayout: {
+      category: "Wishlist",
+      label: "Shared Wishlist Page Layout",
+      fields: SharedWishlistPageLayout_fields,
+      defaultProps: SharedWishlistPageLayout_defaults,
+      render: (props) => <SharedWishlistPageLayoutView {...props} />,
+    },
+    SharedWishlistPageState: {
+      category: "Wishlist",
+      label: "Shared Wishlist Page State",
+      fields: SharedWishlistPageState_fields,
+      defaultProps: SharedWishlistPageState_defaults,
+      render: (props) => <SharedWishlistPageStateView {...props} />,
+    },
+    SharedWishlistSavingsCard: {
+      category: "Wishlist",
+      label: "Shared Wishlist Savings Card",
+      fields: SharedWishlistSavingsCard_fields,
+      defaultProps: SharedWishlistSavingsCard_defaults,
+      render: (props) => <SharedWishlistSavingsCardView {...props} />,
+    },
+    SharedWishlistSavingsCondition: {
+      category: "Wishlist",
+      label: "Shared Wishlist Savings Condition",
+      fields: SharedWishlistSavingsCondition_fields,
+      defaultProps: SharedWishlistSavingsCondition_defaults,
+      render: (props) => <SharedWishlistSavingsConditionView {...props} />,
     },
     SharedWishlistStateSection: {
       category: "Wishlist",
@@ -1226,6 +2949,125 @@ const config = {
       defaultProps: SubcategoryNav_defaults,
       render: (props) => <SubcategoryNavView {...props} />,
     },
+    SubscriptionBillingHistory: {
+      category: "Account",
+      label: "Subscription Billing History List",
+      fields: SubscriptionBillingHistory_fields,
+      defaultProps: SubscriptionBillingHistory_defaults,
+      render: (props) => <SubscriptionBillingHistoryView {...props} />,
+    },
+    SubscriptionBillingHistoryPanel: {
+      category: "Account",
+      label: "Subscription Billing History",
+      fields: SubscriptionBillingHistoryPanel_fields,
+      defaultProps: SubscriptionBillingHistoryPanel_defaults,
+      render: (props) => <SubscriptionBillingHistoryPanelView {...props} />,
+    },
+    SubscriptionBillingPortalAction: {
+      category: "Account",
+      label: "Open Subscription Billing Portal",
+      fields: SubscriptionBillingPortalAction_fields,
+      defaultProps: SubscriptionBillingPortalAction_defaults,
+      render: (props) => <SubscriptionBillingPortalActionView {...props} />,
+    },
+    SubscriptionBillingTermsSection: {
+      category: "Checkout",
+      label: "Subscription Billing Terms",
+      fields: SubscriptionBillingTermsSection_fields,
+      defaultProps: SubscriptionBillingTermsSection_defaults,
+      render: (props) => <SubscriptionBillingTermsSectionView {...props} />,
+    },
+    SubscriptionCancelAction: {
+      category: "Account",
+      label: "Cancel Subscription",
+      fields: SubscriptionCancelAction_fields,
+      defaultProps: SubscriptionCancelAction_defaults,
+      render: (props) => <SubscriptionCancelActionView {...props} />,
+    },
+    SubscriptionCartSummaryPanel: {
+      category: "Checkout",
+      label: "Subscription Cart Summary",
+      fields: SubscriptionCartSummaryPanel_fields,
+      defaultProps: SubscriptionCartSummaryPanel_defaults,
+      render: (props) => <SubscriptionCartSummaryPanelView {...props} />,
+    },
+    SubscriptionCheckoutActions: {
+      category: "Checkout",
+      label: "Subscription Checkout Actions",
+      fields: SubscriptionCheckoutActions_fields,
+      defaultProps: SubscriptionCheckoutActions_defaults,
+      render: (props) => <SubscriptionCheckoutActionsView {...props} />,
+    },
+    SubscriptionCheckoutClientLayout: {
+      category: "Checkout",
+      label: "Subscription Checkout Layout",
+      fields: SubscriptionCheckoutClientLayout_fields,
+      defaultProps: SubscriptionCheckoutClientLayout_defaults,
+      render: (props) => <SubscriptionCheckoutClientLayoutView {...props} />,
+    },
+    SubscriptionCheckoutErrorCondition: {
+      category: "Checkout",
+      label: "Subscription Checkout Error",
+      fields: SubscriptionCheckoutErrorCondition_fields,
+      defaultProps: SubscriptionCheckoutErrorCondition_defaults,
+      render: (props) => <SubscriptionCheckoutErrorConditionView {...props} />,
+    },
+    SubscriptionCheckoutHeader: {
+      category: "Checkout",
+      label: "Subscription Checkout Header",
+      fields: SubscriptionCheckoutHeader_fields,
+      defaultProps: SubscriptionCheckoutHeader_defaults,
+      render: (props) => <SubscriptionCheckoutHeaderView {...props} />,
+    },
+    SubscriptionCheckoutPageLayout: {
+      category: "Checkout",
+      label: "Subscription Checkout Page Layout",
+      fields: SubscriptionCheckoutPageLayout_fields,
+      defaultProps: SubscriptionCheckoutPageLayout_defaults,
+      render: (props) => <SubscriptionCheckoutPageLayoutView {...props} />,
+    },
+    SubscriptionCheckoutPageState: {
+      category: "Checkout",
+      label: "Subscription Checkout Page State",
+      fields: SubscriptionCheckoutPageState_fields,
+      defaultProps: SubscriptionCheckoutPageState_defaults,
+      render: (props) => <SubscriptionCheckoutPageStateView {...props} />,
+    },
+    SubscriptionCheckoutSteps: {
+      category: "Checkout",
+      label: "Subscription Checkout Steps",
+      fields: SubscriptionCheckoutSteps_fields,
+      defaultProps: SubscriptionCheckoutSteps_defaults,
+      render: (props) => <SubscriptionCheckoutStepsView {...props} />,
+    },
+    SubscriptionCustomerInfoSection: {
+      category: "Checkout",
+      label: "Subscription Customer Information",
+      fields: SubscriptionCustomerInfoSection_fields,
+      defaultProps: SubscriptionCustomerInfoSection_defaults,
+      render: (props) => <SubscriptionCustomerInfoSectionView {...props} />,
+    },
+    SubscriptionDetailContentLayout: {
+      category: "Account",
+      label: "Subscription Details Content Layout",
+      fields: SubscriptionDetailContentLayout_fields,
+      defaultProps: SubscriptionDetailContentLayout_defaults,
+      render: (props) => <SubscriptionDetailContentLayoutView {...props} />,
+    },
+    SubscriptionDetailHeaderRegion: {
+      category: "Account",
+      label: "Subscription Details Header",
+      fields: SubscriptionDetailHeaderRegion_fields,
+      defaultProps: SubscriptionDetailHeaderRegion_defaults,
+      render: (props) => <SubscriptionDetailHeaderRegionView {...props} />,
+    },
+    SubscriptionDetailsBreadcrumbs: {
+      category: "Account",
+      label: "Subscription Details Breadcrumbs",
+      fields: SubscriptionDetailsBreadcrumbs_fields,
+      defaultProps: SubscriptionDetailsBreadcrumbs_defaults,
+      render: (props) => <SubscriptionDetailsBreadcrumbsView {...props} />,
+    },
     SubscriptionDetailsHeader: {
       category: "Account",
       label: "Subscription Details Header",
@@ -1233,12 +3075,96 @@ const config = {
       defaultProps: SubscriptionDetailsHeader_defaults,
       render: (props) => <SubscriptionDetailsHeaderView {...props} />,
     },
-    SubscriptionDetailStateSection: {
+    SubscriptionDetailsPageLayout: {
       category: "Account",
-      label: "Subscription Detail State Section",
-      fields: SubscriptionDetailStateSection_fields,
-      defaultProps: SubscriptionDetailStateSection_defaults,
-      render: (props) => <SubscriptionDetailStateSectionView {...props} />,
+      label: "Subscription Details Page Layout",
+      fields: SubscriptionDetailsPageLayout_fields,
+      defaultProps: SubscriptionDetailsPageLayout_defaults,
+      render: (props) => <SubscriptionDetailsPageLayoutView {...props} />,
+    },
+    SubscriptionDetailsPageState: {
+      category: "Account",
+      label: "Subscription Details Page State",
+      fields: SubscriptionDetailsPageState_fields,
+      defaultProps: SubscriptionDetailsPageState_defaults,
+      render: (props) => <SubscriptionDetailsPageStateView {...props} />,
+    },
+    SubscriptionFailedPaymentAlert: {
+      category: "Account",
+      label: "Subscription Failed Payment Alert",
+      fields: SubscriptionFailedPaymentAlert_fields,
+      defaultProps: SubscriptionFailedPaymentAlert_defaults,
+      render: (props) => <SubscriptionFailedPaymentAlertView {...props} />,
+    },
+    SubscriptionItemsPanel: {
+      category: "Account",
+      label: "Subscription Items Panel",
+      fields: SubscriptionItemsPanel_fields,
+      defaultProps: SubscriptionItemsPanel_defaults,
+      render: (props) => <SubscriptionItemsPanelView {...props} />,
+    },
+    SubscriptionLifecycleActionsPanel: {
+      category: "Account",
+      label: "Subscription Lifecycle Actions",
+      fields: SubscriptionLifecycleActionsPanel_fields,
+      defaultProps: SubscriptionLifecycleActionsPanel_defaults,
+      render: (props) => <SubscriptionLifecycleActionsPanelView {...props} />,
+    },
+    SubscriptionModifyPanel: {
+      category: "Account",
+      label: "Subscription Modify Panel",
+      fields: SubscriptionModifyPanel_fields,
+      defaultProps: SubscriptionModifyPanel_defaults,
+      render: (props) => <SubscriptionModifyPanelView {...props} />,
+    },
+    SubscriptionNextDeliveryRegion: {
+      category: "Account",
+      label: "Subscription Next Delivery",
+      fields: SubscriptionNextDeliveryRegion_fields,
+      defaultProps: SubscriptionNextDeliveryRegion_defaults,
+      render: (props) => <SubscriptionNextDeliveryRegionView {...props} />,
+    },
+    SubscriptionOrdersPanel: {
+      category: "Account",
+      label: "Subscription Orders Panel",
+      fields: SubscriptionOrdersPanel_fields,
+      defaultProps: SubscriptionOrdersPanel_defaults,
+      render: (props) => <SubscriptionOrdersPanelView {...props} />,
+    },
+    SubscriptionPauseAction: {
+      category: "Account",
+      label: "Pause Subscription",
+      fields: SubscriptionPauseAction_fields,
+      defaultProps: SubscriptionPauseAction_defaults,
+      render: (props) => <SubscriptionPauseActionView {...props} />,
+    },
+    SubscriptionPaymentPanel: {
+      category: "Account",
+      label: "Subscription Payment Panel",
+      fields: SubscriptionPaymentPanel_fields,
+      defaultProps: SubscriptionPaymentPanel_defaults,
+      render: (props) => <SubscriptionPaymentPanelView {...props} />,
+    },
+    SubscriptionPricingPreviewPanel: {
+      category: "Checkout",
+      label: "Subscription Pricing Preview",
+      fields: SubscriptionPricingPreviewPanel_fields,
+      defaultProps: SubscriptionPricingPreviewPanel_defaults,
+      render: (props) => <SubscriptionPricingPreviewPanelView {...props} />,
+    },
+    SubscriptionResumeAction: {
+      category: "Account",
+      label: "Resume Subscription",
+      fields: SubscriptionResumeAction_fields,
+      defaultProps: SubscriptionResumeAction_defaults,
+      render: (props) => <SubscriptionResumeActionView {...props} />,
+    },
+    SubscriptionsCardsList: {
+      category: "Account",
+      label: "Subscriptions Cards List",
+      fields: SubscriptionsCardsList_fields,
+      defaultProps: SubscriptionsCardsList_defaults,
+      render: (props) => <SubscriptionsCardsList {...props} />,
     },
     SubscriptionsEmpty: {
       category: "Account",
@@ -1247,12 +3173,75 @@ const config = {
       defaultProps: SubscriptionsEmpty_defaults,
       render: (props) => <SubscriptionsEmptyView {...props} />,
     },
+    SubscriptionsEmptyRegion: {
+      category: "Account",
+      label: "Subscriptions Empty State",
+      fields: SubscriptionsEmptyRegion_fields,
+      defaultProps: SubscriptionsEmptyRegion_defaults,
+      render: (props) => <SubscriptionsEmptyRegion {...props} />,
+    },
+    SubscriptionShippingAddressSection: {
+      category: "Checkout",
+      label: "Subscription Shipping Address",
+      fields: SubscriptionShippingAddressSection_fields,
+      defaultProps: SubscriptionShippingAddressSection_defaults,
+      render: (props) => <SubscriptionShippingAddressSectionView {...props} />,
+    },
+    SubscriptionSkipDeliveryAction: {
+      category: "Account",
+      label: "Skip Subscription Delivery",
+      fields: SubscriptionSkipDeliveryAction_fields,
+      defaultProps: SubscriptionSkipDeliveryAction_defaults,
+      render: (props) => <SubscriptionSkipDeliveryActionView {...props} />,
+    },
+    SubscriptionsListClientRegion: {
+      category: "Account",
+      label: "Subscriptions List Filter Region",
+      fields: SubscriptionsListClientRegion_fields,
+      defaultProps: SubscriptionsListClientRegion_defaults,
+      render: (props) => <SubscriptionsListClientRegion {...props} />,
+    },
+    SubscriptionsListLayout: {
+      category: "Account",
+      label: "Subscriptions List Layout",
+      fields: SubscriptionsListLayout_fields,
+      defaultProps: SubscriptionsListLayout_defaults,
+      render: (props) => <SubscriptionsListLayout {...props} />,
+    },
+    SubscriptionsListState: {
+      category: "Account",
+      label: "Subscriptions List State",
+      fields: SubscriptionsListState_fields,
+      defaultProps: SubscriptionsListState_defaults,
+      render: (props) => <SubscriptionsListState {...props} />,
+    },
     SubscriptionStatusBadge: {
       category: "Account",
       label: "Subscription Status Badge",
       fields: SubscriptionStatusBadge_fields,
       defaultProps: SubscriptionStatusBadge_defaults,
       render: (props) => <SubscriptionStatusBadgeView {...props} />,
+    },
+    SubscriptionSummaryPanel: {
+      category: "Checkout",
+      label: "Subscription Terms Summary",
+      fields: SubscriptionSummaryPanel_fields,
+      defaultProps: SubscriptionSummaryPanel_defaults,
+      render: (props) => <SubscriptionSummaryPanelView {...props} />,
+    },
+    SubscriptionUpcomingAmountRegion: {
+      category: "Account",
+      label: "Subscription Upcoming Amount",
+      fields: SubscriptionUpcomingAmountRegion_fields,
+      defaultProps: SubscriptionUpcomingAmountRegion_defaults,
+      render: (props) => <SubscriptionUpcomingAmountRegionView {...props} />,
+    },
+    SubscriptionUpdatePaymentAction: {
+      category: "Account",
+      label: "Update Subscription Payment",
+      fields: SubscriptionUpdatePaymentAction_fields,
+      defaultProps: SubscriptionUpdatePaymentAction_defaults,
+      render: (props) => <SubscriptionUpdatePaymentActionView {...props} />,
     },
     SuccessHeader: {
       category: "Checkout",
@@ -1317,12 +3306,61 @@ const config = {
       defaultProps: WishlistEmpty_defaults,
       render: (props) => <WishlistEmptyView {...props} />,
     },
+    WishlistEmptyRegion: {
+      category: "Account",
+      label: "Wishlist Empty State",
+      fields: WishlistEmptyRegion_fields,
+      defaultProps: WishlistEmptyRegion_defaults,
+      render: (props) => <WishlistEmptyRegion {...props} />,
+    },
+    WishlistGridRegion: {
+      category: "Account",
+      label: "Wishlist Grid Region",
+      fields: WishlistGridRegion_fields,
+      defaultProps: WishlistGridRegion_defaults,
+      render: (props) => <WishlistGridRegion {...props} />,
+    },
+    WishlistItemsState: {
+      category: "Account",
+      label: "Wishlist Items State",
+      fields: WishlistItemsState_fields,
+      defaultProps: WishlistItemsState_defaults,
+      render: (props) => <WishlistItemsState {...props} />,
+    },
+    WishlistPageHeaderLayout: {
+      category: "Account",
+      label: "Wishlist Page Header Layout",
+      fields: WishlistPageHeaderLayout_fields,
+      defaultProps: WishlistPageHeaderLayout_defaults,
+      render: (props) => <WishlistPageHeaderLayout {...props} />,
+    },
+    WishlistPageIntro: {
+      category: "Account",
+      label: "Wishlist Page Intro",
+      fields: WishlistPageIntro_fields,
+      defaultProps: WishlistPageIntro_defaults,
+      render: (props) => <WishlistPageIntro {...props} />,
+    },
+    WishlistRecommendationsFooter: {
+      category: "Account",
+      label: "Wishlist Recommendations Footer",
+      fields: WishlistRecommendationsFooter_fields,
+      defaultProps: WishlistRecommendationsFooter_defaults,
+      render: (props) => <WishlistRecommendationsFooter {...props} />,
+    },
     WishlistSavingsCard: {
       category: "Account",
       label: "Wishlist Savings Card",
       fields: WishlistSavingsCard_fields,
       defaultProps: WishlistSavingsCard_defaults,
       render: (props) => <WishlistSavingsCardView {...props} />,
+    },
+    WishlistSavingsRegion: {
+      category: "Account",
+      label: "Wishlist Savings Region",
+      fields: WishlistSavingsRegion_fields,
+      defaultProps: WishlistSavingsRegion_defaults,
+      render: (props) => <WishlistSavingsRegion {...props} />,
     },
   },
 };

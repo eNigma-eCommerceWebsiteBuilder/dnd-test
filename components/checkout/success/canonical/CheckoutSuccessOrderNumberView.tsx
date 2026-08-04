@@ -1,0 +1,6 @@
+import type { Order } from '@/lib/api/types'; import { OrderNumber } from '@/enigma-components/checkout/success/OrderNumber'; import { checkoutSuccessPreviewOrder } from './preview'; import { loadCheckoutSuccessRuntime } from './checkoutSuccessRuntime';
+interface Props { order?: Order | null; puck?: { isEditing?: boolean }; }
+export const puckComponentName = 'CheckoutSuccessOrderNumber'; export const puckLabel = 'Checkout Success Order Number'; export const puckCategory = 'Checkout'; export const puckFields = {}; export const puckDefaults = {};
+export const puckAst = { kind: 'runtime', sourceJsxNames: ['OrderNumber'], sourceImportPaths: ['@/components/checkout/success/OrderNumber'], role: 'checkout-success-order-number', runtimeSignals: ['order.orderNumber'] };
+export async function puckDataFetcher(_props: Props, context?: Parameters<typeof loadCheckoutSuccessRuntime>[0]) { const runtime = await loadCheckoutSuccessRuntime(context); return { order: runtime.order }; }
+export function CheckoutSuccessOrderNumberView({ order = null, puck }: Props) { const resolved = puck?.isEditing ? checkoutSuccessPreviewOrder : order; return resolved ? <OrderNumber orderNumber={resolved.orderNumber} className="mt-2" /> : null; }

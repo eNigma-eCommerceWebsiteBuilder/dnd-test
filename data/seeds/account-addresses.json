@@ -2,10 +2,57 @@
   "root": {},
   "content": [
     {
-      "type": "AccountAddressesStateSection",
+      "type": "AddressesPageState",
       "props": {
-        "id": "accountaddressesstatesection-1",
-        "state": "content"
+        "id": "addressespagestate-1",
+        "content": [
+          {
+            "type": "AddressesPageLayout",
+            "props": {
+              "id": "addressespagelayout-1",
+              "breadcrumbs": [
+                {
+                  "type": "AddressesBreadcrumbs",
+                  "props": {
+                    "id": "addressesbreadcrumbs-1"
+                  }
+                }
+              ],
+              "account": [
+                {
+                  "type": "AddressesAccountLayout",
+                  "props": {
+                    "id": "addressesaccountlayout-1",
+                    "sidebar": [
+                      {
+                        "type": "AddressesAccountSidebar",
+                        "props": {
+                          "id": "addressesaccountsidebar-1"
+                        }
+                      }
+                    ],
+                    "content": [
+                      {
+                        "type": "AddressesContentLayout",
+                        "props": {
+                          "id": "addressescontentlayout-1",
+                          "addressManager": [
+                            {
+                              "type": "AddressesManagerRegion",
+                              "props": {
+                                "id": "addressesmanagerregion-1"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     }
   ],

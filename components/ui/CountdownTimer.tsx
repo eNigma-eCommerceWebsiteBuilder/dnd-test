@@ -71,22 +71,22 @@ export const CountdownTimer = ({ targetDate, className }: CountdownTimerProps) =
 
     return (
         <div
-            className={cn("@container w-full flex justify-center gap-2 @md:gap-4 font-mono", className)}
+            className={cn("@container grid w-full grid-cols-4 gap-2 font-mono @md:gap-4", className)}
             aria-label={ariaLabel ?? undefined}
         >
-            <div className="flex flex-1 min-w-0 flex-col items-center p-2 rounded-badge bg-bg-surface/50 backdrop-blur-sm border border-border/50">
+            <div className="flex min-w-0 flex-col items-center p-2 rounded-badge bg-bg-surface/50 backdrop-blur-sm border border-border/50">
                 <span className="font-bold text-sm @md:text-lg leading-none">{timeLeft.days}</span>
                 <span className="text-[9px] @md:text-[10px] uppercase text-text-muted mt-1">Days</span>
             </div>
-            <div className="flex flex-1 min-w-0 flex-col items-center p-2 rounded-badge bg-bg-surface/50 backdrop-blur-sm border border-border/50">
+            <div className="flex min-w-0 flex-col items-center p-2 rounded-badge bg-bg-surface/50 backdrop-blur-sm border border-border/50">
                 <span className="font-bold text-sm @md:text-lg leading-none">{timeLeft.hours}</span>
                 <span className="text-[9px] @md:text-[10px] uppercase text-text-muted mt-1">Hrs</span>
             </div>
-            <div className="flex flex-1 min-w-0 flex-col items-center p-2 rounded-badge bg-bg-surface/50 backdrop-blur-sm border border-border/50">
+            <div className="flex min-w-0 flex-col items-center p-2 rounded-badge bg-bg-surface/50 backdrop-blur-sm border border-border/50">
                 <span className="font-bold text-sm @md:text-lg leading-none">{timeLeft.minutes}</span>
                 <span className="text-[9px] @md:text-[10px] uppercase text-text-muted mt-1">Mins</span>
             </div>
-            <div className="flex flex-1 min-w-0 flex-col items-center p-2 rounded-badge bg-bg-surface/50 backdrop-blur-sm border border-border/50">
+            <div className="flex min-w-0 flex-col items-center p-2 rounded-badge bg-bg-surface/50 backdrop-blur-sm border border-border/50">
                 <span className="font-bold text-sm @md:text-lg leading-none">{timeLeft.seconds}</span>
                 <span className="text-[9px] @md:text-[10px] uppercase text-text-muted mt-1">Secs</span>
             </div>

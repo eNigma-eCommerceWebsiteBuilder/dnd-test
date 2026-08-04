@@ -2,62 +2,38 @@
   "root": {},
   "content": [
     {
-      "type": "PageWrapper",
+      "type": "AccountDashboardPageLayout",
       "props": {
-        "id": "pagewrapper-1",
-        "maxWidth": "1440",
-        "paddingY": "normal",
-        "children": [
+        "id": "accountdashboardpagelayout-1",
+        "hero": [
           {
-            "type": "CardSection",
+            "type": "AccountDashboardHeroLayout",
             "props": {
-              "id": "cardsection-2",
-              "title": "Hi, __STRIP__ .",
-              "children": [
+              "id": "accountdashboardherolayout-1",
+              "welcome": [
                 {
-                  "type": "PageHeader",
+                  "type": "AccountDashboardWelcome",
                   "props": {
-                    "id": "pageheader-1",
-                    "title": "Hi, __STRIP__ ."
+                    "id": "accountdashboardwelcome-1"
                   }
-                },
+                }
+              ],
+              "identity": [
                 {
-                  "type": "CardSection",
+                  "type": "AccountDashboardIdentity",
                   "props": {
-                    "id": "cardsection-1",
-                    "title": "",
-                    "children": []
+                    "id": "accountdashboardidentity-1"
                   }
                 }
               ]
             }
-          },
+          }
+        ],
+        "links": [
           {
-            "type": "AccountLinkGrid",
+            "type": "AccountDashboardLinks",
             "props": {
-              "id": "accountlinkgrid-1",
-              "links": [
-                {
-                  "href": "/account/orders",
-                  "title": "Orders",
-                  "description": "Track purchases, returns, and fulfillment updates."
-                },
-                {
-                  "href": "/account/wishlist",
-                  "title": "Wishlist",
-                  "description": "Keep an eye on saved items and future picks."
-                },
-                {
-                  "href": "/account/addresses",
-                  "title": "Addresses",
-                  "description": "Review delivery details and defaults."
-                },
-                {
-                  "href": "/account/settings",
-                  "title": "Identity settings",
-                  "description": "See how your hosted sign-in is managed."
-                }
-              ]
+              "id": "accountdashboardlinks-1"
             }
           }
         ]

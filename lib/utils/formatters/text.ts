@@ -34,3 +34,7 @@ export function formatOrderNumber(orderNumber: string): string {
 
   return orderNumber.startsWith('#') ? orderNumber : `#${orderNumber}`;
 }
+
+export function formatPercent(value: number): string {
+  return new Intl.NumberFormat('en-US', { style: 'percent', maximumFractionDigits: 0 }).format(value / 100);
+}

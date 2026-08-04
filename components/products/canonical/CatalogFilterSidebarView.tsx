@@ -1,5 +1,5 @@
 import { CatalogFilterSidebar } from './CatalogFilterSidebar';
-import type { CatalogSlot } from './types';
+import { puckTransparentSlotProps, type CatalogSlot } from './types';
 
 interface CatalogFilterSidebarViewProps { filters?: CatalogSlot; }
 
@@ -9,9 +9,9 @@ export const puckCategory = 'Products';
 export const puckFields = { filters: { type: 'slot' as const, allow: ['ProductFiltersBlock'] } };
 export const puckDefaults = { filters: [] };
 export const puckAst = {
-  kind: 'runtime', slots: ['filters'], sourceJsxNames: ['Suspense', 'ProductFilters'],
-  sourceImportPaths: ['@/components/products/ProductFilters'], role: 'catalog-filter-sidebar',
+  kind: 'runtime', slots: ['filters'], sourceJsxNames: ['CatalogFilterSidebar'],
+  sourceImportPaths: ['@/components/products/canonical/CatalogFilterSidebar'], role: 'catalog-filter-sidebar',
   slotTarget: 'sidebar', suspenseFallback: 'catalog-filter-skeleton', runtimeSignals: ['categories'],
   requiredClasses: ['hidden', 'lg:block', 'w-[280px]', 'flex-shrink-0'],
 };
-export function CatalogFilterSidebarView({ filters }: CatalogFilterSidebarViewProps) { return <CatalogFilterSidebar filters={filters?.()} />; }
+export function CatalogFilterSidebarView({ filters }: CatalogFilterSidebarViewProps) { return <CatalogFilterSidebar filters={filters?.(puckTransparentSlotProps)} />; }

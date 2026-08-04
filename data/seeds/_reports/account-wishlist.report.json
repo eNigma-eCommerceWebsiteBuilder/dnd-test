@@ -1,31 +1,61 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/account/wishlist/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/account-wishlist.json",
+  "profile": "account-wishlist",
   "manifestLoaded": true,
   "captured": [
     {
-      "type": "PageHeader",
-      "id": "pageheader-1"
+      "type": "WishlistPageIntro",
+      "id": "wishlistpageintro-1"
     },
     {
-      "type": "WishlistSavingsCard",
-      "id": "wishlistsavingscard-1"
+      "type": "WishlistSavingsRegion",
+      "id": "wishlistsavingsregion-1"
     },
     {
-      "type": "SectionHeading",
-      "id": "sectionheading-1"
+      "type": "WishlistPageHeaderLayout",
+      "id": "wishlistpageheaderlayout-1"
     },
     {
-      "type": "PageWrapper",
-      "id": "pagewrapper-1"
+      "type": "WishlistEmptyRegion",
+      "id": "wishlistemptyregion-1"
+    },
+    {
+      "type": "WishlistGridRegion",
+      "id": "wishlistgridregion-1"
+    },
+    {
+      "type": "WishlistItemsState",
+      "id": "wishlistitemsstate-1"
+    },
+    {
+      "type": "WishlistRecommendationsFooter",
+      "id": "wishlistrecommendationsfooter-1"
+    },
+    {
+      "type": "AccountWishlistPageLayout",
+      "id": "accountwishlistpagelayout-1"
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
   "runtimeConditionals": [
     {
-      "source": "wishlist.items.length === 0 ? (\r\n          <WishlistEmpty />\r\n        ) : (\r\n          <WishlistGrid wishlist={wishlist} />\r\n        )"
+      "source": "filteredItems.length === 0 ? filterEmpty : itemGrid",
+      "handledBy": "WishlistGridRegion"
+    },
+    {
+      "source": "data.wishlist.items.length === 0 ? empty : grid",
+      "handledBy": "WishlistItemsState"
     }
-  ]
+  ],
+  "delegates": [
+    {
+      "component": "WishlistPage",
+      "source": "D:/projects/eNigma-TemplateFrontend/components/wishlist/canonical/WishlistPage.tsx"
+    }
+  ],
+  "fatal": false
 }

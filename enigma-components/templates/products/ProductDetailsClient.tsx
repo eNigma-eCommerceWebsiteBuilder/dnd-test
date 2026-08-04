@@ -29,7 +29,7 @@ export function ProductDetailsClient({ product }: ProductDetailsClientProps) {
       {(product.colors?.length || product.sizes?.length) ? (
         <VariantSelector colors={product.colors} sizes={product.sizes} variants={product.variants} selectedColor={selectedColor} selectedSize={selectedSize} onColorChange={setSelectedColor} onSizeChange={setSelectedSize} />
       ) : null}
-      <div className="flex gap-4 pt-4">
+      <div className="flex flex-wrap gap-4 pt-4">
         <QuantityInput value={quantity} onChange={setQuantity} min={1} max={maxQuantity} disabled={!isInStock} />
         <AddToCartButton productId={product._id} quantity={quantity} variantId={selectedVariant?._id} inStock={isInStock} />
         <WishlistButton productId={product._id} variantId={selectedVariant?._id} />

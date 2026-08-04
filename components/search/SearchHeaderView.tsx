@@ -1,5 +1,6 @@
-import { cn } from '@/lib/utils/cn';
-import { searchProducts } from '@/lib/api/services/products';
+import { SearchHeader } from '@/enigma-components/search/SearchHeader';
+import { loadSearchRuntime } from './canonical/searchRuntime';
+import type { PuckFetcherContext } from '@/lib/puck-route-metadata';
 
 interface SearchHeaderViewProps {
   query: string;
@@ -20,29 +21,16 @@ export const puckDefaults = {
   query: 'wool coat',
   totalItems: 24,
 };
+export const puckAst = { kind: 'runtime', sourceJsxNames: ['SearchHeader'], sourceImportPaths: ['@/components/search/SearchHeader'], role: 'search-header', slotTarget: 'header', runtimeSignals: ['searchParams.q', 'totalItems'] };
 
-export async function puckDataFetcher(props: { query?: string }) {
-  if (!props.query) return {};
-  const result = await searchProducts(props.query, { pageSize: 1 });
+export async function puckDataFetcher(_props: { query?: string }, context?: PuckFetcherContext) {
+  const result = await loadSearchRuntime(context);
   return {
-    query: result.searchQuery || props.query,
-    totalItems: result.totalItems || 0,
+    query: result.query,
+    totalItems: result.totalItems,
   };
 }
 
 export function SearchHeaderView({ query, totalItems, className }: SearchHeaderViewProps) {
-  return (
-    <div className={cn('@container mb-6 w-full', className)}>
-      <div className="mb-4 flex flex-wrap items-baseline gap-4">
-        <h1 className="text-3xl font-black tracking-tight text-text-base @md:text-4xl">
-          {query ? `Search Results for "${query}"` : 'Search Results'}
-        </h1>
-        {query && Number(totalItems) > 0 ? (
-          <p className="text-lg font-medium text-text-muted">
-            {Number(totalItems).toLocaleString()} items found
-          </p>
-        ) : null}
-      </div>
-    </div>
-  );
+  return <SearchHeader query={query} totalItems={totalItems} className={className} />;
 }

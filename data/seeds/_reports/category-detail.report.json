@@ -1,6 +1,7 @@
 {
-  "page": "app/categories/[slug]/page.tsx",
-  "output": "../dnd-test/data/seeds/category-detail.json",
+  "page": "D:/projects/eNigma-TemplateFrontend/app/categories/[slug]/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/category-detail.json",
+  "profile": "category-detail",
   "manifestLoaded": true,
   "captured": [
     {
@@ -81,7 +82,23 @@
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [
+    {
+      "source": "siblingCategories.length > 0",
+      "handledBy": "CategorySubcategoryCondition"
+    },
+    {
+      "source": "totalPages > 1",
+      "handledBy": "CategoryCatalogPaginationCondition"
+    },
+    {
+      "source": "products.length > 0",
+      "handledBy": "CategoryCatalogResultsState"
+    }
+  ],
+  "delegates": [],
+  "fatal": false
 }

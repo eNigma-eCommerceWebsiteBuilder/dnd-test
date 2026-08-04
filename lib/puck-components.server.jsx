@@ -5,19 +5,52 @@
 import React from "react";
 
 import { AccountDashboardView, puckFields as AccountDashboard_fields, puckDefaults as AccountDashboard_defaults } from "@/components/account/AccountDashboardView";
+import { AccountDashboardHeroLayout, puckFields as AccountDashboardHeroLayout_fields, puckDefaults as AccountDashboardHeroLayout_defaults } from "@/components/account/dashboard/canonical/AccountDashboardHeroLayoutView";
+import { AccountDashboardLinks, puckFields as AccountDashboardLinks_fields, puckDefaults as AccountDashboardLinks_defaults } from "@/components/account/dashboard/canonical/AccountDashboardLinksView";
+import { AccountDashboardPageLayout, puckFields as AccountDashboardPageLayout_fields, puckDefaults as AccountDashboardPageLayout_defaults } from "@/components/account/dashboard/canonical/AccountDashboardPageLayoutView";
+import { AccountDownloadsPageLayout, puckFields as AccountDownloadsPageLayout_fields, puckDefaults as AccountDownloadsPageLayout_defaults } from "@/components/account/downloads/canonical/AccountDownloadsPageLayoutView";
+import { AccountIdentityExplanationView, puckFields as AccountIdentityExplanation_fields, puckDefaults as AccountIdentityExplanation_defaults } from "@/components/account/canonical/AccountIdentityExplanationView";
+import { AccountIdentitySettingsCardView, puckFields as AccountIdentitySettingsCard_fields, puckDefaults as AccountIdentitySettingsCard_defaults } from "@/components/account/canonical/AccountIdentitySettingsCardView";
 import { AccountLinkGridView, puckFields as AccountLinkGrid_fields, puckDefaults as AccountLinkGrid_defaults } from "@/components/account/AccountLinkGridView";
+import { AccountOrdersEmptyView, puckFields as AccountOrdersEmpty_fields, puckDefaults as AccountOrdersEmpty_defaults } from "@/components/account/orders/canonical/AccountOrdersEmptyView";
+import { AccountOrdersHeaderView, puckFields as AccountOrdersHeader_fields, puckDefaults as AccountOrdersHeader_defaults } from "@/components/account/orders/canonical/AccountOrdersHeaderView";
+import { AccountOrdersLayoutView, puckFields as AccountOrdersLayout_fields, puckDefaults as AccountOrdersLayout_defaults } from "@/components/account/orders/canonical/AccountOrdersLayoutView";
+import { AccountOrdersStateView, puckFields as AccountOrdersState_fields, puckDefaults as AccountOrdersState_defaults } from "@/components/account/orders/canonical/AccountOrdersStateView";
 import { AccountSessionPanelView, puckFields as AccountSessionPanel_fields, puckDefaults as AccountSessionPanel_defaults } from "@/components/account/AccountSessionPanelView";
 import { AccountSessionsView, puckFields as AccountSessions_fields, puckDefaults as AccountSessions_defaults } from "@/components/account/AccountSessionsView";
+import { AccountSessionsBreadcrumbs, puckFields as AccountSessionsBreadcrumbs_fields, puckDefaults as AccountSessionsBreadcrumbs_defaults } from "@/components/account/sessions/canonical/AccountSessionsBreadcrumbsView";
+import { AccountSessionsIdentityNotice, puckFields as AccountSessionsIdentityNotice_fields, puckDefaults as AccountSessionsIdentityNotice_defaults } from "@/components/account/sessions/canonical/AccountSessionsIdentityNoticeView";
+import { AccountSessionsPageLayout, puckFields as AccountSessionsPageLayout_fields, puckDefaults as AccountSessionsPageLayout_defaults } from "@/components/account/sessions/canonical/AccountSessionsPageLayoutView";
 import { AccountSettingsView, puckFields as AccountSettings_fields, puckDefaults as AccountSettings_defaults } from "@/components/account/AccountSettingsView";
+import { AccountSettingsBreadcrumbsView, puckFields as AccountSettingsBreadcrumbs_fields, puckDefaults as AccountSettingsBreadcrumbs_defaults } from "@/components/account/canonical/AccountSettingsBreadcrumbsView";
+import { AccountSettingsLayoutView, puckFields as AccountSettingsLayout_fields, puckDefaults as AccountSettingsLayout_defaults } from "@/components/account/canonical/AccountSettingsLayoutView";
+import { AccountSettingsStateView, puckFields as AccountSettingsState_fields, puckDefaults as AccountSettingsState_defaults } from "@/components/account/canonical/AccountSettingsStateView";
+import { AccountSubscriptionsPageHeader, puckFields as AccountSubscriptionsPageHeader_fields, puckDefaults as AccountSubscriptionsPageHeader_defaults } from "@/components/account/subscriptions/list/canonical/AccountSubscriptionsPageHeaderView";
+import { AccountSubscriptionsPageLayout, puckFields as AccountSubscriptionsPageLayout_fields, puckDefaults as AccountSubscriptionsPageLayout_defaults } from "@/components/account/subscriptions/list/canonical/AccountSubscriptionsPageLayoutView";
+import { AccountWishlistPageLayout, puckFields as AccountWishlistPageLayout_fields, puckDefaults as AccountWishlistPageLayout_defaults } from "@/components/account/wishlist/canonical/AccountWishlistPageLayoutView";
 import { ActiveFiltersBlockView, puckFields as ActiveFiltersBlock_fields, puckDefaults as ActiveFiltersBlock_defaults } from "@/components/products/ActiveFiltersBlockView";
+import { AddressesAccountLayoutView, puckFields as AddressesAccountLayout_fields, puckDefaults as AddressesAccountLayout_defaults } from "@/components/account/addresses/canonical/AddressesAccountLayoutView";
+import { AddressesAccountSidebarView, puckFields as AddressesAccountSidebar_fields, puckDefaults as AddressesAccountSidebar_defaults } from "@/components/account/addresses/canonical/AddressesAccountSidebarView";
+import { AddressesBreadcrumbsView, puckFields as AddressesBreadcrumbs_fields, puckDefaults as AddressesBreadcrumbs_defaults } from "@/components/account/addresses/canonical/AddressesBreadcrumbsView";
+import { AddressesContentLayoutView, puckFields as AddressesContentLayout_fields, puckDefaults as AddressesContentLayout_defaults } from "@/components/account/addresses/canonical/AddressesContentLayoutView";
+import { AddressesPageLayoutView, puckFields as AddressesPageLayout_fields, puckDefaults as AddressesPageLayout_defaults } from "@/components/account/addresses/canonical/AddressesPageLayoutView";
 import { AddressListView, puckFields as AddressList_fields, puckDefaults as AddressList_defaults } from "@/components/account/AddressListView";
 import { AdminNotesView, puckFields as AdminNotes_fields, puckDefaults as AdminNotes_defaults } from "@/components/account/AdminNotesView";
 import { AuthEntryCardView, puckFields as AuthEntryCard_fields, puckDefaults as AuthEntryCard_defaults } from "@/components/auth/AuthEntryCardView";
+import { AuthPageLayoutView, puckFields as AuthPageLayout_fields, puckDefaults as AuthPageLayout_defaults } from "@/components/auth/canonical/AuthPageLayoutView";
 import { BillingAddressView, puckFields as BillingAddress_fields, puckDefaults as BillingAddress_defaults } from "@/components/account/BillingAddressView";
 import { CalloutCardView, puckFields as CalloutCard_fields, puckDefaults as CalloutCard_defaults } from "@/components/layout/CalloutCardView";
 import { CardSectionView, puckFields as CardSection_fields, puckDefaults as CardSection_defaults } from "@/components/layout/CardSectionView";
 import { CartContinueShoppingView, puckFields as CartContinueShopping_fields, puckDefaults as CartContinueShopping_defaults } from "@/components/cart/CartContinueShoppingView";
 import { CartEmptyView, puckFields as CartEmpty_fields, puckDefaults as CartEmpty_defaults } from "@/components/cart/CartEmptyView";
+import { CartPageContinueShoppingView, puckFields as CartPageContinueShopping_fields, puckDefaults as CartPageContinueShopping_defaults } from "@/components/cart/canonical/CartPageContinueShoppingView";
+import { CartPageEmptyView, puckFields as CartPageEmpty_fields, puckDefaults as CartPageEmpty_defaults } from "@/components/cart/canonical/CartPageEmptyView";
+import { CartPageEmptyLayoutView, puckFields as CartPageEmptyLayout_fields, puckDefaults as CartPageEmptyLayout_defaults } from "@/components/cart/canonical/CartPageEmptyLayoutView";
+import { CartPageFreeShippingProgressView, puckFields as CartPageFreeShippingProgress_fields, puckDefaults as CartPageFreeShippingProgress_defaults } from "@/components/cart/canonical/CartPageFreeShippingProgressView";
+import { CartPageHeaderView, puckFields as CartPageHeader_fields, puckDefaults as CartPageHeader_defaults } from "@/components/cart/canonical/CartPageHeaderView";
+import { CartPageItemListView, puckFields as CartPageItemList_fields, puckDefaults as CartPageItemList_defaults } from "@/components/cart/canonical/CartPageItemListView";
+import { CartPageLayoutView, puckFields as CartPageLayout_fields, puckDefaults as CartPageLayout_defaults } from "@/components/cart/canonical/CartPageLayoutView";
+import { CartPageSummaryView, puckFields as CartPageSummary_fields, puckDefaults as CartPageSummary_defaults } from "@/components/cart/canonical/CartPageSummaryView";
 import { CatalogActiveFiltersBoundaryView, puckFields as CatalogActiveFiltersBoundary_fields, puckDefaults as CatalogActiveFiltersBoundary_defaults } from "@/components/products/canonical/CatalogActiveFiltersBoundaryView";
 import { CatalogBreadcrumbsView, puckFields as CatalogBreadcrumbs_fields, puckDefaults as CatalogBreadcrumbs_defaults } from "@/components/products/canonical/CatalogBreadcrumbsView";
 import { CatalogContentLayoutView, puckFields as CatalogContentLayout_fields, puckDefaults as CatalogContentLayout_defaults } from "@/components/products/canonical/CatalogContentLayoutView";
@@ -30,39 +63,89 @@ import { CategoriesPageLayoutView, puckFields as CategoriesPageLayout_fields, pu
 import { CategoryCatalogFilterSidebarView, puckFields as CategoryCatalogFilterSidebar_fields, puckDefaults as CategoryCatalogFilterSidebar_defaults } from "@/components/categories/canonical/CategoryCatalogFilterSidebarView";
 import { CategoryCatalogLayoutView, puckFields as CategoryCatalogLayout_fields, puckDefaults as CategoryCatalogLayout_defaults } from "@/components/categories/canonical/CategoryCatalogLayoutView";
 import { CheckoutConfirmationView, puckFields as CheckoutConfirmation_fields, puckDefaults as CheckoutConfirmation_defaults } from "@/components/checkout/CheckoutConfirmationView";
+import { CheckoutConfirmationConditionView, puckFields as CheckoutConfirmationCondition_fields, puckDefaults as CheckoutConfirmationCondition_defaults } from "@/components/checkout/canonical/CheckoutConfirmationConditionView";
+import { CheckoutErrorConditionView, puckFields as CheckoutErrorCondition_fields, puckDefaults as CheckoutErrorCondition_defaults } from "@/components/checkout/canonical/CheckoutErrorConditionView";
 import { CheckoutOrderReviewView, puckFields as CheckoutOrderReview_fields, puckDefaults as CheckoutOrderReview_defaults } from "@/components/checkout/CheckoutOrderReviewView";
+import { CheckoutOrderSummaryPanelView, puckFields as CheckoutOrderSummaryPanel_fields, puckDefaults as CheckoutOrderSummaryPanel_defaults } from "@/components/checkout/canonical/CheckoutOrderSummaryPanelView";
+import { CheckoutPageHeaderView, puckFields as CheckoutPageHeader_fields, puckDefaults as CheckoutPageHeader_defaults } from "@/components/checkout/canonical/CheckoutPageHeaderView";
+import { CheckoutPaymentConditionView, puckFields as CheckoutPaymentCondition_fields, puckDefaults as CheckoutPaymentCondition_defaults } from "@/components/checkout/canonical/CheckoutPaymentConditionView";
 import { CheckoutPaymentMethodView, puckFields as CheckoutPaymentMethod_fields, puckDefaults as CheckoutPaymentMethod_defaults } from "@/components/checkout/CheckoutPaymentMethodView";
+import { CheckoutPaymentStepRegionView, puckFields as CheckoutPaymentStepRegion_fields, puckDefaults as CheckoutPaymentStepRegion_defaults } from "@/components/checkout/canonical/CheckoutPaymentStepRegionView";
 import { CheckoutPlaceOrderButtonView, puckFields as CheckoutPlaceOrderButton_fields, puckDefaults as CheckoutPlaceOrderButton_defaults } from "@/components/checkout/CheckoutPlaceOrderButtonView";
+import { CheckoutReviewConditionView, puckFields as CheckoutReviewCondition_fields, puckDefaults as CheckoutReviewCondition_defaults } from "@/components/checkout/canonical/CheckoutReviewConditionView";
+import { CheckoutReviewSectionView, puckFields as CheckoutReviewSection_fields, puckDefaults as CheckoutReviewSection_defaults } from "@/components/checkout/canonical/CheckoutReviewSectionView";
 import { CheckoutSecureBadgesView, puckFields as CheckoutSecureBadges_fields, puckDefaults as CheckoutSecureBadges_defaults } from "@/components/checkout/CheckoutSecureBadgesView";
 import { CheckoutShippingFormView, puckFields as CheckoutShippingForm_fields, puckDefaults as CheckoutShippingForm_defaults } from "@/components/checkout/CheckoutShippingFormView";
 import { CheckoutShippingMethodView, puckFields as CheckoutShippingMethod_fields, puckDefaults as CheckoutShippingMethod_defaults } from "@/components/checkout/CheckoutShippingMethodView";
+import { CheckoutShippingMethodConditionView, puckFields as CheckoutShippingMethodCondition_fields, puckDefaults as CheckoutShippingMethodCondition_defaults } from "@/components/checkout/canonical/CheckoutShippingMethodConditionView";
+import { CheckoutShippingSectionView, puckFields as CheckoutShippingSection_fields, puckDefaults as CheckoutShippingSection_defaults } from "@/components/checkout/canonical/CheckoutShippingSectionView";
 import { CheckoutStepsView, puckFields as CheckoutSteps_fields, puckDefaults as CheckoutSteps_defaults } from "@/components/checkout/CheckoutStepsView";
+import { CheckoutStepsRegionView, puckFields as CheckoutStepsRegion_fields, puckDefaults as CheckoutStepsRegion_defaults } from "@/components/checkout/canonical/CheckoutStepsRegionView";
+import { CheckoutSuccessActionsLayoutView, puckFields as CheckoutSuccessActionsLayout_fields, puckDefaults as CheckoutSuccessActionsLayout_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessActionsLayoutView";
+import { CheckoutSuccessContinueShoppingView, puckFields as CheckoutSuccessContinueShopping_fields, puckDefaults as CheckoutSuccessContinueShopping_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessContinueShoppingView";
+import { CheckoutSuccessDetailsColumnView, puckFields as CheckoutSuccessDetailsColumn_fields, puckDefaults as CheckoutSuccessDetailsColumn_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessDetailsColumnView";
+import { CheckoutSuccessHeaderView, puckFields as CheckoutSuccessHeader_fields, puckDefaults as CheckoutSuccessHeader_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessHeaderView";
+import { CheckoutSuccessHeaderLayoutView, puckFields as CheckoutSuccessHeaderLayout_fields, puckDefaults as CheckoutSuccessHeaderLayout_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessHeaderLayoutView";
+import { CheckoutSuccessOrderColumnView, puckFields as CheckoutSuccessOrderColumn_fields, puckDefaults as CheckoutSuccessOrderColumn_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessOrderColumnView";
+import { CheckoutSuccessPageLayoutView, puckFields as CheckoutSuccessPageLayout_fields, puckDefaults as CheckoutSuccessPageLayout_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessPageLayoutView";
+import { CheckoutSuccessTwoColumnLayoutView, puckFields as CheckoutSuccessTwoColumnLayout_fields, puckDefaults as CheckoutSuccessTwoColumnLayout_defaults } from "@/components/checkout/success/canonical/CheckoutSuccessTwoColumnLayoutView";
+import { CollectionBreadcrumbsView, puckFields as CollectionBreadcrumbs_fields, puckDefaults as CollectionBreadcrumbs_defaults } from "@/components/collections/canonical/CollectionBreadcrumbsView";
+import { CollectionDetailNotFoundView, puckFields as CollectionDetailNotFound_fields, puckDefaults as CollectionDetailNotFound_defaults } from "@/components/collections/canonical/CollectionDetailNotFoundView";
+import { CollectionDetailPageLayoutView, puckFields as CollectionDetailPageLayout_fields, puckDefaults as CollectionDetailPageLayout_defaults } from "@/components/collections/canonical/CollectionDetailPageLayoutView";
+import { CollectionsFilterSectionView, puckFields as CollectionsFilterSection_fields, puckDefaults as CollectionsFilterSection_defaults } from "@/components/collections/canonical/CollectionsFilterSectionView";
+import { CollectionsPageHeaderView, puckFields as CollectionsPageHeader_fields, puckDefaults as CollectionsPageHeader_defaults } from "@/components/collections/canonical/CollectionsPageHeaderView";
+import { CollectionsPageLayoutView, puckFields as CollectionsPageLayout_fields, puckDefaults as CollectionsPageLayout_defaults } from "@/components/collections/canonical/CollectionsPageLayoutView";
 import { ConditionalSectionView, puckFields as ConditionalSection_fields, puckDefaults as ConditionalSection_defaults } from "@/components/layout/ConditionalSectionView";
 import { OrderSummaryView, puckFields as ConfirmationOrderSummary_fields, puckDefaults as ConfirmationOrderSummary_defaults } from "@/components/checkout/success/OrderSummaryView";
 import { ContinueShoppingButtonView, puckFields as ContinueShoppingButton_fields, puckDefaults as ContinueShoppingButton_defaults } from "@/components/checkout/success/ContinueShoppingButtonView";
 import { DepartmentCategoriesSectionView, puckFields as DepartmentCategoriesSection_fields, puckDefaults as DepartmentCategoriesSection_defaults } from "@/components/categories/canonical/DepartmentCategoriesSectionView";
 import { DigitalDownloadsView, puckFields as DigitalDownloads_fields, puckDefaults as DigitalDownloads_defaults } from "@/components/checkout/success/DigitalDownloadsView";
+import { DigitalLibraryBackground, puckFields as DigitalLibraryBackground_fields, puckDefaults as DigitalLibraryBackground_defaults } from "@/components/account/downloads/canonical/DigitalLibraryBackgroundView";
+import { DigitalLibraryEmptyRegion, puckFields as DigitalLibraryEmptyRegion_fields, puckDefaults as DigitalLibraryEmptyRegion_defaults } from "@/components/account/downloads/canonical/DigitalLibraryEmptyRegionView";
+import { DigitalLibraryHeader, puckFields as DigitalLibraryHeader_fields, puckDefaults as DigitalLibraryHeader_defaults } from "@/components/account/downloads/canonical/DigitalLibraryHeaderView";
+import { DigitalLibraryLayout, puckFields as DigitalLibraryLayout_fields, puckDefaults as DigitalLibraryLayout_defaults } from "@/components/account/downloads/canonical/DigitalLibraryLayoutView";
+import { DigitalLibraryMetricsLayout, puckFields as DigitalLibraryMetricsLayout_fields, puckDefaults as DigitalLibraryMetricsLayout_defaults } from "@/components/account/downloads/canonical/DigitalLibraryMetricsLayoutView";
+import { DownloadPageContentLayoutView, puckFields as DownloadPageContentLayout_fields, puckDefaults as DownloadPageContentLayout_defaults } from "@/components/downloads/canonical/DownloadPageContentLayoutView";
+import { DownloadPageHeaderView, puckFields as DownloadPageHeader_fields, puckDefaults as DownloadPageHeader_defaults } from "@/components/downloads/canonical/DownloadPageHeaderView";
+import { DownloadPageLayoutView, puckFields as DownloadPageLayout_fields, puckDefaults as DownloadPageLayout_defaults } from "@/components/downloads/canonical/DownloadPageLayoutView";
 import { DownloadsEmptyView, puckFields as DownloadsEmpty_fields, puckDefaults as DownloadsEmpty_defaults } from "@/components/account/DownloadsEmptyView";
+import { DownloadTrustFooterView, puckFields as DownloadTrustFooter_fields, puckDefaults as DownloadTrustFooter_defaults } from "@/components/downloads/canonical/DownloadTrustFooterView";
 import { EmptyCategoryView, puckFields as EmptyCategory_fields, puckDefaults as EmptyCategory_defaults } from "@/components/categories/EmptyCategoryView";
 import { EmptyCollectionsView, puckFields as EmptyCollections_fields, puckDefaults as EmptyCollections_defaults } from "@/components/collections/EmptyCollectionsView";
 import { EmptyPaymentMethodsView, puckFields as EmptyPaymentMethods_fields, puckDefaults as EmptyPaymentMethods_defaults } from "@/components/account/EmptyPaymentMethodsView";
 import { EmptyStateView, puckFields as EmptyState_fields, puckDefaults as EmptyState_defaults } from "@/components/products/EmptyStateView";
 import { ErrorStateView, puckFields as ErrorState_fields, puckDefaults as ErrorState_defaults } from "@/components/layout/ErrorStateView";
 import { FeatureIconListView, puckFields as FeatureIconList_fields, puckDefaults as FeatureIconList_defaults } from "@/components/layout/FeatureIconListView";
+import { HomePageLayoutView, puckFields as HomePageLayout_fields, puckDefaults as HomePageLayout_defaults } from "@/components/home/canonical/HomePageLayoutView";
 import { LicenseKeyDisplayView, puckFields as LicenseKeyDisplay_fields, puckDefaults as LicenseKeyDisplay_defaults } from "@/components/checkout/success/LicenseKeyDisplayView";
 import { NewsletterSignupView, puckFields as NewsletterSignup_fields, puckDefaults as NewsletterSignup_defaults } from "@/components/home/NewsletterSignupView";
 import { NextStepsCardView, puckFields as NextStepsCard_fields, puckDefaults as NextStepsCard_defaults } from "@/components/checkout/success/NextStepsCardView";
-import { NoResultsView, puckFields as NoResults_fields, puckDefaults as NoResults_defaults } from "@/components/search/NoResultsView";
 import { NotEligibleMessageView, puckFields as NotEligibleMessage_fields, puckDefaults as NotEligibleMessage_defaults } from "@/components/account/NotEligibleMessageView";
 import { NotFoundStateView, puckFields as NotFoundState_fields, puckDefaults as NotFoundState_defaults } from "@/components/layout/NotFoundStateView";
 import { OrderDetailsView, puckFields as OrderDetails_fields, puckDefaults as OrderDetails_defaults } from "@/components/account/OrderDetailsView";
+import { OrderDetailsContentLayoutView, puckFields as OrderDetailsContentLayout_fields, puckDefaults as OrderDetailsContentLayout_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsContentLayoutView";
+import { OrderDetailsPageLayoutView, puckFields as OrderDetailsPageLayout_fields, puckDefaults as OrderDetailsPageLayout_defaults } from "@/components/account/orders/detail/canonical/OrderDetailsPageLayoutView";
+import { OrderDownloadsAssetsLayoutView, puckFields as OrderDownloadsAssetsLayout_fields, puckDefaults as OrderDownloadsAssetsLayout_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsAssetsLayoutView";
+import { OrderDownloadsEmptyRegionView, puckFields as OrderDownloadsEmptyRegion_fields, puckDefaults as OrderDownloadsEmptyRegion_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsEmptyRegionView";
+import { OrderDownloadsPageLayoutView, puckFields as OrderDownloadsPageLayout_fields, puckDefaults as OrderDownloadsPageLayout_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsPageLayoutView";
+import { OrderDownloadsPaymentPendingNoticeView, puckFields as OrderDownloadsPaymentPendingNotice_fields, puckDefaults as OrderDownloadsPaymentPendingNotice_defaults } from "@/components/account/orders/downloads/canonical/OrderDownloadsPaymentPendingNoticeView";
 import { OrderEmptyView, puckFields as OrderEmpty_fields, puckDefaults as OrderEmpty_defaults } from "@/components/account/OrderEmptyView";
 import { OrderItemListView, puckFields as OrderItemList_fields, puckDefaults as OrderItemList_defaults } from "@/components/checkout/success/OrderItemListView";
 import { OrderNumberView, puckFields as OrderNumber_fields, puckDefaults as OrderNumber_defaults } from "@/components/checkout/success/OrderNumberView";
+import { OrderReturnEligibleLayoutView, puckFields as OrderReturnEligibleLayout_fields, puckDefaults as OrderReturnEligibleLayout_defaults } from "@/components/account/orders/return/canonical/OrderReturnEligibleLayoutView";
+import { OrderReturnHeaderView, puckFields as OrderReturnHeader_fields, puckDefaults as OrderReturnHeader_defaults } from "@/components/account/orders/return/canonical/OrderReturnHeaderView";
+import { OrderReturnPageLayoutView, puckFields as OrderReturnPageLayout_fields, puckDefaults as OrderReturnPageLayout_defaults } from "@/components/account/orders/return/canonical/OrderReturnPageLayoutView";
+import { OrderReturnPolicyReminderRegionView, puckFields as OrderReturnPolicyReminderRegion_fields, puckDefaults as OrderReturnPolicyReminderRegion_defaults } from "@/components/account/orders/return/canonical/OrderReturnPolicyReminderRegionView";
 import { OrderStatusBadgeView, puckFields as OrderStatusBadge_fields, puckDefaults as OrderStatusBadge_defaults } from "@/components/account/OrderStatusBadgeView";
 import { PageHeaderView, puckFields as PageHeader_fields, puckDefaults as PageHeader_defaults } from "@/components/layout/PageHeaderView";
 import { PageWrapperView, puckFields as PageWrapper_fields, puckDefaults as PageWrapper_defaults } from "@/components/layout/PageWrapperView";
 import { PaymentInfoView, puckFields as PaymentInfo_fields, puckDefaults as PaymentInfo_defaults } from "@/components/account/PaymentInfoView";
+import { PaymentMethodsAddCardActionView, puckFields as PaymentMethodsAddCardAction_fields, puckDefaults as PaymentMethodsAddCardAction_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsAddCardActionView";
+import { PaymentMethodsEmptyStateRegionView, puckFields as PaymentMethodsEmptyStateRegion_fields, puckDefaults as PaymentMethodsEmptyStateRegion_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsEmptyStateRegionView";
+import { PaymentMethodsHeaderLayoutView, puckFields as PaymentMethodsHeaderLayout_fields, puckDefaults as PaymentMethodsHeaderLayout_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsHeaderLayoutView";
+import { PaymentMethodsHelpFooterView, puckFields as PaymentMethodsHelpFooter_fields, puckDefaults as PaymentMethodsHelpFooter_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsHelpFooterView";
+import { PaymentMethodsPageLayoutView, puckFields as PaymentMethodsPageLayout_fields, puckDefaults as PaymentMethodsPageLayout_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsPageLayoutView";
+import { PaymentMethodsSavedCardsSectionView, puckFields as PaymentMethodsSavedCardsSection_fields, puckDefaults as PaymentMethodsSavedCardsSection_defaults } from "@/components/account/payment-methods/canonical/PaymentMethodsSavedCardsSectionView";
 import { ProductDetailMediaColumnView, puckFields as ProductDetailMediaColumn_fields, puckDefaults as ProductDetailMediaColumn_defaults } from "@/components/products/canonical/ProductDetailMediaColumnView";
 import { ProductDetailMobileTabsView, puckFields as ProductDetailMobileTabs_fields, puckDefaults as ProductDetailMobileTabs_defaults } from "@/components/products/canonical/ProductDetailMobileTabsView";
 import { ProductDetailPageLayoutView, puckFields as ProductDetailPageLayout_fields, puckDefaults as ProductDetailPageLayout_defaults } from "@/components/products/canonical/ProductDetailPageLayoutView";
@@ -71,26 +154,66 @@ import { ProductDetailTrustBadgesView, puckFields as ProductDetailTrustBadges_fi
 import { ProductsCatalogLayoutView, puckFields as ProductsCatalogLayout_fields, puckDefaults as ProductsCatalogLayout_defaults } from "@/components/products/canonical/ProductsCatalogLayoutView";
 import { PurchaseTrackerView, puckFields as PurchaseTracker_fields, puckDefaults as PurchaseTracker_defaults } from "@/components/checkout/success/PurchaseTrackerView";
 import { RefundSummaryView, puckFields as RefundSummary_fields, puckDefaults as RefundSummary_defaults } from "@/components/account/RefundSummaryView";
+import { ReturnDetailsContentLayoutView, puckFields as ReturnDetailsContentLayout_fields, puckDefaults as ReturnDetailsContentLayout_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsContentLayoutView";
+import { ReturnDetailsNotFoundLayoutView, puckFields as ReturnDetailsNotFoundLayout_fields, puckDefaults as ReturnDetailsNotFoundLayout_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsNotFoundLayoutView";
+import { ReturnDetailsPageLayoutView, puckFields as ReturnDetailsPageLayout_fields, puckDefaults as ReturnDetailsPageLayout_defaults } from "@/components/account/returns/detail/canonical/ReturnDetailsPageLayoutView";
 import { ReturnPolicyReminderView, puckFields as ReturnPolicyReminder_fields, puckDefaults as ReturnPolicyReminder_defaults } from "@/components/account/ReturnPolicyReminderView";
 import { ReturnReasonView, puckFields as ReturnReason_fields, puckDefaults as ReturnReason_defaults } from "@/components/account/ReturnReasonView";
 import { ReturnsEmptyView, puckFields as ReturnsEmpty_fields, puckDefaults as ReturnsEmpty_defaults } from "@/components/account/ReturnsEmptyView";
+import { ReturnsEmptyRegion, puckFields as ReturnsEmptyRegion_fields, puckDefaults as ReturnsEmptyRegion_defaults } from "@/components/account/returns/canonical/ReturnsEmptyRegionView";
+import { ReturnsListLayout, puckFields as ReturnsListLayout_fields, puckDefaults as ReturnsListLayout_defaults } from "@/components/account/returns/canonical/ReturnsListLayoutView";
+import { ReturnsPageHeader, puckFields as ReturnsPageHeader_fields, puckDefaults as ReturnsPageHeader_defaults } from "@/components/account/returns/canonical/ReturnsPageHeaderView";
+import { ReturnsPageLayout, puckFields as ReturnsPageLayout_fields, puckDefaults as ReturnsPageLayout_defaults } from "@/components/account/returns/canonical/ReturnsPageLayoutView";
+import { ReturnsProcessingNotice, puckFields as ReturnsProcessingNotice_fields, puckDefaults as ReturnsProcessingNotice_defaults } from "@/components/account/returns/canonical/ReturnsProcessingNoticeView";
 import { ReturnStatusBadgeView, puckFields as ReturnStatusBadge_fields, puckDefaults as ReturnStatusBadge_defaults } from "@/components/account/ReturnStatusBadgeView";
 import { ReturnWindowExpiredView, puckFields as ReturnWindowExpired_fields, puckDefaults as ReturnWindowExpired_defaults } from "@/components/account/ReturnWindowExpiredView";
+import { SearchBreadcrumbsView, puckFields as SearchBreadcrumbs_fields, puckDefaults as SearchBreadcrumbs_defaults } from "@/components/search/canonical/SearchBreadcrumbsView";
+import { SearchContentLayoutView, puckFields as SearchContentLayout_fields, puckDefaults as SearchContentLayout_defaults } from "@/components/search/canonical/SearchContentLayoutView";
+import { SearchFilterSidebarView, puckFields as SearchFilterSidebar_fields, puckDefaults as SearchFilterSidebar_defaults } from "@/components/search/canonical/SearchFilterSidebarView";
+import { SearchPageLayoutView, puckFields as SearchPageLayout_fields, puckDefaults as SearchPageLayout_defaults } from "@/components/search/canonical/SearchPageLayoutView";
+import { SearchRecentSearchesBoundaryView, puckFields as SearchRecentSearchesBoundary_fields, puckDefaults as SearchRecentSearchesBoundary_defaults } from "@/components/search/canonical/SearchRecentSearchesBoundaryView";
+import { SearchResultsBlockView, puckFields as SearchResultsBlock_fields, puckDefaults as SearchResultsBlock_defaults } from "@/components/search/canonical/SearchResultsBlockView";
+import { SearchSortDropdownView, puckFields as SearchSortDropdown_fields, puckDefaults as SearchSortDropdown_defaults } from "@/components/search/SearchSortDropdownView";
+import { SearchStartPromptView, puckFields as SearchStartPrompt_fields, puckDefaults as SearchStartPrompt_defaults } from "@/components/search/canonical/SearchStartPromptView";
 import { SectionHeaderWithDividerView, puckFields as SectionHeaderWithDivider_fields, puckDefaults as SectionHeaderWithDivider_defaults } from "@/components/layout/SectionHeaderWithDividerView";
 import { SectionHeadingView, puckFields as SectionHeading_fields, puckDefaults as SectionHeading_defaults } from "@/components/layout/SectionHeadingView";
 import { SharedWishlistView, puckFields as SharedWishlist_fields, puckDefaults as SharedWishlist_defaults } from "@/components/account/SharedWishlistView";
+import { SharedWishlistContentLayoutView, puckFields as SharedWishlistContentLayout_fields, puckDefaults as SharedWishlistContentLayout_defaults } from "@/components/wishlist/canonical/SharedWishlistContentLayoutView";
+import { SharedWishlistEmptyView, puckFields as SharedWishlistEmpty_fields, puckDefaults as SharedWishlistEmpty_defaults } from "@/components/wishlist/canonical/SharedWishlistEmptyView";
+import { SharedWishlistInvalidStateView, puckFields as SharedWishlistInvalidState_fields, puckDefaults as SharedWishlistInvalidState_defaults } from "@/components/wishlist/canonical/SharedWishlistInvalidStateView";
+import { SharedWishlistPageLayoutView, puckFields as SharedWishlistPageLayout_fields, puckDefaults as SharedWishlistPageLayout_defaults } from "@/components/wishlist/canonical/SharedWishlistPageLayoutView";
 import { ShippingAddressView, puckFields as ShippingAddress_fields, puckDefaults as ShippingAddress_defaults } from "@/components/account/ShippingAddressView";
 import { ShippingInfoView, puckFields as ShippingInfo_fields, puckDefaults as ShippingInfo_defaults } from "@/components/checkout/success/ShippingInfoView";
 import { SortDropdownBlockView, puckFields as SortDropdownBlock_fields, puckDefaults as SortDropdownBlock_defaults } from "@/components/products/SortDropdownBlockView";
+import { SubscriptionBillingPortalActionView, puckFields as SubscriptionBillingPortalAction_fields, puckDefaults as SubscriptionBillingPortalAction_defaults } from "@/components/account/subscriptions/canonical/SubscriptionBillingPortalActionView";
+import { SubscriptionBillingTermsSectionView, puckFields as SubscriptionBillingTermsSection_fields, puckDefaults as SubscriptionBillingTermsSection_defaults } from "@/components/checkout/subscription/canonical/SubscriptionBillingTermsSectionView";
+import { SubscriptionCartSummaryPanelView, puckFields as SubscriptionCartSummaryPanel_fields, puckDefaults as SubscriptionCartSummaryPanel_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCartSummaryPanelView";
+import { SubscriptionCheckoutActionsView, puckFields as SubscriptionCheckoutActions_fields, puckDefaults as SubscriptionCheckoutActions_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCheckoutActionsView";
+import { SubscriptionCheckoutErrorConditionView, puckFields as SubscriptionCheckoutErrorCondition_fields, puckDefaults as SubscriptionCheckoutErrorCondition_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCheckoutErrorConditionView";
+import { SubscriptionCheckoutHeaderView, puckFields as SubscriptionCheckoutHeader_fields, puckDefaults as SubscriptionCheckoutHeader_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCheckoutHeaderView";
+import { SubscriptionCheckoutPageLayoutView, puckFields as SubscriptionCheckoutPageLayout_fields, puckDefaults as SubscriptionCheckoutPageLayout_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCheckoutPageLayoutView";
+import { SubscriptionCheckoutStepsView, puckFields as SubscriptionCheckoutSteps_fields, puckDefaults as SubscriptionCheckoutSteps_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCheckoutStepsView";
+import { SubscriptionCustomerInfoSectionView, puckFields as SubscriptionCustomerInfoSection_fields, puckDefaults as SubscriptionCustomerInfoSection_defaults } from "@/components/checkout/subscription/canonical/SubscriptionCustomerInfoSectionView";
+import { SubscriptionDetailContentLayoutView, puckFields as SubscriptionDetailContentLayout_fields, puckDefaults as SubscriptionDetailContentLayout_defaults } from "@/components/account/subscriptions/canonical/SubscriptionDetailContentLayoutView";
 import { SubscriptionDetailsHeaderView, puckFields as SubscriptionDetailsHeader_fields, puckDefaults as SubscriptionDetailsHeader_defaults } from "@/components/account/SubscriptionDetailsHeaderView";
+import { SubscriptionDetailsPageLayoutView, puckFields as SubscriptionDetailsPageLayout_fields, puckDefaults as SubscriptionDetailsPageLayout_defaults } from "@/components/account/subscriptions/canonical/SubscriptionDetailsPageLayoutView";
+import { SubscriptionPaymentPanelView, puckFields as SubscriptionPaymentPanel_fields, puckDefaults as SubscriptionPaymentPanel_defaults } from "@/components/account/subscriptions/canonical/SubscriptionPaymentPanelView";
+import { SubscriptionPricingPreviewPanelView, puckFields as SubscriptionPricingPreviewPanel_fields, puckDefaults as SubscriptionPricingPreviewPanel_defaults } from "@/components/checkout/subscription/canonical/SubscriptionPricingPreviewPanelView";
 import { SubscriptionsEmptyView, puckFields as SubscriptionsEmpty_fields, puckDefaults as SubscriptionsEmpty_defaults } from "@/components/account/SubscriptionsEmptyView";
+import { SubscriptionsEmptyRegion, puckFields as SubscriptionsEmptyRegion_fields, puckDefaults as SubscriptionsEmptyRegion_defaults } from "@/components/account/subscriptions/list/canonical/SubscriptionsEmptyRegionView";
+import { SubscriptionShippingAddressSectionView, puckFields as SubscriptionShippingAddressSection_fields, puckDefaults as SubscriptionShippingAddressSection_defaults } from "@/components/checkout/subscription/canonical/SubscriptionShippingAddressSectionView";
+import { SubscriptionsListLayout, puckFields as SubscriptionsListLayout_fields, puckDefaults as SubscriptionsListLayout_defaults } from "@/components/account/subscriptions/list/canonical/SubscriptionsListLayoutView";
 import { SubscriptionStatusBadgeView, puckFields as SubscriptionStatusBadge_fields, puckDefaults as SubscriptionStatusBadge_defaults } from "@/components/account/SubscriptionStatusBadgeView";
+import { SubscriptionSummaryPanelView, puckFields as SubscriptionSummaryPanel_fields, puckDefaults as SubscriptionSummaryPanel_defaults } from "@/components/checkout/subscription/canonical/SubscriptionSummaryPanelView";
 import { SuccessHeaderView, puckFields as SuccessHeader_fields, puckDefaults as SuccessHeader_defaults } from "@/components/checkout/success/SuccessHeaderView";
 import { TrustBadges, puckFields as TrustBadges_fields, puckDefaults as TrustBadges_defaults } from "@/components/home/TrustBadges";
 import { TwoColumnDetailView, puckFields as TwoColumnDetail_fields, puckDefaults as TwoColumnDetail_defaults } from "@/components/layout/TwoColumnDetailView";
 import { ViewOrderButtonView, puckFields as ViewOrderButton_fields, puckDefaults as ViewOrderButton_defaults } from "@/components/checkout/success/ViewOrderButtonView";
 import { ViewToggleBlockView, puckFields as ViewToggleBlock_fields, puckDefaults as ViewToggleBlock_defaults } from "@/components/products/ViewToggleBlockView";
 import { WishlistEmptyView, puckFields as WishlistEmpty_fields, puckDefaults as WishlistEmpty_defaults } from "@/components/account/WishlistEmptyView";
+import { WishlistEmptyRegion, puckFields as WishlistEmptyRegion_fields, puckDefaults as WishlistEmptyRegion_defaults } from "@/components/account/wishlist/canonical/WishlistEmptyRegionView";
+import { WishlistPageHeaderLayout, puckFields as WishlistPageHeaderLayout_fields, puckDefaults as WishlistPageHeaderLayout_defaults } from "@/components/account/wishlist/canonical/WishlistPageHeaderLayoutView";
+import { WishlistRecommendationsFooter, puckFields as WishlistRecommendationsFooter_fields, puckDefaults as WishlistRecommendationsFooter_defaults } from "@/components/account/wishlist/canonical/WishlistRecommendationsFooterView";
 import { WishlistSavingsCardView, puckFields as WishlistSavingsCard_fields, puckDefaults as WishlistSavingsCard_defaults } from "@/components/account/WishlistSavingsCardView";
 
 const AccountAddressesStateSection_fields = {
@@ -113,9 +236,11 @@ const AccountAddressesStateSection_fields = {
     ]
   }
 };
-const AccountAddressesStateSection_defaults = {
-  "state": "content"
-};
+const AccountAddressesStateSection_defaults = {};
+const AccountDashboardIdentity_fields = {};
+const AccountDashboardIdentity_defaults = {};
+const AccountDashboardWelcome_fields = {};
+const AccountDashboardWelcome_defaults = {};
 const AccountDigitalLibraryStateSection_fields = {
   "state": {
     "type": "select",
@@ -136,9 +261,85 @@ const AccountDigitalLibraryStateSection_fields = {
     ]
   }
 };
-const AccountDigitalLibraryStateSection_defaults = {
-  "state": "empty"
+const AccountDigitalLibraryStateSection_defaults = {};
+const AccountIdentitySessionDetails_fields = {
+  "fullName": {
+    "type": "text",
+    "label": "Preview display name"
+  },
+  "email": {
+    "type": "text",
+    "label": "Preview email"
+  },
+  "emailVerified": {
+    "type": "radio",
+    "label": "Preview verification state",
+    "options": [
+      {
+        "label": "Verified",
+        "value": true
+      },
+      {
+        "label": "Managed externally",
+        "value": false
+      }
+    ]
+  }
 };
+const AccountIdentitySessionDetails_defaults = {};
+const AccountOrdersList_fields = {};
+const AccountOrdersList_defaults = {};
+const AccountOrdersResultsState_fields = {
+  "previewMode": {
+    "type": "select",
+    "label": "Editor preview state",
+    "options": [
+      {
+        "label": "Orders",
+        "value": "results"
+      },
+      {
+        "label": "Empty",
+        "value": "empty"
+      }
+    ]
+  },
+  "results": {
+    "type": "slot",
+    "allow": [
+      "AccountOrdersList"
+    ]
+  },
+  "empty": {
+    "type": "slot",
+    "allow": [
+      "AccountOrdersEmpty"
+    ]
+  }
+};
+const AccountOrdersResultsState_defaults = {};
+const AccountOrdersStatusFilter_fields = {};
+const AccountOrdersStatusFilter_defaults = {};
+const AddressesManagerRegion_fields = {};
+const AddressesManagerRegion_defaults = {};
+const AddressesPageState_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "AddressesPageLayout"
+    ]
+  }
+};
+const AddressesPageState_defaults = {};
+const AuthPageState_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "AuthPageLayout"
+    ]
+  }
+};
+const AuthPageState_defaults = {};
 const Breadcrumbs_fields = {
   "productSlug": {
     "type": "text",
@@ -163,22 +364,7 @@ const Breadcrumbs_fields = {
     }
   }
 };
-const Breadcrumbs_defaults = {
-  "productSlug": "premium-wool-coat",
-  "items": [
-    {
-      "label": "Home",
-      "href": "/"
-    },
-    {
-      "label": "Products",
-      "href": "/products"
-    },
-    {
-      "label": "Product Detail"
-    }
-  ]
-};
+const Breadcrumbs_defaults = {};
 const CartHeader_fields = {
   "title": {
     "type": "text",
@@ -189,10 +375,7 @@ const CartHeader_fields = {
     "label": "Item Count"
   }
 };
-const CartHeader_defaults = {
-  "title": "Your Shopping Bag",
-  "itemCount": 3
-};
+const CartHeader_defaults = {};
 const CartList_fields = {
   "items": {
     "type": "array",
@@ -254,30 +437,36 @@ const CartList_fields = {
     "max": 50
   }
 };
-const CartList_defaults = {
-  "items": [
-    {
-      "productName": "Premium Wool Coat",
-      "productId": "product-1",
-      "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=400&q=80",
-      "price": 1290,
-      "quantity": 1,
-      "variantSize": "L",
-      "variantColor": "Camel",
-      "isLowStock": "false"
-    },
-    {
-      "productName": "Cashmere Sweater",
-      "productId": "product-2",
-      "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&q=80",
-      "price": 320,
-      "quantity": 2,
-      "variantSize": "M",
-      "variantColor": "Charcoal",
-      "isLowStock": "true"
-    }
-  ]
+const CartList_defaults = {};
+const CartPageState_fields = {
+  "previewMode": {
+    "type": "select",
+    "label": "Preview state",
+    "options": [
+      {
+        "label": "Filled cart",
+        "value": "filled"
+      },
+      {
+        "label": "Empty cart",
+        "value": "empty"
+      }
+    ]
+  },
+  "filled": {
+    "type": "slot",
+    "allow": [
+      "CartPageLayout"
+    ]
+  },
+  "empty": {
+    "type": "slot",
+    "allow": [
+      "CartPageEmptyLayout"
+    ]
+  }
 };
+const CartPageState_defaults = {};
 const CartStateSection_fields = {
   "state": {
     "type": "select",
@@ -304,10 +493,7 @@ const CartStateSection_fields = {
     "type": "slot"
   }
 };
-const CartStateSection_defaults = {
-  "state": "filled",
-  "itemCount": 2
-};
+const CartStateSection_defaults = {};
 const CartSummary_fields = {
   "subtotal": {
     "type": "number",
@@ -384,19 +570,7 @@ const CartSummary_fields = {
     "label": "Checkout Button Link"
   }
 };
-const CartSummary_defaults = {
-  "subtotal": 1930,
-  "shipping": 0,
-  "tax": 0,
-  "total": 1930,
-  "itemCount": 3,
-  "savings": 0,
-  "showPromoCode": "true",
-  "showTaxEstimate": "true",
-  "showTrustBadges": "true",
-  "checkoutLabel": "Proceed to Checkout",
-  "checkoutHref": "/checkout"
-};
+const CartSummary_defaults = {};
 const CatalogGridBoundary_fields = {
   "grid": {
     "type": "slot",
@@ -405,10 +579,7 @@ const CatalogGridBoundary_fields = {
     ]
   }
 };
-const CatalogGridBoundary_defaults = {
-  "pageSize": 12,
-  "grid": []
-};
+const CatalogGridBoundary_defaults = {};
 const CatalogHeading_fields = {
   "title": {
     "type": "text",
@@ -437,12 +608,7 @@ const CatalogHeading_fields = {
     ]
   }
 };
-const CatalogHeading_defaults = {
-  "title": "All Products",
-  "subtitle": "Browse our complete collection of premium products.",
-  "totalItems": 128,
-  "showCount": "true"
-};
+const CatalogHeading_defaults = {};
 const CatalogPaginationBlock_fields = {
   "currentPage": {
     "type": "number",
@@ -453,10 +619,7 @@ const CatalogPaginationBlock_fields = {
     "label": "Editor preview total pages"
   }
 };
-const CatalogPaginationBlock_defaults = {
-  "currentPage": 1,
-  "totalPages": 4
-};
+const CatalogPaginationBlock_defaults = {};
 const CatalogPaginationCondition_fields = {
   "previewMode": {
     "type": "select",
@@ -479,10 +642,7 @@ const CatalogPaginationCondition_fields = {
     ]
   }
 };
-const CatalogPaginationCondition_defaults = {
-  "previewMode": "visible",
-  "content": []
-};
+const CatalogPaginationCondition_defaults = {};
 const CatalogResultsState_fields = {
   "previewMode": {
     "type": "select",
@@ -512,11 +672,7 @@ const CatalogResultsState_fields = {
     ]
   }
 };
-const CatalogResultsState_defaults = {
-  "previewMode": "results",
-  "results": [],
-  "empty": []
-};
+const CatalogResultsState_defaults = {};
 const CatalogTitleSummary_fields = {
   "title": {
     "type": "text",
@@ -527,14 +683,9 @@ const CatalogTitleSummary_fields = {
     "label": "Editor preview item count"
   }
 };
-const CatalogTitleSummary_defaults = {
-  "title": "All Products",
-  "totalItems": 128
-};
+const CatalogTitleSummary_defaults = {};
 const CategoryCatalogBreadcrumbs_fields = {};
-const CategoryCatalogBreadcrumbs_defaults = {
-  "categoryName": "Outerwear"
-};
+const CategoryCatalogBreadcrumbs_defaults = {};
 const CategoryCatalogGridBoundary_fields = {
   "grid": {
     "type": "slot",
@@ -543,15 +694,9 @@ const CategoryCatalogGridBoundary_fields = {
     ]
   }
 };
-const CategoryCatalogGridBoundary_defaults = {
-  "pageSize": 12,
-  "grid": []
-};
+const CategoryCatalogGridBoundary_defaults = {};
 const CategoryCatalogPaginationBlock_fields = {};
-const CategoryCatalogPaginationBlock_defaults = {
-  "currentPage": 1,
-  "totalPages": 4
-};
+const CategoryCatalogPaginationBlock_defaults = {};
 const CategoryCatalogPaginationCondition_fields = {
   "previewMode": {
     "type": "select",
@@ -573,10 +718,7 @@ const CategoryCatalogPaginationCondition_fields = {
     ]
   }
 };
-const CategoryCatalogPaginationCondition_defaults = {
-  "previewMode": "visible",
-  "content": []
-};
+const CategoryCatalogPaginationCondition_defaults = {};
 const CategoryCatalogResultsHeader_fields = {
   "controls": {
     "type": "slot",
@@ -586,10 +728,7 @@ const CategoryCatalogResultsHeader_fields = {
     ]
   }
 };
-const CategoryCatalogResultsHeader_defaults = {
-  "totalItems": 42,
-  "controls": []
-};
+const CategoryCatalogResultsHeader_defaults = {};
 const CategoryCatalogResultsState_fields = {
   "previewMode": {
     "type": "select",
@@ -619,11 +758,7 @@ const CategoryCatalogResultsState_fields = {
     ]
   }
 };
-const CategoryCatalogResultsState_defaults = {
-  "previewMode": "results",
-  "results": [],
-  "empty": []
-};
+const CategoryCatalogResultsState_defaults = {};
 const CategoryCatalogStateSection_fields = {
   "categorySlug": {
     "type": "text",
@@ -652,36 +787,9 @@ const CategoryCatalogStateSection_fields = {
     ]
   }
 };
-const CategoryCatalogStateSection_defaults = {
-  "categorySlug": "",
-  "state": "content"
-};
+const CategoryCatalogStateSection_defaults = {};
 const CategoryGrid_fields = {};
-const CategoryGrid_defaults = {
-  "categories": [
-    {
-      "_id": "department-preview-1",
-      "name": "Accessories",
-      "slug": "accessories",
-      "imageUrl": "https://images.unsplash.com/photo-1506629905607-5328f19e2d26?w=600&q=80",
-      "productCount": 2,
-      "isActive": true,
-      "createdAt": "2024-01-01T00:00:00Z",
-      "updatedAt": "2024-01-01T00:00:00Z"
-    },
-    {
-      "_id": "department-preview-2",
-      "name": "Footwear",
-      "slug": "footwear",
-      "imageUrl": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600&q=80",
-      "productCount": 1,
-      "isActive": true,
-      "createdAt": "2024-01-01T00:00:00Z",
-      "updatedAt": "2024-01-01T00:00:00Z"
-    }
-  ],
-  "showConciergeCard": true
-};
+const CategoryGrid_defaults = {};
 const CategoryHero_fields = {
   "categorySlug": {
     "type": "text",
@@ -704,13 +812,7 @@ const CategoryHero_fields = {
     "label": "Product Count"
   }
 };
-const CategoryHero_defaults = {
-  "categorySlug": "outerwear",
-  "name": "Outerwear",
-  "description": "Premium outerwear crafted from the finest materials for the discerning individual.",
-  "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=1600&q=80",
-  "productCount": 42
-};
+const CategoryHero_defaults = {};
 const CategoryHighlights_fields = {
   "header": {
     "type": "text",
@@ -753,55 +855,11 @@ const CategoryHighlights_fields = {
     }
   }
 };
-const CategoryHighlights_defaults = {
-  "header": "Shop by Category",
-  "subheader": "Curation",
-  "ctaLabel": "Explore All",
-  "categories": [
-    {
-      "name": "Outerwear",
-      "slug": "outerwear",
-      "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=80",
-      "productCount": 42
-    },
-    {
-      "name": "Footwear",
-      "slug": "footwear",
-      "image": "https://images.unsplash.com/photo-1549298916-b41d501d3779?w=600&q=80",
-      "productCount": 28
-    },
-    {
-      "name": "Accessories",
-      "slug": "accessories",
-      "image": "https://images.unsplash.com/photo-1611923134139-8cb8c9e1f1c1?w=600&q=80",
-      "productCount": 15
-    }
-  ]
-};
+const CategoryHighlights_defaults = {};
 const CategoryProductFiltersBlock_fields = {};
-const CategoryProductFiltersBlock_defaults = {
-  "categories": []
-};
+const CategoryProductFiltersBlock_defaults = {};
 const CategoryProductGridBlock_fields = {};
-const CategoryProductGridBlock_defaults = {
-  "products": [
-    {
-      "_id": "category-preview-product",
-      "id": "category-preview-product",
-      "name": "Category Preview Product",
-      "slug": "category-preview-product",
-      "price": 250,
-      "images": [
-        "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=80"
-      ],
-      "stock": 6,
-      "inStock": true,
-      "isActive": true,
-      "createdAt": "2024-01-01T00:00:00Z",
-      "updatedAt": "2024-01-01T00:00:00Z"
-    }
-  ]
-};
+const CategoryProductGridBlock_defaults = {};
 const CategorySubcategoryCondition_fields = {
   "previewMode": {
     "type": "select",
@@ -823,10 +881,7 @@ const CategorySubcategoryCondition_fields = {
     ]
   }
 };
-const CategorySubcategoryCondition_defaults = {
-  "previewMode": "visible",
-  "content": []
-};
+const CategorySubcategoryCondition_defaults = {};
 const CheckoutDigitalAssetsSection_fields = {
   "orderId": {
     "type": "text",
@@ -857,11 +912,7 @@ const CheckoutDigitalAssetsSection_fields = {
     "type": "slot"
   }
 };
-const CheckoutDigitalAssetsSection_defaults = {
-  "orderId": "",
-  "email": "",
-  "state": "available"
-};
+const CheckoutDigitalAssetsSection_defaults = {};
 const CheckoutOrderSummary_fields = {
   "subtotal": {
     "type": "number",
@@ -940,57 +991,67 @@ const CheckoutOrderSummary_fields = {
     "max": 50
   }
 };
-const CheckoutOrderSummary_defaults = {
-  "subtotal": 1930,
-  "shippingMethod": "",
-  "shippingPrice": 0,
-  "tax": 0,
-  "discount": 0,
-  "total": 1930,
-  "itemCount": 3,
-  "compact": "false",
-  "items": [
-    {
-      "productName": "Premium Wool Coat",
-      "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=200&q=80",
-      "quantity": 1,
-      "price": 1290,
-      "variantName": "Size: L, Color: Camel"
-    },
-    {
-      "productName": "Cashmere Sweater",
-      "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=200&q=80",
-      "quantity": 2,
-      "price": 320,
-      "variantName": "Size: M, Color: Charcoal"
-    }
-  ]
-};
-const CheckoutStateSection_fields = {
-  "state": {
-    "type": "select",
-    "label": "Preview State",
-    "options": [
-      {
-        "label": "Ready",
-        "value": "ready"
-      },
-      {
-        "label": "Empty Cart",
-        "value": "empty"
-      }
+const CheckoutOrderSummary_defaults = {};
+const CheckoutPageClientLayout_fields = {
+  "steps": {
+    "type": "slot",
+    "allow": [
+      "CheckoutStepsRegion"
     ]
   },
-  "ready": {
-    "type": "slot"
+  "header": {
+    "type": "slot",
+    "allow": [
+      "CheckoutPageHeader"
+    ]
   },
-  "empty": {
-    "type": "slot"
+  "error": {
+    "type": "slot",
+    "allow": [
+      "CheckoutErrorCondition"
+    ]
+  },
+  "shipping": {
+    "type": "slot",
+    "allow": [
+      "CheckoutShippingSection"
+    ]
+  },
+  "payment": {
+    "type": "slot",
+    "allow": [
+      "CheckoutPaymentCondition"
+    ]
+  },
+  "review": {
+    "type": "slot",
+    "allow": [
+      "CheckoutReviewCondition"
+    ]
+  },
+  "confirmation": {
+    "type": "slot",
+    "allow": [
+      "CheckoutConfirmationCondition"
+    ]
+  },
+  "summary": {
+    "type": "slot",
+    "allow": [
+      "CheckoutOrderSummaryPanel"
+    ]
   }
 };
-const CheckoutStateSection_defaults = {
-  "state": "ready"
+const CheckoutPageClientLayout_defaults = {};
+const CheckoutPageState_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "CheckoutPageClientLayout"
+    ]
+  }
 };
+const CheckoutPageState_defaults = {};
 const CheckoutSubscriptionStateSection_fields = {
   "state": {
     "type": "select",
@@ -1017,10 +1078,91 @@ const CheckoutSubscriptionStateSection_fields = {
     "type": "slot"
   }
 };
-const CheckoutSubscriptionStateSection_defaults = {
-  "state": "ready",
-  "itemCount": 1
+const CheckoutSubscriptionStateSection_defaults = {};
+const CheckoutSuccessDigitalAssetsCondition_fields = {
+  "previewMode": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Visible",
+        "value": "visible"
+      },
+      {
+        "label": "Hidden",
+        "value": "hidden"
+      }
+    ]
+  },
+  "content": {
+    "type": "slot",
+    "allow": [
+      "CheckoutSuccessDigitalDownloads",
+      "CheckoutSuccessLicenseKeys"
+    ]
+  }
 };
+const CheckoutSuccessDigitalAssetsCondition_defaults = {};
+const CheckoutSuccessDigitalDownloads_fields = {};
+const CheckoutSuccessDigitalDownloads_defaults = {};
+const CheckoutSuccessLicenseKeys_fields = {};
+const CheckoutSuccessLicenseKeys_defaults = {};
+const CheckoutSuccessNextSteps_fields = {};
+const CheckoutSuccessNextSteps_defaults = {};
+const CheckoutSuccessOrderItemList_fields = {};
+const CheckoutSuccessOrderItemList_defaults = {};
+const CheckoutSuccessOrderNumber_fields = {};
+const CheckoutSuccessOrderNumber_defaults = {};
+const CheckoutSuccessOrderSummary_fields = {};
+const CheckoutSuccessOrderSummary_defaults = {};
+const CheckoutSuccessPageState_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "CheckoutSuccessPageLayout"
+    ]
+  }
+};
+const CheckoutSuccessPageState_defaults = {};
+const CheckoutSuccessPurchaseTracker_fields = {};
+const CheckoutSuccessPurchaseTracker_defaults = {};
+const CheckoutSuccessShippingInfo_fields = {};
+const CheckoutSuccessShippingInfo_defaults = {};
+const CheckoutSuccessViewOrder_fields = {};
+const CheckoutSuccessViewOrder_defaults = {};
+const CollectionDetailCuratedDisplay_fields = {};
+const CollectionDetailCuratedDisplay_defaults = {};
+const CollectionDetailHero_fields = {};
+const CollectionDetailHero_defaults = {};
+const CollectionDetailInspirationGallery_fields = {};
+const CollectionDetailInspirationGallery_defaults = {};
+const CollectionDetailPageState_fields = {
+  "previewMode": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Collection",
+        "value": "content"
+      },
+      {
+        "label": "Not Found",
+        "value": "not-found"
+      }
+    ]
+  },
+  "content": {
+    "type": "slot",
+    "allow": [
+      "CollectionDetailPageLayout"
+    ]
+  },
+  "notFound": {
+    "type": "slot",
+    "allow": [
+      "CollectionDetailNotFound"
+    ]
+  }
+};
+const CollectionDetailPageState_defaults = {};
 const CollectionDetailStateSection_fields = {
   "collectionSlug": {
     "type": "text",
@@ -1049,71 +1191,9 @@ const CollectionDetailStateSection_fields = {
     ]
   }
 };
-const CollectionDetailStateSection_defaults = {
-  "collectionSlug": "",
-  "state": "curated"
-};
-const CollectionGrid_fields = {
-  "items": {
-    "type": "array",
-    "label": "Collections",
-    "arrayFields": {
-      "name": {
-        "type": "text",
-        "label": "Name"
-      },
-      "slug": {
-        "type": "text",
-        "label": "Slug"
-      },
-      "image": {
-        "type": "text",
-        "label": "Image URL"
-      },
-      "itemCount": {
-        "type": "number",
-        "label": "Item Count"
-      },
-      "href": {
-        "type": "text",
-        "label": "Link URL"
-      }
-    },
-    "defaultItemProps": {
-      "name": "New Collection",
-      "slug": "new-collection",
-      "image": "",
-      "itemCount": 0,
-      "href": "/collections/new-collection"
-    },
-    "max": 24
-  }
-};
-const CollectionGrid_defaults = {
-  "items": [
-    {
-      "name": "Winter Essentials",
-      "slug": "winter-essentials",
-      "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=80",
-      "itemCount": 24,
-      "href": "/collections/winter-essentials"
-    },
-    {
-      "name": "Summer Collection",
-      "slug": "summer-collection",
-      "image": "https://images.unsplash.com/photo-1549298916-b41d501d3779?w=600&q=80",
-      "itemCount": 18,
-      "href": "/collections/summer-collection"
-    },
-    {
-      "name": "Heritage Line",
-      "slug": "heritage-line",
-      "image": "https://images.unsplash.com/photo-1611923134139-cb5f6c7c5e3e?w=600&q=80",
-      "itemCount": 12,
-      "href": "/collections/heritage-line"
-    }
-  ]
-};
+const CollectionDetailStateSection_defaults = {};
+const CollectionGrid_fields = {};
+const CollectionGrid_defaults = {};
 const CollectionHero_fields = {
   "collectionSlug": {
     "type": "text",
@@ -1158,27 +1238,35 @@ const CollectionHero_fields = {
     "label": "Secondary CTA Label"
   }
 };
-const CollectionHero_defaults = {
-  "collectionSlug": "winter-essentials",
-  "title": "Autumn Collection",
-  "subtitle": "A curated selection of timeless pieces for the modern wardrobe.",
-  "imageUrl": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=1600&q=80",
-  "breadcrumbs": [
-    {
-      "label": "Home",
-      "href": "/"
-    },
-    {
-      "label": "Collections",
-      "href": "/collections"
-    },
-    {
-      "label": "Autumn Collection"
-    }
-  ],
-  "ctaPrimaryLabel": "Shop All Pieces",
-  "ctaSecondaryLabel": "Watch Film"
+const CollectionHero_defaults = {};
+const CollectionsResultsState_fields = {
+  "previewMode": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Collections",
+        "value": "results"
+      },
+      {
+        "label": "Empty",
+        "value": "empty"
+      }
+    ]
+  },
+  "results": {
+    "type": "slot",
+    "allow": [
+      "CollectionGrid"
+    ]
+  },
+  "empty": {
+    "type": "slot",
+    "allow": [
+      "EmptyCollections"
+    ]
+  }
 };
+const CollectionsResultsState_defaults = {};
 const CollectionStateSection_fields = {
   "state": {
     "type": "select",
@@ -1201,9 +1289,31 @@ const CollectionStateSection_fields = {
     "type": "slot"
   }
 };
-const CollectionStateSection_defaults = {
-  "state": "content"
+const CollectionStateSection_defaults = {};
+const CollectionTypeFilter_fields = {};
+const CollectionTypeFilter_defaults = {};
+const CuratedCollectionCondition_fields = {
+  "previewMode": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Visible",
+        "value": "visible"
+      },
+      {
+        "label": "Hidden",
+        "value": "hidden"
+      }
+    ]
+  },
+  "content": {
+    "type": "slot",
+    "allow": [
+      "CollectionDetailCuratedDisplay"
+    ]
+  }
 };
+const CuratedCollectionCondition_defaults = {};
 const CuratedCollectionSection_fields = {
   "eyebrow": {
     "type": "text",
@@ -1266,41 +1376,7 @@ const CuratedCollectionSection_fields = {
     }
   }
 };
-const CuratedCollectionSection_defaults = {
-  "eyebrow": "Curated Collection",
-  "ctaText": "Explore Collection",
-  "collectionName": "Autumn Essentials",
-  "collectionDescription": "A curated selection of premium pieces for the season.",
-  "collectionSlug": "autumn-essentials",
-  "mainProductName": "Signature Trench Coat",
-  "mainProductImage": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=80",
-  "relatedProducts": [
-    {
-      "name": "Premium Wool Coat",
-      "slug": "premium-wool-coat",
-      "price": 450,
-      "image": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80"
-    },
-    {
-      "name": "Silk Blend Shirt",
-      "slug": "silk-blend-shirt",
-      "price": 180,
-      "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80"
-    },
-    {
-      "name": "Leather Tote Bag",
-      "slug": "leather-tote-bag",
-      "price": 550,
-      "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
-    },
-    {
-      "name": "Cashmere Sweater",
-      "slug": "cashmere-sweater",
-      "price": 320,
-      "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80"
-    }
-  ]
-};
+const CuratedCollectionSection_defaults = {};
 const CuratedProductDisplay_fields = {
   "collectionSlug": {
     "type": "text",
@@ -1376,88 +1452,76 @@ const CuratedProductDisplay_fields = {
     "label": "Add to Cart Label"
   }
 };
-const CuratedProductDisplay_defaults = {
-  "collectionSlug": "winter-essentials",
-  "mainProductName": "Signature Wool Overcoat",
-  "mainProductImage": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&q=80",
-  "mainProductPrice": "$1,290",
-  "mainProductRating": "4.8",
-  "mainProductReviewCount": 124,
-  "collectionName": "Winter Essentials",
-  "description": "Crafted from premium Italian wool, this overcoat combines timeless tailoring with modern functionality. A centerpiece of our Winter Essentials collection.",
-  "relatedTitle": "Complete the Look",
-  "relatedProducts": [
-    {
-      "name": "Cashmere Scarf",
-      "image": "https://images.unsplash.com/photo-1611923134139-cb5f6c7c5e3e?w=400&q=80",
-      "price": "$220",
-      "rating": "4.6"
-    },
-    {
-      "name": "Leather Gloves",
-      "image": "https://images.unsplash.com/photo-1549298916-b41d501d3779?w=400&q=80",
-      "price": "$180",
-      "rating": "4.7"
-    },
-    {
-      "name": "Wool Beanie",
-      "image": "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=400&q=80",
-      "price": "$95",
-      "rating": "4.5"
-    }
-  ],
-  "relatedCount": 4,
-  "addToCartLabel": "Add to Collection"
-};
-const DownloadLicenseStateSection_fields = {
-  "licenseKey": {
-    "type": "text",
-    "label": "License Key"
-  },
-  "state": {
+const CuratedProductDisplay_defaults = {};
+const DigitalLibraryAssetsMetric_fields = {};
+const DigitalLibraryAssetsMetric_defaults = {};
+const DigitalLibraryAssetsState_fields = {
+  "previewState": {
     "type": "select",
     "label": "Preview State",
     "options": [
       {
-        "label": "Valid",
-        "value": "valid"
+        "label": "Library assets",
+        "value": "assets"
       },
       {
-        "label": "Invalid",
-        "value": "invalid"
+        "label": "Empty library",
+        "value": "empty"
       }
     ]
   },
-  "assetName": {
-    "type": "text",
-    "label": "Asset Name"
+  "assets": {
+    "type": "slot",
+    "allow": [
+      "DigitalLibraryEntriesGrid"
+    ]
   },
-  "fileSize": {
-    "type": "number",
-    "label": "File Size"
-  },
-  "downloadsRemaining": {
-    "type": "number",
-    "label": "Downloads Remaining"
-  },
-  "downloadCount": {
-    "type": "number",
-    "label": "Download Count"
-  },
-  "expiresAt": {
-    "type": "text",
-    "label": "Expires At"
+  "empty": {
+    "type": "slot",
+    "allow": [
+      "DigitalLibraryEmptyRegion"
+    ]
   }
 };
-const DownloadLicenseStateSection_defaults = {
-  "licenseKey": "",
-  "state": "invalid",
-  "assetName": "Digital asset",
-  "fileSize": 0,
-  "downloadsRemaining": null,
-  "downloadCount": 0,
-  "expiresAt": null
+const DigitalLibraryAssetsState_defaults = {};
+const DigitalLibraryAttentionMetric_fields = {};
+const DigitalLibraryAttentionMetric_defaults = {};
+const DigitalLibraryDownloadsMetric_fields = {};
+const DigitalLibraryDownloadsMetric_defaults = {};
+const DigitalLibraryEntriesGrid_fields = {};
+const DigitalLibraryEntriesGrid_defaults = {};
+const DigitalLibraryHistoryRegion_fields = {};
+const DigitalLibraryHistoryRegion_defaults = {};
+const DownloadAssetState_fields = {};
+const DownloadAssetState_defaults = {};
+const DownloadExpirationNotice_fields = {};
+const DownloadExpirationNotice_defaults = {};
+const DownloadLicenseInfoPanel_fields = {};
+const DownloadLicenseInfoPanel_defaults = {};
+const FeaturedCuratedCollection_fields = {};
+const FeaturedCuratedCollection_defaults = {};
+const FeaturedCuratedCollectionCondition_fields = {
+  "previewMode": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Visible",
+        "value": "visible"
+      },
+      {
+        "label": "Hidden",
+        "value": "hidden"
+      }
+    ]
+  },
+  "content": {
+    "type": "slot",
+    "allow": [
+      "FeaturedCuratedCollection"
+    ]
+  }
 };
+const FeaturedCuratedCollectionCondition_defaults = {};
 const FeaturedProductsGrid_fields = {
   "header": {
     "type": "text",
@@ -1500,36 +1564,7 @@ const FeaturedProductsGrid_fields = {
     }
   }
 };
-const FeaturedProductsGrid_defaults = {
-  "header": "Featured Products",
-  "subheader": "Essentials",
-  "products": [
-    {
-      "name": "Premium Wool Coat",
-      "slug": "premium-wool-coat",
-      "price": 450,
-      "image": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80"
-    },
-    {
-      "name": "Silk Blend Shirt",
-      "slug": "silk-blend-shirt",
-      "price": 180,
-      "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80"
-    },
-    {
-      "name": "Leather Tote Bag",
-      "slug": "leather-tote-bag",
-      "price": 550,
-      "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
-    },
-    {
-      "name": "Cashmere Sweater",
-      "slug": "cashmere-sweater",
-      "price": 320,
-      "image": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80"
-    }
-  ]
-};
+const FeaturedProductsGrid_defaults = {};
 const FreeShippingProgress_fields = {
   "currentTotal": {
     "type": "number",
@@ -1540,10 +1575,7 @@ const FreeShippingProgress_fields = {
     "label": "Free Shipping Threshold"
   }
 };
-const FreeShippingProgress_defaults = {
-  "currentTotal": 0,
-  "threshold": 100
-};
+const FreeShippingProgress_defaults = {};
 const HeroSection_fields = {
   "title": {
     "type": "text",
@@ -1578,16 +1610,53 @@ const HeroSection_fields = {
     "label": "Product Slug"
   }
 };
-const HeroSection_defaults = {
-  "title": "Timeless Quality for the Modern Wardrobe",
-  "productName": "Premium Wool Coat",
-  "subtitle": "Discover our curated collection of high-end essentials designed for the sophisticated individual. Effortless luxury, everyday.",
-  "ctaPrimary": "Shop the Collection",
-  "ctaSecondary": "View Lookbook",
-  "backgroundImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuA6gp8HFBtOLhaLDZsED1w2eDKkeIHp6jt0CCvOR_XUoTQFJEpJEjhZEfhzDVSbO-0M1L7BoveRAyvHMXrc17n2O9joLLbK6-OJgyJEKJUu6k2tvyZvuAmmIhFqMIb4swMAkkEDSROBla5cwwqD4yS4Ve6lHwe3qs-MyH6SQwdlhPnT7ms_ZRYoxinaARe8iQYqsgR0E8hMueI6nHy9Jz3X8uN85CCOJ0JGGLFLfGA6NyKOwhDgbRCoJBD3qKXWi7ehVJWCX5qzs4MN",
-  "imageAlt": "Fashion model wearing minimalist high-end clothing in a bright studio",
-  "productSlug": "premium-wool-coat"
+const HeroSection_defaults = {};
+const InspirationCollectionCondition_fields = {
+  "previewMode": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Visible",
+        "value": "visible"
+      },
+      {
+        "label": "Hidden",
+        "value": "hidden"
+      }
+    ]
+  },
+  "content": {
+    "type": "slot",
+    "allow": [
+      "InspirationCollectionSection"
+    ]
+  }
 };
+const InspirationCollectionCondition_defaults = {};
+const InspirationCollectionSection_fields = {};
+const InspirationCollectionSection_defaults = {};
+const InspirationDetailCondition_fields = {
+  "previewMode": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Visible",
+        "value": "visible"
+      },
+      {
+        "label": "Hidden",
+        "value": "hidden"
+      }
+    ]
+  },
+  "content": {
+    "type": "slot",
+    "allow": [
+      "CollectionDetailInspirationGallery"
+    ]
+  }
+};
+const InspirationDetailCondition_defaults = {};
 const InspirationGallery_fields = {
   "title": {
     "type": "text",
@@ -1625,22 +1694,7 @@ const InspirationGallery_fields = {
     "max": 2
   }
 };
-const InspirationGallery_defaults = {
-  "title": "Inspiration Lookbook",
-  "subtitle": "Curated visuals to inspire your next look.",
-  "mainImage": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80",
-  "mainImageAlt": "Inspiration lookbook hero image",
-  "sideImages": [
-    {
-      "name": "Detail Shot",
-      "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80"
-    },
-    {
-      "name": "Lifestyle Shot",
-      "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&q=80"
-    }
-  ]
-};
+const InspirationGallery_defaults = {};
 const InspirationSection_fields = {
   "subheader": {
     "type": "text",
@@ -1648,11 +1702,7 @@ const InspirationSection_fields = {
   },
   "header": {
     "type": "text",
-    "label": "Header (fallback title)"
-  },
-  "title": {
-    "type": "text",
-    "label": "Title"
+    "label": "Header"
   },
   "description": {
     "type": "textarea",
@@ -1662,33 +1712,25 @@ const InspirationSection_fields = {
     "type": "text",
     "label": "CTA Text"
   },
-  "ctaLink": {
+  "image": {
     "type": "text",
-    "label": "CTA Link"
+    "label": "Fallback Image URL"
   },
-  "backgroundImage": {
+  "alt": {
     "type": "text",
-    "label": "Background Image URL"
-  },
-  "imageAlt": {
-    "type": "text",
-    "label": "Image Alt Text"
+    "label": "Fallback Image Alt Text"
   },
   "hotspots": {
     "type": "array",
-    "label": "Product Hotspots",
+    "label": "Hotspot Placements",
     "arrayFields": {
-      "label": {
+      "title": {
         "type": "text",
-        "label": "Product Name"
+        "label": "Source Label"
       },
       "price": {
-        "type": "number",
-        "label": "Price"
-      },
-      "slug": {
         "type": "text",
-        "label": "Product Slug"
+        "label": "Source Price"
       },
       "top": {
         "type": "text",
@@ -1708,9 +1750,8 @@ const InspirationSection_fields = {
       }
     },
     "defaultItemProps": {
-      "label": "Product Name",
-      "price": 0,
-      "slug": "product-slug",
+      "title": "Product Name",
+      "price": "$0.00",
       "top": "",
       "right": "",
       "bottom": "",
@@ -1718,39 +1759,7 @@ const InspirationSection_fields = {
     }
   }
 };
-const InspirationSection_defaults = {
-  "subheader": "Style Inspiration",
-  "header": "Autumn Edit",
-  "title": "Autumn Edit",
-  "description": "Discover this season's most coveted looks, curated for the modern wardrobe.",
-  "ctaText": "Shop the Edit",
-  "ctaLink": "/collections/all",
-  "backgroundImage": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80",
-  "imageAlt": "Autumn fashion inspiration",
-  "hotspots": [
-    {
-      "label": "Wool Blend Overcoat",
-      "price": 450,
-      "slug": "wool-blend-overcoat",
-      "top": "20%",
-      "left": "30%"
-    },
-    {
-      "label": "Leather Ankle Boots",
-      "price": 320,
-      "slug": "leather-ankle-boots",
-      "top": "65%",
-      "left": "45%"
-    },
-    {
-      "label": "Cashmere Scarf",
-      "price": 180,
-      "slug": "cashmere-scarf",
-      "top": "35%",
-      "left": "60%"
-    }
-  ]
-};
+const InspirationSection_defaults = {};
 const MobileFilterDrawerBlock_fields = {
   "categories": {
     "type": "array",
@@ -1784,28 +1793,258 @@ const MobileFilterDrawerBlock_fields = {
     }
   }
 };
-const MobileFilterDrawerBlock_defaults = {
-  "categories": [
-    {
-      "_id": "preview-outerwear",
-      "name": "Outerwear",
-      "slug": "outerwear",
-      "isActive": true,
-      "productCount": 24,
-      "createdAt": "2024-01-01T00:00:00Z",
-      "updatedAt": "2024-01-01T00:00:00Z"
-    },
-    {
-      "_id": "preview-accessories",
-      "name": "Accessories",
-      "slug": "accessories",
-      "isActive": true,
-      "productCount": 18,
-      "createdAt": "2024-01-01T00:00:00Z",
-      "updatedAt": "2024-01-01T00:00:00Z"
-    }
-  ]
+const MobileFilterDrawerBlock_defaults = {};
+const NoResults_fields = {
+  "query": {
+    "type": "text",
+    "label": "Search Query"
+  }
 };
+const NoResults_defaults = {};
+const OrderDetailsBillingAddressCondition_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "OrderDetailsBillingRegion"
+    ]
+  }
+};
+const OrderDetailsBillingAddressCondition_defaults = {};
+const OrderDetailsBillingRegion_fields = {};
+const OrderDetailsBillingRegion_defaults = {};
+const OrderDetailsBreadcrumbs_fields = {};
+const OrderDetailsBreadcrumbs_defaults = {};
+const OrderDetailsCancelAction_fields = {};
+const OrderDetailsCancelAction_defaults = {};
+const OrderDetailsDownloadAction_fields = {};
+const OrderDetailsDownloadAction_defaults = {};
+const OrderDetailsFinancialRegion_fields = {};
+const OrderDetailsFinancialRegion_defaults = {};
+const OrderDetailsHeader_fields = {
+  "downloads": {
+    "type": "slot",
+    "allow": [
+      "OrderDetailsDownloadAction"
+    ]
+  },
+  "reorder": {
+    "type": "slot",
+    "allow": [
+      "OrderDetailsReorderAction"
+    ]
+  },
+  "cancel": {
+    "type": "slot",
+    "allow": [
+      "OrderDetailsCancelAction"
+    ]
+  }
+};
+const OrderDetailsHeader_defaults = {};
+const OrderDetailsItemsRegion_fields = {};
+const OrderDetailsItemsRegion_defaults = {};
+const OrderDetailsPageState_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "OrderDetailsPageLayout"
+    ]
+  }
+};
+const OrderDetailsPageState_defaults = {};
+const OrderDetailsPaymentRegion_fields = {};
+const OrderDetailsPaymentRegion_defaults = {};
+const OrderDetailsReorderAction_fields = {};
+const OrderDetailsReorderAction_defaults = {};
+const OrderDetailsShippingRegion_fields = {};
+const OrderDetailsShippingRegion_defaults = {};
+const OrderDownloadsAssetsState_fields = {
+  "previewState": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Digital assets",
+        "value": "assets"
+      },
+      {
+        "label": "No downloads",
+        "value": "empty"
+      }
+    ]
+  },
+  "assets": {
+    "type": "slot",
+    "allow": [
+      "OrderDownloadsAssetsLayout"
+    ]
+  },
+  "empty": {
+    "type": "slot",
+    "allow": [
+      "OrderDownloadsEmptyRegion"
+    ]
+  }
+};
+const OrderDownloadsAssetsState_defaults = {};
+const OrderDownloadsBackLink_fields = {};
+const OrderDownloadsBackLink_defaults = {};
+const OrderDownloadsBreadcrumbs_fields = {};
+const OrderDownloadsBreadcrumbs_defaults = {};
+const OrderDownloadsHeader_fields = {};
+const OrderDownloadsHeader_defaults = {};
+const OrderDownloadsLicenseKeysRegion_fields = {};
+const OrderDownloadsLicenseKeysRegion_defaults = {};
+const OrderDownloadsListRegion_fields = {};
+const OrderDownloadsListRegion_defaults = {};
+const OrderDownloadsPageState_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "OrderDownloadsPageLayout"
+    ]
+  }
+};
+const OrderDownloadsPageState_defaults = {};
+const OrderDownloadsPaymentPendingCondition_fields = {
+  "previewState": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Paid",
+        "value": "paid"
+      },
+      {
+        "label": "Payment pending",
+        "value": "pending"
+      }
+    ]
+  },
+  "content": {
+    "type": "slot",
+    "allow": [
+      "OrderDownloadsPaymentPendingNotice"
+    ]
+  }
+};
+const OrderDownloadsPaymentPendingCondition_defaults = {};
+const OrderReturnBreadcrumbs_fields = {};
+const OrderReturnBreadcrumbs_defaults = {};
+const OrderReturnEligibilityState_fields = {
+  "previewState": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Eligible return",
+        "value": "eligible"
+      },
+      {
+        "label": "Expired window",
+        "value": "expired"
+      },
+      {
+        "label": "Not eligible",
+        "value": "ineligible"
+      }
+    ]
+  },
+  "expired": {
+    "type": "slot",
+    "allow": [
+      "OrderReturnWindowExpiredRegion"
+    ]
+  },
+  "ineligible": {
+    "type": "slot",
+    "allow": [
+      "OrderReturnNotEligibleRegion"
+    ]
+  },
+  "eligible": {
+    "type": "slot",
+    "allow": [
+      "OrderReturnEligibleLayout"
+    ]
+  }
+};
+const OrderReturnEligibilityState_defaults = {};
+const OrderReturnNotEligibleRegion_fields = {};
+const OrderReturnNotEligibleRegion_defaults = {};
+const OrderReturnPageState_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "OrderReturnPageLayout"
+    ]
+  }
+};
+const OrderReturnPageState_defaults = {};
+const OrderReturnRequestFormRegion_fields = {};
+const OrderReturnRequestFormRegion_defaults = {};
+const OrderReturnWindowExpiredRegion_fields = {};
+const OrderReturnWindowExpiredRegion_defaults = {};
+const PaymentMethodsListRegion_fields = {};
+const PaymentMethodsListRegion_defaults = {};
+const PaymentMethodsListState_fields = {
+  "previewState": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Saved cards",
+        "value": "list"
+      },
+      {
+        "label": "No saved cards",
+        "value": "empty"
+      }
+    ]
+  },
+  "list": {
+    "type": "slot",
+    "allow": [
+      "PaymentMethodsListRegion"
+    ]
+  },
+  "empty": {
+    "type": "slot",
+    "allow": [
+      "PaymentMethodsEmptyStateRegion"
+    ]
+  }
+};
+const PaymentMethodsListState_defaults = {};
+const PaymentMethodsPageState_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "PaymentMethodsPageLayout"
+    ]
+  }
+};
+const PaymentMethodsPageState_defaults = {};
+const PaymentMethodsStripeCardForm_fields = {};
+const PaymentMethodsStripeCardForm_defaults = {};
+const PaymentMethodsStripeConfigCondition_fields = {
+  "previewVisible": {
+    "type": "radio",
+    "options": [
+      {
+        "label": "Configuration available",
+        "value": true
+      },
+      {
+        "label": "Configuration unavailable",
+        "value": false
+      }
+    ]
+  },
+  "content": {
+    "type": "slot",
+    "allow": [
+      "PaymentMethodsStripeCardForm"
+    ]
+  }
+};
+const PaymentMethodsStripeConfigCondition_defaults = {};
 const PriceDisplay_fields = {
   "productSlug": {
     "type": "text",
@@ -1852,13 +2091,7 @@ const PriceDisplay_fields = {
     ]
   }
 };
-const PriceDisplay_defaults = {
-  "productSlug": "premium-wool-coat",
-  "price": 450,
-  "salePrice": null,
-  "isOnSale": "false",
-  "size": "large"
-};
+const PriceDisplay_defaults = {};
 const ProductDetailPurchaseColumn_fields = {
   "productSlug": {
     "type": "text",
@@ -1895,16 +2128,7 @@ const ProductDetailPurchaseColumn_fields = {
     ]
   }
 };
-const ProductDetailPurchaseColumn_defaults = {
-  "productSlug": "premium-wool-coat",
-  "productName": "Premium Wool Coat",
-  "hasRating": true,
-  "stock": [],
-  "rating": [],
-  "price": [],
-  "purchase": [],
-  "trust": []
-};
+const ProductDetailPurchaseColumn_defaults = {};
 const ProductDetailPurchaseSection_fields = {
   "productSlug": {
     "type": "text",
@@ -1928,10 +2152,7 @@ const ProductDetailPurchaseSection_fields = {
     "type": "slot"
   }
 };
-const ProductDetailPurchaseSection_defaults = {
-  "productSlug": "premium-wool-coat",
-  "state": "available"
-};
+const ProductDetailPurchaseSection_defaults = {};
 const ProductDetailRelatedProductsSection_fields = {
   "productSlug": {
     "type": "text",
@@ -1957,45 +2178,14 @@ const ProductDetailRelatedProductsSection_fields = {
     ]
   }
 };
-const ProductDetailRelatedProductsSection_defaults = {
-  "productSlug": "premium-wool-coat",
-  "previewMode": "visible",
-  "content": []
-};
+const ProductDetailRelatedProductsSection_defaults = {};
 const ProductDetailsClient_fields = {
   "productSlug": {
     "type": "text",
     "label": "Product Slug (auto-fill product)"
   }
 };
-const ProductDetailsClient_defaults = {
-  "productSlug": "premium-wool-coat",
-  "product": {
-    "_id": "product-detail-preview",
-    "name": "Premium Wool Coat",
-    "slug": "premium-wool-coat",
-    "price": 450,
-    "images": [
-      "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=80"
-    ],
-    "stock": 10,
-    "inStock": true,
-    "isActive": true,
-    "colors": [
-      {
-        "name": "Camel",
-        "hex": "#c19a6b"
-      }
-    ],
-    "sizes": [
-      "S",
-      "M",
-      "L"
-    ],
-    "createdAt": "2024-01-01T00:00:00Z",
-    "updatedAt": "2024-01-01T00:00:00Z"
-  }
-};
+const ProductDetailsClient_defaults = {};
 const ProductFiltersBlock_fields = {
   "categories": {
     "type": "array",
@@ -2029,28 +2219,7 @@ const ProductFiltersBlock_fields = {
     }
   }
 };
-const ProductFiltersBlock_defaults = {
-  "categories": [
-    {
-      "_id": "preview-outerwear",
-      "name": "Outerwear",
-      "slug": "outerwear",
-      "isActive": true,
-      "productCount": 24,
-      "createdAt": "2024-01-01T00:00:00Z",
-      "updatedAt": "2024-01-01T00:00:00Z"
-    },
-    {
-      "_id": "preview-accessories",
-      "name": "Accessories",
-      "slug": "accessories",
-      "isActive": true,
-      "productCount": 18,
-      "createdAt": "2024-01-01T00:00:00Z",
-      "updatedAt": "2024-01-01T00:00:00Z"
-    }
-  ]
-};
+const ProductFiltersBlock_defaults = {};
 const ProductGallery_fields = {
   "productSlug": {
     "type": "text",
@@ -2074,85 +2243,14 @@ const ProductGallery_fields = {
     }
   }
 };
-const ProductGallery_defaults = {
-  "productSlug": "premium-wool-coat",
-  "productName": "Premium Wool Coat",
-  "images": [
-    "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=80",
-    "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800&q=80"
-  ]
-};
+const ProductGallery_defaults = {};
 const ProductGrid_fields = {
   "listName": {
     "type": "text",
     "label": "Analytics List Name"
   }
 };
-const ProductGrid_defaults = {
-  "products": [
-    {
-      "_id": "preview-wool-overcoat",
-      "id": "preview-wool-overcoat",
-      "name": "Wool Overcoat",
-      "slug": "wool-overcoat",
-      "price": 1290,
-      "images": [
-        "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=80"
-      ],
-      "stock": 12,
-      "inStock": true,
-      "isActive": true,
-      "createdAt": "2024-01-01T00:00:00Z",
-      "updatedAt": "2024-01-01T00:00:00Z"
-    },
-    {
-      "_id": "preview-cashmere-sweater",
-      "id": "preview-cashmere-sweater",
-      "name": "Cashmere Sweater",
-      "slug": "cashmere-sweater",
-      "price": 320,
-      "images": [
-        "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80"
-      ],
-      "stock": 8,
-      "inStock": true,
-      "isActive": true,
-      "createdAt": "2024-01-01T00:00:00Z",
-      "updatedAt": "2024-01-01T00:00:00Z"
-    },
-    {
-      "_id": "preview-silk-blend-shirt",
-      "id": "preview-silk-blend-shirt",
-      "name": "Silk Blend Shirt",
-      "slug": "silk-blend-shirt",
-      "price": 180,
-      "images": [
-        "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80"
-      ],
-      "stock": 15,
-      "inStock": true,
-      "isActive": true,
-      "createdAt": "2024-01-01T00:00:00Z",
-      "updatedAt": "2024-01-01T00:00:00Z"
-    },
-    {
-      "_id": "preview-leather-tote",
-      "id": "preview-leather-tote",
-      "name": "Leather Tote Bag",
-      "slug": "leather-tote-bag",
-      "price": 550,
-      "images": [
-        "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80"
-      ],
-      "stock": 5,
-      "inStock": true,
-      "isActive": true,
-      "createdAt": "2024-01-01T00:00:00Z",
-      "updatedAt": "2024-01-01T00:00:00Z"
-    }
-  ],
-  "listName": "Product Listing"
-};
+const ProductGrid_defaults = {};
 const ProductRatingSummary_fields = {
   "productSlug": {
     "type": "text",
@@ -2167,11 +2265,7 @@ const ProductRatingSummary_fields = {
     "label": "Review Count"
   }
 };
-const ProductRatingSummary_defaults = {
-  "productSlug": "premium-wool-coat",
-  "rating": 4.5,
-  "reviewCount": 128
-};
+const ProductRatingSummary_defaults = {};
 const ProductRelatedProductsSection_fields = {
   "productSlug": {
     "type": "text",
@@ -2195,10 +2289,7 @@ const ProductRelatedProductsSection_fields = {
     "type": "slot"
   }
 };
-const ProductRelatedProductsSection_defaults = {
-  "productSlug": "premium-wool-coat",
-  "state": "visible"
-};
+const ProductRelatedProductsSection_defaults = {};
 const ProductsCatalogStateSection_fields = {
   "state": {
     "type": "select",
@@ -2251,65 +2342,18 @@ const ProductsCatalogStateSection_fields = {
     "type": "slot"
   }
 };
-const ProductsCatalogStateSection_defaults = {
-  "state": "content",
-  "title": "All Products",
-  "subtitle": "Browse our complete collection of premium products."
-};
+const ProductsCatalogStateSection_defaults = {};
 const ProductTabs_fields = {
   "productSlug": {
     "type": "text",
-    "label": "Product Slug (auto-fill from product)"
+    "label": "Product slug (auto-fill content)"
   },
   "defaultTab": {
     "type": "text",
-    "label": "Default Tab ID"
-  },
-  "tabs": {
-    "type": "array",
-    "label": "Tabs",
-    "arrayFields": {
-      "id": {
-        "type": "text",
-        "label": "Tab ID"
-      },
-      "label": {
-        "type": "text",
-        "label": "Tab Label"
-      },
-      "content": {
-        "type": "textarea",
-        "label": "Tab Content"
-      }
-    },
-    "defaultItemProps": {
-      "id": "new-tab",
-      "label": "New Tab",
-      "content": "Tab content here."
-    }
+    "label": "Default tab ID"
   }
 };
-const ProductTabs_defaults = {
-  "productSlug": "premium-wool-coat",
-  "defaultTab": "description",
-  "tabs": [
-    {
-      "id": "description",
-      "label": "Description",
-      "content": "Crafted from premium materials, this piece combines timeless design with modern functionality. Perfect for the discerning individual who values both style and substance."
-    },
-    {
-      "id": "specs",
-      "label": "Specifications",
-      "content": "Material: 100% Premium Wool\nFit: Tailored\nCare: Dry clean only\nOrigin: Made in Italy"
-    },
-    {
-      "id": "shipping",
-      "label": "Shipping & Returns",
-      "content": "Free global shipping on orders over $100. 30-day hassle-free returns. Items must be in original condition with tags attached."
-    }
-  ]
-};
+const ProductTabs_defaults = {};
 const PromotionBanner_fields = {
   "title": {
     "type": "text",
@@ -2336,14 +2380,14 @@ const PromotionBanner_fields = {
     "label": "End Date (ISO)"
   }
 };
-const PromotionBanner_defaults = {
-  "title": "Free Shipping on All Orders",
-  "subtitle": "Limited time only — ends soon",
-  "ctaText": "Shop Now",
-  "ctaLink": "/collections/all",
-  "startDate": "2020-01-01T00:00:00Z",
-  "endDate": "2099-12-31T23:59:59Z"
+const PromotionBanner_defaults = {};
+const RecentSearches_fields = {
+  "query": {
+    "type": "text",
+    "label": "Current query"
+  }
 };
+const RecentSearches_defaults = {};
 const RelatedProducts_fields = {
   "productSlug": {
     "type": "text",
@@ -2354,40 +2398,119 @@ const RelatedProducts_fields = {
     "label": "Section Title"
   }
 };
-const RelatedProducts_defaults = {
-  "productSlug": "premium-wool-coat",
-  "title": "Complete the Look",
-  "products": [
-    {
-      "_id": "related-preview",
-      "name": "Silk Blend Shirt",
-      "slug": "silk-blend-shirt",
-      "price": 180,
-      "images": [
-        "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80"
-      ],
-      "stock": 10,
-      "inStock": true,
-      "isActive": true,
-      "createdAt": "2024-01-01T00:00:00Z",
-      "updatedAt": "2024-01-01T00:00:00Z"
-    }
-  ]
+const RelatedProducts_defaults = {};
+const ReturnDetailsActionsRegion_fields = {};
+const ReturnDetailsActionsRegion_defaults = {};
+const ReturnDetailsAdminNotesCondition_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "ReturnDetailsAdminNotesRegion"
+    ]
+  }
 };
+const ReturnDetailsAdminNotesCondition_defaults = {};
+const ReturnDetailsAdminNotesRegion_fields = {};
+const ReturnDetailsAdminNotesRegion_defaults = {};
+const ReturnDetailsHeaderRegion_fields = {};
+const ReturnDetailsHeaderRegion_defaults = {};
+const ReturnDetailsItemsRegion_fields = {};
+const ReturnDetailsItemsRegion_defaults = {};
+const ReturnDetailsLabelRegion_fields = {};
+const ReturnDetailsLabelRegion_defaults = {};
+const ReturnDetailsPageState_fields = {
+  "previewState": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Return details",
+        "value": "details"
+      },
+      {
+        "label": "Return not found",
+        "value": "notFound"
+      }
+    ]
+  },
+  "notFound": {
+    "type": "slot",
+    "allow": [
+      "ReturnDetailsNotFoundLayout"
+    ]
+  },
+  "content": {
+    "type": "slot",
+    "allow": [
+      "ReturnDetailsPageLayout"
+    ]
+  }
+};
+const ReturnDetailsPageState_defaults = {};
+const ReturnDetailsReasonRegion_fields = {};
+const ReturnDetailsReasonRegion_defaults = {};
+const ReturnDetailsRefundBreakdownRegion_fields = {};
+const ReturnDetailsRefundBreakdownRegion_defaults = {};
+const ReturnDetailsRefundSummaryRegion_fields = {};
+const ReturnDetailsRefundSummaryRegion_defaults = {};
+const ReturnDetailsTimelineRegion_fields = {};
+const ReturnDetailsTimelineRegion_defaults = {};
+const ReturnDetailsTrackingRegion_fields = {};
+const ReturnDetailsTrackingRegion_defaults = {};
+const ReturnsCardsList_fields = {};
+const ReturnsCardsList_defaults = {};
+const ReturnsPaginationRegion_fields = {};
+const ReturnsPaginationRegion_defaults = {};
+const ReturnsResultsState_fields = {
+  "previewState": {
+    "type": "select",
+    "label": "Preview State",
+    "options": [
+      {
+        "label": "Return requests",
+        "value": "results"
+      },
+      {
+        "label": "No return requests",
+        "value": "empty"
+      }
+    ]
+  },
+  "results": {
+    "type": "slot",
+    "allow": [
+      "ReturnsCardsList"
+    ]
+  },
+  "empty": {
+    "type": "slot",
+    "allow": [
+      "ReturnsEmptyRegion"
+    ]
+  }
+};
+const ReturnsResultsState_defaults = {};
+const ReturnsStatusFilterRegion_fields = {};
+const ReturnsStatusFilterRegion_defaults = {};
 const ReviewsSection_fields = {
   "productSlug": {
     "type": "text",
     "label": "Product Slug (auto-fill reviews)"
   }
 };
-const ReviewsSection_defaults = {
-  "productSlug": "premium-wool-coat",
-  "productId": "product-detail-preview",
-  "initialReviews": [],
-  "averageRating": 4.5,
-  "totalReviews": 0,
-  "ratingDistribution": {}
+const ReviewsSection_defaults = {};
+const SearchAnalytics_fields = {};
+const SearchAnalytics_defaults = {};
+const SearchFilters_fields = {};
+const SearchFilters_defaults = {};
+const SearchGridBoundary_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "SearchProductGrid"
+    ]
+  }
 };
+const SearchGridBoundary_defaults = {};
 const SearchHeader_fields = {
   "query": {
     "type": "text",
@@ -2398,10 +2521,80 @@ const SearchHeader_fields = {
     "label": "Total Items"
   }
 };
-const SearchHeader_defaults = {
-  "query": "wool coat",
-  "totalItems": 24
+const SearchHeader_defaults = {};
+const SearchPagination_fields = {};
+const SearchPagination_defaults = {};
+const SearchPaginationCondition_fields = {
+  "previewMode": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Visible",
+        "value": "visible"
+      },
+      {
+        "label": "Hidden",
+        "value": "hidden"
+      }
+    ]
+  },
+  "content": {
+    "type": "slot",
+    "allow": [
+      "SearchPagination"
+    ]
+  }
 };
+const SearchPaginationCondition_defaults = {};
+const SearchProductGrid_fields = {};
+const SearchProductGrid_defaults = {};
+const SearchQueryState_fields = {
+  "previewMode": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Start",
+        "value": "start"
+      },
+      {
+        "label": "Results",
+        "value": "results"
+      },
+      {
+        "label": "No Results",
+        "value": "no-results"
+      }
+    ]
+  },
+  "results": {
+    "type": "slot",
+    "allow": [
+      "SearchResultsBlock"
+    ]
+  },
+  "noResults": {
+    "type": "slot",
+    "allow": [
+      "NoResults"
+    ]
+  },
+  "start": {
+    "type": "slot",
+    "allow": [
+      "SearchStartPrompt"
+    ]
+  }
+};
+const SearchQueryState_defaults = {};
+const SearchSortControls_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "SearchSortDropdown"
+    ]
+  }
+};
+const SearchSortControls_defaults = {};
 const SearchStateSection_fields = {
   "query": {
     "type": "text",
@@ -2439,11 +2632,124 @@ const SearchStateSection_fields = {
     "type": "slot"
   }
 };
-const SearchStateSection_defaults = {
-  "query": "",
-  "totalItems": 0,
-  "state": "start"
+const SearchStateSection_defaults = {};
+const SharedWishlistAddAll_fields = {};
+const SharedWishlistAddAll_defaults = {};
+const SharedWishlistGrid_fields = {};
+const SharedWishlistGrid_defaults = {};
+const SharedWishlistHeader_fields = {
+  "actions": {
+    "type": "slot",
+    "allow": [
+      "SharedWishlistHeaderActionsCondition"
+    ]
+  }
 };
+const SharedWishlistHeader_defaults = {};
+const SharedWishlistHeaderActionsCondition_fields = {
+  "previewMode": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Visible",
+        "value": "visible"
+      },
+      {
+        "label": "Hidden",
+        "value": "hidden"
+      }
+    ]
+  },
+  "content": {
+    "type": "slot",
+    "allow": [
+      "SharedWishlistAddAll"
+    ]
+  }
+};
+const SharedWishlistHeaderActionsCondition_defaults = {};
+const SharedWishlistItemsState_fields = {
+  "previewMode": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Items",
+        "value": "grid"
+      },
+      {
+        "label": "Empty",
+        "value": "empty"
+      }
+    ]
+  },
+  "empty": {
+    "type": "slot",
+    "allow": [
+      "SharedWishlistEmpty"
+    ]
+  },
+  "grid": {
+    "type": "slot",
+    "allow": [
+      "SharedWishlistGrid"
+    ]
+  }
+};
+const SharedWishlistItemsState_defaults = {};
+const SharedWishlistJsonLd_fields = {};
+const SharedWishlistJsonLd_defaults = {};
+const SharedWishlistPageState_fields = {
+  "previewMode": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Shared list",
+        "value": "content"
+      },
+      {
+        "label": "Invalid link",
+        "value": "invalid"
+      }
+    ]
+  },
+  "content": {
+    "type": "slot",
+    "allow": [
+      "SharedWishlistPageLayout"
+    ]
+  },
+  "invalid": {
+    "type": "slot",
+    "allow": [
+      "SharedWishlistInvalidState"
+    ]
+  }
+};
+const SharedWishlistPageState_defaults = {};
+const SharedWishlistSavingsCard_fields = {};
+const SharedWishlistSavingsCard_defaults = {};
+const SharedWishlistSavingsCondition_fields = {
+  "previewMode": {
+    "type": "select",
+    "options": [
+      {
+        "label": "Visible",
+        "value": "visible"
+      },
+      {
+        "label": "Hidden",
+        "value": "hidden"
+      }
+    ]
+  },
+  "content": {
+    "type": "slot",
+    "allow": [
+      "SharedWishlistSavingsCard"
+    ]
+  }
+};
+const SharedWishlistSavingsCondition_defaults = {};
 const SharedWishlistStateSection_fields = {
   "token": {
     "type": "text",
@@ -2476,12 +2782,7 @@ const SharedWishlistStateSection_fields = {
     "label": "Last Updated"
   }
 };
-const SharedWishlistStateSection_defaults = {
-  "token": "",
-  "state": "invalid",
-  "itemCount": 0,
-  "lastUpdated": null
-};
+const SharedWishlistStateSection_defaults = {};
 const StockIndicator_fields = {
   "productSlug": {
     "type": "text",
@@ -2510,12 +2811,7 @@ const StockIndicator_fields = {
     "label": "Low Stock Threshold"
   }
 };
-const StockIndicator_defaults = {
-  "productSlug": "premium-wool-coat",
-  "stock": 10,
-  "inStock": "true",
-  "stockThreshold": 5
-};
+const StockIndicator_defaults = {};
 const SubcategoryNav_fields = {
   "items": {
     "type": "array",
@@ -2543,61 +2839,170 @@ const SubcategoryNav_fields = {
   "currentSlug": {
     "type": "text",
     "label": "Current Slug (highlight)"
-  },
-  "parentSlug": {
-    "type": "text",
-    "label": "Parent Slug (for \"All\" link)"
   }
 };
-const SubcategoryNav_defaults = {
-  "items": [
-    {
-      "name": "Jackets",
-      "slug": "jackets",
-      "productCount": 15
-    },
-    {
-      "name": "Coats",
-      "slug": "coats",
-      "productCount": 12
-    },
-    {
-      "name": "Vests",
-      "slug": "vests",
-      "productCount": 8
-    }
-  ],
-  "currentSlug": "",
-  "parentSlug": ""
-};
-const SubscriptionDetailStateSection_fields = {
-  "subscriptionId": {
-    "type": "text",
-    "label": "Subscription ID"
+const SubcategoryNav_defaults = {};
+const SubscriptionBillingHistory_fields = {};
+const SubscriptionBillingHistory_defaults = {};
+const SubscriptionBillingHistoryPanel_fields = {
+  "alert": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionFailedPaymentAlert"
+    ]
   },
-  "state": {
+  "history": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionBillingHistory"
+    ]
+  }
+};
+const SubscriptionBillingHistoryPanel_defaults = {};
+const SubscriptionCancelAction_fields = {};
+const SubscriptionCancelAction_defaults = {};
+const SubscriptionCheckoutClientLayout_fields = {
+  "header": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionCheckoutHeader"
+    ]
+  },
+  "steps": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionCheckoutSteps"
+    ]
+  },
+  "leftColumn": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionCustomerInfoSection",
+      "SubscriptionShippingAddressSection",
+      "SubscriptionBillingTermsSection",
+      "SubscriptionCheckoutErrorCondition"
+    ]
+  },
+  "rightColumn": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionCartSummaryPanel",
+      "SubscriptionPricingPreviewPanel",
+      "SubscriptionSummaryPanel",
+      "SubscriptionCheckoutActions"
+    ]
+  }
+};
+const SubscriptionCheckoutClientLayout_defaults = {};
+const SubscriptionCheckoutPageState_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionCheckoutPageLayout"
+    ]
+  }
+};
+const SubscriptionCheckoutPageState_defaults = {};
+const SubscriptionDetailHeaderRegion_fields = {};
+const SubscriptionDetailHeaderRegion_defaults = {};
+const SubscriptionDetailsBreadcrumbs_fields = {};
+const SubscriptionDetailsBreadcrumbs_defaults = {};
+const SubscriptionDetailsPageState_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionDetailsPageLayout"
+    ]
+  }
+};
+const SubscriptionDetailsPageState_defaults = {};
+const SubscriptionFailedPaymentAlert_fields = {};
+const SubscriptionFailedPaymentAlert_defaults = {};
+const SubscriptionItemsPanel_fields = {};
+const SubscriptionItemsPanel_defaults = {};
+const SubscriptionLifecycleActionsPanel_fields = {
+  "pause": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionPauseAction"
+    ]
+  },
+  "resume": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionResumeAction"
+    ]
+  },
+  "skip": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionSkipDeliveryAction"
+    ]
+  },
+  "cancel": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionCancelAction"
+    ]
+  }
+};
+const SubscriptionLifecycleActionsPanel_defaults = {};
+const SubscriptionModifyPanel_fields = {};
+const SubscriptionModifyPanel_defaults = {};
+const SubscriptionNextDeliveryRegion_fields = {};
+const SubscriptionNextDeliveryRegion_defaults = {};
+const SubscriptionOrdersPanel_fields = {};
+const SubscriptionOrdersPanel_defaults = {};
+const SubscriptionPauseAction_fields = {};
+const SubscriptionPauseAction_defaults = {};
+const SubscriptionResumeAction_fields = {};
+const SubscriptionResumeAction_defaults = {};
+const SubscriptionsCardsList_fields = {};
+const SubscriptionsCardsList_defaults = {};
+const SubscriptionSkipDeliveryAction_fields = {};
+const SubscriptionSkipDeliveryAction_defaults = {};
+const SubscriptionsListClientRegion_fields = {
+  "content": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionsCardsList"
+    ]
+  }
+};
+const SubscriptionsListClientRegion_defaults = {};
+const SubscriptionsListState_fields = {
+  "previewState": {
     "type": "select",
     "label": "Preview State",
     "options": [
       {
-        "label": "Content",
-        "value": "content"
+        "label": "Subscriptions",
+        "value": "subscriptions"
       },
       {
-        "label": "Not Found",
-        "value": "not-found"
-      },
-      {
-        "label": "Error",
-        "value": "error"
+        "label": "No subscriptions",
+        "value": "empty"
       }
+    ]
+  },
+  "subscriptions": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionsListClientRegion"
+    ]
+  },
+  "empty": {
+    "type": "slot",
+    "allow": [
+      "SubscriptionsEmptyRegion"
     ]
   }
 };
-const SubscriptionDetailStateSection_defaults = {
-  "subscriptionId": "",
-  "state": "not-found"
-};
+const SubscriptionsListState_defaults = {};
+const SubscriptionUpcomingAmountRegion_fields = {};
+const SubscriptionUpcomingAmountRegion_defaults = {};
+const SubscriptionUpdatePaymentAction_fields = {};
+const SubscriptionUpdatePaymentAction_defaults = {};
 const TestimonialsSection_fields = {
   "title": {
     "type": "text",
@@ -2668,36 +3073,7 @@ const TestimonialsSection_fields = {
     }
   }
 };
-const TestimonialsSection_defaults = {
-  "title": "Our Community",
-  "subtitle": "Testimonials",
-  "testimonials": [
-    {
-      "quote": "Exceptional quality and service. Every piece feels thoughtfully designed.",
-      "author": "Sarah Mitchell",
-      "role": "Verified Buyer",
-      "avatar": "",
-      "rating": "5",
-      "platform": "Trustpilot"
-    },
-    {
-      "quote": "Best purchase I've made this year. The craftsmanship is outstanding.",
-      "author": "James Lee",
-      "role": "Verified Buyer",
-      "avatar": "",
-      "rating": "5",
-      "platform": "Google Reviews"
-    },
-    {
-      "quote": "Luxury that lives up to the promise. Highly recommend.",
-      "author": "Emma Rodriguez",
-      "role": "Verified Buyer",
-      "avatar": "",
-      "rating": "4",
-      "platform": "Trustpilot"
-    }
-  ]
-};
+const TestimonialsSection_defaults = {};
 const TrendingCategoriesSection_fields = {
   "previewMode": {
     "type": "select",
@@ -2719,10 +3095,7 @@ const TrendingCategoriesSection_fields = {
     ]
   }
 };
-const TrendingCategoriesSection_defaults = {
-  "previewMode": "visible",
-  "cards": []
-};
+const TrendingCategoriesSection_defaults = {};
 const TrendingCategoryCard_fields = {
   "position": {
     "type": "number",
@@ -2733,62 +3106,84 @@ const TrendingCategoryCard_fields = {
     "label": "Badge text"
   }
 };
-const TrendingCategoryCard_defaults = {
-  "category": {
-    "_id": "trending-preview",
-    "name": "Seasonal Favorites",
-    "slug": "seasonal-favorites",
-    "imageUrl": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=1200&q=80",
-    "description": "Discover this season's most sought-after pieces, handpicked by our style team.",
-    "isActive": true,
-    "createdAt": "2024-01-01T00:00:00Z",
-    "updatedAt": "2024-01-01T00:00:00Z"
+const TrendingCategoryCard_defaults = {};
+const WishlistGridRegion_fields = {};
+const WishlistGridRegion_defaults = {};
+const WishlistItemsState_fields = {
+  "previewState": {
+    "type": "select",
+    "label": "Preview State",
+    "options": [
+      {
+        "label": "Wishlist items",
+        "value": "items"
+      },
+      {
+        "label": "Empty wishlist",
+        "value": "empty"
+      }
+    ]
   },
-  "position": 0,
-  "badge": "Seasonal Pick"
+  "empty": {
+    "type": "slot",
+    "allow": [
+      "WishlistEmptyRegion"
+    ]
+  },
+  "grid": {
+    "type": "slot",
+    "allow": [
+      "WishlistGridRegion"
+    ]
+  }
 };
+const WishlistItemsState_defaults = {};
+const WishlistPageIntro_fields = {};
+const WishlistPageIntro_defaults = {};
+const WishlistSavingsRegion_fields = {};
+const WishlistSavingsRegion_defaults = {};
 
 const config = {
   categories: {
     "Home": {
       title: "Home",
       defaultExpanded: true,
-      components: ["CategoryHighlights", "CuratedCollectionSection", "FeaturedProductsGrid", "HeroSection", "InspirationSection", "NewsletterSignup", "TrustBadges"],
+      components: ["CategoryHighlights", "CuratedCollectionSection", "FeaturedProductsGrid", "HeroSection", "HomePageLayout", "InspirationSection", "NewsletterSignup", "TrustBadges"],
     },
     "Products": {
       title: "Products",
       defaultExpanded: true,
-      components: ["ActiveFiltersBlock", "Breadcrumbs", "CatalogActiveFiltersBoundary", "CatalogBreadcrumbs", "CatalogContentLayout", "CatalogControlsLayout", "CatalogFilterSidebar", "CatalogGridBoundary", "CatalogHeaderLayout", "CatalogHeading", "CatalogPaginationBlock", "CatalogPaginationCondition", "CatalogResultsState", "CatalogTitleSummary", "EmptyState", "MobileFilterDrawerBlock", "PriceDisplay", "ProductDetailMediaColumn", "ProductDetailMobileTabs", "ProductDetailPageLayout", "ProductDetailPurchaseColumn", "ProductDetailPurchaseSection", "ProductDetailRelatedProductsSection", "ProductDetailsClient", "ProductDetailSection", "ProductDetailTrustBadges", "ProductFiltersBlock", "ProductGallery", "ProductGrid", "ProductRatingSummary", "ProductRelatedProductsSection", "ProductsCatalogLayout", "ProductsCatalogStateSection", "ProductTabs", "RelatedProducts", "ReviewsSection", "SortDropdownBlock", "StockIndicator", "ViewToggleBlock"],
+      components: ["ActiveFiltersBlock", "Breadcrumbs", "CatalogActiveFiltersBoundary", "CatalogBreadcrumbs", "CatalogContentLayout", "CatalogControlsLayout", "CatalogFilterSidebar", "CatalogGridBoundary", "CatalogHeaderLayout", "CatalogHeading", "CatalogPaginationBlock", "CatalogPaginationCondition", "CatalogResultsState", "CatalogTitleSummary", "EmptyState", "MobileFilterDrawerBlock", "PriceDisplay", "ProductDetailMediaColumn", "ProductDetailMobileTabs", "ProductDetailPageLayout", "ProductDetailPurchaseColumn", "ProductDetailRelatedProductsSection", "ProductDetailsClient", "ProductDetailSection", "ProductDetailTrustBadges", "ProductFiltersBlock", "ProductGallery", "ProductGrid", "ProductRatingSummary", "ProductsCatalogLayout", "ProductTabs", "RelatedProducts", "ReviewsSection", "SortDropdownBlock", "StockIndicator", "ViewToggleBlock"],
     },
     "Categories": {
       title: "Categories",
       defaultExpanded: true,
-      components: ["CategoriesPageBreadcrumbs", "CategoriesPageIntro", "CategoriesPageLayout", "CategoryCatalogBreadcrumbs", "CategoryCatalogFilterSidebar", "CategoryCatalogGridBoundary", "CategoryCatalogLayout", "CategoryCatalogPaginationBlock", "CategoryCatalogPaginationCondition", "CategoryCatalogResultsHeader", "CategoryCatalogResultsState", "CategoryCatalogStateSection", "CategoryGrid", "CategoryHero", "CategoryProductFiltersBlock", "CategoryProductGridBlock", "CategorySubcategoryCondition", "DepartmentCategoriesSection", "EmptyCategory", "SubcategoryNav", "TrendingCategoriesSection", "TrendingCategoryCard"],
+      components: ["CategoriesPageBreadcrumbs", "CategoriesPageIntro", "CategoriesPageLayout", "CategoryCatalogBreadcrumbs", "CategoryCatalogFilterSidebar", "CategoryCatalogGridBoundary", "CategoryCatalogLayout", "CategoryCatalogPaginationBlock", "CategoryCatalogPaginationCondition", "CategoryCatalogResultsHeader", "CategoryCatalogResultsState", "CategoryGrid", "CategoryHero", "CategoryProductFiltersBlock", "CategoryProductGridBlock", "CategorySubcategoryCondition", "DepartmentCategoriesSection", "EmptyCategory", "SubcategoryNav", "TrendingCategoriesSection", "TrendingCategoryCard"],
     },
     "Collections": {
       title: "Collections",
       defaultExpanded: false,
-      components: ["CollectionDetailStateSection", "CollectionGrid", "CollectionHero", "CollectionStateSection", "CuratedProductDisplay", "EmptyCollections", "InspirationGallery"],
+      components: ["CollectionBreadcrumbs", "CollectionDetailCuratedDisplay", "CollectionDetailHero", "CollectionDetailInspirationGallery", "CollectionDetailNotFound", "CollectionDetailPageLayout", "CollectionDetailPageState", "CollectionGrid", "CollectionsFilterSection", "CollectionsPageHeader", "CollectionsPageLayout", "CollectionsResultsState", "CollectionTypeFilter", "CuratedCollectionCondition", "EmptyCollections", "FeaturedCuratedCollection", "FeaturedCuratedCollectionCondition", "InspirationCollectionCondition", "InspirationCollectionSection", "InspirationDetailCondition"],
     },
     "Search": {
       title: "Search",
       defaultExpanded: false,
-      components: ["NoResults", "SearchHeader", "SearchStateSection"],
+      components: ["NoResults", "RecentSearches", "SearchAnalytics", "SearchBreadcrumbs", "SearchContentLayout", "SearchFilters", "SearchFilterSidebar", "SearchGridBoundary", "SearchHeader", "SearchPageLayout", "SearchPagination", "SearchPaginationCondition", "SearchProductGrid", "SearchQueryState", "SearchRecentSearchesBoundary", "SearchResultsBlock", "SearchSortControls", "SearchSortDropdown", "SearchStartPrompt"],
     },
     "Cart": {
       title: "Cart",
       defaultExpanded: false,
-      components: ["CartContinueShopping", "CartEmpty", "CartHeader", "CartList", "CartStateSection", "CartSummary", "FreeShippingProgress"],
+      components: ["CartPageContinueShopping", "CartPageEmpty", "CartPageEmptyLayout", "CartPageFreeShippingProgress", "CartPageHeader", "CartPageItemList", "CartPageLayout", "CartPageState", "CartPageSummary"],
     },
     "Checkout": {
       title: "Checkout",
       defaultExpanded: false,
-      components: ["CheckoutConfirmation", "CheckoutDigitalAssetsSection", "CheckoutOrderReview", "CheckoutOrderSummary", "CheckoutPaymentMethod", "CheckoutPlaceOrderButton", "CheckoutSecureBadges", "CheckoutShippingForm", "CheckoutShippingMethod", "CheckoutStateSection", "CheckoutSteps", "CheckoutSubscriptionStateSection", "ConfirmationOrderSummary", "ContinueShoppingButton", "DigitalDownloads", "LicenseKeyDisplay", "NextStepsCard", "OrderItemList", "OrderNumber", "PurchaseTracker", "ShippingInfo", "SuccessHeader", "ViewOrderButton"],
+      components: ["CheckoutConfirmationCondition", "CheckoutErrorCondition", "CheckoutOrderSummaryPanel", "CheckoutPageClientLayout", "CheckoutPageHeader", "CheckoutPageState", "CheckoutPaymentCondition", "CheckoutPaymentStepRegion", "CheckoutReviewCondition", "CheckoutReviewSection", "CheckoutShippingForm", "CheckoutShippingMethod", "CheckoutShippingMethodCondition", "CheckoutShippingSection", "CheckoutStepsRegion", "CheckoutSuccessActionsLayout", "CheckoutSuccessContinueShopping", "CheckoutSuccessDetailsColumn", "CheckoutSuccessDigitalAssetsCondition", "CheckoutSuccessDigitalDownloads", "CheckoutSuccessHeader", "CheckoutSuccessHeaderLayout", "CheckoutSuccessLicenseKeys", "CheckoutSuccessNextSteps", "CheckoutSuccessOrderColumn", "CheckoutSuccessOrderItemList", "CheckoutSuccessOrderNumber", "CheckoutSuccessOrderSummary", "CheckoutSuccessPageLayout", "CheckoutSuccessPageState", "CheckoutSuccessPurchaseTracker", "CheckoutSuccessShippingInfo", "CheckoutSuccessTwoColumnLayout", "CheckoutSuccessViewOrder", "SubscriptionBillingTermsSection", "SubscriptionCartSummaryPanel", "SubscriptionCheckoutActions", "SubscriptionCheckoutClientLayout", "SubscriptionCheckoutErrorCondition", "SubscriptionCheckoutHeader", "SubscriptionCheckoutPageLayout", "SubscriptionCheckoutPageState", "SubscriptionCheckoutSteps", "SubscriptionCustomerInfoSection", "SubscriptionPricingPreviewPanel", "SubscriptionShippingAddressSection", "SubscriptionSummaryPanel"],
     },
     "Account": {
       title: "Account",
       defaultExpanded: false,
-      components: ["AccountAddressesStateSection", "AccountDashboard", "AccountDigitalLibraryStateSection", "AccountLinkGrid", "AccountSessionPanel", "AccountSessions", "AccountSettings", "AddressList", "AdminNotes", "BillingAddress", "DownloadsEmpty", "EmptyPaymentMethods", "NotEligibleMessage", "OrderDetails", "OrderEmpty", "OrderStatusBadge", "PaymentInfo", "RefundSummary", "ReturnPolicyReminder", "ReturnReason", "ReturnsEmpty", "ReturnStatusBadge", "ReturnWindowExpired", "SharedWishlist", "ShippingAddress", "SubscriptionDetailsHeader", "SubscriptionDetailStateSection", "SubscriptionsEmpty", "SubscriptionStatusBadge", "WishlistEmpty", "WishlistSavingsCard"],
+      components: ["AccountDashboardHeroLayout", "AccountDashboardIdentity", "AccountDashboardLinks", "AccountDashboardPageLayout", "AccountDashboardWelcome", "AccountDownloadsPageLayout", "AccountIdentityExplanation", "AccountIdentitySessionDetails", "AccountIdentitySettingsCard", "AccountOrdersEmpty", "AccountOrdersHeader", "AccountOrdersLayout", "AccountOrdersList", "AccountOrdersResultsState", "AccountOrdersStatusFilter", "AccountSessionsBreadcrumbs", "AccountSessionsIdentityNotice", "AccountSessionsPageLayout", "AccountSettingsBreadcrumbs", "AccountSettingsLayout", "AccountSubscriptionsPageHeader", "AccountSubscriptionsPageLayout", "AccountWishlistPageLayout", "AddressesAccountLayout", "AddressesAccountSidebar", "AddressesBreadcrumbs", "AddressesContentLayout", "AddressesManagerRegion", "AddressesPageLayout", "AddressesPageState", "DigitalLibraryAssetsMetric", "DigitalLibraryAssetsState", "DigitalLibraryAttentionMetric", "DigitalLibraryBackground", "DigitalLibraryDownloadsMetric", "DigitalLibraryEmptyRegion", "DigitalLibraryEntriesGrid", "DigitalLibraryHeader", "DigitalLibraryHistoryRegion", "DigitalLibraryLayout", "DigitalLibraryMetricsLayout", "OrderDetailsBillingAddressCondition", "OrderDetailsBillingRegion", "OrderDetailsBreadcrumbs", "OrderDetailsCancelAction", "OrderDetailsContentLayout", "OrderDetailsDownloadAction", "OrderDetailsFinancialRegion", "OrderDetailsHeader", "OrderDetailsItemsRegion", "OrderDetailsPageLayout", "OrderDetailsPageState", "OrderDetailsPaymentRegion", "OrderDetailsReorderAction", "OrderDetailsShippingRegion", "OrderDownloadsAssetsLayout", "OrderDownloadsAssetsState", "OrderDownloadsBackLink", "OrderDownloadsBreadcrumbs", "OrderDownloadsEmptyRegion", "OrderDownloadsHeader", "OrderDownloadsLicenseKeysRegion", "OrderDownloadsListRegion", "OrderDownloadsPageLayout", "OrderDownloadsPageState", "OrderDownloadsPaymentPendingCondition", "OrderDownloadsPaymentPendingNotice", "OrderReturnBreadcrumbs", "OrderReturnEligibilityState", "OrderReturnEligibleLayout", "OrderReturnHeader", "OrderReturnNotEligibleRegion", "OrderReturnPageLayout", "OrderReturnPageState", "OrderReturnPolicyReminderRegion", "OrderReturnRequestFormRegion", "OrderReturnWindowExpiredRegion", "PaymentMethodsAddCardAction", "PaymentMethodsEmptyStateRegion", "PaymentMethodsHeaderLayout", "PaymentMethodsHelpFooter", "PaymentMethodsListRegion", "PaymentMethodsListState", "PaymentMethodsPageLayout", "PaymentMethodsPageState", "PaymentMethodsSavedCardsSection", "PaymentMethodsStripeCardForm", "PaymentMethodsStripeConfigCondition", "ReturnDetailsActionsRegion", "ReturnDetailsAdminNotesCondition", "ReturnDetailsAdminNotesRegion", "ReturnDetailsContentLayout", "ReturnDetailsHeaderRegion", "ReturnDetailsItemsRegion", "ReturnDetailsLabelRegion", "ReturnDetailsNotFoundLayout", "ReturnDetailsPageLayout", "ReturnDetailsPageState", "ReturnDetailsReasonRegion", "ReturnDetailsRefundBreakdownRegion", "ReturnDetailsRefundSummaryRegion", "ReturnDetailsTimelineRegion", "ReturnDetailsTrackingRegion", "ReturnsCardsList", "ReturnsEmptyRegion", "ReturnsListLayout", "ReturnsPageHeader", "ReturnsPageLayout", "ReturnsPaginationRegion", "ReturnsProcessingNotice", "ReturnsResultsState", "ReturnsStatusFilterRegion", "SubscriptionBillingHistory", "SubscriptionBillingHistoryPanel", "SubscriptionBillingPortalAction", "SubscriptionCancelAction", "SubscriptionDetailContentLayout", "SubscriptionDetailHeaderRegion", "SubscriptionDetailsBreadcrumbs", "SubscriptionDetailsPageLayout", "SubscriptionDetailsPageState", "SubscriptionFailedPaymentAlert", "SubscriptionItemsPanel", "SubscriptionLifecycleActionsPanel", "SubscriptionModifyPanel", "SubscriptionNextDeliveryRegion", "SubscriptionOrdersPanel", "SubscriptionPauseAction", "SubscriptionPaymentPanel", "SubscriptionResumeAction", "SubscriptionsCardsList", "SubscriptionsEmptyRegion", "SubscriptionSkipDeliveryAction", "SubscriptionsListClientRegion", "SubscriptionsListLayout", "SubscriptionsListState", "SubscriptionUpcomingAmountRegion", "SubscriptionUpdatePaymentAction", "WishlistEmptyRegion", "WishlistGridRegion", "WishlistItemsState", "WishlistPageHeaderLayout", "WishlistPageIntro", "WishlistRecommendationsFooter", "WishlistSavingsRegion"],
     },
     "Social Proof": {
       title: "Social Proof",
@@ -2798,22 +3193,12 @@ const config = {
     "Auth": {
       title: "Auth",
       defaultExpanded: false,
-      components: ["AuthEntryCard"],
+      components: ["AuthEntryCard", "AuthPageLayout", "AuthPageState"],
     },
     "Downloads": {
       title: "Downloads",
       defaultExpanded: false,
-      components: ["DownloadLicenseStateSection"],
-    },
-    "Feedback": {
-      title: "Feedback",
-      defaultExpanded: false,
-      components: ["ErrorState", "NotFoundState"],
-    },
-    "Layout": {
-      title: "Layout",
-      defaultExpanded: false,
-      components: ["CalloutCard", "CardSection", "ConditionalSection", "FeatureIconList", "PageHeader", "PageWrapper", "SectionHeaderWithDivider", "SectionHeading", "TwoColumnDetail"],
+      components: ["DownloadAssetState", "DownloadExpirationNotice", "DownloadLicenseInfoPanel", "DownloadPageContentLayout", "DownloadPageHeader", "DownloadPageLayout", "DownloadTrustFooter"],
     },
     "Marketing": {
       title: "Marketing",
@@ -2823,7 +3208,7 @@ const config = {
     "Wishlist": {
       title: "Wishlist",
       defaultExpanded: false,
-      components: ["SharedWishlistStateSection"],
+      components: ["SharedWishlistAddAll", "SharedWishlistContentLayout", "SharedWishlistEmpty", "SharedWishlistGrid", "SharedWishlistHeader", "SharedWishlistHeaderActionsCondition", "SharedWishlistInvalidState", "SharedWishlistItemsState", "SharedWishlistJsonLd", "SharedWishlistPageLayout", "SharedWishlistPageState", "SharedWishlistSavingsCard", "SharedWishlistSavingsCondition"],
     },
   },
   components: {
@@ -2837,12 +3222,14 @@ const config = {
           const mod = await import("@/components/account/AccountAddressesStateSectionView");
           const Component = mod["AccountAddressesStateSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for AccountAddressesStateSection:', e?.message || e);
-          return <div data-puck-render-error="AccountAddressesStateSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -2852,6 +3239,71 @@ const config = {
       fields: AccountDashboard_fields,
       defaultProps: AccountDashboard_defaults,
       render: (props) => <AccountDashboardView {...props} />,
+    },
+    AccountDashboardHeroLayout: {
+      category: "Account",
+      label: "Account Dashboard Hero Layout",
+      fields: AccountDashboardHeroLayout_fields,
+      defaultProps: AccountDashboardHeroLayout_defaults,
+      render: (props) => <AccountDashboardHeroLayout {...props} />,
+    },
+    AccountDashboardIdentity: {
+      category: "Account",
+      label: "Account Dashboard Identity",
+      fields: AccountDashboardIdentity_fields,
+      defaultProps: AccountDashboardIdentity_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/dashboard/canonical/AccountDashboardIdentityView");
+          const Component = mod["AccountDashboardIdentity"];
+          const fetcherModule = await import("@/components/account/dashboard/canonical/accountDashboardFetcher.server");
+          const fetcher = fetcherModule["puckDataFetcher"];
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    AccountDashboardLinks: {
+      category: "Account",
+      label: "Account Dashboard Links",
+      fields: AccountDashboardLinks_fields,
+      defaultProps: AccountDashboardLinks_defaults,
+      render: (props) => <AccountDashboardLinks {...props} />,
+    },
+    AccountDashboardPageLayout: {
+      category: "Account",
+      label: "Account Dashboard Page Layout",
+      fields: AccountDashboardPageLayout_fields,
+      defaultProps: AccountDashboardPageLayout_defaults,
+      render: (props) => <AccountDashboardPageLayout {...props} />,
+    },
+    AccountDashboardWelcome: {
+      category: "Account",
+      label: "Account Dashboard Welcome",
+      fields: AccountDashboardWelcome_fields,
+      defaultProps: AccountDashboardWelcome_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/dashboard/canonical/AccountDashboardWelcomeView");
+          const Component = mod["AccountDashboardWelcome"];
+          const fetcherModule = await import("@/components/account/dashboard/canonical/accountDashboardFetcher.server");
+          const fetcher = fetcherModule["puckDataFetcher"];
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
     },
     AccountDigitalLibraryStateSection: {
       category: "Account",
@@ -2863,14 +3315,58 @@ const config = {
           const mod = await import("@/components/account/AccountDigitalLibraryStateSectionView");
           const Component = mod["AccountDigitalLibraryStateSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for AccountDigitalLibraryStateSection:', e?.message || e);
-          return <div data-puck-render-error="AccountDigitalLibraryStateSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
+    },
+    AccountDownloadsPageLayout: {
+      category: "Account",
+      label: "Account Downloads Page Layout",
+      fields: AccountDownloadsPageLayout_fields,
+      defaultProps: AccountDownloadsPageLayout_defaults,
+      render: (props) => <AccountDownloadsPageLayout {...props} />,
+    },
+    AccountIdentityExplanation: {
+      category: "Account",
+      label: "Account Identity Explanation",
+      fields: AccountIdentityExplanation_fields,
+      defaultProps: AccountIdentityExplanation_defaults,
+      render: (props) => <AccountIdentityExplanationView {...props} />,
+    },
+    AccountIdentitySessionDetails: {
+      category: "Account",
+      label: "Account Identity Session Details",
+      fields: AccountIdentitySessionDetails_fields,
+      defaultProps: AccountIdentitySessionDetails_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/canonical/AccountIdentitySessionDetailsView");
+          const Component = mod["AccountIdentitySessionDetailsView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    AccountIdentitySettingsCard: {
+      category: "Account",
+      label: "Account Identity Settings Card",
+      fields: AccountIdentitySettingsCard_fields,
+      defaultProps: AccountIdentitySettingsCard_defaults,
+      render: (props) => <AccountIdentitySettingsCardView {...props} />,
     },
     AccountLinkGrid: {
       category: "Account",
@@ -2878,6 +3374,97 @@ const config = {
       fields: AccountLinkGrid_fields,
       defaultProps: AccountLinkGrid_defaults,
       render: (props) => <AccountLinkGridView {...props} />,
+    },
+    AccountOrdersEmpty: {
+      category: "Account",
+      label: "Account Orders Empty State",
+      fields: AccountOrdersEmpty_fields,
+      defaultProps: AccountOrdersEmpty_defaults,
+      render: (props) => <AccountOrdersEmptyView {...props} />,
+    },
+    AccountOrdersHeader: {
+      category: "Account",
+      label: "Account Orders Header",
+      fields: AccountOrdersHeader_fields,
+      defaultProps: AccountOrdersHeader_defaults,
+      render: (props) => <AccountOrdersHeaderView {...props} />,
+    },
+    AccountOrdersLayout: {
+      category: "Account",
+      label: "Account Orders Layout",
+      fields: AccountOrdersLayout_fields,
+      defaultProps: AccountOrdersLayout_defaults,
+      render: (props) => <AccountOrdersLayoutView {...props} />,
+    },
+    AccountOrdersList: {
+      category: "Account",
+      label: "Account Orders List",
+      fields: AccountOrdersList_fields,
+      defaultProps: AccountOrdersList_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/canonical/AccountOrdersListView");
+          const Component = mod["AccountOrdersListView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    AccountOrdersResultsState: {
+      category: "Account",
+      label: "Account Orders Results State",
+      fields: AccountOrdersResultsState_fields,
+      defaultProps: AccountOrdersResultsState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/canonical/AccountOrdersResultsStateView");
+          const Component = mod["AccountOrdersResultsStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    AccountOrdersState: {
+      category: "Account",
+      label: "Account Orders State",
+      fields: AccountOrdersState_fields,
+      defaultProps: AccountOrdersState_defaults,
+      render: (props) => <AccountOrdersStateView {...props} />,
+    },
+    AccountOrdersStatusFilter: {
+      category: "Account",
+      label: "Account Orders Status Filter",
+      fields: AccountOrdersStatusFilter_fields,
+      defaultProps: AccountOrdersStatusFilter_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/canonical/AccountOrdersStatusFilterView");
+          const Component = mod["AccountOrdersStatusFilterView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
     },
     AccountSessionPanel: {
       category: "Account",
@@ -2893,6 +3480,27 @@ const config = {
       defaultProps: AccountSessions_defaults,
       render: (props) => <AccountSessionsView {...props} />,
     },
+    AccountSessionsBreadcrumbs: {
+      category: "Account",
+      label: "Account Sessions Breadcrumbs",
+      fields: AccountSessionsBreadcrumbs_fields,
+      defaultProps: AccountSessionsBreadcrumbs_defaults,
+      render: (props) => <AccountSessionsBreadcrumbs {...props} />,
+    },
+    AccountSessionsIdentityNotice: {
+      category: "Account",
+      label: "Account Sessions Identity Notice",
+      fields: AccountSessionsIdentityNotice_fields,
+      defaultProps: AccountSessionsIdentityNotice_defaults,
+      render: (props) => <AccountSessionsIdentityNotice {...props} />,
+    },
+    AccountSessionsPageLayout: {
+      category: "Account",
+      label: "Account Sessions Page Layout",
+      fields: AccountSessionsPageLayout_fields,
+      defaultProps: AccountSessionsPageLayout_defaults,
+      render: (props) => <AccountSessionsPageLayout {...props} />,
+    },
     AccountSettings: {
       category: "Account",
       label: "Account Settings",
@@ -2900,12 +3508,131 @@ const config = {
       defaultProps: AccountSettings_defaults,
       render: (props) => <AccountSettingsView {...props} />,
     },
+    AccountSettingsBreadcrumbs: {
+      category: "Account",
+      label: "Account Settings Breadcrumbs",
+      fields: AccountSettingsBreadcrumbs_fields,
+      defaultProps: AccountSettingsBreadcrumbs_defaults,
+      render: (props) => <AccountSettingsBreadcrumbsView {...props} />,
+    },
+    AccountSettingsLayout: {
+      category: "Account",
+      label: "Account Settings Layout",
+      fields: AccountSettingsLayout_fields,
+      defaultProps: AccountSettingsLayout_defaults,
+      render: (props) => <AccountSettingsLayoutView {...props} />,
+    },
+    AccountSettingsState: {
+      category: "Account",
+      label: "Account Settings State",
+      fields: AccountSettingsState_fields,
+      defaultProps: AccountSettingsState_defaults,
+      render: (props) => <AccountSettingsStateView {...props} />,
+    },
+    AccountSubscriptionsPageHeader: {
+      category: "Account",
+      label: "Account Subscriptions Page Header",
+      fields: AccountSubscriptionsPageHeader_fields,
+      defaultProps: AccountSubscriptionsPageHeader_defaults,
+      render: (props) => <AccountSubscriptionsPageHeader {...props} />,
+    },
+    AccountSubscriptionsPageLayout: {
+      category: "Account",
+      label: "Account Subscriptions Page Layout",
+      fields: AccountSubscriptionsPageLayout_fields,
+      defaultProps: AccountSubscriptionsPageLayout_defaults,
+      render: (props) => <AccountSubscriptionsPageLayout {...props} />,
+    },
+    AccountWishlistPageLayout: {
+      category: "Account",
+      label: "Account Wishlist Page Layout",
+      fields: AccountWishlistPageLayout_fields,
+      defaultProps: AccountWishlistPageLayout_defaults,
+      render: (props) => <AccountWishlistPageLayout {...props} />,
+    },
     ActiveFiltersBlock: {
       category: "Products",
       label: "Active Product Filters",
       fields: ActiveFiltersBlock_fields,
       defaultProps: ActiveFiltersBlock_defaults,
       render: (props) => <ActiveFiltersBlockView {...props} />,
+    },
+    AddressesAccountLayout: {
+      category: "Account",
+      label: "Addresses Account Layout",
+      fields: AddressesAccountLayout_fields,
+      defaultProps: AddressesAccountLayout_defaults,
+      render: (props) => <AddressesAccountLayoutView {...props} />,
+    },
+    AddressesAccountSidebar: {
+      category: "Account",
+      label: "Addresses Account Sidebar",
+      fields: AddressesAccountSidebar_fields,
+      defaultProps: AddressesAccountSidebar_defaults,
+      render: (props) => <AddressesAccountSidebarView {...props} />,
+    },
+    AddressesBreadcrumbs: {
+      category: "Account",
+      label: "Addresses Breadcrumbs",
+      fields: AddressesBreadcrumbs_fields,
+      defaultProps: AddressesBreadcrumbs_defaults,
+      render: (props) => <AddressesBreadcrumbsView {...props} />,
+    },
+    AddressesContentLayout: {
+      category: "Account",
+      label: "Addresses Content Layout",
+      fields: AddressesContentLayout_fields,
+      defaultProps: AddressesContentLayout_defaults,
+      render: (props) => <AddressesContentLayoutView {...props} />,
+    },
+    AddressesManagerRegion: {
+      category: "Account",
+      label: "Address Manager",
+      fields: AddressesManagerRegion_fields,
+      defaultProps: AddressesManagerRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/addresses/canonical/AddressesManagerRegionView");
+          const Component = mod["AddressesManagerRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    AddressesPageLayout: {
+      category: "Account",
+      label: "Addresses Page Layout",
+      fields: AddressesPageLayout_fields,
+      defaultProps: AddressesPageLayout_defaults,
+      render: (props) => <AddressesPageLayoutView {...props} />,
+    },
+    AddressesPageState: {
+      category: "Account",
+      label: "Addresses Page State",
+      fields: AddressesPageState_fields,
+      defaultProps: AddressesPageState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/addresses/canonical/AddressesPageStateView");
+          const Component = mod["AddressesPageStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
     },
     AddressList: {
       category: "Account",
@@ -2928,6 +3655,34 @@ const config = {
       defaultProps: AuthEntryCard_defaults,
       render: (props) => <AuthEntryCardView {...props} />,
     },
+    AuthPageLayout: {
+      category: "Auth",
+      label: "Auth Page Layout",
+      fields: AuthPageLayout_fields,
+      defaultProps: AuthPageLayout_defaults,
+      render: (props) => <AuthPageLayoutView {...props} />,
+    },
+    AuthPageState: {
+      category: "Auth",
+      label: "Auth Page State",
+      fields: AuthPageState_fields,
+      defaultProps: AuthPageState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/auth/canonical/AuthPageStateView");
+          const Component = mod["AuthPageStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
     BillingAddress: {
       category: "Account",
       label: "Billing Address",
@@ -2945,12 +3700,14 @@ const config = {
           const mod = await import("@/components/products/BreadcrumbsView");
           const Component = mod["BreadcrumbsView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for Breadcrumbs:', e?.message || e);
-          return <div data-puck-render-error="Breadcrumbs" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -2992,12 +3749,14 @@ const config = {
           const mod = await import("@/components/cart/CartHeaderView");
           const Component = mod["CartHeaderView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CartHeader:', e?.message || e);
-          return <div data-puck-render-error="CartHeader" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3011,14 +3770,93 @@ const config = {
           const mod = await import("@/components/cart/CartListView");
           const Component = mod["CartListView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CartList:', e?.message || e);
-          return <div data-puck-render-error="CartList" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
+    },
+    CartPageContinueShopping: {
+      category: "Cart",
+      label: "Cart Continue Shopping",
+      fields: CartPageContinueShopping_fields,
+      defaultProps: CartPageContinueShopping_defaults,
+      render: (props) => <CartPageContinueShoppingView {...props} />,
+    },
+    CartPageEmpty: {
+      category: "Cart",
+      label: "Cart Empty State",
+      fields: CartPageEmpty_fields,
+      defaultProps: CartPageEmpty_defaults,
+      render: (props) => <CartPageEmptyView {...props} />,
+    },
+    CartPageEmptyLayout: {
+      category: "Cart",
+      label: "Cart Empty Layout",
+      fields: CartPageEmptyLayout_fields,
+      defaultProps: CartPageEmptyLayout_defaults,
+      render: (props) => <CartPageEmptyLayoutView {...props} />,
+    },
+    CartPageFreeShippingProgress: {
+      category: "Cart",
+      label: "Cart Free Shipping Progress",
+      fields: CartPageFreeShippingProgress_fields,
+      defaultProps: CartPageFreeShippingProgress_defaults,
+      render: (props) => <CartPageFreeShippingProgressView {...props} />,
+    },
+    CartPageHeader: {
+      category: "Cart",
+      label: "Cart Page Header",
+      fields: CartPageHeader_fields,
+      defaultProps: CartPageHeader_defaults,
+      render: (props) => <CartPageHeaderView {...props} />,
+    },
+    CartPageItemList: {
+      category: "Cart",
+      label: "Cart Page Item List",
+      fields: CartPageItemList_fields,
+      defaultProps: CartPageItemList_defaults,
+      render: (props) => <CartPageItemListView {...props} />,
+    },
+    CartPageLayout: {
+      category: "Cart",
+      label: "Cart Page Layout",
+      fields: CartPageLayout_fields,
+      defaultProps: CartPageLayout_defaults,
+      render: (props) => <CartPageLayoutView {...props} />,
+    },
+    CartPageState: {
+      category: "Cart",
+      label: "Cart Page State",
+      fields: CartPageState_fields,
+      defaultProps: CartPageState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/cart/canonical/CartPageStateView");
+          const Component = mod["CartPageStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CartPageSummary: {
+      category: "Cart",
+      label: "Cart Page Summary",
+      fields: CartPageSummary_fields,
+      defaultProps: CartPageSummary_defaults,
+      render: (props) => <CartPageSummaryView {...props} />,
     },
     CartStateSection: {
       category: "Cart",
@@ -3030,12 +3868,14 @@ const config = {
           const mod = await import("@/components/cart/CartStateSectionView");
           const Component = mod["CartStateSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CartStateSection:', e?.message || e);
-          return <div data-puck-render-error="CartStateSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3049,12 +3889,14 @@ const config = {
           const mod = await import("@/components/cart/CartSummaryView");
           const Component = mod["CartSummaryView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CartSummary:', e?.message || e);
-          return <div data-puck-render-error="CartSummary" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3103,12 +3945,14 @@ const config = {
           const mod = await import("@/components/products/canonical/CatalogGridBoundaryView");
           const Component = mod["CatalogGridBoundaryView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CatalogGridBoundary:', e?.message || e);
-          return <div data-puck-render-error="CatalogGridBoundary" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3129,12 +3973,14 @@ const config = {
           const mod = await import("@/components/products/CatalogHeadingView");
           const Component = mod["CatalogHeadingView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CatalogHeading:', e?.message || e);
-          return <div data-puck-render-error="CatalogHeading" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3148,12 +3994,14 @@ const config = {
           const mod = await import("@/components/products/CatalogPaginationBlockView");
           const Component = mod["CatalogPaginationBlockView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CatalogPaginationBlock:', e?.message || e);
-          return <div data-puck-render-error="CatalogPaginationBlock" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3167,12 +4015,14 @@ const config = {
           const mod = await import("@/components/products/canonical/CatalogPaginationConditionView");
           const Component = mod["CatalogPaginationConditionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CatalogPaginationCondition:', e?.message || e);
-          return <div data-puck-render-error="CatalogPaginationCondition" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3186,12 +4036,14 @@ const config = {
           const mod = await import("@/components/products/canonical/CatalogResultsStateView");
           const Component = mod["CatalogResultsStateView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CatalogResultsState:', e?.message || e);
-          return <div data-puck-render-error="CatalogResultsState" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3205,12 +4057,14 @@ const config = {
           const mod = await import("@/components/products/canonical/CatalogTitleSummaryView");
           const Component = mod["CatalogTitleSummaryView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CatalogTitleSummary:', e?.message || e);
-          return <div data-puck-render-error="CatalogTitleSummary" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3245,12 +4099,14 @@ const config = {
           const mod = await import("@/components/categories/canonical/CategoryCatalogBreadcrumbsView");
           const Component = mod["CategoryCatalogBreadcrumbsView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CategoryCatalogBreadcrumbs:', e?.message || e);
-          return <div data-puck-render-error="CategoryCatalogBreadcrumbs" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3271,12 +4127,14 @@ const config = {
           const mod = await import("@/components/categories/canonical/CategoryCatalogGridBoundaryView");
           const Component = mod["CategoryCatalogGridBoundaryView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CategoryCatalogGridBoundary:', e?.message || e);
-          return <div data-puck-render-error="CategoryCatalogGridBoundary" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3297,12 +4155,14 @@ const config = {
           const mod = await import("@/components/categories/canonical/CategoryCatalogPaginationBlockView");
           const Component = mod["CategoryCatalogPaginationBlockView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CategoryCatalogPaginationBlock:', e?.message || e);
-          return <div data-puck-render-error="CategoryCatalogPaginationBlock" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3316,12 +4176,14 @@ const config = {
           const mod = await import("@/components/categories/canonical/CategoryCatalogPaginationConditionView");
           const Component = mod["CategoryCatalogPaginationConditionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CategoryCatalogPaginationCondition:', e?.message || e);
-          return <div data-puck-render-error="CategoryCatalogPaginationCondition" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3335,12 +4197,14 @@ const config = {
           const mod = await import("@/components/categories/canonical/CategoryCatalogResultsHeaderView");
           const Component = mod["CategoryCatalogResultsHeaderView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CategoryCatalogResultsHeader:', e?.message || e);
-          return <div data-puck-render-error="CategoryCatalogResultsHeader" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3354,12 +4218,14 @@ const config = {
           const mod = await import("@/components/categories/canonical/CategoryCatalogResultsStateView");
           const Component = mod["CategoryCatalogResultsStateView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CategoryCatalogResultsState:', e?.message || e);
-          return <div data-puck-render-error="CategoryCatalogResultsState" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3373,12 +4239,14 @@ const config = {
           const mod = await import("@/components/categories/CategoryCatalogStateSectionView");
           const Component = mod["CategoryCatalogStateSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CategoryCatalogStateSection:', e?.message || e);
-          return <div data-puck-render-error="CategoryCatalogStateSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3392,12 +4260,14 @@ const config = {
           const mod = await import("@/components/categories/CategoryGridView");
           const Component = mod["CategoryGridView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CategoryGrid:', e?.message || e);
-          return <div data-puck-render-error="CategoryGrid" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3411,12 +4281,14 @@ const config = {
           const mod = await import("@/components/categories/CategoryHeroView");
           const Component = mod["CategoryHeroView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CategoryHero:', e?.message || e);
-          return <div data-puck-render-error="CategoryHero" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3430,12 +4302,14 @@ const config = {
           const mod = await import("@/components/home/CategoryHighlightsView");
           const Component = mod["CategoryHighlightsView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CategoryHighlights:', e?.message || e);
-          return <div data-puck-render-error="CategoryHighlights" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3449,12 +4323,14 @@ const config = {
           const mod = await import("@/components/categories/canonical/CategoryProductFiltersBlockView");
           const Component = mod["CategoryProductFiltersBlockView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CategoryProductFiltersBlock:', e?.message || e);
-          return <div data-puck-render-error="CategoryProductFiltersBlock" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3468,12 +4344,14 @@ const config = {
           const mod = await import("@/components/categories/canonical/CategoryProductGridBlockView");
           const Component = mod["CategoryProductGridBlockView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CategoryProductGridBlock:', e?.message || e);
-          return <div data-puck-render-error="CategoryProductGridBlock" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3487,12 +4365,14 @@ const config = {
           const mod = await import("@/components/categories/canonical/CategorySubcategoryConditionView");
           const Component = mod["CategorySubcategoryConditionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CategorySubcategoryCondition:', e?.message || e);
-          return <div data-puck-render-error="CategorySubcategoryCondition" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3502,6 +4382,13 @@ const config = {
       fields: CheckoutConfirmation_fields,
       defaultProps: CheckoutConfirmation_defaults,
       render: (props) => <CheckoutConfirmationView {...props} />,
+    },
+    CheckoutConfirmationCondition: {
+      category: "Checkout",
+      label: "Checkout Confirmation Condition",
+      fields: CheckoutConfirmationCondition_fields,
+      defaultProps: CheckoutConfirmationCondition_defaults,
+      render: (props) => <CheckoutConfirmationConditionView {...props} />,
     },
     CheckoutDigitalAssetsSection: {
       category: "Checkout",
@@ -3513,14 +4400,23 @@ const config = {
           const mod = await import("@/components/checkout/success/CheckoutDigitalAssetsSectionView");
           const Component = mod["CheckoutDigitalAssetsSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CheckoutDigitalAssetsSection:', e?.message || e);
-          return <div data-puck-render-error="CheckoutDigitalAssetsSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
+    },
+    CheckoutErrorCondition: {
+      category: "Checkout",
+      label: "Checkout Error Condition",
+      fields: CheckoutErrorCondition_fields,
+      defaultProps: CheckoutErrorCondition_defaults,
+      render: (props) => <CheckoutErrorConditionView {...props} />,
     },
     CheckoutOrderReview: {
       category: "Checkout",
@@ -3539,14 +4435,79 @@ const config = {
           const mod = await import("@/components/checkout/CheckoutOrderSummaryView");
           const Component = mod["CheckoutOrderSummaryView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CheckoutOrderSummary:', e?.message || e);
-          return <div data-puck-render-error="CheckoutOrderSummary" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
+    },
+    CheckoutOrderSummaryPanel: {
+      category: "Checkout",
+      label: "Checkout Order Summary",
+      fields: CheckoutOrderSummaryPanel_fields,
+      defaultProps: CheckoutOrderSummaryPanel_defaults,
+      render: (props) => <CheckoutOrderSummaryPanelView {...props} />,
+    },
+    CheckoutPageClientLayout: {
+      category: "Checkout",
+      label: "Checkout Page Layout",
+      fields: CheckoutPageClientLayout_fields,
+      defaultProps: CheckoutPageClientLayout_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/canonical/CheckoutPageClientLayoutView");
+          const Component = mod["CheckoutPageClientLayoutView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CheckoutPageHeader: {
+      category: "Checkout",
+      label: "Checkout Header",
+      fields: CheckoutPageHeader_fields,
+      defaultProps: CheckoutPageHeader_defaults,
+      render: (props) => <CheckoutPageHeaderView {...props} />,
+    },
+    CheckoutPageState: {
+      category: "Checkout",
+      label: "Checkout Page State",
+      fields: CheckoutPageState_fields,
+      defaultProps: CheckoutPageState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/canonical/CheckoutPageStateView");
+          const Component = mod["CheckoutPageStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CheckoutPaymentCondition: {
+      category: "Checkout",
+      label: "Checkout Payment Condition",
+      fields: CheckoutPaymentCondition_fields,
+      defaultProps: CheckoutPaymentCondition_defaults,
+      render: (props) => <CheckoutPaymentConditionView {...props} />,
     },
     CheckoutPaymentMethod: {
       category: "Checkout",
@@ -3555,12 +4516,33 @@ const config = {
       defaultProps: CheckoutPaymentMethod_defaults,
       render: (props) => <CheckoutPaymentMethodView {...props} />,
     },
+    CheckoutPaymentStepRegion: {
+      category: "Checkout",
+      label: "Checkout Payment Step",
+      fields: CheckoutPaymentStepRegion_fields,
+      defaultProps: CheckoutPaymentStepRegion_defaults,
+      render: (props) => <CheckoutPaymentStepRegionView {...props} />,
+    },
     CheckoutPlaceOrderButton: {
       category: "Checkout",
       label: "Place Order Button",
       fields: CheckoutPlaceOrderButton_fields,
       defaultProps: CheckoutPlaceOrderButton_defaults,
       render: (props) => <CheckoutPlaceOrderButtonView {...props} />,
+    },
+    CheckoutReviewCondition: {
+      category: "Checkout",
+      label: "Checkout Review Condition",
+      fields: CheckoutReviewCondition_fields,
+      defaultProps: CheckoutReviewCondition_defaults,
+      render: (props) => <CheckoutReviewConditionView {...props} />,
+    },
+    CheckoutReviewSection: {
+      category: "Checkout",
+      label: "Checkout Review",
+      fields: CheckoutReviewSection_fields,
+      defaultProps: CheckoutReviewSection_defaults,
+      render: (props) => <CheckoutReviewSectionView {...props} />,
     },
     CheckoutSecureBadges: {
       category: "Checkout",
@@ -3583,24 +4565,19 @@ const config = {
       defaultProps: CheckoutShippingMethod_defaults,
       render: (props) => <CheckoutShippingMethodView {...props} />,
     },
-    CheckoutStateSection: {
+    CheckoutShippingMethodCondition: {
       category: "Checkout",
-      label: "Checkout State Section",
-      fields: CheckoutStateSection_fields,
-      defaultProps: CheckoutStateSection_defaults,
-      render: async (props) => {
-        try {
-          const mod = await import("@/components/checkout/CheckoutStateSectionView");
-          const Component = mod["CheckoutStateSectionView"];
-          const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
-        } catch (e) {
-          console.warn('[puck] Data fetch failed for CheckoutStateSection:', e?.message || e);
-          return <div data-puck-render-error="CheckoutStateSection" />;
-        }
-      },
+      label: "Shipping Method Condition",
+      fields: CheckoutShippingMethodCondition_fields,
+      defaultProps: CheckoutShippingMethodCondition_defaults,
+      render: (props) => <CheckoutShippingMethodConditionView {...props} />,
+    },
+    CheckoutShippingSection: {
+      category: "Checkout",
+      label: "Checkout Shipping Section",
+      fields: CheckoutShippingSection_fields,
+      defaultProps: CheckoutShippingSection_defaults,
+      render: (props) => <CheckoutShippingSectionView {...props} />,
     },
     CheckoutSteps: {
       category: "Checkout",
@@ -3608,6 +4585,13 @@ const config = {
       fields: CheckoutSteps_fields,
       defaultProps: CheckoutSteps_defaults,
       render: (props) => <CheckoutStepsView {...props} />,
+    },
+    CheckoutStepsRegion: {
+      category: "Checkout",
+      label: "Checkout Steps",
+      fields: CheckoutStepsRegion_fields,
+      defaultProps: CheckoutStepsRegion_defaults,
+      render: (props) => <CheckoutStepsRegionView {...props} />,
     },
     CheckoutSubscriptionStateSection: {
       category: "Checkout",
@@ -3619,12 +4603,406 @@ const config = {
           const mod = await import("@/components/checkout/CheckoutSubscriptionStateSectionView");
           const Component = mod["CheckoutSubscriptionStateSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CheckoutSubscriptionStateSection:', e?.message || e);
-          return <div data-puck-render-error="CheckoutSubscriptionStateSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CheckoutSuccessActionsLayout: {
+      category: "Checkout",
+      label: "Checkout Success Actions",
+      fields: CheckoutSuccessActionsLayout_fields,
+      defaultProps: CheckoutSuccessActionsLayout_defaults,
+      render: (props) => <CheckoutSuccessActionsLayoutView {...props} />,
+    },
+    CheckoutSuccessContinueShopping: {
+      category: "Checkout",
+      label: "Checkout Success Continue Shopping",
+      fields: CheckoutSuccessContinueShopping_fields,
+      defaultProps: CheckoutSuccessContinueShopping_defaults,
+      render: (props) => <CheckoutSuccessContinueShoppingView {...props} />,
+    },
+    CheckoutSuccessDetailsColumn: {
+      category: "Checkout",
+      label: "Checkout Success Details Column",
+      fields: CheckoutSuccessDetailsColumn_fields,
+      defaultProps: CheckoutSuccessDetailsColumn_defaults,
+      render: (props) => <CheckoutSuccessDetailsColumnView {...props} />,
+    },
+    CheckoutSuccessDigitalAssetsCondition: {
+      category: "Checkout",
+      label: "Checkout Success Digital Assets Condition",
+      fields: CheckoutSuccessDigitalAssetsCondition_fields,
+      defaultProps: CheckoutSuccessDigitalAssetsCondition_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/success/canonical/CheckoutSuccessDigitalAssetsConditionView");
+          const Component = mod["CheckoutSuccessDigitalAssetsConditionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CheckoutSuccessDigitalDownloads: {
+      category: "Checkout",
+      label: "Checkout Success Digital Downloads",
+      fields: CheckoutSuccessDigitalDownloads_fields,
+      defaultProps: CheckoutSuccessDigitalDownloads_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/success/canonical/CheckoutSuccessDigitalDownloadsView");
+          const Component = mod["CheckoutSuccessDigitalDownloadsView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CheckoutSuccessHeader: {
+      category: "Checkout",
+      label: "Checkout Success Header",
+      fields: CheckoutSuccessHeader_fields,
+      defaultProps: CheckoutSuccessHeader_defaults,
+      render: (props) => <CheckoutSuccessHeaderView {...props} />,
+    },
+    CheckoutSuccessHeaderLayout: {
+      category: "Checkout",
+      label: "Checkout Confirmation Header",
+      fields: CheckoutSuccessHeaderLayout_fields,
+      defaultProps: CheckoutSuccessHeaderLayout_defaults,
+      render: (props) => <CheckoutSuccessHeaderLayoutView {...props} />,
+    },
+    CheckoutSuccessLicenseKeys: {
+      category: "Checkout",
+      label: "Checkout Success License Keys",
+      fields: CheckoutSuccessLicenseKeys_fields,
+      defaultProps: CheckoutSuccessLicenseKeys_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/success/canonical/CheckoutSuccessLicenseKeysView");
+          const Component = mod["CheckoutSuccessLicenseKeysView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CheckoutSuccessNextSteps: {
+      category: "Checkout",
+      label: "Checkout Success Next Steps",
+      fields: CheckoutSuccessNextSteps_fields,
+      defaultProps: CheckoutSuccessNextSteps_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/success/canonical/CheckoutSuccessNextStepsView");
+          const Component = mod["CheckoutSuccessNextStepsView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CheckoutSuccessOrderColumn: {
+      category: "Checkout",
+      label: "Checkout Success Order Column",
+      fields: CheckoutSuccessOrderColumn_fields,
+      defaultProps: CheckoutSuccessOrderColumn_defaults,
+      render: (props) => <CheckoutSuccessOrderColumnView {...props} />,
+    },
+    CheckoutSuccessOrderItemList: {
+      category: "Checkout",
+      label: "Checkout Success Order Items",
+      fields: CheckoutSuccessOrderItemList_fields,
+      defaultProps: CheckoutSuccessOrderItemList_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/success/canonical/CheckoutSuccessOrderItemListView");
+          const Component = mod["CheckoutSuccessOrderItemListView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CheckoutSuccessOrderNumber: {
+      category: "Checkout",
+      label: "Checkout Success Order Number",
+      fields: CheckoutSuccessOrderNumber_fields,
+      defaultProps: CheckoutSuccessOrderNumber_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/success/canonical/CheckoutSuccessOrderNumberView");
+          const Component = mod["CheckoutSuccessOrderNumberView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CheckoutSuccessOrderSummary: {
+      category: "Checkout",
+      label: "Checkout Success Order Summary",
+      fields: CheckoutSuccessOrderSummary_fields,
+      defaultProps: CheckoutSuccessOrderSummary_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/success/canonical/CheckoutSuccessOrderSummaryView");
+          const Component = mod["CheckoutSuccessOrderSummaryView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CheckoutSuccessPageLayout: {
+      category: "Checkout",
+      label: "Checkout Success Page Layout",
+      fields: CheckoutSuccessPageLayout_fields,
+      defaultProps: CheckoutSuccessPageLayout_defaults,
+      render: (props) => <CheckoutSuccessPageLayoutView {...props} />,
+    },
+    CheckoutSuccessPageState: {
+      category: "Checkout",
+      label: "Checkout Success Page State",
+      fields: CheckoutSuccessPageState_fields,
+      defaultProps: CheckoutSuccessPageState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/success/canonical/CheckoutSuccessPageStateView");
+          const Component = mod["CheckoutSuccessPageStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CheckoutSuccessPurchaseTracker: {
+      category: "Checkout",
+      label: "Checkout Success Purchase Tracker",
+      fields: CheckoutSuccessPurchaseTracker_fields,
+      defaultProps: CheckoutSuccessPurchaseTracker_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/success/canonical/CheckoutSuccessPurchaseTrackerView");
+          const Component = mod["CheckoutSuccessPurchaseTrackerView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CheckoutSuccessShippingInfo: {
+      category: "Checkout",
+      label: "Checkout Success Shipping Info",
+      fields: CheckoutSuccessShippingInfo_fields,
+      defaultProps: CheckoutSuccessShippingInfo_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/success/canonical/CheckoutSuccessShippingInfoView");
+          const Component = mod["CheckoutSuccessShippingInfoView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CheckoutSuccessTwoColumnLayout: {
+      category: "Checkout",
+      label: "Checkout Success Two Columns",
+      fields: CheckoutSuccessTwoColumnLayout_fields,
+      defaultProps: CheckoutSuccessTwoColumnLayout_defaults,
+      render: (props) => <CheckoutSuccessTwoColumnLayoutView {...props} />,
+    },
+    CheckoutSuccessViewOrder: {
+      category: "Checkout",
+      label: "Checkout Success View Order",
+      fields: CheckoutSuccessViewOrder_fields,
+      defaultProps: CheckoutSuccessViewOrder_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/success/canonical/CheckoutSuccessViewOrderView");
+          const Component = mod["CheckoutSuccessViewOrderView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CollectionBreadcrumbs: {
+      category: "Collections",
+      label: "Collection Breadcrumbs",
+      fields: CollectionBreadcrumbs_fields,
+      defaultProps: CollectionBreadcrumbs_defaults,
+      render: (props) => <CollectionBreadcrumbsView {...props} />,
+    },
+    CollectionDetailCuratedDisplay: {
+      category: "Collections",
+      label: "Collection Detail Curated Display",
+      fields: CollectionDetailCuratedDisplay_fields,
+      defaultProps: CollectionDetailCuratedDisplay_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/collections/canonical/CollectionDetailCuratedDisplayView");
+          const Component = mod["CollectionDetailCuratedDisplayView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CollectionDetailHero: {
+      category: "Collections",
+      label: "Collection Detail Hero",
+      fields: CollectionDetailHero_fields,
+      defaultProps: CollectionDetailHero_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/collections/canonical/CollectionDetailHeroView");
+          const Component = mod["CollectionDetailHeroView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CollectionDetailInspirationGallery: {
+      category: "Collections",
+      label: "Collection Detail Inspiration Gallery",
+      fields: CollectionDetailInspirationGallery_fields,
+      defaultProps: CollectionDetailInspirationGallery_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/collections/canonical/CollectionDetailInspirationGalleryView");
+          const Component = mod["CollectionDetailInspirationGalleryView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CollectionDetailNotFound: {
+      category: "Collections",
+      label: "Collection Detail Not Found",
+      fields: CollectionDetailNotFound_fields,
+      defaultProps: CollectionDetailNotFound_defaults,
+      render: (props) => <CollectionDetailNotFoundView {...props} />,
+    },
+    CollectionDetailPageLayout: {
+      category: "Collections",
+      label: "Collection Detail Page Layout",
+      fields: CollectionDetailPageLayout_fields,
+      defaultProps: CollectionDetailPageLayout_defaults,
+      render: (props) => <CollectionDetailPageLayoutView {...props} />,
+    },
+    CollectionDetailPageState: {
+      category: "Collections",
+      label: "Collection Detail Page State",
+      fields: CollectionDetailPageState_fields,
+      defaultProps: CollectionDetailPageState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/collections/canonical/CollectionDetailPageStateView");
+          const Component = mod["CollectionDetailPageStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3638,12 +5016,14 @@ const config = {
           const mod = await import("@/components/collections/CollectionDetailStateSectionView");
           const Component = mod["CollectionDetailStateSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CollectionDetailStateSection:', e?.message || e);
-          return <div data-puck-render-error="CollectionDetailStateSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3657,12 +5037,14 @@ const config = {
           const mod = await import("@/components/collections/CollectionGridView");
           const Component = mod["CollectionGridView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CollectionGrid:', e?.message || e);
-          return <div data-puck-render-error="CollectionGrid" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3676,12 +5058,56 @@ const config = {
           const mod = await import("@/components/collections/CollectionHeroView");
           const Component = mod["CollectionHeroView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CollectionHero:', e?.message || e);
-          return <div data-puck-render-error="CollectionHero" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CollectionsFilterSection: {
+      category: "Collections",
+      label: "Collections Filter Section",
+      fields: CollectionsFilterSection_fields,
+      defaultProps: CollectionsFilterSection_defaults,
+      render: (props) => <CollectionsFilterSectionView {...props} />,
+    },
+    CollectionsPageHeader: {
+      category: "Collections",
+      label: "Collections Page Header",
+      fields: CollectionsPageHeader_fields,
+      defaultProps: CollectionsPageHeader_defaults,
+      render: (props) => <CollectionsPageHeaderView {...props} />,
+    },
+    CollectionsPageLayout: {
+      category: "Collections",
+      label: "Collections Page Layout",
+      fields: CollectionsPageLayout_fields,
+      defaultProps: CollectionsPageLayout_defaults,
+      render: (props) => <CollectionsPageLayoutView {...props} />,
+    },
+    CollectionsResultsState: {
+      category: "Collections",
+      label: "Collections Results State",
+      fields: CollectionsResultsState_fields,
+      defaultProps: CollectionsResultsState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/collections/canonical/CollectionsResultsStateView");
+          const Component = mod["CollectionsResultsStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3695,12 +5121,35 @@ const config = {
           const mod = await import("@/components/collections/CollectionStateSectionView");
           const Component = mod["CollectionStateSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CollectionStateSection:', e?.message || e);
-          return <div data-puck-render-error="CollectionStateSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    CollectionTypeFilter: {
+      category: "Collections",
+      label: "Collection Type Filter",
+      fields: CollectionTypeFilter_fields,
+      defaultProps: CollectionTypeFilter_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/collections/canonical/CollectionTypeFilterView");
+          const Component = mod["CollectionTypeFilterView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3725,6 +5174,27 @@ const config = {
       defaultProps: ContinueShoppingButton_defaults,
       render: (props) => <ContinueShoppingButtonView {...props} />,
     },
+    CuratedCollectionCondition: {
+      category: "Collections",
+      label: "Curated Collection Condition",
+      fields: CuratedCollectionCondition_fields,
+      defaultProps: CuratedCollectionCondition_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/collections/canonical/CuratedCollectionConditionView");
+          const Component = mod["CuratedCollectionConditionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
     CuratedCollectionSection: {
       category: "Home",
       label: "Curated Collection Section",
@@ -3735,12 +5205,14 @@ const config = {
           const mod = await import("@/components/home/CuratedCollectionSectionView");
           const Component = mod["CuratedCollectionSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CuratedCollectionSection:', e?.message || e);
-          return <div data-puck-render-error="CuratedCollectionSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3754,12 +5226,14 @@ const config = {
           const mod = await import("@/components/collections/CuratedProductDisplayView");
           const Component = mod["CuratedProductDisplayView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for CuratedProductDisplay:', e?.message || e);
-          return <div data-puck-render-error="CuratedProductDisplay" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3777,24 +5251,250 @@ const config = {
       defaultProps: DigitalDownloads_defaults,
       render: (props) => <DigitalDownloadsView {...props} />,
     },
-    DownloadLicenseStateSection: {
-      category: "Downloads",
-      label: "Download License State Section",
-      fields: DownloadLicenseStateSection_fields,
-      defaultProps: DownloadLicenseStateSection_defaults,
+    DigitalLibraryAssetsMetric: {
+      category: "Account",
+      label: "Digital Library Assets Metric",
+      fields: DigitalLibraryAssetsMetric_fields,
+      defaultProps: DigitalLibraryAssetsMetric_defaults,
       render: async (props) => {
         try {
-          const mod = await import("@/components/downloads/DownloadLicenseStateSectionView");
-          const Component = mod["DownloadLicenseStateSectionView"];
+          const mod = await import("@/components/account/downloads/canonical/DigitalLibraryAssetsMetricView");
+          const Component = mod["DigitalLibraryAssetsMetric"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for DownloadLicenseStateSection:', e?.message || e);
-          return <div data-puck-render-error="DownloadLicenseStateSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
+    },
+    DigitalLibraryAssetsState: {
+      category: "Account",
+      label: "Digital Library Assets State",
+      fields: DigitalLibraryAssetsState_fields,
+      defaultProps: DigitalLibraryAssetsState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/downloads/canonical/DigitalLibraryAssetsStateView");
+          const Component = mod["DigitalLibraryAssetsState"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    DigitalLibraryAttentionMetric: {
+      category: "Account",
+      label: "Digital Library Attention Metric",
+      fields: DigitalLibraryAttentionMetric_fields,
+      defaultProps: DigitalLibraryAttentionMetric_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/downloads/canonical/DigitalLibraryAttentionMetricView");
+          const Component = mod["DigitalLibraryAttentionMetric"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    DigitalLibraryBackground: {
+      category: "Account",
+      label: "Digital Library Background",
+      fields: DigitalLibraryBackground_fields,
+      defaultProps: DigitalLibraryBackground_defaults,
+      render: (props) => <DigitalLibraryBackground {...props} />,
+    },
+    DigitalLibraryDownloadsMetric: {
+      category: "Account",
+      label: "Downloads Remaining Metric",
+      fields: DigitalLibraryDownloadsMetric_fields,
+      defaultProps: DigitalLibraryDownloadsMetric_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/downloads/canonical/DigitalLibraryDownloadsMetricView");
+          const Component = mod["DigitalLibraryDownloadsMetric"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    DigitalLibraryEmptyRegion: {
+      category: "Account",
+      label: "Digital Library Empty State",
+      fields: DigitalLibraryEmptyRegion_fields,
+      defaultProps: DigitalLibraryEmptyRegion_defaults,
+      render: (props) => <DigitalLibraryEmptyRegion {...props} />,
+    },
+    DigitalLibraryEntriesGrid: {
+      category: "Account",
+      label: "Digital Library Asset Grid",
+      fields: DigitalLibraryEntriesGrid_fields,
+      defaultProps: DigitalLibraryEntriesGrid_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/downloads/canonical/DigitalLibraryEntriesGridView");
+          const Component = mod["DigitalLibraryEntriesGrid"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    DigitalLibraryHeader: {
+      category: "Account",
+      label: "Digital Library Header",
+      fields: DigitalLibraryHeader_fields,
+      defaultProps: DigitalLibraryHeader_defaults,
+      render: (props) => <DigitalLibraryHeader {...props} />,
+    },
+    DigitalLibraryHistoryRegion: {
+      category: "Account",
+      label: "Digital Library History",
+      fields: DigitalLibraryHistoryRegion_fields,
+      defaultProps: DigitalLibraryHistoryRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/downloads/canonical/DigitalLibraryHistoryRegionView");
+          const Component = mod["DigitalLibraryHistoryRegion"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    DigitalLibraryLayout: {
+      category: "Account",
+      label: "Digital Library Layout",
+      fields: DigitalLibraryLayout_fields,
+      defaultProps: DigitalLibraryLayout_defaults,
+      render: (props) => <DigitalLibraryLayout {...props} />,
+    },
+    DigitalLibraryMetricsLayout: {
+      category: "Account",
+      label: "Digital Library Metrics Layout",
+      fields: DigitalLibraryMetricsLayout_fields,
+      defaultProps: DigitalLibraryMetricsLayout_defaults,
+      render: (props) => <DigitalLibraryMetricsLayout {...props} />,
+    },
+    DownloadAssetState: {
+      category: "Downloads",
+      label: "Download Asset State",
+      fields: DownloadAssetState_fields,
+      defaultProps: DownloadAssetState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/downloads/canonical/DownloadAssetStateView");
+          const Component = mod["DownloadAssetStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    DownloadExpirationNotice: {
+      category: "Downloads",
+      label: "Download Expiration Notice",
+      fields: DownloadExpirationNotice_fields,
+      defaultProps: DownloadExpirationNotice_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/downloads/canonical/DownloadExpirationNoticeView");
+          const Component = mod["DownloadExpirationNoticeView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    DownloadLicenseInfoPanel: {
+      category: "Downloads",
+      label: "Download License Information",
+      fields: DownloadLicenseInfoPanel_fields,
+      defaultProps: DownloadLicenseInfoPanel_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/downloads/canonical/DownloadLicenseInfoPanelView");
+          const Component = mod["DownloadLicenseInfoPanelView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    DownloadPageContentLayout: {
+      category: "Downloads",
+      label: "Download Page Content",
+      fields: DownloadPageContentLayout_fields,
+      defaultProps: DownloadPageContentLayout_defaults,
+      render: (props) => <DownloadPageContentLayoutView {...props} />,
+    },
+    DownloadPageHeader: {
+      category: "Downloads",
+      label: "Download Page Header",
+      fields: DownloadPageHeader_fields,
+      defaultProps: DownloadPageHeader_defaults,
+      render: (props) => <DownloadPageHeaderView {...props} />,
+    },
+    DownloadPageLayout: {
+      category: "Downloads",
+      label: "Download Page Layout",
+      fields: DownloadPageLayout_fields,
+      defaultProps: DownloadPageLayout_defaults,
+      render: (props) => <DownloadPageLayoutView {...props} />,
     },
     DownloadsEmpty: {
       category: "Account",
@@ -3802,6 +5502,13 @@ const config = {
       fields: DownloadsEmpty_fields,
       defaultProps: DownloadsEmpty_defaults,
       render: (props) => <DownloadsEmptyView {...props} />,
+    },
+    DownloadTrustFooter: {
+      category: "Downloads",
+      label: "Download Trust Footer",
+      fields: DownloadTrustFooter_fields,
+      defaultProps: DownloadTrustFooter_defaults,
+      render: (props) => <DownloadTrustFooterView {...props} />,
     },
     EmptyCategory: {
       category: "Categories",
@@ -3838,6 +5545,48 @@ const config = {
       defaultProps: ErrorState_defaults,
       render: (props) => <ErrorStateView {...props} />,
     },
+    FeaturedCuratedCollection: {
+      category: "Collections",
+      label: "Featured Curated Collection",
+      fields: FeaturedCuratedCollection_fields,
+      defaultProps: FeaturedCuratedCollection_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/collections/canonical/FeaturedCuratedCollectionView");
+          const Component = mod["FeaturedCuratedCollectionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    FeaturedCuratedCollectionCondition: {
+      category: "Collections",
+      label: "Featured Curated Collection Condition",
+      fields: FeaturedCuratedCollectionCondition_fields,
+      defaultProps: FeaturedCuratedCollectionCondition_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/collections/canonical/FeaturedCuratedCollectionConditionView");
+          const Component = mod["FeaturedCuratedCollectionConditionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
     FeaturedProductsGrid: {
       category: "Home",
       label: "Featured Products Grid",
@@ -3848,12 +5597,14 @@ const config = {
           const mod = await import("@/components/home/FeaturedProductsGridView");
           const Component = mod["FeaturedProductsGridView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for FeaturedProductsGrid:', e?.message || e);
-          return <div data-puck-render-error="FeaturedProductsGrid" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3874,12 +5625,14 @@ const config = {
           const mod = await import("@/components/cart/FreeShippingProgressView");
           const Component = mod["FreeShippingProgressView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for FreeShippingProgress:', e?.message || e);
-          return <div data-puck-render-error="FreeShippingProgress" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3893,12 +5646,84 @@ const config = {
           const mod = await import("@/components/home/HeroSectionView");
           const Component = mod["HeroSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for HeroSection:', e?.message || e);
-          return <div data-puck-render-error="HeroSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    HomePageLayout: {
+      category: "Home",
+      label: "Home Page Layout",
+      fields: HomePageLayout_fields,
+      defaultProps: HomePageLayout_defaults,
+      render: (props) => <HomePageLayoutView {...props} />,
+    },
+    InspirationCollectionCondition: {
+      category: "Collections",
+      label: "Inspiration Collection Condition",
+      fields: InspirationCollectionCondition_fields,
+      defaultProps: InspirationCollectionCondition_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/collections/canonical/InspirationCollectionConditionView");
+          const Component = mod["InspirationCollectionConditionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    InspirationCollectionSection: {
+      category: "Collections",
+      label: "Inspiration Collection Section",
+      fields: InspirationCollectionSection_fields,
+      defaultProps: InspirationCollectionSection_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/collections/canonical/InspirationCollectionSectionView");
+          const Component = mod["InspirationCollectionSectionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    InspirationDetailCondition: {
+      category: "Collections",
+      label: "Inspiration Detail Condition",
+      fields: InspirationDetailCondition_fields,
+      defaultProps: InspirationDetailCondition_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/collections/canonical/InspirationDetailConditionView");
+          const Component = mod["InspirationDetailConditionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3912,12 +5737,14 @@ const config = {
           const mod = await import("@/components/collections/InspirationGalleryView");
           const Component = mod["InspirationGalleryView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for InspirationGallery:', e?.message || e);
-          return <div data-puck-render-error="InspirationGallery" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3931,12 +5758,14 @@ const config = {
           const mod = await import("@/components/home/InspirationSectionView");
           const Component = mod["InspirationSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for InspirationSection:', e?.message || e);
-          return <div data-puck-render-error="InspirationSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3957,12 +5786,14 @@ const config = {
           const mod = await import("@/components/products/MobileFilterDrawerBlockView");
           const Component = mod["MobileFilterDrawerBlockView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for MobileFilterDrawerBlock:', e?.message || e);
-          return <div data-puck-render-error="MobileFilterDrawerBlock" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -3985,7 +5816,21 @@ const config = {
       label: "No Search Results",
       fields: NoResults_fields,
       defaultProps: NoResults_defaults,
-      render: (props) => <NoResultsView {...props} />,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/search/NoResultsView");
+          const Component = mod["NoResultsView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
     },
     NotEligibleMessage: {
       category: "Account",
@@ -4008,6 +5853,468 @@ const config = {
       defaultProps: OrderDetails_defaults,
       render: (props) => <OrderDetailsView {...props} />,
     },
+    OrderDetailsBillingAddressCondition: {
+      category: "Account",
+      label: "Order Billing Address Condition",
+      fields: OrderDetailsBillingAddressCondition_fields,
+      defaultProps: OrderDetailsBillingAddressCondition_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/detail/canonical/OrderDetailsBillingAddressConditionView");
+          const Component = mod["OrderDetailsBillingAddressConditionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDetailsBillingRegion: {
+      category: "Account",
+      label: "Order Billing Address",
+      fields: OrderDetailsBillingRegion_fields,
+      defaultProps: OrderDetailsBillingRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/detail/canonical/OrderDetailsBillingRegionView");
+          const Component = mod["OrderDetailsBillingRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDetailsBreadcrumbs: {
+      category: "Account",
+      label: "Order Details Breadcrumbs",
+      fields: OrderDetailsBreadcrumbs_fields,
+      defaultProps: OrderDetailsBreadcrumbs_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/detail/canonical/OrderDetailsBreadcrumbsView");
+          const Component = mod["OrderDetailsBreadcrumbsView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDetailsCancelAction: {
+      category: "Account",
+      label: "Order Cancel Action",
+      fields: OrderDetailsCancelAction_fields,
+      defaultProps: OrderDetailsCancelAction_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/detail/canonical/OrderDetailsCancelActionView");
+          const Component = mod["OrderDetailsCancelActionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDetailsContentLayout: {
+      category: "Account",
+      label: "Order Details Content Layout",
+      fields: OrderDetailsContentLayout_fields,
+      defaultProps: OrderDetailsContentLayout_defaults,
+      render: (props) => <OrderDetailsContentLayoutView {...props} />,
+    },
+    OrderDetailsDownloadAction: {
+      category: "Account",
+      label: "Order Downloads Action",
+      fields: OrderDetailsDownloadAction_fields,
+      defaultProps: OrderDetailsDownloadAction_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/detail/canonical/OrderDetailsDownloadActionView");
+          const Component = mod["OrderDetailsDownloadActionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDetailsFinancialRegion: {
+      category: "Account",
+      label: "Order Financial Details",
+      fields: OrderDetailsFinancialRegion_fields,
+      defaultProps: OrderDetailsFinancialRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/detail/canonical/OrderDetailsFinancialRegionView");
+          const Component = mod["OrderDetailsFinancialRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDetailsHeader: {
+      category: "Account",
+      label: "Order Details Header",
+      fields: OrderDetailsHeader_fields,
+      defaultProps: OrderDetailsHeader_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/detail/canonical/OrderDetailsHeaderView");
+          const Component = mod["OrderDetailsHeaderView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDetailsItemsRegion: {
+      category: "Account",
+      label: "Order Items Region",
+      fields: OrderDetailsItemsRegion_fields,
+      defaultProps: OrderDetailsItemsRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/detail/canonical/OrderDetailsItemsRegionView");
+          const Component = mod["OrderDetailsItemsRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDetailsPageLayout: {
+      category: "Account",
+      label: "Order Details Page Layout",
+      fields: OrderDetailsPageLayout_fields,
+      defaultProps: OrderDetailsPageLayout_defaults,
+      render: (props) => <OrderDetailsPageLayoutView {...props} />,
+    },
+    OrderDetailsPageState: {
+      category: "Account",
+      label: "Order Details Page State",
+      fields: OrderDetailsPageState_fields,
+      defaultProps: OrderDetailsPageState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/detail/canonical/OrderDetailsPageStateView");
+          const Component = mod["OrderDetailsPageStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDetailsPaymentRegion: {
+      category: "Account",
+      label: "Order Payment Information",
+      fields: OrderDetailsPaymentRegion_fields,
+      defaultProps: OrderDetailsPaymentRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/detail/canonical/OrderDetailsPaymentRegionView");
+          const Component = mod["OrderDetailsPaymentRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDetailsReorderAction: {
+      category: "Account",
+      label: "Order Buy Again Action",
+      fields: OrderDetailsReorderAction_fields,
+      defaultProps: OrderDetailsReorderAction_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/detail/canonical/OrderDetailsReorderActionView");
+          const Component = mod["OrderDetailsReorderActionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDetailsShippingRegion: {
+      category: "Account",
+      label: "Order Shipping Address",
+      fields: OrderDetailsShippingRegion_fields,
+      defaultProps: OrderDetailsShippingRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/detail/canonical/OrderDetailsShippingRegionView");
+          const Component = mod["OrderDetailsShippingRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDownloadsAssetsLayout: {
+      category: "Account",
+      label: "Order Downloads Assets Layout",
+      fields: OrderDownloadsAssetsLayout_fields,
+      defaultProps: OrderDownloadsAssetsLayout_defaults,
+      render: (props) => <OrderDownloadsAssetsLayoutView {...props} />,
+    },
+    OrderDownloadsAssetsState: {
+      category: "Account",
+      label: "Order Downloads Assets State",
+      fields: OrderDownloadsAssetsState_fields,
+      defaultProps: OrderDownloadsAssetsState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/downloads/canonical/OrderDownloadsAssetsStateView");
+          const Component = mod["OrderDownloadsAssetsStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDownloadsBackLink: {
+      category: "Account",
+      label: "Back To Order Details",
+      fields: OrderDownloadsBackLink_fields,
+      defaultProps: OrderDownloadsBackLink_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/downloads/canonical/OrderDownloadsBackLinkView");
+          const Component = mod["OrderDownloadsBackLinkView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDownloadsBreadcrumbs: {
+      category: "Account",
+      label: "Order Downloads Breadcrumbs",
+      fields: OrderDownloadsBreadcrumbs_fields,
+      defaultProps: OrderDownloadsBreadcrumbs_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/downloads/canonical/OrderDownloadsBreadcrumbsView");
+          const Component = mod["OrderDownloadsBreadcrumbsView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDownloadsEmptyRegion: {
+      category: "Account",
+      label: "No Downloads Available",
+      fields: OrderDownloadsEmptyRegion_fields,
+      defaultProps: OrderDownloadsEmptyRegion_defaults,
+      render: (props) => <OrderDownloadsEmptyRegionView {...props} />,
+    },
+    OrderDownloadsHeader: {
+      category: "Account",
+      label: "Order Downloads Header",
+      fields: OrderDownloadsHeader_fields,
+      defaultProps: OrderDownloadsHeader_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/downloads/canonical/OrderDownloadsHeaderView");
+          const Component = mod["OrderDownloadsHeaderView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDownloadsLicenseKeysRegion: {
+      category: "Account",
+      label: "Order License Keys",
+      fields: OrderDownloadsLicenseKeysRegion_fields,
+      defaultProps: OrderDownloadsLicenseKeysRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/downloads/canonical/OrderDownloadsLicenseKeysRegionView");
+          const Component = mod["OrderDownloadsLicenseKeysRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDownloadsListRegion: {
+      category: "Account",
+      label: "Order Digital Downloads",
+      fields: OrderDownloadsListRegion_fields,
+      defaultProps: OrderDownloadsListRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/downloads/canonical/OrderDownloadsListRegionView");
+          const Component = mod["OrderDownloadsListRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDownloadsPageLayout: {
+      category: "Account",
+      label: "Order Downloads Page Layout",
+      fields: OrderDownloadsPageLayout_fields,
+      defaultProps: OrderDownloadsPageLayout_defaults,
+      render: (props) => <OrderDownloadsPageLayoutView {...props} />,
+    },
+    OrderDownloadsPageState: {
+      category: "Account",
+      label: "Order Downloads Page State",
+      fields: OrderDownloadsPageState_fields,
+      defaultProps: OrderDownloadsPageState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/downloads/canonical/OrderDownloadsPageStateView");
+          const Component = mod["OrderDownloadsPageStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDownloadsPaymentPendingCondition: {
+      category: "Account",
+      label: "Payment Pending Condition",
+      fields: OrderDownloadsPaymentPendingCondition_fields,
+      defaultProps: OrderDownloadsPaymentPendingCondition_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/downloads/canonical/OrderDownloadsPaymentPendingConditionView");
+          const Component = mod["OrderDownloadsPaymentPendingConditionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderDownloadsPaymentPendingNotice: {
+      category: "Account",
+      label: "Payment Pending Notice",
+      fields: OrderDownloadsPaymentPendingNotice_fields,
+      defaultProps: OrderDownloadsPaymentPendingNotice_defaults,
+      render: (props) => <OrderDownloadsPaymentPendingNoticeView {...props} />,
+    },
     OrderEmpty: {
       category: "Account",
       label: "Order Empty State",
@@ -4028,6 +6335,160 @@ const config = {
       fields: OrderNumber_fields,
       defaultProps: OrderNumber_defaults,
       render: (props) => <OrderNumberView {...props} />,
+    },
+    OrderReturnBreadcrumbs: {
+      category: "Account",
+      label: "Order Return Breadcrumbs",
+      fields: OrderReturnBreadcrumbs_fields,
+      defaultProps: OrderReturnBreadcrumbs_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/return/canonical/OrderReturnBreadcrumbsView");
+          const Component = mod["OrderReturnBreadcrumbsView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderReturnEligibilityState: {
+      category: "Account",
+      label: "Order Return Eligibility State",
+      fields: OrderReturnEligibilityState_fields,
+      defaultProps: OrderReturnEligibilityState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/return/canonical/OrderReturnEligibilityStateView");
+          const Component = mod["OrderReturnEligibilityStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderReturnEligibleLayout: {
+      category: "Account",
+      label: "Order Return Eligible Layout",
+      fields: OrderReturnEligibleLayout_fields,
+      defaultProps: OrderReturnEligibleLayout_defaults,
+      render: (props) => <OrderReturnEligibleLayoutView {...props} />,
+    },
+    OrderReturnHeader: {
+      category: "Account",
+      label: "Order Return Header",
+      fields: OrderReturnHeader_fields,
+      defaultProps: OrderReturnHeader_defaults,
+      render: (props) => <OrderReturnHeaderView {...props} />,
+    },
+    OrderReturnNotEligibleRegion: {
+      category: "Account",
+      label: "Order Return Not Eligible",
+      fields: OrderReturnNotEligibleRegion_fields,
+      defaultProps: OrderReturnNotEligibleRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/return/canonical/OrderReturnNotEligibleRegionView");
+          const Component = mod["OrderReturnNotEligibleRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderReturnPageLayout: {
+      category: "Account",
+      label: "Order Return Page Layout",
+      fields: OrderReturnPageLayout_fields,
+      defaultProps: OrderReturnPageLayout_defaults,
+      render: (props) => <OrderReturnPageLayoutView {...props} />,
+    },
+    OrderReturnPageState: {
+      category: "Account",
+      label: "Order Return Page State",
+      fields: OrderReturnPageState_fields,
+      defaultProps: OrderReturnPageState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/return/canonical/OrderReturnPageStateView");
+          const Component = mod["OrderReturnPageStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderReturnPolicyReminderRegion: {
+      category: "Account",
+      label: "Order Return Policy Reminder",
+      fields: OrderReturnPolicyReminderRegion_fields,
+      defaultProps: OrderReturnPolicyReminderRegion_defaults,
+      render: (props) => <OrderReturnPolicyReminderRegionView {...props} />,
+    },
+    OrderReturnRequestFormRegion: {
+      category: "Account",
+      label: "Order Return Request Form",
+      fields: OrderReturnRequestFormRegion_fields,
+      defaultProps: OrderReturnRequestFormRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/return/canonical/OrderReturnRequestFormRegionView");
+          const Component = mod["OrderReturnRequestFormRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    OrderReturnWindowExpiredRegion: {
+      category: "Account",
+      label: "Order Return Window Expired",
+      fields: OrderReturnWindowExpiredRegion_fields,
+      defaultProps: OrderReturnWindowExpiredRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/orders/return/canonical/OrderReturnWindowExpiredRegionView");
+          const Component = mod["OrderReturnWindowExpiredRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
     },
     OrderStatusBadge: {
       category: "Account",
@@ -4057,6 +6518,153 @@ const config = {
       defaultProps: PaymentInfo_defaults,
       render: (props) => <PaymentInfoView {...props} />,
     },
+    PaymentMethodsAddCardAction: {
+      category: "Account",
+      label: "Add Card Action",
+      fields: PaymentMethodsAddCardAction_fields,
+      defaultProps: PaymentMethodsAddCardAction_defaults,
+      render: (props) => <PaymentMethodsAddCardActionView {...props} />,
+    },
+    PaymentMethodsEmptyStateRegion: {
+      category: "Account",
+      label: "No Saved Payment Methods",
+      fields: PaymentMethodsEmptyStateRegion_fields,
+      defaultProps: PaymentMethodsEmptyStateRegion_defaults,
+      render: (props) => <PaymentMethodsEmptyStateRegionView {...props} />,
+    },
+    PaymentMethodsHeaderLayout: {
+      category: "Account",
+      label: "Payment Methods Header",
+      fields: PaymentMethodsHeaderLayout_fields,
+      defaultProps: PaymentMethodsHeaderLayout_defaults,
+      render: (props) => <PaymentMethodsHeaderLayoutView {...props} />,
+    },
+    PaymentMethodsHelpFooter: {
+      category: "Account",
+      label: "Payment Methods Help Footer",
+      fields: PaymentMethodsHelpFooter_fields,
+      defaultProps: PaymentMethodsHelpFooter_defaults,
+      render: (props) => <PaymentMethodsHelpFooterView {...props} />,
+    },
+    PaymentMethodsListRegion: {
+      category: "Account",
+      label: "Saved Payment Method List",
+      fields: PaymentMethodsListRegion_fields,
+      defaultProps: PaymentMethodsListRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/payment-methods/canonical/PaymentMethodsListRegionView");
+          const Component = mod["PaymentMethodsListRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    PaymentMethodsListState: {
+      category: "Account",
+      label: "Saved Cards State",
+      fields: PaymentMethodsListState_fields,
+      defaultProps: PaymentMethodsListState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/payment-methods/canonical/PaymentMethodsListStateView");
+          const Component = mod["PaymentMethodsListStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    PaymentMethodsPageLayout: {
+      category: "Account",
+      label: "Payment Methods Page Layout",
+      fields: PaymentMethodsPageLayout_fields,
+      defaultProps: PaymentMethodsPageLayout_defaults,
+      render: (props) => <PaymentMethodsPageLayoutView {...props} />,
+    },
+    PaymentMethodsPageState: {
+      category: "Account",
+      label: "Payment Methods Page State",
+      fields: PaymentMethodsPageState_fields,
+      defaultProps: PaymentMethodsPageState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/payment-methods/canonical/PaymentMethodsPageStateView");
+          const Component = mod["PaymentMethodsPageStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    PaymentMethodsSavedCardsSection: {
+      category: "Account",
+      label: "Saved Cards Section",
+      fields: PaymentMethodsSavedCardsSection_fields,
+      defaultProps: PaymentMethodsSavedCardsSection_defaults,
+      render: (props) => <PaymentMethodsSavedCardsSectionView {...props} />,
+    },
+    PaymentMethodsStripeCardForm: {
+      category: "Account",
+      label: "Stripe Card Form",
+      fields: PaymentMethodsStripeCardForm_fields,
+      defaultProps: PaymentMethodsStripeCardForm_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/payment-methods/canonical/PaymentMethodsStripeCardFormView");
+          const Component = mod["PaymentMethodsStripeCardFormView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    PaymentMethodsStripeConfigCondition: {
+      category: "Account",
+      label: "Stripe Card Form Condition",
+      fields: PaymentMethodsStripeConfigCondition_fields,
+      defaultProps: PaymentMethodsStripeConfigCondition_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/payment-methods/canonical/PaymentMethodsStripeConfigConditionView");
+          const Component = mod["PaymentMethodsStripeConfigConditionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
     PriceDisplay: {
       category: "Products",
       label: "Price Display",
@@ -4067,12 +6675,14 @@ const config = {
           const mod = await import("@/components/products/PriceDisplayView");
           const Component = mod["PriceDisplayView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for PriceDisplay:', e?.message || e);
-          return <div data-puck-render-error="PriceDisplay" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4107,12 +6717,14 @@ const config = {
           const mod = await import("@/components/products/canonical/ProductDetailPurchaseColumnView");
           const Component = mod["ProductDetailPurchaseColumnView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for ProductDetailPurchaseColumn:', e?.message || e);
-          return <div data-puck-render-error="ProductDetailPurchaseColumn" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4126,12 +6738,14 @@ const config = {
           const mod = await import("@/components/products/ProductDetailPurchaseSectionView");
           const Component = mod["ProductDetailPurchaseSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for ProductDetailPurchaseSection:', e?.message || e);
-          return <div data-puck-render-error="ProductDetailPurchaseSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4145,12 +6759,14 @@ const config = {
           const mod = await import("@/components/products/canonical/ProductDetailRelatedProductsSectionView");
           const Component = mod["ProductDetailRelatedProductsSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for ProductDetailRelatedProductsSection:', e?.message || e);
-          return <div data-puck-render-error="ProductDetailRelatedProductsSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4164,12 +6780,14 @@ const config = {
           const mod = await import("@/components/templates/products/ProductDetailsClientView");
           const Component = mod["ProductDetailsClientView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for ProductDetailsClient:', e?.message || e);
-          return <div data-puck-render-error="ProductDetailsClient" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4197,12 +6815,14 @@ const config = {
           const mod = await import("@/components/products/ProductFiltersBlockView");
           const Component = mod["ProductFiltersBlockView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for ProductFiltersBlock:', e?.message || e);
-          return <div data-puck-render-error="ProductFiltersBlock" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4216,12 +6836,14 @@ const config = {
           const mod = await import("@/components/products/ProductGalleryView");
           const Component = mod["ProductGalleryView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for ProductGallery:', e?.message || e);
-          return <div data-puck-render-error="ProductGallery" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4235,12 +6857,14 @@ const config = {
           const mod = await import("@/components/products/ProductGridView");
           const Component = mod["ProductGridView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for ProductGrid:', e?.message || e);
-          return <div data-puck-render-error="ProductGrid" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4254,12 +6878,14 @@ const config = {
           const mod = await import("@/components/templates/products/ProductRatingSummaryView");
           const Component = mod["ProductRatingSummaryView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for ProductRatingSummary:', e?.message || e);
-          return <div data-puck-render-error="ProductRatingSummary" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4273,12 +6899,14 @@ const config = {
           const mod = await import("@/components/products/ProductRelatedProductsSectionView");
           const Component = mod["ProductRelatedProductsSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for ProductRelatedProductsSection:', e?.message || e);
-          return <div data-puck-render-error="ProductRelatedProductsSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4299,12 +6927,14 @@ const config = {
           const mod = await import("@/components/products/ProductsCatalogStateSectionView");
           const Component = mod["ProductsCatalogStateSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for ProductsCatalogStateSection:', e?.message || e);
-          return <div data-puck-render-error="ProductsCatalogStateSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4318,12 +6948,14 @@ const config = {
           const mod = await import("@/components/products/ProductTabsView");
           const Component = mod["ProductTabsView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for ProductTabs:', e?.message || e);
-          return <div data-puck-render-error="ProductTabs" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4337,12 +6969,14 @@ const config = {
           const mod = await import("@/components/home/PromotionBannerView");
           const Component = mod["PromotionBannerView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for PromotionBanner:', e?.message || e);
-          return <div data-puck-render-error="PromotionBanner" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4352,6 +6986,27 @@ const config = {
       fields: PurchaseTracker_fields,
       defaultProps: PurchaseTracker_defaults,
       render: (props) => <PurchaseTrackerView {...props} />,
+    },
+    RecentSearches: {
+      category: "Search",
+      label: "Recent Searches",
+      fields: RecentSearches_fields,
+      defaultProps: RecentSearches_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/search/RecentSearchesView");
+          const Component = mod["RecentSearchesView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
     },
     RefundSummary: {
       category: "Account",
@@ -4370,12 +7025,287 @@ const config = {
           const mod = await import("@/components/products/RelatedProductsView");
           const Component = mod["RelatedProductsView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for RelatedProducts:', e?.message || e);
-          return <div data-puck-render-error="RelatedProducts" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    ReturnDetailsActionsRegion: {
+      category: "Account",
+      label: "Return Actions",
+      fields: ReturnDetailsActionsRegion_fields,
+      defaultProps: ReturnDetailsActionsRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/detail/canonical/ReturnDetailsActionsRegionView");
+          const Component = mod["ReturnDetailsActionsRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    ReturnDetailsAdminNotesCondition: {
+      category: "Account",
+      label: "Return Admin Notes Condition",
+      fields: ReturnDetailsAdminNotesCondition_fields,
+      defaultProps: ReturnDetailsAdminNotesCondition_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/detail/canonical/ReturnDetailsAdminNotesConditionView");
+          const Component = mod["ReturnDetailsAdminNotesConditionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    ReturnDetailsAdminNotesRegion: {
+      category: "Account",
+      label: "Return Admin Notes",
+      fields: ReturnDetailsAdminNotesRegion_fields,
+      defaultProps: ReturnDetailsAdminNotesRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/detail/canonical/ReturnDetailsAdminNotesRegionView");
+          const Component = mod["ReturnDetailsAdminNotesRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    ReturnDetailsContentLayout: {
+      category: "Account",
+      label: "Return Details Content Layout",
+      fields: ReturnDetailsContentLayout_fields,
+      defaultProps: ReturnDetailsContentLayout_defaults,
+      render: (props) => <ReturnDetailsContentLayoutView {...props} />,
+    },
+    ReturnDetailsHeaderRegion: {
+      category: "Account",
+      label: "Return Details Header",
+      fields: ReturnDetailsHeaderRegion_fields,
+      defaultProps: ReturnDetailsHeaderRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/detail/canonical/ReturnDetailsHeaderRegionView");
+          const Component = mod["ReturnDetailsHeaderRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    ReturnDetailsItemsRegion: {
+      category: "Account",
+      label: "Return Items",
+      fields: ReturnDetailsItemsRegion_fields,
+      defaultProps: ReturnDetailsItemsRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/detail/canonical/ReturnDetailsItemsRegionView");
+          const Component = mod["ReturnDetailsItemsRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    ReturnDetailsLabelRegion: {
+      category: "Account",
+      label: "Return Label Download",
+      fields: ReturnDetailsLabelRegion_fields,
+      defaultProps: ReturnDetailsLabelRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/detail/canonical/ReturnDetailsLabelRegionView");
+          const Component = mod["ReturnDetailsLabelRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    ReturnDetailsNotFoundLayout: {
+      category: "Account",
+      label: "Return Not Found Layout",
+      fields: ReturnDetailsNotFoundLayout_fields,
+      defaultProps: ReturnDetailsNotFoundLayout_defaults,
+      render: (props) => <ReturnDetailsNotFoundLayoutView {...props} />,
+    },
+    ReturnDetailsPageLayout: {
+      category: "Account",
+      label: "Return Details Page Layout",
+      fields: ReturnDetailsPageLayout_fields,
+      defaultProps: ReturnDetailsPageLayout_defaults,
+      render: (props) => <ReturnDetailsPageLayoutView {...props} />,
+    },
+    ReturnDetailsPageState: {
+      category: "Account",
+      label: "Return Details Page State",
+      fields: ReturnDetailsPageState_fields,
+      defaultProps: ReturnDetailsPageState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/detail/canonical/ReturnDetailsPageStateView");
+          const Component = mod["ReturnDetailsPageStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    ReturnDetailsReasonRegion: {
+      category: "Account",
+      label: "Return Reason",
+      fields: ReturnDetailsReasonRegion_fields,
+      defaultProps: ReturnDetailsReasonRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/detail/canonical/ReturnDetailsReasonRegionView");
+          const Component = mod["ReturnDetailsReasonRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    ReturnDetailsRefundBreakdownRegion: {
+      category: "Account",
+      label: "Return Refund Breakdown",
+      fields: ReturnDetailsRefundBreakdownRegion_fields,
+      defaultProps: ReturnDetailsRefundBreakdownRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/detail/canonical/ReturnDetailsRefundBreakdownRegionView");
+          const Component = mod["ReturnDetailsRefundBreakdownRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    ReturnDetailsRefundSummaryRegion: {
+      category: "Account",
+      label: "Return Refund Summary",
+      fields: ReturnDetailsRefundSummaryRegion_fields,
+      defaultProps: ReturnDetailsRefundSummaryRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/detail/canonical/ReturnDetailsRefundSummaryRegionView");
+          const Component = mod["ReturnDetailsRefundSummaryRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    ReturnDetailsTimelineRegion: {
+      category: "Account",
+      label: "Return Status Timeline",
+      fields: ReturnDetailsTimelineRegion_fields,
+      defaultProps: ReturnDetailsTimelineRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/detail/canonical/ReturnDetailsTimelineRegionView");
+          const Component = mod["ReturnDetailsTimelineRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    ReturnDetailsTrackingRegion: {
+      category: "Account",
+      label: "Return Tracking",
+      fields: ReturnDetailsTrackingRegion_fields,
+      defaultProps: ReturnDetailsTrackingRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/detail/canonical/ReturnDetailsTrackingRegionView");
+          const Component = mod["ReturnDetailsTrackingRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4393,12 +7323,131 @@ const config = {
       defaultProps: ReturnReason_defaults,
       render: (props) => <ReturnReasonView {...props} />,
     },
+    ReturnsCardsList: {
+      category: "Account",
+      label: "Return Requests List",
+      fields: ReturnsCardsList_fields,
+      defaultProps: ReturnsCardsList_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/canonical/ReturnsCardsListView");
+          const Component = mod["ReturnsCardsList"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
     ReturnsEmpty: {
       category: "Account",
       label: "Returns Empty State",
       fields: ReturnsEmpty_fields,
       defaultProps: ReturnsEmpty_defaults,
       render: (props) => <ReturnsEmptyView {...props} />,
+    },
+    ReturnsEmptyRegion: {
+      category: "Account",
+      label: "Returns Empty State",
+      fields: ReturnsEmptyRegion_fields,
+      defaultProps: ReturnsEmptyRegion_defaults,
+      render: (props) => <ReturnsEmptyRegion {...props} />,
+    },
+    ReturnsListLayout: {
+      category: "Account",
+      label: "Returns List Layout",
+      fields: ReturnsListLayout_fields,
+      defaultProps: ReturnsListLayout_defaults,
+      render: (props) => <ReturnsListLayout {...props} />,
+    },
+    ReturnsPageHeader: {
+      category: "Account",
+      label: "Returns Page Header",
+      fields: ReturnsPageHeader_fields,
+      defaultProps: ReturnsPageHeader_defaults,
+      render: (props) => <ReturnsPageHeader {...props} />,
+    },
+    ReturnsPageLayout: {
+      category: "Account",
+      label: "Returns Page Layout",
+      fields: ReturnsPageLayout_fields,
+      defaultProps: ReturnsPageLayout_defaults,
+      render: (props) => <ReturnsPageLayout {...props} />,
+    },
+    ReturnsPaginationRegion: {
+      category: "Account",
+      label: "Returns Pagination",
+      fields: ReturnsPaginationRegion_fields,
+      defaultProps: ReturnsPaginationRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/canonical/ReturnsPaginationRegionView");
+          const Component = mod["ReturnsPaginationRegion"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    ReturnsProcessingNotice: {
+      category: "Account",
+      label: "Returns Processing Notice",
+      fields: ReturnsProcessingNotice_fields,
+      defaultProps: ReturnsProcessingNotice_defaults,
+      render: (props) => <ReturnsProcessingNotice {...props} />,
+    },
+    ReturnsResultsState: {
+      category: "Account",
+      label: "Returns Results State",
+      fields: ReturnsResultsState_fields,
+      defaultProps: ReturnsResultsState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/canonical/ReturnsResultsStateView");
+          const Component = mod["ReturnsResultsState"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    ReturnsStatusFilterRegion: {
+      category: "Account",
+      label: "Return Status Filter",
+      fields: ReturnsStatusFilterRegion_fields,
+      defaultProps: ReturnsStatusFilterRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/returns/canonical/ReturnsStatusFilterRegionView");
+          const Component = mod["ReturnsStatusFilterRegion"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
     },
     ReturnStatusBadge: {
       category: "Account",
@@ -4424,12 +7473,98 @@ const config = {
           const mod = await import("@/components/products/ReviewsSectionView");
           const Component = mod["ReviewsSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for ReviewsSection:', e?.message || e);
-          return <div data-puck-render-error="ReviewsSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SearchAnalytics: {
+      category: "Search",
+      label: "Search Analytics",
+      fields: SearchAnalytics_fields,
+      defaultProps: SearchAnalytics_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/search/SearchAnalyticsView");
+          const Component = mod["SearchAnalyticsView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SearchBreadcrumbs: {
+      category: "Search",
+      label: "Search Breadcrumbs",
+      fields: SearchBreadcrumbs_fields,
+      defaultProps: SearchBreadcrumbs_defaults,
+      render: (props) => <SearchBreadcrumbsView {...props} />,
+    },
+    SearchContentLayout: {
+      category: "Search",
+      label: "Search Content Layout",
+      fields: SearchContentLayout_fields,
+      defaultProps: SearchContentLayout_defaults,
+      render: (props) => <SearchContentLayoutView {...props} />,
+    },
+    SearchFilters: {
+      category: "Search",
+      label: "Search Filters",
+      fields: SearchFilters_fields,
+      defaultProps: SearchFilters_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/search/SearchFiltersView");
+          const Component = mod["SearchFiltersView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SearchFilterSidebar: {
+      category: "Search",
+      label: "Search Filter Sidebar",
+      fields: SearchFilterSidebar_fields,
+      defaultProps: SearchFilterSidebar_defaults,
+      render: (props) => <SearchFilterSidebarView {...props} />,
+    },
+    SearchGridBoundary: {
+      category: "Search",
+      label: "Search Grid Boundary",
+      fields: SearchGridBoundary_fields,
+      defaultProps: SearchGridBoundary_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/search/canonical/SearchGridBoundaryView");
+          const Component = mod["SearchGridBoundaryView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4443,14 +7578,156 @@ const config = {
           const mod = await import("@/components/search/SearchHeaderView");
           const Component = mod["SearchHeaderView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for SearchHeader:', e?.message || e);
-          return <div data-puck-render-error="SearchHeader" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
+    },
+    SearchPageLayout: {
+      category: "Search",
+      label: "Search Page Layout",
+      fields: SearchPageLayout_fields,
+      defaultProps: SearchPageLayout_defaults,
+      render: (props) => <SearchPageLayoutView {...props} />,
+    },
+    SearchPagination: {
+      category: "Search",
+      label: "Search Pagination",
+      fields: SearchPagination_fields,
+      defaultProps: SearchPagination_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/search/SearchPaginationView");
+          const Component = mod["SearchPaginationView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SearchPaginationCondition: {
+      category: "Search",
+      label: "Search Pagination Condition",
+      fields: SearchPaginationCondition_fields,
+      defaultProps: SearchPaginationCondition_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/search/canonical/SearchPaginationConditionView");
+          const Component = mod["SearchPaginationConditionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SearchProductGrid: {
+      category: "Search",
+      label: "Search Product Grid",
+      fields: SearchProductGrid_fields,
+      defaultProps: SearchProductGrid_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/search/SearchProductGridView");
+          const Component = mod["SearchProductGridView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SearchQueryState: {
+      category: "Search",
+      label: "Search Query State",
+      fields: SearchQueryState_fields,
+      defaultProps: SearchQueryState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/search/canonical/SearchQueryStateView");
+          const Component = mod["SearchQueryStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SearchRecentSearchesBoundary: {
+      category: "Search",
+      label: "Recent Searches Boundary",
+      fields: SearchRecentSearchesBoundary_fields,
+      defaultProps: SearchRecentSearchesBoundary_defaults,
+      render: (props) => <SearchRecentSearchesBoundaryView {...props} />,
+    },
+    SearchResultsBlock: {
+      category: "Search",
+      label: "Search Results Block",
+      fields: SearchResultsBlock_fields,
+      defaultProps: SearchResultsBlock_defaults,
+      render: (props) => <SearchResultsBlockView {...props} />,
+    },
+    SearchSortControls: {
+      category: "Search",
+      label: "Search Sort Controls",
+      fields: SearchSortControls_fields,
+      defaultProps: SearchSortControls_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/search/canonical/SearchSortControlsView");
+          const Component = mod["SearchSortControlsView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SearchSortDropdown: {
+      category: "Search",
+      label: "Search Sort Dropdown",
+      fields: SearchSortDropdown_fields,
+      defaultProps: SearchSortDropdown_defaults,
+      render: (props) => <SearchSortDropdownView {...props} />,
+    },
+    SearchStartPrompt: {
+      category: "Search",
+      label: "Search Start Prompt",
+      fields: SearchStartPrompt_fields,
+      defaultProps: SearchStartPrompt_defaults,
+      render: (props) => <SearchStartPromptView {...props} />,
     },
     SearchStateSection: {
       category: "Search",
@@ -4462,12 +7739,14 @@ const config = {
           const mod = await import("@/components/search/SearchStateSectionView");
           const Component = mod["SearchStateSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for SearchStateSection:', e?.message || e);
-          return <div data-puck-render-error="SearchStateSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4492,6 +7771,223 @@ const config = {
       defaultProps: SharedWishlist_defaults,
       render: (props) => <SharedWishlistView {...props} />,
     },
+    SharedWishlistAddAll: {
+      category: "Wishlist",
+      label: "Shared Wishlist Add All",
+      fields: SharedWishlistAddAll_fields,
+      defaultProps: SharedWishlistAddAll_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/wishlist/canonical/SharedWishlistAddAllView");
+          const Component = mod["SharedWishlistAddAllView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SharedWishlistContentLayout: {
+      category: "Wishlist",
+      label: "Shared Wishlist Content Layout",
+      fields: SharedWishlistContentLayout_fields,
+      defaultProps: SharedWishlistContentLayout_defaults,
+      render: (props) => <SharedWishlistContentLayoutView {...props} />,
+    },
+    SharedWishlistEmpty: {
+      category: "Wishlist",
+      label: "Shared Wishlist Empty",
+      fields: SharedWishlistEmpty_fields,
+      defaultProps: SharedWishlistEmpty_defaults,
+      render: (props) => <SharedWishlistEmptyView {...props} />,
+    },
+    SharedWishlistGrid: {
+      category: "Wishlist",
+      label: "Shared Wishlist Grid",
+      fields: SharedWishlistGrid_fields,
+      defaultProps: SharedWishlistGrid_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/wishlist/canonical/SharedWishlistGridView");
+          const Component = mod["SharedWishlistGridView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SharedWishlistHeader: {
+      category: "Wishlist",
+      label: "Shared Wishlist Header",
+      fields: SharedWishlistHeader_fields,
+      defaultProps: SharedWishlistHeader_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/wishlist/canonical/SharedWishlistHeaderView");
+          const Component = mod["SharedWishlistHeaderView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SharedWishlistHeaderActionsCondition: {
+      category: "Wishlist",
+      label: "Shared Wishlist Header Actions Condition",
+      fields: SharedWishlistHeaderActionsCondition_fields,
+      defaultProps: SharedWishlistHeaderActionsCondition_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/wishlist/canonical/SharedWishlistHeaderActionsConditionView");
+          const Component = mod["SharedWishlistHeaderActionsConditionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SharedWishlistInvalidState: {
+      category: "Wishlist",
+      label: "Shared Wishlist Invalid State",
+      fields: SharedWishlistInvalidState_fields,
+      defaultProps: SharedWishlistInvalidState_defaults,
+      render: (props) => <SharedWishlistInvalidStateView {...props} />,
+    },
+    SharedWishlistItemsState: {
+      category: "Wishlist",
+      label: "Shared Wishlist Items State",
+      fields: SharedWishlistItemsState_fields,
+      defaultProps: SharedWishlistItemsState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/wishlist/canonical/SharedWishlistItemsStateView");
+          const Component = mod["SharedWishlistItemsStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SharedWishlistJsonLd: {
+      category: "Wishlist",
+      label: "Shared Wishlist Structured Data",
+      fields: SharedWishlistJsonLd_fields,
+      defaultProps: SharedWishlistJsonLd_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/wishlist/canonical/SharedWishlistJsonLdView");
+          const Component = mod["SharedWishlistJsonLdView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SharedWishlistPageLayout: {
+      category: "Wishlist",
+      label: "Shared Wishlist Page Layout",
+      fields: SharedWishlistPageLayout_fields,
+      defaultProps: SharedWishlistPageLayout_defaults,
+      render: (props) => <SharedWishlistPageLayoutView {...props} />,
+    },
+    SharedWishlistPageState: {
+      category: "Wishlist",
+      label: "Shared Wishlist Page State",
+      fields: SharedWishlistPageState_fields,
+      defaultProps: SharedWishlistPageState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/wishlist/canonical/SharedWishlistPageStateView");
+          const Component = mod["SharedWishlistPageStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SharedWishlistSavingsCard: {
+      category: "Wishlist",
+      label: "Shared Wishlist Savings Card",
+      fields: SharedWishlistSavingsCard_fields,
+      defaultProps: SharedWishlistSavingsCard_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/wishlist/canonical/SharedWishlistSavingsCardView");
+          const Component = mod["SharedWishlistSavingsCardView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SharedWishlistSavingsCondition: {
+      category: "Wishlist",
+      label: "Shared Wishlist Savings Condition",
+      fields: SharedWishlistSavingsCondition_fields,
+      defaultProps: SharedWishlistSavingsCondition_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/wishlist/canonical/SharedWishlistSavingsConditionView");
+          const Component = mod["SharedWishlistSavingsConditionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
     SharedWishlistStateSection: {
       category: "Wishlist",
       label: "Shared Wishlist State Section",
@@ -4502,12 +7998,14 @@ const config = {
           const mod = await import("@/components/wishlist/SharedWishlistStateSectionView");
           const Component = mod["SharedWishlistStateSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for SharedWishlistStateSection:', e?.message || e);
-          return <div data-puck-render-error="SharedWishlistStateSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4542,12 +8040,14 @@ const config = {
           const mod = await import("@/components/products/StockIndicatorView");
           const Component = mod["StockIndicatorView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for StockIndicator:', e?.message || e);
-          return <div data-puck-render-error="StockIndicator" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4561,12 +8061,231 @@ const config = {
           const mod = await import("@/components/categories/SubcategoryNavView");
           const Component = mod["SubcategoryNavView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for SubcategoryNav:', e?.message || e);
-          return <div data-puck-render-error="SubcategoryNav" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionBillingHistory: {
+      category: "Account",
+      label: "Subscription Billing History List",
+      fields: SubscriptionBillingHistory_fields,
+      defaultProps: SubscriptionBillingHistory_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionBillingHistoryView");
+          const Component = mod["SubscriptionBillingHistoryView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionBillingHistoryPanel: {
+      category: "Account",
+      label: "Subscription Billing History",
+      fields: SubscriptionBillingHistoryPanel_fields,
+      defaultProps: SubscriptionBillingHistoryPanel_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionBillingHistoryPanelView");
+          const Component = mod["SubscriptionBillingHistoryPanelView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionBillingPortalAction: {
+      category: "Account",
+      label: "Open Subscription Billing Portal",
+      fields: SubscriptionBillingPortalAction_fields,
+      defaultProps: SubscriptionBillingPortalAction_defaults,
+      render: (props) => <SubscriptionBillingPortalActionView {...props} />,
+    },
+    SubscriptionBillingTermsSection: {
+      category: "Checkout",
+      label: "Subscription Billing Terms",
+      fields: SubscriptionBillingTermsSection_fields,
+      defaultProps: SubscriptionBillingTermsSection_defaults,
+      render: (props) => <SubscriptionBillingTermsSectionView {...props} />,
+    },
+    SubscriptionCancelAction: {
+      category: "Account",
+      label: "Cancel Subscription",
+      fields: SubscriptionCancelAction_fields,
+      defaultProps: SubscriptionCancelAction_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionCancelActionView");
+          const Component = mod["SubscriptionCancelActionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionCartSummaryPanel: {
+      category: "Checkout",
+      label: "Subscription Cart Summary",
+      fields: SubscriptionCartSummaryPanel_fields,
+      defaultProps: SubscriptionCartSummaryPanel_defaults,
+      render: (props) => <SubscriptionCartSummaryPanelView {...props} />,
+    },
+    SubscriptionCheckoutActions: {
+      category: "Checkout",
+      label: "Subscription Checkout Actions",
+      fields: SubscriptionCheckoutActions_fields,
+      defaultProps: SubscriptionCheckoutActions_defaults,
+      render: (props) => <SubscriptionCheckoutActionsView {...props} />,
+    },
+    SubscriptionCheckoutClientLayout: {
+      category: "Checkout",
+      label: "Subscription Checkout Layout",
+      fields: SubscriptionCheckoutClientLayout_fields,
+      defaultProps: SubscriptionCheckoutClientLayout_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/subscription/canonical/SubscriptionCheckoutClientLayoutView");
+          const Component = mod["SubscriptionCheckoutClientLayoutView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionCheckoutErrorCondition: {
+      category: "Checkout",
+      label: "Subscription Checkout Error",
+      fields: SubscriptionCheckoutErrorCondition_fields,
+      defaultProps: SubscriptionCheckoutErrorCondition_defaults,
+      render: (props) => <SubscriptionCheckoutErrorConditionView {...props} />,
+    },
+    SubscriptionCheckoutHeader: {
+      category: "Checkout",
+      label: "Subscription Checkout Header",
+      fields: SubscriptionCheckoutHeader_fields,
+      defaultProps: SubscriptionCheckoutHeader_defaults,
+      render: (props) => <SubscriptionCheckoutHeaderView {...props} />,
+    },
+    SubscriptionCheckoutPageLayout: {
+      category: "Checkout",
+      label: "Subscription Checkout Page Layout",
+      fields: SubscriptionCheckoutPageLayout_fields,
+      defaultProps: SubscriptionCheckoutPageLayout_defaults,
+      render: (props) => <SubscriptionCheckoutPageLayoutView {...props} />,
+    },
+    SubscriptionCheckoutPageState: {
+      category: "Checkout",
+      label: "Subscription Checkout Page State",
+      fields: SubscriptionCheckoutPageState_fields,
+      defaultProps: SubscriptionCheckoutPageState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/checkout/subscription/canonical/SubscriptionCheckoutPageStateView");
+          const Component = mod["SubscriptionCheckoutPageStateView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionCheckoutSteps: {
+      category: "Checkout",
+      label: "Subscription Checkout Steps",
+      fields: SubscriptionCheckoutSteps_fields,
+      defaultProps: SubscriptionCheckoutSteps_defaults,
+      render: (props) => <SubscriptionCheckoutStepsView {...props} />,
+    },
+    SubscriptionCustomerInfoSection: {
+      category: "Checkout",
+      label: "Subscription Customer Information",
+      fields: SubscriptionCustomerInfoSection_fields,
+      defaultProps: SubscriptionCustomerInfoSection_defaults,
+      render: (props) => <SubscriptionCustomerInfoSectionView {...props} />,
+    },
+    SubscriptionDetailContentLayout: {
+      category: "Account",
+      label: "Subscription Details Content Layout",
+      fields: SubscriptionDetailContentLayout_fields,
+      defaultProps: SubscriptionDetailContentLayout_defaults,
+      render: (props) => <SubscriptionDetailContentLayoutView {...props} />,
+    },
+    SubscriptionDetailHeaderRegion: {
+      category: "Account",
+      label: "Subscription Details Header",
+      fields: SubscriptionDetailHeaderRegion_fields,
+      defaultProps: SubscriptionDetailHeaderRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionDetailHeaderRegionView");
+          const Component = mod["SubscriptionDetailHeaderRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionDetailsBreadcrumbs: {
+      category: "Account",
+      label: "Subscription Details Breadcrumbs",
+      fields: SubscriptionDetailsBreadcrumbs_fields,
+      defaultProps: SubscriptionDetailsBreadcrumbs_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionDetailsBreadcrumbsView");
+          const Component = mod["SubscriptionDetailsBreadcrumbsView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4577,22 +8296,234 @@ const config = {
       defaultProps: SubscriptionDetailsHeader_defaults,
       render: (props) => <SubscriptionDetailsHeaderView {...props} />,
     },
-    SubscriptionDetailStateSection: {
+    SubscriptionDetailsPageLayout: {
       category: "Account",
-      label: "Subscription Detail State Section",
-      fields: SubscriptionDetailStateSection_fields,
-      defaultProps: SubscriptionDetailStateSection_defaults,
+      label: "Subscription Details Page Layout",
+      fields: SubscriptionDetailsPageLayout_fields,
+      defaultProps: SubscriptionDetailsPageLayout_defaults,
+      render: (props) => <SubscriptionDetailsPageLayoutView {...props} />,
+    },
+    SubscriptionDetailsPageState: {
+      category: "Account",
+      label: "Subscription Details Page State",
+      fields: SubscriptionDetailsPageState_fields,
+      defaultProps: SubscriptionDetailsPageState_defaults,
       render: async (props) => {
         try {
-          const mod = await import("@/components/account/SubscriptionDetailStateSectionView");
-          const Component = mod["SubscriptionDetailStateSectionView"];
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionDetailsPageStateView");
+          const Component = mod["SubscriptionDetailsPageStateView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for SubscriptionDetailStateSection:', e?.message || e);
-          return <div data-puck-render-error="SubscriptionDetailStateSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionFailedPaymentAlert: {
+      category: "Account",
+      label: "Subscription Failed Payment Alert",
+      fields: SubscriptionFailedPaymentAlert_fields,
+      defaultProps: SubscriptionFailedPaymentAlert_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionFailedPaymentAlertView");
+          const Component = mod["SubscriptionFailedPaymentAlertView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionItemsPanel: {
+      category: "Account",
+      label: "Subscription Items Panel",
+      fields: SubscriptionItemsPanel_fields,
+      defaultProps: SubscriptionItemsPanel_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionItemsPanelView");
+          const Component = mod["SubscriptionItemsPanelView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionLifecycleActionsPanel: {
+      category: "Account",
+      label: "Subscription Lifecycle Actions",
+      fields: SubscriptionLifecycleActionsPanel_fields,
+      defaultProps: SubscriptionLifecycleActionsPanel_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionLifecycleActionsPanelView");
+          const Component = mod["SubscriptionLifecycleActionsPanelView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionModifyPanel: {
+      category: "Account",
+      label: "Subscription Modify Panel",
+      fields: SubscriptionModifyPanel_fields,
+      defaultProps: SubscriptionModifyPanel_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionModifyPanelView");
+          const Component = mod["SubscriptionModifyPanelView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionNextDeliveryRegion: {
+      category: "Account",
+      label: "Subscription Next Delivery",
+      fields: SubscriptionNextDeliveryRegion_fields,
+      defaultProps: SubscriptionNextDeliveryRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionNextDeliveryRegionView");
+          const Component = mod["SubscriptionNextDeliveryRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionOrdersPanel: {
+      category: "Account",
+      label: "Subscription Orders Panel",
+      fields: SubscriptionOrdersPanel_fields,
+      defaultProps: SubscriptionOrdersPanel_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionOrdersPanelView");
+          const Component = mod["SubscriptionOrdersPanelView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionPauseAction: {
+      category: "Account",
+      label: "Pause Subscription",
+      fields: SubscriptionPauseAction_fields,
+      defaultProps: SubscriptionPauseAction_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionPauseActionView");
+          const Component = mod["SubscriptionPauseActionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionPaymentPanel: {
+      category: "Account",
+      label: "Subscription Payment Panel",
+      fields: SubscriptionPaymentPanel_fields,
+      defaultProps: SubscriptionPaymentPanel_defaults,
+      render: (props) => <SubscriptionPaymentPanelView {...props} />,
+    },
+    SubscriptionPricingPreviewPanel: {
+      category: "Checkout",
+      label: "Subscription Pricing Preview",
+      fields: SubscriptionPricingPreviewPanel_fields,
+      defaultProps: SubscriptionPricingPreviewPanel_defaults,
+      render: (props) => <SubscriptionPricingPreviewPanelView {...props} />,
+    },
+    SubscriptionResumeAction: {
+      category: "Account",
+      label: "Resume Subscription",
+      fields: SubscriptionResumeAction_fields,
+      defaultProps: SubscriptionResumeAction_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionResumeActionView");
+          const Component = mod["SubscriptionResumeActionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionsCardsList: {
+      category: "Account",
+      label: "Subscriptions Cards List",
+      fields: SubscriptionsCardsList_fields,
+      defaultProps: SubscriptionsCardsList_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/list/canonical/SubscriptionsCardsListView");
+          const Component = mod["SubscriptionsCardsList"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4603,12 +8534,145 @@ const config = {
       defaultProps: SubscriptionsEmpty_defaults,
       render: (props) => <SubscriptionsEmptyView {...props} />,
     },
+    SubscriptionsEmptyRegion: {
+      category: "Account",
+      label: "Subscriptions Empty State",
+      fields: SubscriptionsEmptyRegion_fields,
+      defaultProps: SubscriptionsEmptyRegion_defaults,
+      render: (props) => <SubscriptionsEmptyRegion {...props} />,
+    },
+    SubscriptionShippingAddressSection: {
+      category: "Checkout",
+      label: "Subscription Shipping Address",
+      fields: SubscriptionShippingAddressSection_fields,
+      defaultProps: SubscriptionShippingAddressSection_defaults,
+      render: (props) => <SubscriptionShippingAddressSectionView {...props} />,
+    },
+    SubscriptionSkipDeliveryAction: {
+      category: "Account",
+      label: "Skip Subscription Delivery",
+      fields: SubscriptionSkipDeliveryAction_fields,
+      defaultProps: SubscriptionSkipDeliveryAction_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionSkipDeliveryActionView");
+          const Component = mod["SubscriptionSkipDeliveryActionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionsListClientRegion: {
+      category: "Account",
+      label: "Subscriptions List Filter Region",
+      fields: SubscriptionsListClientRegion_fields,
+      defaultProps: SubscriptionsListClientRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/list/canonical/SubscriptionsListClientRegionView");
+          const Component = mod["SubscriptionsListClientRegion"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionsListLayout: {
+      category: "Account",
+      label: "Subscriptions List Layout",
+      fields: SubscriptionsListLayout_fields,
+      defaultProps: SubscriptionsListLayout_defaults,
+      render: (props) => <SubscriptionsListLayout {...props} />,
+    },
+    SubscriptionsListState: {
+      category: "Account",
+      label: "Subscriptions List State",
+      fields: SubscriptionsListState_fields,
+      defaultProps: SubscriptionsListState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/list/canonical/SubscriptionsListStateView");
+          const Component = mod["SubscriptionsListState"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
     SubscriptionStatusBadge: {
       category: "Account",
       label: "Subscription Status Badge",
       fields: SubscriptionStatusBadge_fields,
       defaultProps: SubscriptionStatusBadge_defaults,
       render: (props) => <SubscriptionStatusBadgeView {...props} />,
+    },
+    SubscriptionSummaryPanel: {
+      category: "Checkout",
+      label: "Subscription Terms Summary",
+      fields: SubscriptionSummaryPanel_fields,
+      defaultProps: SubscriptionSummaryPanel_defaults,
+      render: (props) => <SubscriptionSummaryPanelView {...props} />,
+    },
+    SubscriptionUpcomingAmountRegion: {
+      category: "Account",
+      label: "Subscription Upcoming Amount",
+      fields: SubscriptionUpcomingAmountRegion_fields,
+      defaultProps: SubscriptionUpcomingAmountRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionUpcomingAmountRegionView");
+          const Component = mod["SubscriptionUpcomingAmountRegionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    SubscriptionUpdatePaymentAction: {
+      category: "Account",
+      label: "Update Subscription Payment",
+      fields: SubscriptionUpdatePaymentAction_fields,
+      defaultProps: SubscriptionUpdatePaymentAction_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/subscriptions/canonical/SubscriptionUpdatePaymentActionView");
+          const Component = mod["SubscriptionUpdatePaymentActionView"];
+          const fetcher = mod.puckDataFetcher;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
     },
     SuccessHeader: {
       category: "Checkout",
@@ -4627,12 +8691,14 @@ const config = {
           const mod = await import("@/components/testimonials/TestimonialsSectionView");
           const Component = mod["TestimonialsSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for TestimonialsSection:', e?.message || e);
-          return <div data-puck-render-error="TestimonialsSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4646,12 +8712,14 @@ const config = {
           const mod = await import("@/components/categories/canonical/TrendingCategoriesSectionView");
           const Component = mod["TrendingCategoriesSectionView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for TrendingCategoriesSection:', e?.message || e);
-          return <div data-puck-render-error="TrendingCategoriesSection" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4665,12 +8733,14 @@ const config = {
           const mod = await import("@/components/categories/TrendingCategoryCardView");
           const Component = mod["TrendingCategoryCardView"];
           const fetcher = mod.puckDataFetcher;
-          const puckMetadata = props?.puck?.metadata || {};
-          const fetchedData = typeof fetcher === 'function' ? await fetcher(props, { metadata: puckMetadata }) : {};
-          return <Component {...props} {...fetchedData} />;
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
         } catch (e) {
-          console.warn('[puck] Data fetch failed for TrendingCategoryCard:', e?.message || e);
-          return <div data-puck-render-error="TrendingCategoryCard" />;
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
         }
       },
     },
@@ -4709,12 +8779,121 @@ const config = {
       defaultProps: WishlistEmpty_defaults,
       render: (props) => <WishlistEmptyView {...props} />,
     },
+    WishlistEmptyRegion: {
+      category: "Account",
+      label: "Wishlist Empty State",
+      fields: WishlistEmptyRegion_fields,
+      defaultProps: WishlistEmptyRegion_defaults,
+      render: (props) => <WishlistEmptyRegion {...props} />,
+    },
+    WishlistGridRegion: {
+      category: "Account",
+      label: "Wishlist Grid Region",
+      fields: WishlistGridRegion_fields,
+      defaultProps: WishlistGridRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/wishlist/canonical/WishlistGridRegionView");
+          const Component = mod["WishlistGridRegion"];
+          const fetcherModule = await import("@/components/account/wishlist/canonical/accountWishlistFetcher.server");
+          const fetcher = fetcherModule["puckDataFetcher"];
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    WishlistItemsState: {
+      category: "Account",
+      label: "Wishlist Items State",
+      fields: WishlistItemsState_fields,
+      defaultProps: WishlistItemsState_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/wishlist/canonical/WishlistItemsStateView");
+          const Component = mod["WishlistItemsState"];
+          const fetcherModule = await import("@/components/account/wishlist/canonical/accountWishlistFetcher.server");
+          const fetcher = fetcherModule["puckDataFetcher"];
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    WishlistPageHeaderLayout: {
+      category: "Account",
+      label: "Wishlist Page Header Layout",
+      fields: WishlistPageHeaderLayout_fields,
+      defaultProps: WishlistPageHeaderLayout_defaults,
+      render: (props) => <WishlistPageHeaderLayout {...props} />,
+    },
+    WishlistPageIntro: {
+      category: "Account",
+      label: "Wishlist Page Intro",
+      fields: WishlistPageIntro_fields,
+      defaultProps: WishlistPageIntro_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/wishlist/canonical/WishlistPageIntroView");
+          const Component = mod["WishlistPageIntro"];
+          const fetcherModule = await import("@/components/account/wishlist/canonical/accountWishlistFetcher.server");
+          const fetcher = fetcherModule["puckDataFetcher"];
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
+    },
+    WishlistRecommendationsFooter: {
+      category: "Account",
+      label: "Wishlist Recommendations Footer",
+      fields: WishlistRecommendationsFooter_fields,
+      defaultProps: WishlistRecommendationsFooter_defaults,
+      render: (props) => <WishlistRecommendationsFooter {...props} />,
+    },
     WishlistSavingsCard: {
       category: "Account",
       label: "Wishlist Savings Card",
       fields: WishlistSavingsCard_fields,
       defaultProps: WishlistSavingsCard_defaults,
       render: (props) => <WishlistSavingsCardView {...props} />,
+    },
+    WishlistSavingsRegion: {
+      category: "Account",
+      label: "Wishlist Savings Region",
+      fields: WishlistSavingsRegion_fields,
+      defaultProps: WishlistSavingsRegion_defaults,
+      render: async (props) => {
+        try {
+          const mod = await import("@/components/account/wishlist/canonical/WishlistSavingsRegionView");
+          const Component = mod["WishlistSavingsRegion"];
+          const fetcherModule = await import("@/components/account/wishlist/canonical/accountWishlistFetcher.server");
+          const fetcher = fetcherModule["puckDataFetcher"];
+          const publishedPuck = { ...(props?.puck || {}), isEditing: false, isPublished: true };
+          const publishedProps = { ...props, puck: publishedPuck };
+          const puckMetadata = publishedPuck.metadata || {};
+          const fetchedData = typeof fetcher === 'function' ? await fetcher(publishedProps, { metadata: puckMetadata }) : {};
+          return <Component {...publishedProps} {...fetchedData} puck={publishedPuck} />;
+        } catch (e) {
+          // Preserve source-route failures instead of rendering an invisible fallback block.
+          throw e;
+        }
+      },
     },
   },
 };

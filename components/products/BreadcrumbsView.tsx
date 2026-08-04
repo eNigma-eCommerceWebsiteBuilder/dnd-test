@@ -1,6 +1,7 @@
 import { Breadcrumbs } from './Breadcrumbs';
 import { fetchProduct } from '@/lib/api/services/products';
 import { resolveProductDetailSlug } from './product-detail-route';
+import { buildProductBreadcrumbs } from './canonical/ProductDetailContent';
 import type { PuckFetcherContext } from '@/lib/puck-route-metadata';
 
 interface BreadcrumbItem {
@@ -49,15 +50,7 @@ export async function puckDataFetcher(props: { productSlug?: string }, context?:
   const productSlug = resolveProductDetailSlug(props, context);
   if (!productSlug) return {};
   const product = await fetchProduct(productSlug);
-  const categoryName = typeof product.category === 'object' && product.category ? product.category.name : 'Products';
-  const categorySlug = typeof product.category === 'object' && product.category ? product.category.slug : 'products';
-  return {
-    items: [
-      { label: 'Home', href: '/' },
-      { label: categoryName, href: `/categories/${categorySlug}` },
-      { label: product.name },
-    ],
-  };
+  return { items: buildProductBreadcrumbs(product) };
 }
 
 

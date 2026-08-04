@@ -1,27 +1,69 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/account/orders/[id]/return/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/account-order-return.json",
+  "profile": "account-order-return",
   "manifestLoaded": true,
   "captured": [
     {
-      "type": "Breadcrumbs",
-      "id": "breadcrumbs-1"
+      "type": "OrderReturnBreadcrumbs",
+      "id": "orderreturnbreadcrumbs-1"
     },
     {
-      "type": "PageHeader",
-      "id": "pageheader-1"
+      "type": "OrderReturnHeader",
+      "id": "orderreturnheader-1"
     },
     {
-      "type": "PageWrapper",
-      "id": "pagewrapper-1"
+      "type": "OrderReturnWindowExpiredRegion",
+      "id": "orderreturnwindowexpiredregion-1"
+    },
+    {
+      "type": "OrderReturnNotEligibleRegion",
+      "id": "orderreturnnoteligibleregion-1"
+    },
+    {
+      "type": "OrderReturnRequestFormRegion",
+      "id": "orderreturnrequestformregion-1"
+    },
+    {
+      "type": "OrderReturnPolicyReminderRegion",
+      "id": "orderreturnpolicyreminderregion-1"
+    },
+    {
+      "type": "OrderReturnEligibleLayout",
+      "id": "orderreturneligiblelayout-1"
+    },
+    {
+      "type": "OrderReturnEligibilityState",
+      "id": "orderreturneligibilitystate-1"
+    },
+    {
+      "type": "OrderReturnPageLayout",
+      "id": "orderreturnpagelayout-1"
+    },
+    {
+      "type": "OrderReturnPageState",
+      "id": "orderreturnpagestate-1"
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
   "runtimeConditionals": [
     {
-      "source": "isWindowExpired ? (\r\n                    <ReturnWindowExpired\r\n                        orderNumber={formatOrderNumber(order.orderNumber)}\r\n                        deadline={deadline}\r\n                    />\r\n                ) : !eligibility.valid ? (\r\n                    <NotEligibleMessage\r\n                        orderId={order._id}\r\n                        orderNumber={formatOrderNumber(order.orderNumber)}\r\n                        message={eligibility.error || 'This order is not eligible for return.'}\r\n                    />\r\n                ) : (\r\n                    <div className=\"flex flex-col gap-6\">\r\n                        <ReturnRequestForm order={order} />\r\n                        <ReturnPolicyReminder />\r\n                    </div>\r\n                )"
+      "source": "isWindowExpired ? expired : !eligibility.valid ? ineligible : eligible",
+      "handledBy": "OrderReturnEligibilityState"
+    },
+    {
+      "source": "!pageData?.order => notFound()",
+      "handledBy": "OrderReturnPageState"
     }
-  ]
+  ],
+  "delegates": [
+    {
+      "component": "OrderReturnPage",
+      "source": "D:/projects/eNigma-TemplateFrontend/components/returns/canonical/OrderReturnPage.tsx"
+    }
+  ],
+  "fatal": false
 }

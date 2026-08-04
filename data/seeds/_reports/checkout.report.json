@@ -1,11 +1,20 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/checkout/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/checkout.json",
+  "profile": "checkout",
   "manifestLoaded": true,
   "captured": [
     {
-      "type": "CheckoutSteps",
-      "id": "checkoutsteps-1"
+      "type": "CheckoutStepsRegion",
+      "id": "checkoutstepsregion-1"
+    },
+    {
+      "type": "CheckoutPageHeader",
+      "id": "checkoutpageheader-1"
+    },
+    {
+      "type": "CheckoutErrorCondition",
+      "id": "checkouterrorcondition-1"
     },
     {
       "type": "CheckoutShippingForm",
@@ -16,36 +25,85 @@
       "id": "checkoutshippingmethod-1"
     },
     {
-      "type": "CheckoutPaymentMethod",
-      "id": "checkoutpaymentmethod-1"
+      "type": "CheckoutShippingMethodCondition",
+      "id": "checkoutshippingmethodcondition-1"
     },
     {
-      "type": "CheckoutOrderReview",
-      "id": "checkoutorderreview-1"
+      "type": "CheckoutShippingSection",
+      "id": "checkoutshippingsection-1"
     },
     {
-      "type": "CheckoutOrderSummary",
-      "id": "checkoutordersummary-1"
+      "type": "CheckoutPaymentStepRegion",
+      "id": "checkoutpaymentstepregion-1"
     },
     {
-      "type": "CheckoutPlaceOrderButton",
-      "id": "checkoutplaceorderbutton-1"
+      "type": "CheckoutPaymentCondition",
+      "id": "checkoutpaymentcondition-1"
     },
     {
-      "type": "CheckoutSecureBadges",
-      "id": "checkoutsecurebadges-1"
+      "type": "CheckoutReviewSection",
+      "id": "checkoutreviewsection-1"
     },
     {
-      "type": "CartEmpty",
-      "id": "cartempty-1"
+      "type": "CheckoutReviewCondition",
+      "id": "checkoutreviewcondition-1"
     },
     {
-      "type": "CheckoutStateSection",
-      "id": "checkoutstatesection-1"
+      "type": "CheckoutConfirmationCondition",
+      "id": "checkoutconfirmationcondition-1"
+    },
+    {
+      "type": "CheckoutOrderSummaryPanel",
+      "id": "checkoutordersummarypanel-1"
+    },
+    {
+      "type": "CheckoutPageClientLayout",
+      "id": "checkoutpageclientlayout-1"
+    },
+    {
+      "type": "CheckoutPageState",
+      "id": "checkoutpagestate-1"
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [
+    {
+      "source": "Boolean(checkout.error)",
+      "handledBy": "CheckoutErrorCondition"
+    },
+    {
+      "source": "Boolean(checkout.shippingAddress)",
+      "handledBy": "CheckoutShippingMethodCondition"
+    },
+    {
+      "source": "checkout.currentStepId === CART || checkout.currentStepId === SHIPPING",
+      "handledBy": "CheckoutShippingSection"
+    },
+    {
+      "source": "checkout.currentStepId === PAYMENT",
+      "handledBy": "CheckoutPaymentCondition"
+    },
+    {
+      "source": "checkout.currentStepId === REVIEW && Boolean(checkout.shippingAddress)",
+      "handledBy": "CheckoutReviewCondition"
+    },
+    {
+      "source": "checkout.currentStepId === CONFIRMATION",
+      "handledBy": "CheckoutConfirmationCondition"
+    },
+    {
+      "source": "!checkoutData.cart?.items?.length => redirect(ROUTES.CART)",
+      "handledBy": "CheckoutPageState"
+    }
+  ],
+  "delegates": [
+    {
+      "component": "CheckoutPageClient",
+      "source": "D:/projects/eNigma-TemplateFrontend/components/templates/checkout/CheckoutPageClient.tsx"
+    }
+  ],
+  "fatal": false
 }

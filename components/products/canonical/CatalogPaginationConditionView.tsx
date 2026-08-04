@@ -1,12 +1,13 @@
 import { CatalogPaginationCondition } from './CatalogPaginationCondition';
 import { loadCatalogRuntime } from './catalogRuntime';
-import type { CatalogSlot } from './types';
+import { puckTransparentSlotProps, type CatalogSlot } from './types';
 import type { PuckFetcherContext } from '@/lib/puck-route-metadata';
 
 interface CatalogPaginationConditionViewProps {
   hasPagination?: boolean;
   previewMode?: 'visible' | 'hidden';
   content?: CatalogSlot;
+  puck?: { isEditing?: boolean };
 }
 
 export const puckComponentName = 'CatalogPaginationCondition';
@@ -21,8 +22,8 @@ export const puckFields = {
 };
 export const puckDefaults = { previewMode: 'visible', content: [] };
 export const puckAst = {
-  kind: 'runtime', slots: ['content'], sourceJsxNames: ['Pagination'],
-  sourceImportPaths: ['@/components/products/Pagination'], role: 'catalog-pagination-condition',
+  kind: 'runtime', slots: ['content'], sourceJsxNames: ['CatalogPaginationCondition'],
+  sourceImportPaths: ['@/components/products/canonical/CatalogPaginationCondition'], role: 'catalog-pagination-condition',
   slotTarget: 'results', conditional: 'totalPages > 1', runtimeSignals: ['products.totalPages'],
 };
 export async function puckDataFetcher(_props: CatalogPaginationConditionViewProps, context?: PuckFetcherContext) {
@@ -30,5 +31,6 @@ export async function puckDataFetcher(_props: CatalogPaginationConditionViewProp
   return { hasPagination: runtime.productsData.totalPages > 1 };
 }
 export function CatalogPaginationConditionView(props: CatalogPaginationConditionViewProps) {
-  return <CatalogPaginationCondition hasPagination={props.hasPagination} previewMode={props.previewMode} content={props.content?.()} />;
+  const hasPagination = props.hasPagination ?? (props.puck?.isEditing ? props.previewMode === 'visible' : false);
+  return <CatalogPaginationCondition hasPagination={hasPagination} content={props.content?.(puckTransparentSlotProps)} />;
 }

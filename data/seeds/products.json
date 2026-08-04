@@ -68,7 +68,8 @@
                 {
                   "type": "ActiveFiltersBlock",
                   "props": {
-                    "id": "activefiltersblock-1"
+                    "id": "activefiltersblock-1",
+                    "className": "mb-8"
                   }
                 }
               ]
@@ -101,18 +102,17 @@
                   "type": "CatalogResultsState",
                   "props": {
                     "id": "catalogresultsstate-1",
-                    "previewMode": "results",
                     "results": [
                       {
                         "type": "CatalogGridBoundary",
                         "props": {
                           "id": "cataloggridboundary-1",
+                          "pageSize": 12,
                           "grid": [
                             {
                               "type": "ProductGrid",
                               "props": {
-                                "id": "productgrid-1",
-                                "listName": "Product Listing"
+                                "id": "productgrid-1"
                               }
                             }
                           ]
@@ -122,12 +122,13 @@
                         "type": "CatalogPaginationCondition",
                         "props": {
                           "id": "catalogpaginationcondition-1",
-                          "previewMode": "visible",
                           "content": [
                             {
                               "type": "CatalogPaginationBlock",
                               "props": {
-                                "id": "catalogpaginationblock-1"
+                                "id": "catalogpaginationblock-1",
+                                "currentPage": 1,
+                                "className": "mt-16 md:mt-20"
                               }
                             }
                           ]

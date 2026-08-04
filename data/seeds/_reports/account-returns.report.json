@@ -1,21 +1,69 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/account/returns/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/account-returns.json",
+  "profile": "account-returns",
   "manifestLoaded": true,
   "captured": [
     {
-      "type": "PageHeader",
-      "id": "pageheader-1"
+      "type": "ReturnsPageHeader",
+      "id": "returnspageheader-1"
     },
     {
-      "type": "PageWrapper",
-      "id": "pagewrapper-1"
+      "type": "ReturnsStatusFilterRegion",
+      "id": "returnsstatusfilterregion-1"
+    },
+    {
+      "type": "ReturnsProcessingNotice",
+      "id": "returnsprocessingnotice-1"
+    },
+    {
+      "type": "ReturnsCardsList",
+      "id": "returnscardslist-1"
+    },
+    {
+      "type": "ReturnsEmptyRegion",
+      "id": "returnsemptyregion-1"
+    },
+    {
+      "type": "ReturnsResultsState",
+      "id": "returnsresultsstate-1"
+    },
+    {
+      "type": "ReturnsPaginationRegion",
+      "id": "returnspaginationregion-1"
+    },
+    {
+      "type": "ReturnsListLayout",
+      "id": "returnslistlayout-1"
+    },
+    {
+      "type": "ReturnsPageLayout",
+      "id": "returnspagelayout-1"
     }
   ],
   "warnings": [],
-  "droppedComponents": [
-    "ReturnsList"
-  ],
+  "errors": [],
+  "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [
+    {
+      "source": "hasReturns ? results : empty",
+      "handledBy": "ReturnsResultsState"
+    },
+    {
+      "source": "page > 1 || returns.length === limit",
+      "handledBy": "ReturnsPaginationRegion"
+    }
+  ],
+  "delegates": [
+    {
+      "component": "ReturnsPage",
+      "source": "D:/projects/eNigma-TemplateFrontend/components/returns/canonical/ReturnsPage.tsx"
+    },
+    {
+      "component": "ReturnsList",
+      "source": "D:/projects/eNigma-TemplateFrontend/components/returns/ReturnsList.tsx"
+    }
+  ],
+  "fatal": false
 }

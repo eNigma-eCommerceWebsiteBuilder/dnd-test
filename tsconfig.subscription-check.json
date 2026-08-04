@@ -1,0 +1,31 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "incremental": false
+  },
+  "include": [
+    "components/checkout/subscription/canonical/**/*.ts",
+    "components/checkout/subscription/canonical/**/*.tsx",
+    "components/checkout/subscription/**/*.ts",
+    "components/checkout/subscription/**/*.tsx",
+    "enigma-components/checkout/subscription/SubscriptionCheckoutContentLayout.tsx",
+    "enigma-components/checkout/subscription/SubscriptionCheckoutLayout.tsx",
+    "enigma-components/checkout/subscription/SubscriptionCheckoutSections.tsx",
+    "enigma-components/checkout/subscription/subscriptionCheckoutUtils.ts",
+    "enigma-components/checkout/subscription/useSubscriptionCheckoutFlow.ts",
+    "lib/hooks/**/*.ts",
+    "lib/hooks/**/*.tsx",
+    "lib/analytics/**/*.ts",
+    "lib/analytics/**/*.tsx",
+    "lib/actions/**/*.ts",
+    "lib/actions/**/*.tsx",
+    "lib/api/**/*.ts",
+    "lib/api/**/*.tsx",
+    "lib/puck-route-metadata.ts",
+    "lib/utils/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next"
+  ]
+}

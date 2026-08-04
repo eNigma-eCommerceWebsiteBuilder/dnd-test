@@ -1,8 +1,17 @@
 {
-  "page": "app/products/page.tsx",
-  "output": "../dnd-test/data/seeds/products.json",
+  "page": "D:/projects/eNigma-TemplateFrontend/app/products/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/products.json",
+  "profile": "products",
   "manifestLoaded": true,
   "captured": [
+    {
+      "type": "CatalogBreadcrumbs",
+      "id": "catalogbreadcrumbs-1"
+    },
+    {
+      "type": "CatalogTitleSummary",
+      "id": "catalogtitlesummary-1"
+    },
     {
       "type": "MobileFilterDrawerBlock",
       "id": "mobilefilterdrawerblock-1"
@@ -14,14 +23,6 @@
     {
       "type": "SortDropdownBlock",
       "id": "sortdropdownblock-1"
-    },
-    {
-      "type": "CatalogBreadcrumbs",
-      "id": "catalogbreadcrumbs-1"
-    },
-    {
-      "type": "CatalogTitleSummary",
-      "id": "catalogtitlesummary-1"
     },
     {
       "type": "CatalogControlsLayout",
@@ -81,7 +82,19 @@
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [
+    {
+      "source": "totalPages > 1",
+      "handledBy": "CatalogPaginationCondition"
+    },
+    {
+      "source": "products.length > 0",
+      "handledBy": "CatalogResultsState"
+    }
+  ],
+  "delegates": [],
+  "fatal": false
 }

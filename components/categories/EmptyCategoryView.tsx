@@ -1,9 +1,5 @@
 import { EmptyCategory } from '@/enigma-components/categories/EmptyCategory';
 
-interface EmptyCategoryViewProps {
-  className?: string;
-}
-
 export const puckComponentName = 'EmptyCategory';
 export const puckLabel = 'Empty Category State';
 export const puckCategory = 'Categories';
@@ -17,6 +13,6 @@ export const puckAst = {
   role: 'category-empty-state', slotTarget: 'empty', runtimeSignals: ['category.products'],
 };
 
-export function EmptyCategoryView({ className }: EmptyCategoryViewProps) {
-  return <div className={className}><EmptyCategory /></div>;
+export function EmptyCategoryView() {
+  return <EmptyCategory />;
 }

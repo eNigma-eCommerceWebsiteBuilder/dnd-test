@@ -49,7 +49,7 @@ export function QuantityInput({
     return (
         <div
             className={cn(
-                "@container flex items-center rounded-input border border-border bg-bg-surface px-2",
+                "flex shrink-0 items-center rounded-input border border-border bg-bg-surface px-2",
                 disabled && "opacity-disabled",
                 className
             )}

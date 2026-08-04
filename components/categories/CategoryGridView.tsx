@@ -5,6 +5,8 @@ import { loadCategoriesPageRuntimeData } from './canonical/categoriesPageRuntime
 interface CategoryGridViewProps {
   categories?: Category[];
   showConciergeCard?: boolean;
+  runtimeCategories?: Category[];
+  runtimeShowConciergeCard?: boolean;
 }
 
 const previewCategories: Category[] = [
@@ -23,10 +25,18 @@ export const puckAst = {
 };
 export async function puckDataFetcher() {
   const runtime = await loadCategoriesPageRuntimeData();
-  return { categories: runtime.mainCategories, showConciergeCard: runtime.mainCategories.length > 0 };
+  return {
+    runtimeCategories: runtime.mainCategories,
+    runtimeShowConciergeCard: runtime.mainCategories.length > 0,
+  };
 }
 
 // Deliberately delegates to the production category grid rather than recreating cards in Puck.
-export function CategoryGridView({ categories = previewCategories, showConciergeCard = true }: CategoryGridViewProps) {
-  return <CategoryGrid categories={categories} showConciergeCard={showConciergeCard} hrefPrefix="/page/category-detail" />;
+export function CategoryGridView({
+  categories = previewCategories,
+  showConciergeCard = true,
+  runtimeCategories,
+  runtimeShowConciergeCard,
+}: CategoryGridViewProps) {
+  return <CategoryGrid categories={runtimeCategories ?? categories} showConciergeCard={runtimeShowConciergeCard ?? showConciergeCard} />;
 }

@@ -39,7 +39,7 @@ export function SortDropdown({ className }: SortDropdownProps) {
     }, [router, pathname, searchParams]);
 
     return (
-        <div className={cn("@container flex items-center gap-2", className)}>
+        <div className={cn("flex shrink-0 items-center gap-2", className)}>
             <label htmlFor="sort-select" className="text-sm font-semibold text-text-muted whitespace-nowrap">
                 Sort by:
             </label>

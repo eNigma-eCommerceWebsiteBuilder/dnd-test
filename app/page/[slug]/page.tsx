@@ -104,6 +104,6 @@ export async function PublishedPage({ slug, routeParams, searchParams }: Publish
 export default async function PagePage({ params, searchParams }: PageRouteProps) {
   const { slug } = await params;
   // Canonical detail pages require a real entity identity and must use the nested route.
-  if (slug === 'category-detail' || slug === 'product-detail') notFound();
+  if (slug === 'category-detail' || slug === 'product-detail' || slug === 'collection-detail' || slug === 'shared-wishlist' || slug === 'account-order-detail' || slug === 'account-return-detail' || slug === 'account-order-return' || slug === 'account-order-downloads' || slug === 'account-payment-methods' || slug === 'account-addresses' || slug === 'account-subscription-detail' || slug === 'order-detail') notFound();
   return <PublishedPage slug={slug} routeParams={{ slug }} searchParams={await searchParams} />;
 }

@@ -1,59 +1,89 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/account/orders/[id]/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/account-order-detail.json",
+  "profile": "account-order-detail",
   "manifestLoaded": true,
   "captured": [
     {
-      "type": "PageHeader",
-      "id": "pageheader-1"
+      "type": "OrderDetailsBreadcrumbs",
+      "id": "orderdetailsbreadcrumbs-1"
     },
     {
-      "type": "OrderStatusBadge",
-      "id": "orderstatusbadge-1"
+      "type": "OrderDetailsDownloadAction",
+      "id": "orderdetailsdownloadaction-1"
     },
     {
-      "type": "SectionHeading",
-      "id": "sectionheading-1"
+      "type": "OrderDetailsReorderAction",
+      "id": "orderdetailsreorderaction-1"
     },
     {
-      "type": "OrderItemList",
-      "id": "orderitemlist-1"
+      "type": "OrderDetailsCancelAction",
+      "id": "orderdetailscancelaction-1"
     },
     {
-      "type": "OrderDetails",
-      "id": "orderdetails-1"
+      "type": "OrderDetailsHeader",
+      "id": "orderdetailsheader-1"
     },
     {
-      "type": "ShippingAddress",
-      "id": "shippingaddress-1"
+      "type": "OrderDetailsItemsRegion",
+      "id": "orderdetailsitemsregion-1"
     },
     {
-      "type": "PaymentInfo",
-      "id": "paymentinfo-1"
+      "type": "OrderDetailsFinancialRegion",
+      "id": "orderdetailsfinancialregion-1"
     },
     {
-      "type": "TwoColumnDetail",
-      "id": "twocolumndetail-1"
+      "type": "OrderDetailsShippingRegion",
+      "id": "orderdetailsshippingregion-1"
     },
     {
-      "type": "PageWrapper",
-      "id": "pagewrapper-1"
+      "type": "OrderDetailsBillingRegion",
+      "id": "orderdetailsbillingregion-1"
+    },
+    {
+      "type": "OrderDetailsBillingAddressCondition",
+      "id": "orderdetailsbillingaddresscondition-1"
+    },
+    {
+      "type": "OrderDetailsPaymentRegion",
+      "id": "orderdetailspaymentregion-1"
+    },
+    {
+      "type": "OrderDetailsContentLayout",
+      "id": "orderdetailscontentlayout-1"
+    },
+    {
+      "type": "OrderDetailsPageLayout",
+      "id": "orderdetailspagelayout-1"
+    },
+    {
+      "type": "OrderDetailsPageState",
+      "id": "orderdetailspagestate-1"
     }
   ],
   "warnings": [],
-  "droppedComponents": [
-    "ReorderButton"
-  ],
+  "errors": [],
+  "droppedComponents": [],
   "unmatchedHtml": [],
   "runtimeConditionals": [
     {
-      "source": "orderHasDigitalItems ? (\r\n              <Link\r\n                href={`/account/orders/${order._id}/downloads`}\r\n                className=\"inline-flex items-center gap-2 rounded-button bg-primary px-4 py-2.5 text-sm font-semibold text-on-primary shadow-button transition-all hover:bg-primary-dark hover:shadow-button-hover\"\r\n              >\r\n                <span className=\"material-symbols-outlined text-lg\">download</span>\r\n                Downloads\r\n              </Link>\r\n            ) : null"
+      "source": "hasDigitalItems(order) / canCancelOrder(order)",
+      "handledBy": "OrderDetailsHeader"
     },
     {
-      "source": "orderCanBeCancelled ? <CancelOrderButton orderId={order._id} /> : null"
+      "source": "order.billingAddress",
+      "handledBy": "OrderDetailsBillingAddressCondition"
     },
     {
-      "source": "order.billingAddress ? (\r\n              <BillingAddress address={order.billingAddress} />\r\n            ) : null"
+      "source": "!order => notFound()",
+      "handledBy": "OrderDetailsPageState"
     }
-  ]
+  ],
+  "delegates": [
+    {
+      "component": "OrderDetailsPage",
+      "source": "D:/projects/eNigma-TemplateFrontend/components/orders/canonical/OrderDetailsPage.tsx"
+    }
+  ],
+  "fatal": false
 }

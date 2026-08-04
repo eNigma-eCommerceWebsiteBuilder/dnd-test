@@ -3,7 +3,7 @@
 import { useActionState } from 'react';
 import type { ReturnActionResult } from '@/lib/actions/types';
 import { requestReturnAction } from '@/lib/actions/returns-actions';
-import { ReturnConfirmation } from '@/components/returns/ReturnConfirmation';
+import { ReturnConfirmation } from '@/enigma-components/returns/ReturnConfirmation';
 import type { ReturnReason } from '@/lib/api/types/returns';
 
 interface ReturnItemPayload {

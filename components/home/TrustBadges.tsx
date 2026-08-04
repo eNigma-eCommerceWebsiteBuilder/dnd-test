@@ -47,6 +47,7 @@ export const puckDefaults = {
     },
   ],
 };
+export const puckAst = { kind: 'static', sourceJsxNames: ['TrustBadges'], sourceImportPaths: ['@/components/home/TrustBadges'], role: 'home-trust-badges', runtimeSignals: ['common.trustBadges'] };
 
 export const TrustBadges = ({ badges, className }: TrustBadgesProps) => {
   return (

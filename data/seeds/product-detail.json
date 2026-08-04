@@ -9,7 +9,8 @@
           {
             "type": "PromotionBanner",
             "props": {
-              "id": "promotionbanner-1"
+              "id": "promotionbanner-1",
+              "className": "w-full"
             }
           }
         ],
@@ -17,7 +18,8 @@
           {
             "type": "Breadcrumbs",
             "props": {
-              "id": "breadcrumbs-1"
+              "id": "breadcrumbs-1",
+              "className": "mb-8"
             }
           }
         ],
@@ -30,7 +32,8 @@
                 {
                   "type": "ProductGallery",
                   "props": {
-                    "id": "productgallery-1"
+                    "id": "productgallery-1",
+                    "images": []
                   }
                 }
               ],
@@ -63,7 +66,8 @@
                 {
                   "type": "ProductRatingSummary",
                   "props": {
-                    "id": "productratingsummary-1"
+                    "id": "productratingsummary-1",
+                    "rating": 0
                   }
                 }
               ],
@@ -122,7 +126,10 @@
                 {
                   "type": "ReviewsSection",
                   "props": {
-                    "id": "reviewssection-1"
+                    "id": "reviewssection-1",
+                    "averageRating": 0,
+                    "totalReviews": 0,
+                    "ratingDistribution": {}
                   }
                 }
               ]
@@ -151,7 +158,6 @@
             "type": "ProductDetailRelatedProductsSection",
             "props": {
               "id": "productdetailrelatedproductssection-1",
-              "previewMode": "visible",
               "content": [
                 {
                   "type": "RelatedProducts",

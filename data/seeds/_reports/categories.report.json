@@ -1,8 +1,17 @@
 {
-  "page": "app/categories/page.tsx",
-  "output": "../dnd-test/data/seeds/categories.json",
+  "page": "D:/projects/eNigma-TemplateFrontend/app/categories/page.tsx",
+  "output": "D:/projects/dnd-test/data/seeds/categories.json",
+  "profile": "categories",
   "manifestLoaded": true,
   "captured": [
+    {
+      "type": "CategoriesPageBreadcrumbs",
+      "id": "categoriespagebreadcrumbs-1"
+    },
+    {
+      "type": "CategoriesPageIntro",
+      "id": "categoriespageintro-1"
+    },
     {
       "type": "TrendingCategoryCard",
       "id": "trendingcategorycard-1"
@@ -24,20 +33,20 @@
       "id": "departmentcategoriessection-1"
     },
     {
-      "type": "CategoriesPageBreadcrumbs",
-      "id": "categoriespagebreadcrumbs-1"
-    },
-    {
-      "type": "CategoriesPageIntro",
-      "id": "categoriespageintro-1"
-    },
-    {
       "type": "CategoriesPageLayout",
       "id": "categoriespagelayout-1"
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [
+    {
+      "source": "topTrending.length > 0",
+      "handledBy": "TrendingCategoriesSection"
+    }
+  ],
+  "delegates": [],
+  "fatal": false
 }

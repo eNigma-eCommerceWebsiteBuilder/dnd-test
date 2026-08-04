@@ -1,0 +1,8 @@
+import { DownloadPageContentLayout } from '@/enigma-components/templates/downloads/DownloadPageSections';
+import { puckTransparentSlotProps, type DownloadSlot } from './types';
+interface Props { expirationNotice?: DownloadSlot; assetState?: DownloadSlot; licenseInfoPanel?: DownloadSlot; trustFooter?: DownloadSlot; }
+export const puckComponentName = 'DownloadPageContentLayout'; export const puckLabel = 'Download Page Content'; export const puckCategory = 'Downloads';
+export const puckFields = { expirationNotice: { type: 'slot' as const, allow: ['DownloadExpirationNotice'] }, assetState: { type: 'slot' as const, allow: ['DownloadAssetState'] }, licenseInfoPanel: { type: 'slot' as const, allow: ['DownloadLicenseInfoPanel'] }, trustFooter: { type: 'slot' as const, allow: ['DownloadTrustFooter'] } };
+export const puckDefaults = { expirationNotice: [], assetState: [], licenseInfoPanel: [], trustFooter: [] };
+export const puckAst = { kind: 'static', slots: ['expirationNotice', 'assetState', 'licenseInfoPanel', 'trustFooter'], sourceJsxNames: ['DownloadPageContentLayout', 'ExpirationNotice', 'DownloadAssetState', 'LicenseInfoPanel', 'DownloadTrustFooter'], sourceImportPaths: ['@/components/templates/downloads/DownloadPage', '@/components/templates/downloads/DownloadPageSections'], role: 'download-page-content-layout', slotTarget: 'content' };
+export function DownloadPageContentLayoutView(props: Props) { return <DownloadPageContentLayout expirationNotice={props.expirationNotice?.(puckTransparentSlotProps)} assetState={props.assetState?.(puckTransparentSlotProps)} licenseInfoPanel={props.licenseInfoPanel?.(puckTransparentSlotProps)} trustFooter={props.trustFooter?.(puckTransparentSlotProps)} />; }

@@ -1,9 +1,9 @@
 'use client';
 
 import type { UserAddress } from '@/lib/api/types/auth';
-import { AddressInfo } from '@/components/addresses/AddressInfo';
-import { DefaultBadge } from '@/components/addresses/DefaultBadge';
-import { DeleteButton } from '@/components/addresses/DeleteButton';
+import { AddressInfo } from '@/enigma-components/addresses/AddressInfo';
+import { DefaultBadge } from '@/enigma-components/addresses/DefaultBadge';
+import { DeleteButton } from '@/enigma-components/addresses/DeleteButton';
 
 interface AddressCardProps {
   address: UserAddress;

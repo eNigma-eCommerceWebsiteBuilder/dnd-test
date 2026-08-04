@@ -9,7 +9,7 @@ export const puckCategory = 'Categories';
 export const puckFields = {};
 export const puckDefaults = { categoryName: 'Outerwear' };
 export const puckAst = {
-  kind: 'runtime', sourceJsxNames: ['nav', 'Link'], sourceImportPaths: ['next/link'],
+  kind: 'runtime', sourceJsxNames: ['CategoryCatalogBreadcrumbs'], sourceImportPaths: ['@/components/categories/canonical/CategoryCatalogBreadcrumbs'],
   role: 'category-catalog-breadcrumbs', slotTarget: 'breadcrumbs', runtimeSignals: ['params.categorySlug'],
   requiredClasses: ['flex', 'items-center', 'gap-2', 'text-sm', 'text-text-muted', 'mb-6'],
 };

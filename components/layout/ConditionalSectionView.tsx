@@ -6,6 +6,7 @@ interface ConditionalSectionViewProps {
   thenBranch?: (props?: Record<string, unknown>) => ReactNode;
   elseBranch?: (props?: Record<string, unknown>) => ReactNode;
   puck?: {
+    isEditing?: boolean;
     metadata?: {
       conditions?: Record<string, boolean>;
     };
@@ -49,7 +50,7 @@ export function ConditionalSectionView({
 
   const showThen = hasRuntimeConditions
     ? (condition ? conditions[condition] === true : true)
-    : previewMode === 'thenBranch';
+    : puck?.isEditing === true && previewMode === 'thenBranch';
 
   return <>{showThen ? Then?.() : Else?.()}</>;
 }

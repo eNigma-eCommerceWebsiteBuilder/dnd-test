@@ -1,0 +1,6 @@
+import type { DigitalAsset } from '@/lib/api/types'; import { CheckoutSuccessLicenseKeys } from './CheckoutSuccessLicenseKeys'; import { checkoutSuccessPreviewAssets } from './preview'; import { loadCheckoutSuccessRuntime } from './checkoutSuccessRuntime';
+interface Props { assets?: DigitalAsset[]; puck?: { isEditing?: boolean }; }
+export const puckComponentName = 'CheckoutSuccessLicenseKeys'; export const puckLabel = 'Checkout Success License Keys'; export const puckCategory = 'Checkout'; export const puckFields = {}; export const puckDefaults = {};
+export const puckAst = { kind: 'runtime', sourceJsxNames: ['CheckoutSuccessLicenseKeys'], sourceImportPaths: ['@/components/checkout/success/canonical/CheckoutSuccessLicenseKeys'], role: 'checkout-success-license-keys', runtimeSignals: ['digitalAssets.assets'] };
+export async function puckDataFetcher(_props: Props, context?: Parameters<typeof loadCheckoutSuccessRuntime>[0]) { const runtime = await loadCheckoutSuccessRuntime(context); return { assets: runtime.digitalAssets?.assets ?? [] }; }
+export function CheckoutSuccessLicenseKeysView({ assets = [], puck }: Props) { return <CheckoutSuccessLicenseKeys assets={puck?.isEditing && assets.length === 0 ? checkoutSuccessPreviewAssets : assets} />; }

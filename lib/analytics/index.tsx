@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, createContext, useContext } from 'react';
+import { ReactNode, createContext, useContext, useEffectEvent } from 'react';
 import type { Product } from '@/lib/api/types';
 
 interface AnalyticsContextValue {
@@ -33,6 +33,11 @@ export function useAnalytics() {
 
 // Keeps production product components callable while analytics remains intentionally inert in the testbed.
 export function useProductView(_product: Product | null | undefined): void {}
+
+// Lets copied production search components mount while analytics stays inert in the testbed.
+export function useSearchTracking(): (query: string, resultCount: number) => void {
+  return useEffectEvent((_query: string, _resultCount: number) => {});
+}
 
 export function ProductImpressionTracker({
   children,

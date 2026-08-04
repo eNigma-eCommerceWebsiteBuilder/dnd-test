@@ -1,5 +1,5 @@
 import { CatalogHeaderLayout } from './CatalogHeaderLayout';
-import type { CatalogSlot } from './types';
+import { puckTransparentSlotProps, type CatalogSlot } from './types';
 
 interface CatalogHeaderLayoutViewProps {
   breadcrumbs?: CatalogSlot;
@@ -18,10 +18,10 @@ export const puckFields = {
 export const puckDefaults = { breadcrumbs: [], titleSummary: [], controls: [] };
 export const puckAst = {
   kind: 'static', slots: ['breadcrumbs', 'titleSummary', 'controls'],
-  sourceJsxNames: ['div'], sourceImportPaths: ['app/products/page.tsx'],
+  sourceJsxNames: ['CatalogHeaderLayout'], sourceImportPaths: ['@/components/products/canonical/CatalogHeaderLayout'],
   role: 'catalog-header-layout', requiredClasses: ['mb-10'],
 };
 
 export function CatalogHeaderLayoutView(props: CatalogHeaderLayoutViewProps) {
-  return <CatalogHeaderLayout breadcrumbs={props.breadcrumbs?.()} titleSummary={props.titleSummary?.()} controls={props.controls?.()} />;
+  return <CatalogHeaderLayout breadcrumbs={props.breadcrumbs?.(puckTransparentSlotProps)} titleSummary={props.titleSummary?.(puckTransparentSlotProps)} controls={props.controls?.(puckTransparentSlotProps)} />;
 }

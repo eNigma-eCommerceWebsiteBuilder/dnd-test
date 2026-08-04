@@ -13,6 +13,10 @@ export {
 export {
   formatRating,
 } from './rating';
+export {
+  formatPercent,
+  formatOrderNumber,
+} from './text';
 export type {
   RatingResult,
 } from './rating';

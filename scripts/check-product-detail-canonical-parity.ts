@@ -3,6 +3,14 @@ import * as path from 'path';
 
 const dndRoot = path.resolve(__dirname, '..');
 const templateRoot = path.resolve(dndRoot, '..', 'eNigma-TemplateFrontend');
+const sourcePath = path.join(templateRoot, 'app', 'products', '[slug]', 'page.tsx');
+const sourceCanonicalRoot = path.join(templateRoot, 'components', 'products', 'canonical');
+const dndCanonicalRoot = path.join(dndRoot, 'components', 'products', 'canonical');
+const parserPath = path.join(templateRoot, 'ast-parser.ts');
+const sourcePageUtilsPath = path.join(templateRoot, 'app', 'products', '[slug]', 'productPageUtils.tsx');
+const seedPath = path.join(dndRoot, 'data', 'seeds', 'product-detail.json');
+const reportPath = path.join(dndRoot, 'data', 'seeds', '_reports', 'product-detail.report.json');
+const manifestPath = path.join(dndRoot, 'lib', 'puck-ast-manifest.json');
 
 function read(filePath: string): string {
   if (!fs.existsSync(filePath)) throw new Error(`Missing required file: ${filePath}`);
@@ -13,43 +21,126 @@ function requireText(source: string, expected: string, description: string) {
   if (!source.includes(expected)) throw new Error(`Missing ${description}: ${expected}`);
 }
 
-const source = read(path.join(templateRoot, 'app', 'products', '[slug]', 'page.tsx'));
+function normalizeRenderer(source: string): string {
+  return source
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/\/\/.*$/gm, '')
+    .replace(/\s+/g, '');
+}
+
+const source = read(sourcePath);
+const canonicalComponents = [
+  'ProductDetailPageLayout',
+  'ProductDetailMediaColumn',
+  'ProductDetailPurchaseColumn',
+  'ProductDetailMobileTabs',
+  'ProductDetailSection',
+  'ProductDetailRelatedProductsSection',
+  'ProductDetailTrustBadges',
+];
+
+for (const component of canonicalComponents) {
+  requireText(source, `@/components/products/canonical/${component}`, `production ${component} import`);
+  requireText(source, `<${component}`, `production ${component} JSX`);
+
+  const sourceComponent = read(path.join(sourceCanonicalRoot, `${component}.tsx`));
+  const dndComponent = read(path.join(dndCanonicalRoot, `${component}.tsx`));
+  if (normalizeRenderer(sourceComponent) !== normalizeRenderer(dndComponent)) {
+    throw new Error(`${component} differs between the production source and the DnD canonical renderer.`);
+  }
+}
+
+const sourceContentBuilder = read(path.join(sourceCanonicalRoot, 'ProductDetailContent.tsx'));
+const dndContentBuilder = read(path.join(dndCanonicalRoot, 'ProductDetailContent.tsx'));
+if (normalizeRenderer(sourceContentBuilder) !== normalizeRenderer(dndContentBuilder)) {
+  throw new Error('ProductDetailContent differs between the production source and the DnD canonical helper.');
+}
+const sourcePageUtils = read(sourcePageUtilsPath);
+requireText(sourcePageUtils, "from '@/components/products/canonical/ProductDetailContent'", 'production detail-content helper re-export');
+
 for (const expected of [
-  'PromotionBanner', 'Breadcrumbs', 'ProductGallery', 'ProductDetailsClient',
-  'product.rating !== undefined && product.rating > 0', 'relatedProducts.length > 0',
-  'lg:grid-cols-12', 'lg:sticky', 'lg:hidden', 'ReviewsSection', 'TestimonialsSection', 'RelatedProducts',
-]) requireText(source, expected, 'production product-detail signature');
+  'const pageData = await withNull(fetchProductPageData(slug));',
+  'if (!pageData)',
+  'notFound();',
+  'hasRating={product.rating !== undefined && product.rating > 0}',
+  'visible={relatedProducts.length > 0}',
+  'purchase={<ProductDetailsClient product={product} />}',
+  'content={<ProductTabs tabs={tabs} defaultTab="description" />}',
+  'content={<TestimonialsSection testimonials={featuredTestimonials} />}',
+  'content={<RelatedProducts products={relatedProducts} title="Complete the Look" />}',
+]) requireText(source, expected, 'production product-detail behavior');
 
-const canonicalRoot = path.join(dndRoot, 'components', 'products', 'canonical');
-for (const [file, expected] of [
-  ['ProductDetailPageLayout.tsx', 'max-w-7xl'],
-  ['ProductDetailMediaColumn.tsx', 'lg:col-span-7'],
-  ['ProductDetailPurchaseColumn.tsx', 'lg:sticky lg:top-28'],
-  ['ProductDetailMobileTabs.tsx', 'lg:hidden'],
-  ['ProductDetailRelatedProductsSection.tsx', 'mb-16 mt-24'],
-] as Array<[string, string]>) requireText(read(path.join(canonicalRoot, file)), expected, `${file} source layout signature`);
+for (const forbidden of [
+  'ProductsCatalogStateSection',
+  'className="min-h-screen bg-bg-base text-text-base"',
+  '<Suspense',
+]) {
+  if (source.includes(forbidden)) {
+    throw new Error(`The product-detail route must delegate this concern to a canonical production component: ${forbidden}`);
+  }
+}
 
-for (const [file, expected] of [
-  ['ProductGalleryView.tsx', "import { ProductGallery } from './ProductGallery';"],
-  ['PriceDisplayView.tsx', "import { PriceDisplay } from './PriceDisplay';"],
-  ['StockIndicatorView.tsx', "import { StockIndicator } from './StockIndicator';"],
-  ['ProductTabsView.tsx', "import { ProductTabs } from './ProductTabs';"],
-  ['ReviewsSectionView.tsx', "import { ReviewsSection } from './ReviewsSection';"],
-  ['RelatedProductsView.tsx', "import { RelatedProducts } from './RelatedProducts';"],
-] as Array<[string, string]>) requireText(read(path.join(dndRoot, 'components', 'products', file)), expected, `${file} direct production delegate`);
+const parser = read(parserPath);
+requireText(parser, 'runPuckAstParser', 'generic JSX parser entry point');
+if (parser.includes('adaptProductDetailPage')) throw new Error('Product detail must not use a fixed route emitter.');
 
-const seed = read(path.join(dndRoot, 'data', 'seeds', 'product-detail.json'));
-for (const type of [
-  'ProductDetailPageLayout', 'ProductDetailMediaColumn', 'ProductDetailPurchaseColumn',
-  'ProductDetailMobileTabs', 'ProductDetailTrustBadges', 'ProductDetailRelatedProductsSection',
-  'PromotionBanner', 'ProductGallery', 'ProductDetailsClient', 'ReviewsSection', 'RelatedProducts',
-]) requireText(seed, `"type": "${type}"`, 'canonical product-detail seed component');
-for (const forbidden of ['"type": "PageWrapper"', '"type": "TwoColumnDetail"']) {
-  if (seed.includes(forbidden)) throw new Error(`Product-detail seed must not contain generic fallback: ${forbidden}`);
+for (const view of [
+  'ProductDetailPageLayoutView.tsx',
+  'ProductDetailMediaColumnView.tsx',
+  'ProductDetailPurchaseColumnView.tsx',
+  'ProductDetailMobileTabsView.tsx',
+  'ProductDetailSectionView.tsx',
+  'ProductDetailRelatedProductsSectionView.tsx',
+]) {
+  const viewSource = read(path.join(dndCanonicalRoot, view));
+  requireText(viewSource, 'puckTransparentSlotProps', `${view} transparent slot handling`);
+  requireText(viewSource, '?.(puckTransparentSlotProps)', `${view} slot-to-node adaptation`);
+  if (viewSource.includes('<ProductCard') || viewSource.includes('style: { display:')) {
+    throw new Error(`${view} must not reconstruct layout or pass Puck-only slot styling to the renderer.`);
+  }
+}
+
+const breadcrumbsView = read(path.join(dndRoot, 'components', 'products', 'BreadcrumbsView.tsx'));
+requireText(breadcrumbsView, 'buildProductBreadcrumbs(product)', 'source breadcrumb builder delegation');
+const tabsView = read(path.join(dndRoot, 'components', 'products', 'ProductTabsView.tsx'));
+requireText(tabsView, 'buildProductTabs(product, reviewsData)', 'source tab builder delegation');
+if (tabsView.includes('Shipping & Returns') || tabsView.includes('product.specs.map')) {
+  throw new Error('ProductTabsView must not reconstruct a simplified product-tab payload.');
+}
+
+const manifest = (JSON.parse(read(manifestPath)) as {
+  components: Array<{ type: string; ast?: { sourceImportPaths?: string[] } }>;
+}).components;
+for (const component of canonicalComponents) {
+  const entry = manifest.find(({ type }) => type === component);
+  if (!entry?.ast?.sourceImportPaths?.includes(`@/components/products/canonical/${component}`)) {
+    throw new Error(`Manifest does not identify ${component} as a production canonical component.`);
+  }
+}
+
+const seed = JSON.parse(read(seedPath));
+const seedText = JSON.stringify(seed);
+for (const component of [
+  ...canonicalComponents,
+  'PromotionBanner',
+  'Breadcrumbs',
+  'ProductGallery',
+  'ProductDetailsClient',
+  'ReviewsSection',
+  'TestimonialsSection',
+  'RelatedProducts',
+]) requireText(seedText, `"type":"${component}"`, `seed ${component} region`);
+for (const forbidden of ['ProductsCatalogStateSection', 'PageWrapper', 'TwoColumnDetail']) {
+  if (seedText.includes(forbidden)) throw new Error(`Product-detail seed must not contain generic fallback: ${forbidden}`);
+}
+
+const report = JSON.parse(read(reportPath)) as { droppedComponents?: string[]; warnings?: string[] };
+if ((report.droppedComponents ?? []).length > 0 || (report.warnings ?? []).length > 0) {
+  throw new Error(`Product-detail parser diagnostics are not clean: ${JSON.stringify(report)}`);
 }
 
 const dynamicRoute = read(path.join(dndRoot, 'app', 'page', '[slug]', '[entitySlug]', 'page.tsx'));
 requireText(dynamicRoute, "slug === 'product-detail'", 'product-detail dynamic route');
-requireText(dynamicRoute, 'productSlug: entitySlug', 'product route metadata');
+requireText(dynamicRoute, 'productSlug: entitySlug', 'product-detail route metadata');
 
-console.log('Product-detail canonical parity checks passed.');
+console.log('Product-detail source-first canonical parity checks passed.');

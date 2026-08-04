@@ -81,9 +81,9 @@ export const InspirationSection = ({
                     </Link>
                 </div>
 
-                {productHotspots.map((hotspot) => (
+                {productHotspots.map((hotspot, i) => (
                     <div
-                        key={hotspot.id}
+                        key={hotspot.id ?? i}
                         className="absolute z-10"
                         style={hotspot.style}
                     >

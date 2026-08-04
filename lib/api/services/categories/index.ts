@@ -19,6 +19,24 @@ interface FetchCategoryProductsParams {
   limit?: number;
 }
 
+// The backend currently serializes category identities as `id`, while the
+// production component contract consistently reads `_id`.
+type CategoryApiRecord = Omit<Category, '_id'> & {
+  id?: string;
+  _id?: string;
+};
+
+function normalizeCategory(category: CategoryApiRecord): Category {
+  return {
+    ...category,
+    _id: category._id || category.id || category.slug,
+  };
+}
+
+function normalizeCategories(categories: CategoryApiRecord[] | undefined): Category[] {
+  return Array.isArray(categories) ? categories.map(normalizeCategory) : [];
+}
+
 export async function fetchCategories(options: FetchCategoriesOptions = {}): Promise<Category[]> {
   const params: Record<string, string> = {};
 
@@ -29,29 +47,30 @@ export async function fetchCategories(options: FetchCategoriesOptions = {}): Pro
     params.withPricing = 'true';
   }
 
-  const response = await apiRequest<{ items: Category[]; totalItems: number }>('/categories', {
+  const response = await apiRequest<{ items: CategoryApiRecord[]; totalItems: number }>('/categories', {
     params,
     revalidate: 300,
     tags: ['categories'],
   });
-  return response.items ?? [];
+  return normalizeCategories(response.items);
 }
 
 export async function fetchTrendingCategories(): Promise<Category[]> {
-  const response = await apiRequest<{ items: Category[]; totalItems: number }>('/categories/trending', {
+  const response = await apiRequest<{ items: CategoryApiRecord[]; totalItems: number }>('/categories/trending', {
     revalidate: 120,
     tags: ['categories', 'trending'],
   });
-  return response.items ?? [];
+  return normalizeCategories(response.items);
 }
 
 export async function fetchCategory(id: string): Promise<Category> {
   validateObjectId(id, 'Category ID');
 
-  return apiRequest<Category>(`/categories/${id}`, {
+  const category = await apiRequest<CategoryApiRecord>(`/categories/${id}`, {
     revalidate: 300,
     tags: ['categories', `category-${id}`],
   });
+  return normalizeCategory(category);
 }
 
 export async function fetchCategoryProducts(

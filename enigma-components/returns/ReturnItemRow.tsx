@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import type { OrderItem } from '@/lib/api/types/orders';
 import { formatPrice } from '@/lib/utils/formatters';
-import { QuantitySelector } from '@/components/returns/QuantitySelector';
+import { QuantitySelector } from '@/enigma-components/returns/QuantitySelector';
 
 interface ReturnItemRowProps {
     item: OrderItem;

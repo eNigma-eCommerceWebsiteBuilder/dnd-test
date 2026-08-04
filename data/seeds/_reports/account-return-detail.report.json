@@ -1,17 +1,89 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/account/returns/[id]/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/account-return-detail.json",
+  "profile": "account-return-detail",
   "manifestLoaded": true,
   "captured": [
     {
-      "type": "PageWrapper",
-      "id": "pagewrapper-1"
+      "type": "ReturnDetailsNotFoundLayout",
+      "id": "returndetailsnotfoundlayout-1"
+    },
+    {
+      "type": "ReturnDetailsHeaderRegion",
+      "id": "returndetailsheaderregion-1"
+    },
+    {
+      "type": "ReturnDetailsTimelineRegion",
+      "id": "returndetailstimelineregion-1"
+    },
+    {
+      "type": "ReturnDetailsItemsRegion",
+      "id": "returndetailsitemsregion-1"
+    },
+    {
+      "type": "ReturnDetailsReasonRegion",
+      "id": "returndetailsreasonregion-1"
+    },
+    {
+      "type": "ReturnDetailsAdminNotesRegion",
+      "id": "returndetailsadminnotesregion-1"
+    },
+    {
+      "type": "ReturnDetailsAdminNotesCondition",
+      "id": "returndetailsadminnotescondition-1"
+    },
+    {
+      "type": "ReturnDetailsTrackingRegion",
+      "id": "returndetailstrackingregion-1"
+    },
+    {
+      "type": "ReturnDetailsLabelRegion",
+      "id": "returndetailslabelregion-1"
+    },
+    {
+      "type": "ReturnDetailsRefundSummaryRegion",
+      "id": "returndetailsrefundsummaryregion-1"
+    },
+    {
+      "type": "ReturnDetailsRefundBreakdownRegion",
+      "id": "returndetailsrefundbreakdownregion-1"
+    },
+    {
+      "type": "ReturnDetailsContentLayout",
+      "id": "returndetailscontentlayout-1"
+    },
+    {
+      "type": "ReturnDetailsActionsRegion",
+      "id": "returndetailsactionsregion-1"
+    },
+    {
+      "type": "ReturnDetailsPageLayout",
+      "id": "returndetailspagelayout-1"
+    },
+    {
+      "type": "ReturnDetailsPageState",
+      "id": "returndetailspagestate-1"
     }
   ],
   "warnings": [],
-  "droppedComponents": [
-    "ReturnNotFound"
-  ],
+  "errors": [],
+  "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [
+    {
+      "source": "returnDetails.adminNotes",
+      "handledBy": "ReturnDetailsAdminNotesCondition"
+    },
+    {
+      "source": "!returnDetails",
+      "handledBy": "ReturnDetailsPageState"
+    }
+  ],
+  "delegates": [
+    {
+      "component": "ReturnDetailsPage",
+      "source": "D:/projects/eNigma-TemplateFrontend/components/returns/canonical/ReturnDetailsPage.tsx"
+    }
+  ],
+  "fatal": false
 }

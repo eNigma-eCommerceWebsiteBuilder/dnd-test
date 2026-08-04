@@ -13,7 +13,7 @@ export const puckFields = {
 };
 export const puckDefaults = { title: 'All Products', totalItems: 128 };
 export const puckAst = {
-  kind: 'runtime', sourceJsxNames: ['h1'], sourceImportPaths: ['app/products/page.tsx'],
+  kind: 'runtime', sourceJsxNames: ['CatalogTitleSummary'], sourceImportPaths: ['@/components/products/canonical/CatalogTitleSummary'],
   role: 'catalog-title-summary', slotTarget: 'titleSummary', runtimeSignals: ['products.totalItems', 'searchParams'],
   requiredClasses: ['text-4xl', 'md:text-5xl', 'font-black', 'tracking-tight'],
 };

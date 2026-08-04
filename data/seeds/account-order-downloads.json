@@ -2,32 +2,94 @@
   "root": {},
   "content": [
     {
-      "type": "PageWrapper",
+      "type": "OrderDownloadsPageState",
       "props": {
-        "id": "pagewrapper-1",
-        "maxWidth": "1440",
-        "paddingY": "normal",
-        "children": [
+        "id": "orderdownloadspagestate-1",
+        "content": [
           {
-            "type": "Breadcrumbs",
+            "type": "OrderDownloadsPageLayout",
             "props": {
-              "id": "breadcrumbs-1",
-              "items": [
+              "id": "orderdownloadspagelayout-1",
+              "breadcrumbs": [
                 {
-                  "label": "Orders",
-                  "href": "/account/orders"
-                },
+                  "type": "OrderDownloadsBreadcrumbs",
+                  "props": {
+                    "id": "orderdownloadsbreadcrumbs-1"
+                  }
+                }
+              ],
+              "header": [
                 {
-                  "label": "__STRIP__"
+                  "type": "OrderDownloadsHeader",
+                  "props": {
+                    "id": "orderdownloadsheader-1"
+                  }
+                }
+              ],
+              "paymentPending": [
+                {
+                  "type": "OrderDownloadsPaymentPendingCondition",
+                  "props": {
+                    "id": "orderdownloadspaymentpendingcondition-1",
+                    "content": [
+                      {
+                        "type": "OrderDownloadsPaymentPendingNotice",
+                        "props": {
+                          "id": "orderdownloadspaymentpendingnotice-1"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "downloads": [
+                {
+                  "type": "OrderDownloadsAssetsState",
+                  "props": {
+                    "id": "orderdownloadsassetsstate-1",
+                    "assets": [
+                      {
+                        "type": "OrderDownloadsAssetsLayout",
+                        "props": {
+                          "id": "orderdownloadsassetslayout-1",
+                          "downloads": [
+                            {
+                              "type": "OrderDownloadsListRegion",
+                              "props": {
+                                "id": "orderdownloadslistregion-1"
+                              }
+                            }
+                          ],
+                          "licenses": [
+                            {
+                              "type": "OrderDownloadsLicenseKeysRegion",
+                              "props": {
+                                "id": "orderdownloadslicensekeysregion-1"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "empty": [
+                      {
+                        "type": "OrderDownloadsEmptyRegion",
+                        "props": {
+                          "id": "orderdownloadsemptyregion-1"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "back": [
+                {
+                  "type": "OrderDownloadsBackLink",
+                  "props": {
+                    "id": "orderdownloadsbacklink-1"
+                  }
                 }
               ]
-            }
-          },
-          {
-            "type": "PageHeader",
-            "props": {
-              "id": "pageheader-1",
-              "title": "Digital Downloads"
             }
           }
         ]

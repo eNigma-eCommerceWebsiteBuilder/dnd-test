@@ -4,7 +4,7 @@ import { useState, useTransition } from 'react';
 import { cn } from '@/lib/utils/cn';
 import { useToast } from '@/lib/hooks';
 import { useWishlistShare } from '@/lib/hooks';
-import { ShareLinkModal } from '@/components/wishlist/ShareLinkModal';
+import { ShareLinkModal } from '@/enigma-components/wishlist/ShareLinkModal';
 
 interface ShareWishlistButtonProps {
   className?: string;

@@ -1,6 +1,7 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/home.json",
+  "profile": "home",
   "manifestLoaded": true,
   "captured": [
     {
@@ -40,12 +41,15 @@
       "id": "trustbadges-1"
     },
     {
-      "type": "PageWrapper",
-      "id": "pagewrapper-1"
+      "type": "HomePageLayout",
+      "id": "homepagelayout-1"
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [],
+  "delegates": [],
+  "fatal": false
 }

@@ -64,9 +64,9 @@ export function InspirationGallery({ collection, hotspots = [], className }: Ins
           <div className="@md:col-span-4">
             {hasSideImages ? (
               <div className="grid h-full grid-cols-1 gap-6">
-                {sideImages.map((product) => (
+                {sideImages.map((product, index) => (
                   <div
-                    key={product._id}
+                    key={product._id || product.slug || `${product.name}-${index}`}
                     className="relative aspect-[4/3] w-full overflow-hidden rounded-card bg-bg-skeleton"
                   >
                     <div

@@ -38,7 +38,7 @@ export function ViewToggle({ className }: ViewToggleProps) {
     return (
         <div
             className={cn(
-                "@container flex items-center bg-bg-surface rounded-input p-1",
+                "flex shrink-0 items-center bg-bg-surface rounded-input p-1",
                 "border border-border",
                 className
             )}

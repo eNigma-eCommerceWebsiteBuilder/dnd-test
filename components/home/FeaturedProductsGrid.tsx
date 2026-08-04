@@ -15,7 +15,7 @@ export const FeaturedProductsGrid = ({
   content,
   products,
 }: FeaturedProductsGridProps) => {
-  if (!products || products.length === 0) {
+  if (!Array.isArray(products) || products.length === 0) {
     return null;
   }
 

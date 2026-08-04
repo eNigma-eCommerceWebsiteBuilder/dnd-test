@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils/cn';
 import { formatPrice } from '@/lib/utils/formatters';
 import type { WishlistItem as WishlistItemType } from '@/lib/api/types/wishlist';
-import { MoveToCartButton } from '@/components/wishlist/MoveToCartButton';
-import { RemoveButton } from '@/components/wishlist/RemoveButton';
-import { NotificationToggle } from '@/components/wishlist/NotificationToggle';
+import { MoveToCartButton } from '@/enigma-components/wishlist/MoveToCartButton';
+import { RemoveButton } from '@/enigma-components/wishlist/RemoveButton';
+import { NotificationToggle } from '@/enigma-components/wishlist/NotificationToggle';
 
 interface WishlistItemProps {
   item: WishlistItemType;

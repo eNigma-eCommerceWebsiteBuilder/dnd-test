@@ -1,6 +1,6 @@
 import type { Order } from '@/lib/api/types/orders';
 import type { ReturnItem } from '@/lib/api/types/returns';
-import { ReturnItemCard } from '@/components/returns/ReturnItemCard';
+import { ReturnItemCard } from '@/enigma-components/returns/ReturnItemCard';
 import { cn } from '@/lib/utils/cn';
 
 interface ReturnItemListProps {

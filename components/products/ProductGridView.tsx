@@ -36,5 +36,5 @@ export async function puckDataFetcher(_props: ProductGridViewProps, context?: Pu
 
 // The Puck View is deliberately only an adapter around the real grid component.
 export function ProductGridView({ products = previewProducts, listName = 'Product Listing', className }: ProductGridViewProps) {
-  return <ProductGrid products={products} listName={listName} className={className} hrefPrefix="/page/product-detail" />;
+  return <ProductGrid products={products} listName={listName} className={className} />;
 }

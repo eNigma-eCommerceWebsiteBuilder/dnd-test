@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils/cn';
 import type { ReturnStatus } from '@/lib/api/types/returns';
-import { CancelReturnButton } from '@/components/returns/CancelReturnButton';
+import { CancelReturnButton } from '@/enigma-components/returns/CancelReturnButton';
 
 interface ReturnActionsPanelProps {
     returnId: string;

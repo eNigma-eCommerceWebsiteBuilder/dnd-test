@@ -33,15 +33,6 @@ async function main() {
     emptyContent: [item('CartEmpty', { id: 'cart-empty-state' })],
   }));
 
-  await upsertPageData(pages, 'checkout', (data) => wrapWithState(data, {
-    type: 'CheckoutStateSection',
-    id: 'checkout-state-section',
-    state: 'ready',
-    filledSlot: 'ready',
-    emptySlot: 'empty',
-    emptyContent: [item('CartEmpty', { id: 'checkout-empty-cart-state' })],
-  }));
-
   await upsertPageData(pages, 'checkout-subscription', (data) => wrapWithState(data, {
     type: 'CheckoutSubscriptionStateSection',
     id: 'checkout-subscription-state-section',
@@ -128,18 +119,6 @@ async function main() {
   await upsertPageData(pages, 'account-downloads', () => ({
     root: {},
     content: [item('AccountDigitalLibraryStateSection', { id: 'account-digital-library-state-section', state: 'empty' })],
-    zones: {},
-  }));
-
-  await upsertPageData(pages, 'account-subscription-detail', () => ({
-    root: {},
-    content: [
-      item('SubscriptionDetailStateSection', {
-        id: 'subscription-detail-state-section',
-        subscriptionId: '',
-        state: 'not-found',
-      }),
-    ],
     zones: {},
   }));
 

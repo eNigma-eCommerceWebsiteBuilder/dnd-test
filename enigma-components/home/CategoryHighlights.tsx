@@ -37,9 +37,9 @@ export const CategoryHighlights = ({
         </Link>
       </div>
       <div className="grid grid-cols-1 gap-6 @md:grid-cols-3">
-        {categories.map((category) => (
+        {categories.map((category, index) => (
           <Link
-            key={category._id}
+            key={`${category._id || category.slug || category.name || 'category'}-${index}`}
             href={`/collections/${category.slug}`}
             className="group relative flex min-h-[320px] items-end overflow-hidden rounded-card bg-bg-skeleton @lg:min-h-[400px]"
           >

@@ -5,6 +5,7 @@ type AuthSession = {
     email?: string | null;
     firstName?: string;
     lastName?: string;
+    emailVerified?: boolean | Date | null;
   } | null;
 } | null;
 

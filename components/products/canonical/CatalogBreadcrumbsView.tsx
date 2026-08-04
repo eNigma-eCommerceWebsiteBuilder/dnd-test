@@ -16,7 +16,7 @@ export const puckFields = {
 };
 export const puckDefaults = { homeLabel: 'Home', homeHref: '/', currentLabel: 'All Products' };
 export const puckAst = {
-  kind: 'static', sourceJsxNames: ['nav'], sourceImportPaths: ['next/link'],
+  kind: 'static', sourceJsxNames: ['CatalogBreadcrumbs'], sourceImportPaths: ['@/components/products/canonical/CatalogBreadcrumbs'],
   role: 'catalog-breadcrumbs', slotTarget: 'breadcrumbs',
   requiredClasses: ['flex', 'items-center', 'gap-2', 'text-sm', 'text-text-muted', 'mb-4'],
 };

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import type { WishlistItem } from '@/lib/api/types/wishlist';
-import { AddToCartFromShared } from '@/components/wishlist/shared/AddToCartFromShared';
+import { AddToCartFromShared } from '@/enigma-components/wishlist/shared/AddToCartFromShared';
 import { formatPrice } from '@/lib/utils/formatters';
 
 interface SharedWishlistItemProps {

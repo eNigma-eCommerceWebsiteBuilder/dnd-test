@@ -1,6 +1,6 @@
 import { CatalogResultsState } from './CatalogResultsState';
 import { loadCatalogRuntime } from './catalogRuntime';
-import type { CatalogSlot } from './types';
+import { puckTransparentSlotProps, type CatalogSlot } from './types';
 import type { PuckFetcherContext } from '@/lib/puck-route-metadata';
 
 interface CatalogResultsStateViewProps {
@@ -8,6 +8,7 @@ interface CatalogResultsStateViewProps {
   previewMode?: 'results' | 'empty';
   results?: CatalogSlot;
   empty?: CatalogSlot;
+  puck?: { isEditing?: boolean };
 }
 
 export const puckComponentName = 'CatalogResultsState';
@@ -23,8 +24,8 @@ export const puckFields = {
 };
 export const puckDefaults = { previewMode: 'results', results: [], empty: [] };
 export const puckAst = {
-  kind: 'runtime', slots: ['results', 'empty'], sourceJsxNames: ['ProductGrid', 'EmptyState'],
-  sourceImportPaths: ['@/components/products/ProductGrid', '@/components/products/EmptyState'],
+  kind: 'runtime', slots: ['results', 'empty'], sourceJsxNames: ['CatalogResultsState'],
+  sourceImportPaths: ['@/components/products/canonical/CatalogResultsState'],
   role: 'catalog-results-state', slotTarget: 'results', conditional: 'products.length > 0',
   runtimeSignals: ['products.items'], requiredClasses: ['flex-1'],
 };
@@ -33,5 +34,6 @@ export async function puckDataFetcher(_props: CatalogResultsStateViewProps, cont
   return { hasProducts: runtime.productsData.items.length > 0 };
 }
 export function CatalogResultsStateView(props: CatalogResultsStateViewProps) {
-  return <CatalogResultsState hasProducts={props.hasProducts} previewMode={props.previewMode} results={props.results?.()} empty={props.empty?.()} />;
+  const hasProducts = props.hasProducts ?? (props.puck?.isEditing ? props.previewMode === 'results' : false);
+  return <CatalogResultsState hasProducts={hasProducts} results={props.results?.(puckTransparentSlotProps)} empty={props.empty?.(puckTransparentSlotProps)} />;
 }

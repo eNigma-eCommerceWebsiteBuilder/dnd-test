@@ -2,17 +2,70 @@
   "root": {},
   "content": [
     {
-      "type": "PageWrapper",
+      "type": "ReturnsPageLayout",
       "props": {
-        "id": "pagewrapper-1",
-        "maxWidth": "1440",
-        "paddingY": "normal",
-        "children": [
+        "id": "returnspagelayout-1",
+        "header": [
           {
-            "type": "PageHeader",
+            "type": "ReturnsPageHeader",
             "props": {
-              "id": "pageheader-1",
-              "title": "My Returns"
+              "id": "returnspageheader-1"
+            }
+          }
+        ],
+        "content": [
+          {
+            "type": "ReturnsListLayout",
+            "props": {
+              "id": "returnslistlayout-1",
+              "filter": [
+                {
+                  "type": "ReturnsStatusFilterRegion",
+                  "props": {
+                    "id": "returnsstatusfilterregion-1"
+                  }
+                }
+              ],
+              "notice": [
+                {
+                  "type": "ReturnsProcessingNotice",
+                  "props": {
+                    "id": "returnsprocessingnotice-1"
+                  }
+                }
+              ],
+              "results": [
+                {
+                  "type": "ReturnsResultsState",
+                  "props": {
+                    "id": "returnsresultsstate-1",
+                    "results": [
+                      {
+                        "type": "ReturnsCardsList",
+                        "props": {
+                          "id": "returnscardslist-1"
+                        }
+                      }
+                    ],
+                    "empty": [
+                      {
+                        "type": "ReturnsEmptyRegion",
+                        "props": {
+                          "id": "returnsemptyregion-1"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "pagination": [
+                {
+                  "type": "ReturnsPaginationRegion",
+                  "props": {
+                    "id": "returnspaginationregion-1"
+                  }
+                }
+              ]
             }
           }
         ]

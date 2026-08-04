@@ -13,13 +13,14 @@ export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: Props) {
   const { slug, entitySlug } = await params;
-  const page = await getPageBySlug(slug);
+  const page = await getPageBySlug(slug === 'products' ? 'product-detail' : slug);
   return { title: page ? `${entitySlug} - ${slug}` : 'Page Not Found' };
 }
 
 export default async function DynamicPublishedPage({ params, searchParams }: Props) {
   const { slug, entitySlug } = await params;
-  if (!(await getPageBySlug(slug))) notFound();
+  const publishedSlug = slug === 'products' ? 'product-detail' : slug;
+  if (!(await getPageBySlug(publishedSlug))) notFound();
 
   if (slug === 'category-detail') {
     const categories = await fetchCategories({ withStats: true });
@@ -27,13 +28,26 @@ export default async function DynamicPublishedPage({ params, searchParams }: Pro
     return <PublishedPage slug={slug} routeParams={{ slug, categorySlug: entitySlug }} searchParams={await searchParams} />;
   }
 
-  if (slug === 'product-detail') {
+  if (slug === 'products' || slug === 'product-detail') {
     try {
       await fetchProduct(entitySlug);
     } catch {
       notFound();
     }
-    return <PublishedPage slug={slug} routeParams={{ slug, productSlug: entitySlug }} searchParams={await searchParams} />;
+    return <PublishedPage slug="product-detail" routeParams={{ slug: 'product-detail', productSlug: entitySlug }} searchParams={await searchParams} />;
+  }
+
+  if (slug === 'collection-detail') {
+    // The source route renders its own Collection Not Found state, so preserve the entity identity even when it is invalid.
+    return <PublishedPage slug={slug} routeParams={{ slug, collectionSlug: entitySlug }} searchParams={await searchParams} />;
+  }
+
+  if (slug === 'shared-wishlist') {
+    return <PublishedPage slug={slug} routeParams={{ slug, token: entitySlug }} searchParams={await searchParams} />;
+  }
+
+  if (slug === 'downloads') {
+    return <PublishedPage slug={slug} routeParams={{ slug, key: entitySlug }} searchParams={await searchParams} />;
   }
 
   notFound();

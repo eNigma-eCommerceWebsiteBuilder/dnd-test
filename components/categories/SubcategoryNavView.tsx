@@ -10,10 +10,10 @@ interface SubcategoryItem {
 }
 
 interface SubcategoryNavViewProps {
-  items: SubcategoryItem[];
+  items?: SubcategoryItem[];
+  categories?: Category[];
+  runtimeCategories?: Category[];
   currentSlug?: string;
-  parentSlug?: string;
-  className?: string;
 }
 
 export const puckComponentName = 'SubcategoryNav';
@@ -37,7 +37,6 @@ export const puckFields = {
     getItemSummary: (item: SubcategoryItem) => item.name,
   },
   currentSlug: { type: 'text' as const, label: 'Current Slug (highlight)' },
-  parentSlug: { type: 'text' as const, label: 'Parent Slug (for "All" link)' },
 };
 
 export const puckDefaults = {
@@ -47,7 +46,6 @@ export const puckDefaults = {
     { name: 'Vests', slug: 'vests', productCount: 8 },
   ],
   currentSlug: '',
-  parentSlug: '',
 };
 
 
@@ -56,19 +54,18 @@ export const puckAst = {
   role: 'category-subcategory-nav', slotTarget: 'subcategories', runtimeSignals: ['category.siblings', 'params.categorySlug'],
 };
 
-export async function puckDataFetcher(_props: { parentSlug?: string }, context?: PuckFetcherContext) {
+export async function puckDataFetcher(_props: Record<string, never>, context?: PuckFetcherContext) {
   const runtime = await loadCategoryCatalogRuntime(context);
   return runtime ? {
-    items: runtime.siblingCategories.map((category) => ({ name: category.name, slug: category.slug, productCount: category.productCount })),
+    runtimeCategories: runtime.siblingCategories,
     currentSlug: runtime.category.slug,
-    parentSlug: runtime.category.parentCategory || '',
   } : {};
 }
 
-export function SubcategoryNavView({ items, currentSlug, parentSlug, className }: SubcategoryNavViewProps) {
-  const categories: Category[] = (items || []).map((item) => ({
+export function SubcategoryNavView({ items, categories, runtimeCategories, currentSlug }: SubcategoryNavViewProps) {
+  const previewCategories: Category[] = categories || (items || []).map((item) => ({
     _id: item.slug, name: item.name, slug: item.slug, productCount: item.productCount,
     isActive: true, createdAt: '2024-01-01T00:00:00Z', updatedAt: '2024-01-01T00:00:00Z',
   }));
-  return <SubcategoryNav categories={categories} currentSlug={currentSlug} parentSlug={parentSlug} />;
+  return <SubcategoryNav categories={runtimeCategories ?? previewCategories} currentSlug={currentSlug} />;
 }

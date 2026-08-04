@@ -32,13 +32,15 @@ interface OrderListProps {
     };
     statusFilter?: string;
     className?: string;
+    basePath?: string;
 }
 
 export function OrderList({
     initialOrders,
     initialPagination,
     // statusFilter, // Unused
-    className
+    className,
+    basePath = '/account/orders',
 }: OrderListProps) {
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -48,8 +50,8 @@ export function OrderList({
     const handlePageChange = useCallback((newPage: number) => {
         const params = new URLSearchParams(searchParams.toString());
         params.set('page', String(newPage));
-        router.push(`/account/orders?${params.toString()}`);
-    }, [router, searchParams]);
+        router.push(`${basePath}?${params.toString()}`);
+    }, [basePath, router, searchParams]);
 
     return (
         <div className={cn('@container w-full', className)}>

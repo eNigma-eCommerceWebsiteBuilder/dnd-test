@@ -1,15 +1,60 @@
 {
   "page": "D:/projects/eNigma-TemplateFrontend/app/collections/[slug]/page.tsx",
   "output": "D:/projects/dnd-test/data/seeds/collection-detail.json",
+  "profile": "collection-detail",
   "manifestLoaded": true,
   "captured": [
     {
-      "type": "CollectionDetailStateSection",
-      "id": "collectiondetailstatesection-1"
+      "type": "CollectionDetailHero",
+      "id": "collectiondetailhero-1"
+    },
+    {
+      "type": "CollectionDetailCuratedDisplay",
+      "id": "collectiondetailcurateddisplay-1"
+    },
+    {
+      "type": "CuratedCollectionCondition",
+      "id": "curatedcollectioncondition-1"
+    },
+    {
+      "type": "CollectionDetailInspirationGallery",
+      "id": "collectiondetailinspirationgallery-1"
+    },
+    {
+      "type": "InspirationDetailCondition",
+      "id": "inspirationdetailcondition-1"
+    },
+    {
+      "type": "CollectionDetailPageLayout",
+      "id": "collectiondetailpagelayout-1"
+    },
+    {
+      "type": "CollectionDetailNotFound",
+      "id": "collectiondetailnotfound-1"
+    },
+    {
+      "type": "CollectionDetailPageState",
+      "id": "collectiondetailpagestate-1"
     }
   ],
   "warnings": [],
+  "errors": [],
   "droppedComponents": [],
   "unmatchedHtml": [],
-  "runtimeConditionals": []
+  "runtimeConditionals": [
+    {
+      "source": "Boolean(curatedCollection)",
+      "handledBy": "CuratedCollectionCondition"
+    },
+    {
+      "source": "Boolean(inspirationDetail)",
+      "handledBy": "InspirationDetailCondition"
+    },
+    {
+      "source": "Boolean(collection)",
+      "handledBy": "CollectionDetailPageState"
+    }
+  ],
+  "delegates": [],
+  "fatal": false
 }
