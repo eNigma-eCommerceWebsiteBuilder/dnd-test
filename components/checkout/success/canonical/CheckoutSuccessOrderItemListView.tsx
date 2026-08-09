@@ -1,6 +1,0 @@
-import type { Order } from '@/lib/api/types'; import { OrderItemList } from '@/enigma-components/checkout/success/OrderItemList'; import { checkoutSuccessPreviewOrder } from './preview'; import { loadCheckoutSuccessRuntime } from './checkoutSuccessRuntime';
-interface Props { order?: Order | null; puck?: { isEditing?: boolean }; }
-export const puckComponentName = 'CheckoutSuccessOrderItemList'; export const puckLabel = 'Checkout Success Order Items'; export const puckCategory = 'Checkout'; export const puckFields = {}; export const puckDefaults = {};
-export const puckAst = { kind: 'runtime', sourceJsxNames: ['OrderItemList'], sourceImportPaths: ['@/components/checkout/success/OrderItemList'], role: 'checkout-success-order-item-list', runtimeSignals: ['order.items'] };
-export async function puckDataFetcher(_props: Props, context?: Parameters<typeof loadCheckoutSuccessRuntime>[0]) { const runtime = await loadCheckoutSuccessRuntime(context); return { order: runtime.order }; }
-export function CheckoutSuccessOrderItemListView({ order = null, puck }: Props) { const resolved = puck?.isEditing ? checkoutSuccessPreviewOrder : order; return resolved ? <OrderItemList items={resolved.items} /> : null; }

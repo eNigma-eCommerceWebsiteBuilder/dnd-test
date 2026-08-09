@@ -1,0 +1,30 @@
+{
+  "name": "@enigma/puck-site-contract",
+  "version": "1.0.0",
+  "description": "Versioned, JSON-safe contract between target Next.js websites and the eNigma Puck parser.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./schema": "./schema/puck-site-manifest.schema.json"
+  },
+  "files": [
+    "dist",
+    "schema",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "test": "tsx test/contract.test.ts",
+    "prepack": "npm run build"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "license": "UNLICENSED"
+}

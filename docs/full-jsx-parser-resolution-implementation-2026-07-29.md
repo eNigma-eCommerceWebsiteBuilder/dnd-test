@@ -1,5 +1,20 @@
 # Full JSX Parser Resolution Implementation
 
+## Latest Rebaseline: 2026-08-04
+
+The parser now targets the 32 routes in the latest clean TemplateFrontend tree.
+The removed `checkout-subscription` and `account-payment-methods` routes are no
+longer emitted; `auth-complete`, `auth-storefront-account`, `policies-privacy`,
+and `policies-terms` are included. Current verification is:
+
+```text
+Puck config:       441 client components, 212 data-aware server components
+Route generation:  32 / 32 passed with clean diagnostics
+Published data:    32 / 32 seeds applied
+Fixture matrix:    1,129 cases, 32 routes, 290 slots passed
+dnd-test tsc:      passed
+```
+
 ## Result
 
 The fixed-role parser has been replaced by a common import-aware JSX-to-Puck
@@ -24,20 +39,18 @@ still writes its report but leaves an existing seed unchanged.
 
 ## Main Implementation
 
-- `eNigma-TemplateFrontend/ast-parser.ts`: public CLI entry point.
-- `eNigma-TemplateFrontend/ast-parser-engine.ts`: common recursive parser,
+- `dnd-test/scripts/templatefrontend-parser/ast-parser.ts`: public CLI entry point.
+- `dnd-test/scripts/templatefrontend-parser/ast-parser-engine.ts`: common recursive parser,
   matching, prop extraction, diagnostics, and composition validation.
-- `eNigma-TemplateFrontend/ast-parser-route-profiles.ts`: declarative profiles
-  for all 30 routes and their delegated source modules.
-- `eNigma-TemplateFrontend/ast-parser-fixed-role-legacy-20260728.ts`: preserved
-  pre-refactor parser.
+- `dnd-test/scripts/templatefrontend-parser/ast-parser-route-profiles.ts`:
+  declarative profiles for all 32 routes and their delegated source modules.
 - `dnd-test/scripts/generate-puck-config.ts`: manifest and route-composition
   generation with metadata validation.
 - `dnd-test/lib/puck-ast-manifest.json`: generated canonical matching contract.
 - `dnd-test/lib/puck-route-composition.json`: generated route/slot grammar.
 - `dnd-test/scripts/check-full-jsx-parser-resolution.ts`: generated fixture
   matrix and failure-preservation checks.
-- `dnd-test/scripts/run-parser-to-dnd-test.ps1`: strict 30-route regeneration.
+- `dnd-test/scripts/run-parser-to-dnd-test.ps1`: strict 32-route regeneration.
 - `dnd-test/scripts/apply-seed-to-page.ts`: clean-report, non-empty, and
   canonical-type application gates.
 

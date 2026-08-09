@@ -1,6 +1,0 @@
-import { OrderPaymentStatus, OrderStatus, type Order } from '@/lib/api/types';
-import type { OrderDownloadsPageData } from '@/enigma-components/orders/downloads-canonical/orderDownloadsRuntime';
-
-const order: Order = { _id: 'puck-order-downloads-preview', orderNumber: 'EN-2048', customerEmail: 'avery@example.com', customerName: 'Avery Morgan', items: [{ _id: 'puck-download-item', productId: 'puck-product', product: { _id: 'puck-product', name: 'Preview Digital Guide', images: [] }, quantity: 1, price: 24, subtotal: 24, isDigital: true }], subtotal: 24, tax: 0, shipping: 0, total: 24, status: OrderStatus.PROCESSING, paymentStatus: OrderPaymentStatus.PAID, shippingAddress: { street: '100 Market Street', city: 'Karachi', state: 'Sindh', zipCode: '75500', country: 'Pakistan' }, createdAt: '2026-07-01T00:00:00.000Z', updatedAt: '2026-07-01T00:00:00.000Z' };
-
-export const orderDownloadsPreview: OrderDownloadsPageData = { order, isPaid: true, digitalAssets: { orderNumber: order.orderNumber, isPaid: true, hasDigitalItems: true, assets: [{ licenseKey: 'PREVIEW-7F3A-9C2E', productId: 'puck-product', productName: 'Preview Digital Guide', downloadUrl: '#', expiresAt: '2030-01-01T00:00:00.000Z', maxDownloads: 5, downloadCount: 0, createdAt: '2026-07-01T00:00:00.000Z' }] } };

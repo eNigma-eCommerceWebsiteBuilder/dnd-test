@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://enigma.local/schemas/puck-site-manifest-v1.json",
+  "title": "eNigma Puck Site Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contractVersion", "siteId", "sourceRoot", "seedDirectory", "reportDirectory", "routes", "components"],
+  "properties": {
+    "contractVersion": { "const": 1 },
+    "siteId": { "type": "string", "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$" },
+    "sourceRoot": { "$ref": "#/$defs/relativePathOrDot" },
+    "seedDirectory": { "$ref": "#/$defs/relativePath" },
+    "reportDirectory": { "$ref": "#/$defs/relativePath" },
+    "routes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/route" }
+    },
+    "components": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/component" }
+    }
+  },
+  "$defs": {
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?![A-Za-z]:)(?!.*(?:^|/)\\.\\.?(?:/|$))(?!.*//)[^\\\\]+$"
+    },
+    "relativePathOrDot": {
+      "anyOf": [
+        { "const": "." },
+        { "$ref": "#/$defs/relativePath" }
+      ]
+    },
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "delegate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceImportPath", "sourceFile", "exportName"],
+      "properties": {
+        "sourceImportPath": { "type": "string", "minLength": 1 },
+        "sourceFile": { "$ref": "#/$defs/relativePath" },
+        "exportName": { "type": "string", "minLength": 1 }
+      }
+    },
+    "slotRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["parentType", "slot", "allowedTypes", "minChildren", "repeatable"],
+      "properties": {
+        "parentType": { "type": "string", "minLength": 1 },
+        "slot": { "type": "string", "minLength": 1 },
+        "allowedTypes": { "$ref": "#/$defs/stringArray" },
+        "minChildren": { "type": "integer", "minimum": 0 },
+        "repeatable": { "type": "boolean" }
+      }
+    },
+    "composition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["roots", "allowedTypes", "children", "slots"],
+      "properties": {
+        "roots": { "$ref": "#/$defs/stringArray", "minItems": 1 },
+        "allowedTypes": { "$ref": "#/$defs/stringArray", "minItems": 1 },
+        "children": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": { "$ref": "#/$defs/stringArray" }
+          }
+        },
+        "slots": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/slotRule" }
+        }
+      }
+    },
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "sourceFile", "routePattern", "seedFile", "requiredRootRole", "composition"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "sourceFile": { "$ref": "#/$defs/relativePath" },
+        "routePattern": { "type": "string", "pattern": "^/" },
+        "seedFile": { "$ref": "#/$defs/relativePath" },
+        "requiredRootRole": { "type": "string", "minLength": 1 },
+        "rootWrapperRole": { "type": "string", "minLength": 1 },
+        "allowNoJsx": { "type": "boolean" },
+        "delegates": { "type": "array", "items": { "$ref": "#/$defs/delegate" } },
+        "composition": { "$ref": "#/$defs/composition" }
+      }
+    },
+    "structuralMatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tag": { "type": "string" },
+        "text": { "$ref": "#/$defs/stringArray" },
+        "rootClasses": { "$ref": "#/$defs/stringArray" },
+        "directChildTags": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "sourceMatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "pageIncludes": { "$ref": "#/$defs/stringArray" },
+        "component": { "type": "string" },
+        "componentName": { "type": "string" },
+        "identifier": { "type": "string" },
+        "tag": { "type": "string" },
+        "classIncludes": { "$ref": "#/$defs/stringArray" },
+        "textIncludes": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "ast": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["static", "runtime"] },
+        "topLevel": { "type": "boolean" },
+        "slots": { "$ref": "#/$defs/stringArray" },
+        "sourceJsxNames": { "$ref": "#/$defs/stringArray" },
+        "sourceImportPaths": { "$ref": "#/$defs/stringArray" },
+        "role": { "type": "string" },
+        "slotTarget": { "type": "string" },
+        "runtimeSignals": { "$ref": "#/$defs/stringArray" },
+        "requiredClasses": { "$ref": "#/$defs/stringArray" },
+        "routes": { "$ref": "#/$defs/stringArray" },
+        "conditional": { "type": "string" },
+        "suspenseFallback": { "type": "string" },
+        "parentSignature": { "type": "string" },
+        "match": { "$ref": "#/$defs/structuralMatch" },
+        "matches": { "type": "array", "items": { "$ref": "#/$defs/sourceMatch" } },
+        "list": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ownsIteration": { "type": "boolean" },
+            "slot": { "type": "string" },
+            "previewCount": { "type": "integer", "minimum": 0 },
+            "indexProp": { "type": "string" }
+          }
+        },
+        "variant": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["prop", "byDescendantType"],
+          "properties": {
+            "prop": { "type": "string", "minLength": 1 },
+            "byDescendantType": {
+              "type": "object",
+              "additionalProperties": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "component": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "category", "label", "hasDataFetcher", "defaults", "fieldNames", "canonical", "legacy", "parserEligible", "ast"],
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "category": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "hasDataFetcher": { "type": "boolean" },
+        "defaults": { "type": "object" },
+        "fieldNames": { "$ref": "#/$defs/stringArray" },
+        "canonical": { "type": "boolean" },
+        "legacy": { "type": "boolean" },
+        "parserEligible": { "type": "boolean" },
+        "ast": { "$ref": "#/$defs/ast" }
+      }
+    }
+  }
+}

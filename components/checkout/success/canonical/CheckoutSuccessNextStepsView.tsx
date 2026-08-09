@@ -1,6 +1,0 @@
-import type { Order } from '@/lib/api/types'; import { NextStepsCard } from '@/enigma-components/checkout/success/NextStepsCard'; import { siteContent } from '@/lib/content'; import { checkoutSuccessPreviewOrder } from './preview'; import { loadCheckoutSuccessRuntime } from './checkoutSuccessRuntime';
-interface Props { order?: Order | null; puck?: { isEditing?: boolean }; }
-export const puckComponentName = 'CheckoutSuccessNextSteps'; export const puckLabel = 'Checkout Success Next Steps'; export const puckCategory = 'Checkout'; export const puckFields = {}; export const puckDefaults = {};
-export const puckAst = { kind: 'runtime', sourceJsxNames: ['NextStepsCard'], sourceImportPaths: ['@/components/checkout/success/NextStepsCard'], role: 'checkout-success-next-steps', runtimeSignals: ['order.customerEmail'] };
-export async function puckDataFetcher(_props: Props, context?: Parameters<typeof loadCheckoutSuccessRuntime>[0]) { const runtime = await loadCheckoutSuccessRuntime(context); return { order: runtime.order }; }
-export function CheckoutSuccessNextStepsView({ order = null, puck }: Props) { const resolved = puck?.isEditing ? checkoutSuccessPreviewOrder : order; return resolved ? <NextStepsCard content={siteContent.checkout.success.nextSteps} email={resolved.customerEmail} /> : null; }

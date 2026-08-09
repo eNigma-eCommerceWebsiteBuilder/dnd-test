@@ -1,0 +1,9 @@
+{
+  "routes": {
+    "auth-complete": { "roots": ["AuthCompleteRedirectState"] },
+    "auth-storefront-account": { "roots": ["StorefrontAccountPageState"] },
+    "policies-privacy": { "roots": ["PrivacyPolicyPageState"] },
+    "policies-terms": { "roots": ["TermsPolicyPageState"] },
+    "search": { "roots": ["SearchPageLayout"] }
+  }
+}

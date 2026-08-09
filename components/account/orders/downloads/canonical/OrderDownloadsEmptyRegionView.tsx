@@ -1,3 +1,0 @@
-import { OrderDownloadsEmptyRegion } from '@/enigma-components/orders/downloads-canonical/OrderDownloadsPageSections';
-export const puckComponentName = 'OrderDownloadsEmptyRegion'; export const puckLabel = 'No Downloads Available'; export const puckCategory = 'Account'; export const puckFields = {}; export const puckDefaults = {}; export const puckAst = { kind: 'static', sourceJsxNames: ['OrderDownloadsEmptyRegion'], sourceImportPaths: ['@/components/orders/canonical/OrderDownloadsPageSections'], role: 'order-downloads-empty-region', slotTarget: 'empty' };
-export function OrderDownloadsEmptyRegionView() { return <OrderDownloadsEmptyRegion />; }

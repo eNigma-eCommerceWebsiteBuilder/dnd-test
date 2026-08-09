@@ -1,3 +1,0 @@
-import { OrderDownloadsPaymentPendingNotice } from '@/enigma-components/orders/downloads-canonical/OrderDownloadsPageSections';
-export const puckComponentName = 'OrderDownloadsPaymentPendingNotice'; export const puckLabel = 'Payment Pending Notice'; export const puckCategory = 'Account'; export const puckFields = {}; export const puckDefaults = {}; export const puckAst = { kind: 'static', sourceJsxNames: ['OrderDownloadsPaymentPendingNotice'], sourceImportPaths: ['@/components/orders/canonical/OrderDownloadsPageSections'], role: 'order-downloads-payment-pending-notice', slotTarget: 'content', requiredClasses: ['border-warning', 'bg-warning-subtle'] };
-export function OrderDownloadsPaymentPendingNoticeView() { return <OrderDownloadsPaymentPendingNotice />; }

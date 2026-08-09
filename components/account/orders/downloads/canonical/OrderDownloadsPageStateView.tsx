@@ -1,8 +1,0 @@
-import type { OrderDownloadsPageData } from '@/enigma-components/orders/downloads-canonical/orderDownloadsRuntime';
-import { OrderDownloadsPageState } from '@/enigma-components/orders/downloads-canonical/OrderDownloadsPageState';
-import { loadOrderDownloadsRuntime } from './orderDownloadsRuntime'; import { orderDownloadsPreview } from './preview'; import { puckTransparentSlotProps, type OrderDownloadsSlot } from './types'; import { resolveOrderDownloadsData } from './viewData';
-interface Props { content?: OrderDownloadsSlot; data?: OrderDownloadsPageData | null; orderId?: string; puck?: { isEditing?: boolean }; }
-export const puckComponentName = 'OrderDownloadsPageState'; export const puckLabel = 'Order Downloads Page State'; export const puckCategory = 'Account'; export const puckFields = { content: { type: 'slot' as const, allow: ['OrderDownloadsPageLayout'] } }; export const puckDefaults = { content: [] };
-export const puckAst = { kind: 'runtime', topLevel: true, slots: ['content'], sourceJsxNames: ['OrderDownloadsPageState'], sourceImportPaths: ['@/components/orders/canonical/OrderDownloadsPageState'], role: 'order-downloads-page-state', conditional: '!data => redirect(/account/orders/:id)', runtimeSignals: ['params.id', 'searchParams.email'] };
-export async function puckDataFetcher(_props: Props, context?: Parameters<typeof loadOrderDownloadsRuntime>[0]) { return loadOrderDownloadsRuntime(context); }
-export function OrderDownloadsPageStateView(props: Props) { const data = resolveOrderDownloadsData(props); const orderId = props.puck?.isEditing ? orderDownloadsPreview.order._id : props.orderId || ''; return <OrderDownloadsPageState data={data} orderId={orderId} content={props.content?.(puckTransparentSlotProps)} />; }

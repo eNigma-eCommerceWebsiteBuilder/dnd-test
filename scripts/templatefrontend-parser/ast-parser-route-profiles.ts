@@ -12,6 +12,7 @@ export interface RouteProfile {
   requiredRootRole: string;
   rootWrapperRole?: string;
   delegates?: DelegateProfile[];
+  allowNoJsx?: boolean;
 }
 
 const profiles: Record<string, RouteProfile> = {
@@ -43,13 +44,6 @@ const profiles: Record<string, RouteProfile> = {
     ],
   },
   'checkout-success': { id: 'checkout-success', requiredRootRole: 'checkout-success-page-state' },
-  'checkout-subscription': {
-    id: 'checkout-subscription',
-    requiredRootRole: 'subscription-checkout-page-state',
-    delegates: [
-      delegate('@/components/checkout/subscription/SubscriptionCheckoutClient', 'components/checkout/subscription/SubscriptionCheckoutClient.tsx', 'default'),
-    ],
-  },
   downloads: {
     id: 'downloads',
     requiredRootRole: 'download-page-layout',
@@ -58,6 +52,10 @@ const profiles: Record<string, RouteProfile> = {
     ],
   },
   auth: { id: 'auth', requiredRootRole: 'auth-page-state' },
+  'auth-complete': { id: 'auth-complete', requiredRootRole: 'auth-complete-redirect-state', allowNoJsx: true },
+  'auth-storefront-account': { id: 'auth-storefront-account', requiredRootRole: 'storefront-account-page-state' },
+  'policies-privacy': { id: 'policies-privacy', requiredRootRole: 'privacy-policy-page-state' },
+  'policies-terms': { id: 'policies-terms', requiredRootRole: 'terms-policy-page-state' },
   account: {
     id: 'account',
     requiredRootRole: 'account-dashboard-page-layout',
@@ -116,13 +114,6 @@ const profiles: Record<string, RouteProfile> = {
       delegate('@/components/addresses/canonical/AddressesPage', 'components/addresses/canonical/AddressesPage.tsx', 'AddressesPage', 'ADDRESSES_CANONICAL_SOURCE'),
     ],
   },
-  'account-payment-methods': {
-    id: 'account-payment-methods',
-    requiredRootRole: 'payment-methods-page-state',
-    delegates: [
-      delegate('@/components/payment-methods/canonical/PaymentMethodsPage', 'components/payment-methods/canonical/PaymentMethodsPage.tsx', 'PaymentMethodsPage', 'PAYMENT_METHODS_CANONICAL_SOURCE'),
-    ],
-  },
   'account-settings': { id: 'account-settings', requiredRootRole: 'account-settings-layout' },
   'account-sessions': {
     id: 'account-sessions',
@@ -166,7 +157,12 @@ function delegate(
 }
 
 export function getRouteProfile(pageKey: string): RouteProfile | null {
-  return profiles[pageKey] || null;
+  const profile = profiles[pageKey];
+  if (!profile) return null;
+  return {
+    ...profile,
+    rootWrapperRole: profile.rootWrapperRole || profile.requiredRootRole,
+  };
 }
 
 export function resolveDelegateSource(projectRoot: string, profile: DelegateProfile): string {

@@ -1,5 +1,5 @@
 import * as parser from '@babel/parser';
-import traverse from '@babel/traverse';
+import traverseModule from '@babel/traverse';
 import * as t from '@babel/types';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -10,6 +10,14 @@ import {
   getRouteProfile,
   resolveDelegateSource,
 } from './ast-parser-route-profiles';
+
+// @babel/traverse is published with CommonJS interop. Normalize its callable
+// export once so the parser behaves the same in tsx's native ESM execution.
+const traverse = (
+  typeof traverseModule === 'function'
+    ? traverseModule
+    : (traverseModule as unknown as { default: typeof traverseModule }).default
+) as typeof traverseModule;
 
 export interface ComponentData {
   type: string;
@@ -26,11 +34,25 @@ interface ManifestAst {
   slotTarget?: string;
   conditional?: string;
   runtimeSignals?: string[];
+  requiredClasses?: string[];
+  suspenseFallback?: string;
+  routes?: string[];
+  match?: {
+    tag?: string;
+    directChildTags?: string[];
+    rootClasses?: string[];
+    text?: string[];
+  };
+  variant?: {
+    prop: string;
+    byDescendantType: Record<string, string>;
+  };
   parserEligible?: boolean;
   list?: {
-    slot: string;
-    previewCount: number;
+    slot?: string;
+    previewCount?: number;
     indexProp?: string;
+    ownsIteration?: boolean;
   };
 }
 
@@ -90,6 +112,7 @@ interface ParserDiagnostics {
 interface ParserOptions {
   inputPath: string;
   outputPath: string;
+  reportPath?: string;
   projectRoot?: string;
   puckRoot?: string;
   quiet?: boolean;
@@ -98,12 +121,30 @@ interface ParserOptions {
 const STRIP = Symbol('strip');
 
 function loadSiteContent(projectRoot: string): Record<string, unknown> {
-  const contentPath = path.resolve(projectRoot, 'lib', 'content');
+  const contentPath = path.resolve(projectRoot, 'lib', 'content.ts');
 
   try {
-    const contentModule = require(contentPath) as { siteContent?: Record<string, unknown> };
-    if (contentModule.siteContent && typeof contentModule.siteContent === 'object') {
-      return contentModule.siteContent;
+    const source = fs.readFileSync(contentPath, 'utf-8');
+    const ast = parser.parse(source, { sourceType: 'module', plugins: ['typescript', 'jsx'] });
+    const context: ModuleContext = {
+      filePath: contentPath,
+      resolutionFilePath: contentPath,
+      source,
+      ast,
+      imports: new Map(),
+      staticScope: {},
+    };
+    let content: unknown = STRIP;
+
+    traverse(ast, {
+      VariableDeclarator(variablePath) {
+        if (!t.isIdentifier(variablePath.node.id, { name: 'siteContent' }) || !variablePath.node.init) return;
+        content = resolveStaticExpression(variablePath.node.init, context, {});
+      },
+    });
+
+    if (content !== STRIP && content && typeof content === 'object' && !Array.isArray(content)) {
+      return content as Record<string, unknown>;
     }
   } catch (error) {
     throw new Error(`Could not load static site content from ${contentPath}: ${String(error)}`);
@@ -114,7 +155,7 @@ function loadSiteContent(projectRoot: string): Record<string, unknown> {
 
 export function runPuckAstParser(options: ParserOptions): number {
   const projectRoot = path.resolve(options.projectRoot || process.cwd());
-  const puckRoot = path.resolve(options.puckRoot || path.resolve(__dirname, '..', '..'));
+  const puckRoot = path.resolve(options.puckRoot || projectRoot);
   const inputPath = path.resolve(projectRoot, options.inputPath);
   const outputPath = path.resolve(projectRoot, options.outputPath);
   const pageKey = path.basename(outputPath, '.json').replace(/`/g, '');
@@ -134,7 +175,9 @@ export function runPuckAstParser(options: ParserOptions): number {
     fatal: false,
   };
 
-  const reportPath = diagnosticsPath(outputPath);
+  const reportPath = options.reportPath
+    ? path.resolve(options.reportPath)
+    : diagnosticsPath(outputPath);
 
   try {
     if (!profile) {
@@ -148,8 +191,8 @@ export function runPuckAstParser(options: ParserOptions): number {
     const siteContent = loadSiteContent(projectRoot);
     const engine = new JsxToPuckEngine(projectRoot, profile, manifest, composition, diagnostics, siteContent);
     const routeModule = engine.loadModule(inputPath);
-    const returned = findExportedFunctionReturn(routeModule, 'default');
-    if (!returned) {
+    const returned = findExportedFunctionReturns(routeModule, 'default');
+    if (returned.length === 0 && !profile.allowNoJsx) {
       fail(diagnostics, 'Could not find a JSX return value in the default route export.');
       writeDiagnostics(reportPath, diagnostics);
       return 1;
@@ -157,9 +200,9 @@ export function runPuckAstParser(options: ParserOptions): number {
 
     let content: ComponentData[];
     if (profile.rootWrapperRole) {
-      content = engine.parseWrappedRoot(returned, routeModule, profile.rootWrapperRole);
+      content = engine.parseWrappedRoots(returned, routeModule, profile.rootWrapperRole);
     } else {
-      content = engine.parseExpression(returned, routeModule, []);
+      content = returned.flatMap((expression) => engine.parseExpression(expression, routeModule, []));
     }
 
     engine.validateRequiredRoot(content);
@@ -255,20 +298,41 @@ class JsxToPuckEngine {
     return context;
   }
 
-  parseWrappedRoot(expression: t.Expression, context: ModuleContext, wrapperRole: string): ComponentData[] {
+  parseWrappedRoots(expressions: t.Expression[], context: ModuleContext, wrapperRole: string): ComponentData[] {
     const wrapper = this.manifestByRole.get(wrapperRole);
     if (!wrapper) {
       fail(this.diagnostics, `Root wrapper role "${wrapperRole}" is missing from the Puck manifest.`);
       return [];
     }
-    if (!t.isJSXElement(expression) && !t.isJSXFragment(expression)) {
-      fail(this.diagnostics, `Route "${this.profile.id}" root wrapper must receive JSX.`);
-      return [];
+    const children: ComponentData[] = [];
+    for (const expression of expressions) {
+      if (!t.isJSXElement(expression) && !t.isJSXFragment(expression)) {
+        fail(this.diagnostics, `Route "${this.profile.id}" root wrapper must receive JSX.`);
+        continue;
+      }
+      if (t.isJSXFragment(expression)) {
+        children.push(...this.parseChildren(expression.children, context, [wrapper.type], wrapper));
+        continue;
+      }
+      const sourceName = jsxName(expression.openingElement.name);
+      if (sourceName && /^[a-z]/.test(sourceName)) {
+        const structuralRoot = this.matchStructuralComponent(expression, context, [wrapper.type]);
+        children.push(...(structuralRoot
+          ? [this.parseCanonicalComponent(
+              expression,
+              structuralRoot,
+              context,
+              [wrapper.type],
+              sourceName,
+              undefined,
+              true,
+            )]
+          : this.parseChildren(expression.children, context, [wrapper.type], wrapper)));
+      } else {
+        children.push(...this.parseExpression(expression, context, [wrapper.type], wrapper));
+      }
     }
-
-    const children = t.isJSXElement(expression)
-      ? this.parseChildren(expression.children, context, [wrapper.type])
-      : this.parseChildren(expression.children, context, [wrapper.type]);
+    if (children.length === 1 && children[0].type === wrapper.type) return children;
     const props = this.assignChildrenToSlots(wrapper, children);
     return [this.section(wrapper, props)];
   }
@@ -289,6 +353,24 @@ class JsxToPuckEngine {
       return this.parseExpression(expression.expression, context, ancestors, runtimeOwner);
     }
     if (t.isConditionalExpression(expression)) {
+      const conditionSource = fullSourceFor(expression.test, context);
+      if (runtimeOwner?.ast?.conditional && conditionsCompatible(runtimeOwner.ast.conditional, conditionSource)) {
+        return [
+          ...this.parseExpression(expression.consequent, context, ancestors, runtimeOwner),
+          ...this.parseExpression(expression.alternate, context, ancestors, runtimeOwner),
+        ];
+      }
+      const conditionOwner = this.matchRuntimeOwner(ancestors, 'conditional', conditionSource);
+      if (conditionOwner) {
+        const nextAncestors = [...ancestors, conditionOwner.type];
+        const children = [
+          ...this.parseOwnedSubtreeExpression(expression.consequent, context, nextAncestors, conditionOwner),
+          ...this.parseOwnedSubtreeExpression(expression.alternate, context, nextAncestors, conditionOwner),
+        ];
+        const props = this.assignChildrenToSlots(conditionOwner, children);
+        this.diagnostics.runtimeConditionals.push({ source: conditionSource, handledBy: conditionOwner.type });
+        return [this.section(conditionOwner, props)];
+      }
       const resolved = resolveStaticExpression(expression.test, context);
       if (typeof resolved === 'boolean') {
         return this.parseExpression(resolved ? expression.consequent : expression.alternate, context, ancestors, runtimeOwner);
@@ -303,6 +385,18 @@ class JsxToPuckEngine {
       return [];
     }
     if (t.isLogicalExpression(expression) && expression.operator === '&&') {
+      const conditionSource = fullSourceFor(expression.left, context);
+      if (runtimeOwner?.ast?.conditional && conditionsCompatible(runtimeOwner.ast.conditional, conditionSource)) {
+        return this.parseExpression(expression.right, context, ancestors, runtimeOwner);
+      }
+      const conditionOwner = this.matchRuntimeOwner(ancestors, 'conditional', conditionSource);
+      if (conditionOwner) {
+        const nextAncestors = [...ancestors, conditionOwner.type];
+        const children = this.parseOwnedSubtreeExpression(expression.right, context, nextAncestors, conditionOwner);
+        const props = this.assignChildrenToSlots(conditionOwner, children);
+        this.diagnostics.runtimeConditionals.push({ source: conditionSource, handledBy: conditionOwner.type });
+        return [this.section(conditionOwner, props)];
+      }
       const resolved = resolveStaticExpression(expression.left, context);
       if (resolved === true) return this.parseExpression(expression.right, context, ancestors, runtimeOwner);
       if (resolved === false) return [];
@@ -314,7 +408,18 @@ class JsxToPuckEngine {
     }
     if (isRuntimeMap(expression)) {
       if (runtimeOwner?.ast?.list) {
+        if (runtimeOwner.ast.list.ownsIteration) return [];
         return this.parseRuntimeMap(expression, context, ancestors, runtimeOwner);
+      }
+      const listOwner = this.matchRuntimeOwner(ancestors, 'list');
+      if (listOwner) {
+        if (listOwner.ast?.list?.ownsIteration) {
+          return [this.section(listOwner, normalizeComponentProps(listOwner, {}))];
+        }
+        const nextAncestors = [...ancestors, listOwner.type];
+        const children = this.parseRuntimeMap(expression, context, nextAncestors, listOwner);
+        const props = this.assignChildrenToSlots(listOwner, children);
+        return [this.section(listOwner, props)];
       }
       fail(this.diagnostics, `Unsupported runtime map outside a registered list owner: ${sourceFor(expression, context)}.`);
       return [];
@@ -362,14 +467,28 @@ class JsxToPuckEngine {
     if (localReturn) return this.parseExpression(localReturn, context, ancestors);
 
     if (localName === 'Suspense' || localName === 'ErrorBoundary') {
-      fail(this.diagnostics, `${localName} must be represented by a registered source-specific canonical boundary.`);
+      const boundary = this.matchRuntimeOwner(ancestors, 'boundary');
+      if (boundary) {
+        return [this.parseCanonicalComponent(node, boundary, context, ancestors, localName, undefined, true)];
+      }
       return this.parseChildren(node.children, context, ancestors);
     }
 
     if (/^[a-z]/.test(localName)) {
+      const structural = this.matchStructuralComponent(node, context, ancestors);
+      if (structural) {
+        return [this.parseCanonicalComponent(node, structural, context, ancestors, localName, undefined, true)];
+      }
       const text = normalizeText(visibleText(node));
-      this.diagnostics.unmatchedHtml.push({ tag: localName, text: text.slice(0, 120) });
-      return this.parseChildren(node.children, context, ancestors);
+      const parsedChildren = this.parseChildren(node.children, context, ancestors, runtimeOwnerForAncestors(ancestors, this.manifestByType));
+      if (parsedChildren.length === 0 && text) {
+        this.diagnostics.unmatchedHtml.push({ tag: localName, text: text.slice(0, 120) });
+      }
+      return parsedChildren;
+    }
+
+    if (binding?.modulePath === 'next/link' || binding?.modulePath === 'next/image') {
+      return this.parseChildren(node.children, context, ancestors, runtimeOwnerForAncestors(ancestors, this.manifestByType));
     }
 
     this.diagnostics.droppedComponents.push(localName);
@@ -384,6 +503,7 @@ class JsxToPuckEngine {
     ancestors: string[],
     sourceName: string,
     binding?: ImportBinding,
+    structuralSource = false,
   ): ComponentData {
     const slots = component.ast?.slots || [];
     const sourceProps = readScalarProps(node.openingElement, slots, context);
@@ -405,19 +525,23 @@ class JsxToPuckEngine {
 
     const unassignedSlots = slots.filter((slot) => !(slot in props));
     if (node.children.length > 0 && unassignedSlots.length > 0) {
-      const children = this.parseChildren(node.children, context, nextAncestors, component);
+      const children = structuralSource
+        ? this.parseOwnedSubtreeChildren(node.children, context, nextAncestors, component)
+        : this.parseChildren(node.children, context, nextAncestors, component);
       if (unassignedSlots.length === 1) props[unassignedSlots[0]] = children;
       else Object.assign(props, this.assignChildrenToSlots(component, children, unassignedSlots));
     }
     for (const slot of slots) if (!(slot in props)) props[slot] = [];
 
-    const defaultChildren = this.parseCanonicalDefaultChildren(
-      component,
-      context,
-      sourceName,
-      binding,
-      nextAncestors,
-    );
+    const defaultChildren = slots.some((slot) => !explicitSlots.has(slot))
+      ? this.parseCanonicalDefaultChildren(
+          component,
+          context,
+          sourceName,
+          binding,
+          nextAncestors,
+        )
+      : [];
     if (defaultChildren.length > 0) {
       const defaultsBySlot = this.assignChildrenToSlots(component, defaultChildren);
       for (const slot of slots) {
@@ -427,6 +551,17 @@ class JsxToPuckEngine {
           && (props[slot] as unknown[]).length === 0
         ) {
           props[slot] = defaultsBySlot[slot] || [];
+        }
+      }
+    }
+
+    const variant = component.ast?.variant;
+    if (variant) {
+      const descendants = componentTypesIn(props);
+      for (const [descendantType, value] of Object.entries(variant.byDescendantType)) {
+        if (descendants.has(descendantType)) {
+          props[variant.prop] = value;
+          break;
         }
       }
     }
@@ -477,7 +612,18 @@ class JsxToPuckEngine {
     if (t.isJSXElement(expression)) {
       const name = jsxName(expression.openingElement.name);
       if (!name) return [];
+      if (name === 'Suspense' || name === 'ErrorBoundary') {
+        const boundary = this.matchRuntimeOwner(ancestors, 'boundary');
+        if (boundary) {
+          return [this.parseCanonicalComponent(expression, boundary, context, ancestors, name, undefined, true)];
+        }
+        return this.parseOwnedSubtreeChildren(expression.children, context, ancestors, owner);
+      }
       if (/^[a-z]/.test(name)) {
+        const structural = this.matchStructuralComponent(expression, context, ancestors);
+        if (structural) {
+          return [this.parseCanonicalComponent(expression, structural, context, ancestors, name, undefined, true)];
+        }
         return this.parseOwnedSubtreeChildren(expression.children, context, ancestors, owner);
       }
       const binding = context.imports.get(name);
@@ -498,14 +644,12 @@ class JsxToPuckEngine {
       return this.parseOwnedSubtreeExpression(expression.right, context, ancestors, owner);
     }
     if (t.isLogicalExpression(expression) && expression.operator === '&&') {
-      return this.parseOwnedSubtreeExpression(expression.right, context, ancestors, owner);
+      return this.parseExpression(expression, context, ancestors, owner);
     }
     if (t.isConditionalExpression(expression)) {
-      return [
-        ...this.parseOwnedSubtreeExpression(expression.consequent, context, ancestors, owner),
-        ...this.parseOwnedSubtreeExpression(expression.alternate, context, ancestors, owner),
-      ];
+      return this.parseExpression(expression, context, ancestors, owner);
     }
+    if (isRuntimeMap(expression)) return this.parseExpression(expression, context, ancestors, owner);
     return [];
   }
 
@@ -545,12 +689,20 @@ class JsxToPuckEngine {
     for (const child of children) {
       const childManifest = this.manifestByType.get(child.type);
       const declaredTarget = childManifest?.ast?.slotTarget;
+      const descendantTargets = [...componentTypesIn(child.props)]
+        .map((type) => this.manifestByType.get(type)?.ast?.slotTarget)
+        .filter((slot): slot is string => Boolean(slot && candidateSlots.includes(slot)));
+      const inferredTarget = [...new Set(descendantTargets)].length === 1
+        ? descendantTargets[0]
+        : undefined;
       const grammarTargets = Object.entries(this.composition.children[parent.type] || {})
         .filter(([, allowed]) => allowed.includes(child.type))
         .map(([slot]) => slot)
         .filter((slot) => candidateSlots.includes(slot));
       const target = declaredTarget && candidateSlots.includes(declaredTarget)
         ? declaredTarget
+        : inferredTarget
+          ? inferredTarget
         : grammarTargets.length === 1
           ? grammarTargets[0]
           : undefined;
@@ -589,7 +741,7 @@ class JsxToPuckEngine {
       return [];
     }
 
-    const count = Number.isInteger(list.previewCount) && list.previewCount > 0
+    const count = typeof list.previewCount === 'number' && Number.isInteger(list.previewCount) && list.previewCount > 0
       ? list.previewCount
       : 1;
     const indexName = callback.params[1] && t.isIdentifier(callback.params[1])
@@ -625,13 +777,30 @@ class JsxToPuckEngine {
     this.delegateStack.add(stackKey);
     try {
       const delegatedModule = this.loadModule(sourcePath, resolutionSourcePath);
-      const returned = findExportedFunctionReturn(delegatedModule, delegate.exportName);
-      if (!returned) {
+      const returned = findExportedFunctionReturns(delegatedModule, delegate.exportName);
+      if (returned.length === 0) {
         fail(this.diagnostics, `Could not find JSX return for delegate ${localName} in ${sourcePath}.`);
         return [];
       }
       this.diagnostics.delegates.push({ component: localName, source: normalizePath(sourcePath) });
-      return this.parseExpression(returned, delegatedModule, ancestors);
+      if (returned.length === 1) return this.parseExpression(returned[0], delegatedModule, ancestors);
+
+      const ancestorOwner = this.manifestByType.get(ancestors.at(-1) || '');
+      if (ancestorOwner?.ast?.conditional) {
+        return returned.flatMap((expression) => (
+          this.parseOwnedSubtreeExpression(expression, delegatedModule, ancestors, ancestorOwner)
+        ));
+      }
+      const conditionOwner = this.matchRuntimeOwner(ancestors, 'conditional');
+      if (!conditionOwner) {
+        fail(this.diagnostics, `Delegate ${localName} has multiple JSX returns but no canonical condition owner.`);
+        return returned.flatMap((expression) => this.parseExpression(expression, delegatedModule, ancestors));
+      }
+      const nextAncestors = [...ancestors, conditionOwner.type];
+      const children = returned.flatMap((expression) => (
+        this.parseOwnedSubtreeExpression(expression, delegatedModule, nextAncestors, conditionOwner)
+      ));
+      return [this.section(conditionOwner, this.assignChildrenToSlots(conditionOwner, children))];
     } finally {
       this.delegateStack.delete(stackKey);
     }
@@ -674,6 +843,91 @@ class JsxToPuckEngine {
       return null;
     }
     return matches[0] || null;
+  }
+
+  private contextCandidates(ancestors: string[]): ManifestComponent[] {
+    const routeAllowed = new Set(this.composition.allowedTypes);
+    const parentType = ancestors.at(-1);
+    if (!parentType) {
+      return this.composition.roots
+        .map((type) => this.manifestByType.get(type))
+        .filter((item): item is ManifestComponent => Boolean(item && isParserEligible(item)));
+    }
+
+    const allowedChildren = new Set(Object.values(this.composition.children[parentType] || {}).flat());
+    return [...allowedChildren]
+      .filter((type) => routeAllowed.has(type))
+      .map((type) => this.manifestByType.get(type))
+      .filter((item): item is ManifestComponent => Boolean(item && isParserEligible(item)));
+  }
+
+  private matchStructuralComponent(
+    node: t.JSXElement,
+    context: ModuleContext,
+    ancestors: string[],
+  ): ManifestComponent | null {
+    const signature = jsxSignatureTokens(node, context);
+    const sourceText = normalizeText(visibleText(node)).toLowerCase();
+    const directClasses = jsxClassTokens(node.openingElement, context);
+    const sourceTag = jsxName(node.openingElement.name);
+    const directChildTags = node.children
+      .filter((child): child is t.JSXElement => t.isJSXElement(child))
+      .map((child) => jsxName(child.openingElement.name))
+      .filter((name): name is string => Boolean(name));
+    const scored = this.contextCandidates(ancestors)
+      .map((component) => {
+        if (component.ast?.routes?.length && !component.ast.routes.includes(this.profile.id)) return null;
+        const required = component.ast?.requiredClasses || [];
+        if (required.length === 0 || !required.every((token) => signature.has(token))) return null;
+        const match = component.ast?.match;
+        if (match?.tag && match.tag !== sourceTag) return null;
+        if (match?.directChildTags?.length) {
+          const expected = match.directChildTags;
+          if (expected.length !== directChildTags.length || expected.some((tag, index) => tag !== directChildTags[index])) {
+            return null;
+          }
+        }
+        const directMatches = required.filter((token) => directClasses.has(token)).length;
+        if (match?.rootClasses?.some((token) => !directClasses.has(token))) return null;
+        if (match?.text?.some((token) => !sourceText.includes(normalizeText(token).toLowerCase()))) return null;
+        if (!match && directMatches !== required.length) return null;
+        return { component, score: directMatches * 100 + required.length + (match ? 50 : 0) };
+      })
+      .filter((item): item is { component: ManifestComponent; score: number } => Boolean(item))
+      .sort((left, right) => right.score - left.score || left.component.type.localeCompare(right.component.type));
+
+    if (scored.length === 0) return null;
+    if (scored.length > 1 && scored[0].score === scored[1].score) {
+      fail(
+        this.diagnostics,
+        `Ambiguous structural Puck mapping for ${jsxName(node.openingElement.name) || 'HTML'} in ${normalizePath(context.filePath)}: ${scored.filter((item) => item.score === scored[0].score).map((item) => item.component.type).join(', ')}.`,
+      );
+      return null;
+    }
+    return scored[0].component;
+  }
+
+  private matchRuntimeOwner(
+    ancestors: string[],
+    kind: 'boundary' | 'conditional' | 'list',
+    conditionSource?: string,
+  ): ManifestComponent | null {
+    let candidates = this.contextCandidates(ancestors).filter((component) => {
+      if (kind === 'boundary') return component.ast?.suspenseFallback !== undefined;
+      if (kind === 'list') return Boolean(component.ast?.list);
+      return Boolean(component.ast?.conditional);
+    });
+
+    if (kind === 'conditional' && conditionSource) {
+      const compatible = candidates.filter((component) => (
+        component.ast?.conditional
+        && conditionsCompatible(component.ast.conditional, conditionSource)
+      ));
+      if (compatible.length === 0) return null;
+      candidates = compatible;
+    }
+
+    return candidates.length === 1 ? candidates[0] : null;
   }
 
   private section(component: ManifestComponent, props: Record<string, unknown>): ComponentData {
@@ -737,9 +991,26 @@ class JsxToPuckEngine {
   }
 }
 
+function componentTypesIn(value: unknown, result = new Set<string>()): Set<string> {
+  if (Array.isArray(value)) {
+    for (const item of value) componentTypesIn(item, result);
+    return result;
+  }
+  if (!value || typeof value !== 'object') return result;
+  const record = value as Record<string, unknown>;
+  if (typeof record.type === 'string' && record.props && typeof record.props === 'object') {
+    result.add(record.type);
+    componentTypesIn(record.props, result);
+    return result;
+  }
+  for (const nested of Object.values(record)) componentTypesIn(nested, result);
+  return result;
+}
+
 function loadManifest(puckRoot: string, diagnostics: ParserDiagnostics): ManifestComponent[] {
   const candidates = [
     process.env.PUCK_AST_MANIFEST,
+    path.resolve(puckRoot, 'puck/generated/ast-manifest.json'),
     path.resolve(puckRoot, 'lib/puck-ast-manifest.json'),
   ].filter(Boolean) as string[];
   for (const candidate of candidates) {
@@ -765,6 +1036,7 @@ function loadRouteComposition(
 ): RouteComposition {
   const candidates = [
     process.env.PUCK_ROUTE_COMPOSITION,
+    path.resolve(puckRoot, 'puck/generated/route-composition.json'),
     path.resolve(puckRoot, 'lib/puck-route-composition.json'),
   ].filter(Boolean) as string[];
 
@@ -1036,6 +1308,10 @@ function findJsxAttribute(opening: t.JSXOpeningElement, name: string): t.JSXAttr
 }
 
 function findExportedFunctionReturn(context: ModuleContext, exportName: string): t.Expression | null {
+  return findExportedFunctionReturns(context, exportName).at(-1) || null;
+}
+
+function findExportedFunctionReturns(context: ModuleContext, exportName: string): t.Expression[] {
   let target: t.FunctionDeclaration | t.FunctionExpression | t.ArrowFunctionExpression | null = null;
   let defaultIdentifier: string | null = null;
 
@@ -1054,7 +1330,7 @@ function findExportedFunctionReturn(context: ModuleContext, exportName: string):
       }
     }
   }
-  if (!target && defaultIdentifier) return findExportedFunctionReturn(context, defaultIdentifier);
+  if (!target && defaultIdentifier) return findExportedFunctionReturns(context, defaultIdentifier);
   if (!target && exportName !== 'default') {
     for (const statement of context.ast.program.body) {
       if (t.isFunctionDeclaration(statement) && statement.id?.name === exportName) target = statement;
@@ -1066,9 +1342,35 @@ function findExportedFunctionReturn(context: ModuleContext, exportName: string):
       }
     }
   }
-  if (!target) return null;
-  if (t.isArrowFunctionExpression(target) && t.isExpression(target.body)) return target.body;
-  return t.isBlockStatement(target.body) ? findJsxReturnInBlock(target.body) : null;
+  if (!target) return [];
+  if (t.isArrowFunctionExpression(target) && t.isExpression(target.body)) return [target.body];
+  return t.isBlockStatement(target.body) ? collectJsxReturns(target.body.body) : [];
+}
+
+function collectJsxReturns(statements: t.Statement[]): t.Expression[] {
+  const output: t.Expression[] = [];
+  for (const statement of statements) {
+    if (t.isReturnStatement(statement) && statement.argument && t.isExpression(statement.argument)) {
+      output.push(statement.argument);
+    } else if (t.isBlockStatement(statement)) {
+      output.push(...collectJsxReturns(statement.body));
+    } else if (t.isIfStatement(statement)) {
+      output.push(...collectReturnsFromStatement(statement.consequent));
+      if (statement.alternate) output.push(...collectReturnsFromStatement(statement.alternate));
+    } else if (t.isTryStatement(statement)) {
+      output.push(...collectJsxReturns(statement.block.body));
+      if (statement.handler) output.push(...collectJsxReturns(statement.handler.body.body));
+      if (statement.finalizer) output.push(...collectJsxReturns(statement.finalizer.body));
+    } else if (t.isSwitchStatement(statement)) {
+      for (const branch of statement.cases) output.push(...collectJsxReturns(branch.consequent));
+    }
+  }
+  return output;
+}
+
+function collectReturnsFromStatement(statement: t.Statement): t.Expression[] {
+  if (t.isBlockStatement(statement)) return collectJsxReturns(statement.body);
+  return collectJsxReturns([statement]);
 }
 
 function findJsxReturnInBlock(block: t.BlockStatement): t.Expression | null {
@@ -1144,6 +1446,78 @@ function sourceKey(jsxNameValue: string, module: string): string {
 function sourceFor(node: t.Node, context: ModuleContext): string {
   if (typeof node.start !== 'number' || typeof node.end !== 'number') return '';
   return normalizeText(context.source.slice(node.start, node.end)).slice(0, 240);
+}
+
+function fullSourceFor(node: t.Node, context: ModuleContext): string {
+  if (typeof node.start !== 'number' || typeof node.end !== 'number') return '';
+  return normalizeText(context.source.slice(node.start, node.end));
+}
+
+function normalizeCondition(value: string): string {
+  return value
+    .replace(/Boolean\((.*)\)/g, '$1')
+    .replace(/\s+/g, '')
+    .replace(/[;,.]/g, '')
+    .toLowerCase();
+}
+
+function conditionsCompatible(expected: string, actual: string): boolean {
+  const normalizedExpected = normalizeCondition(expected.split('=>')[0]);
+  const normalizedActual = normalizeCondition(actual);
+  if (!normalizedExpected || !normalizedActual) return false;
+  return normalizedExpected === normalizedActual
+    || containsCondition(normalizedActual, normalizedExpected)
+    || containsCondition(normalizedExpected, normalizedActual);
+}
+
+function containsCondition(container: string, candidate: string): boolean {
+  if (candidate.length >= 8) return container.includes(candidate);
+  if (!/^[a-z_$][a-z0-9_$]*$/i.test(candidate)) return false;
+  return new RegExp(`(^|[^a-z0-9_$])${escapeRegExp(candidate)}([^a-z0-9_$]|$)`, 'i').test(container);
+}
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function jsxSignatureTokens(node: t.JSXElement, context: ModuleContext): Set<string> {
+  const tokens = jsxClassTokens(node.openingElement, context);
+  for (const child of node.children) {
+    if (!t.isJSXElement(child)) continue;
+    for (const token of jsxSignatureTokens(child, context)) tokens.add(token);
+  }
+
+  const text = normalizeText(visibleText(node));
+  if (text) {
+    tokens.add(text);
+    for (const token of text.split(/\s+/).filter(Boolean)) tokens.add(token);
+  }
+  return tokens;
+}
+
+function jsxClassTokens(opening: t.JSXOpeningElement, context: ModuleContext): Set<string> {
+  const tokens = new Set<string>();
+  const classAttribute = findJsxAttribute(opening, 'className');
+  if (classAttribute?.value) {
+    let className: unknown = STRIP;
+    if (t.isStringLiteral(classAttribute.value)) className = classAttribute.value.value;
+    else if (t.isJSXExpressionContainer(classAttribute.value)) {
+      className = resolveStaticExpression(classAttribute.value.expression, context);
+    }
+    if (typeof className === 'string') {
+      for (const token of className.split(/\s+/).filter(Boolean)) tokens.add(token);
+    }
+  }
+
+  return tokens;
+}
+
+function runtimeOwnerForAncestors(
+  ancestors: string[],
+  manifestByType: Map<string, ManifestComponent>,
+): ManifestComponent | undefined {
+  const parentType = ancestors.at(-1);
+  return parentType ? manifestByType.get(parentType) : undefined;
 }
 
 function visibleText(node: t.JSXElement): string {

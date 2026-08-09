@@ -1,7 +1,11 @@
 param(
     [string]$TemplateFrontendRoot = "D:\projects\eNigma-TemplateFrontend",
     [string]$DndTestRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path,
-    [switch]$SkipPuckConfigGeneration
+    [string]$OutputDirectory = "",
+    [string]$ReportDirectory = "",
+    [string]$PuckTargetRoot = $TemplateFrontendRoot,
+    [switch]$SkipPuckConfigGeneration,
+    [string[]]$RouteId = @()
 )
 
 $ErrorActionPreference = "Stop"
@@ -10,15 +14,45 @@ if (-not (Test-Path -LiteralPath $parserEntry)) {
     throw "DnD-owned parser entry point is missing: $parserEntry"
 }
 
-$seedDir = Join-Path $DndTestRoot "data\seeds"
+$seedDir = if ([string]::IsNullOrWhiteSpace($OutputDirectory)) {
+    Join-Path $PuckTargetRoot "data\puck\seeds"
+}
+elseif ([System.IO.Path]::IsPathRooted($OutputDirectory)) {
+    $OutputDirectory
+}
+else {
+    Join-Path $DndTestRoot $OutputDirectory
+}
 if (-not (Test-Path $seedDir)) {
     New-Item -ItemType Directory -Path $seedDir -Force | Out-Null
 }
 
+$reportDir = if ([string]::IsNullOrWhiteSpace($ReportDirectory)) {
+    if ([string]::IsNullOrWhiteSpace($OutputDirectory)) {
+        Join-Path $PuckTargetRoot "data\puck\reports"
+    }
+    else {
+        Join-Path $seedDir "_reports"
+    }
+}
+elseif ([System.IO.Path]::IsPathRooted($ReportDirectory)) {
+    $ReportDirectory
+}
+else {
+    Join-Path $DndTestRoot $ReportDirectory
+}
+if (-not (Test-Path $reportDir)) {
+    New-Item -ItemType Directory -Path $reportDir -Force | Out-Null
+}
+
+if (-not (Test-Path -LiteralPath $PuckTargetRoot)) {
+    throw "Puck target root does not exist: $PuckTargetRoot"
+}
+
 if (-not $SkipPuckConfigGeneration) {
-    Push-Location $DndTestRoot
+    Push-Location $PuckTargetRoot
     try {
-        & npm run generate:puck-config
+        & npm run puck:generate
         if ($LASTEXITCODE -ne 0) {
             throw "Puck config generation failed with exit code $LASTEXITCODE"
         }
@@ -28,50 +62,51 @@ if (-not $SkipPuckConfigGeneration) {
     }
 }
 
-$pages = @(
-    @("app\page.tsx", "home"),
-    @("app\collections\page.tsx", "collections"),
-    @("app\collections\[slug]\page.tsx", "collection-detail"),
-    @("app\categories\page.tsx", "categories"),
-    @("app\categories\[slug]\page.tsx", "category-detail"),
-    @("app\products\page.tsx", "products"),
-    @("app\products\[slug]\page.tsx", "product-detail"),
-    @("app\search\page.tsx", "search"),
-    @("app\auth\page.tsx", "auth"),
-    @("app\account\page.tsx", "account"),
-    @("app\account\orders\page.tsx", "account-orders"),
-    @("app\account\orders\[id]\page.tsx", "account-order-detail"),
-    @("app\account\orders\[id]\downloads\page.tsx", "account-order-downloads"),
-    @("app\account\orders\[id]\return\page.tsx", "account-order-return"),
-    @("app\account\wishlist\page.tsx", "account-wishlist"),
-    @("app\account\subscriptions\page.tsx", "account-subscriptions"),
-    @("app\account\subscriptions\[id]\page.tsx", "account-subscription-detail"),
-    @("app\account\addresses\page.tsx", "account-addresses"),
-    @("app\account\payment-methods\page.tsx", "account-payment-methods"),
-    @("app\account\settings\page.tsx", "account-settings"),
-    @("app\account\sessions\page.tsx", "account-sessions"),
-    @("app\account\downloads\page.tsx", "account-downloads"),
-    @("app\account\returns\page.tsx", "account-returns"),
-    @("app\account\returns\[id]\page.tsx", "account-return-detail"),
-    @("app\cart\page.tsx", "cart"),
-    @("app\checkout\page.tsx", "checkout"),
-    @("app\checkout\success\page.tsx", "checkout-success"),
-    @("app\checkout\subscription\page.tsx", "checkout-subscription"),
-    @("app\downloads\[key]\page.tsx", "downloads"),
-    @("app\wishlist\shared\[token]\page.tsx", "shared-wishlist")
-)
+$manifestPath = Join-Path $PuckTargetRoot "puck\generated\site-manifest.json"
+if (-not (Test-Path -LiteralPath $manifestPath)) {
+    throw "Generated target site manifest is missing: $manifestPath"
+}
+
+try {
+    $siteManifest = Get-Content -Raw -LiteralPath $manifestPath | ConvertFrom-Json
+}
+catch {
+    throw "Generated target site manifest is invalid: $($_.Exception.Message)"
+}
+
+$pages = @($siteManifest.routes | ForEach-Object {
+    if ([string]::IsNullOrWhiteSpace($_.id) -or [string]::IsNullOrWhiteSpace($_.sourceFile)) {
+        throw "Every target manifest route must define id and sourceFile."
+    }
+    [PSCustomObject]@{
+        Id = [string]$_.id
+        SourceFile = [string]$_.sourceFile
+    }
+})
+if ($pages.Count -eq 0) {
+    throw "Generated target site manifest declares no routes."
+}
+
+if ($RouteId.Count -gt 0) {
+    $availableRouteIds = $pages | ForEach-Object { $_.Id }
+    $unknownRouteIds = $RouteId | Where-Object { $_ -notin $availableRouteIds }
+    if ($unknownRouteIds.Count -gt 0) {
+        throw "Unknown route id(s): $($unknownRouteIds -join ', ')"
+    }
+    $pages = @($pages | Where-Object { $_.Id -in $RouteId })
+}
 
 $success = 0
 $fail = 0
 $results = @()
 
 foreach ($page in $pages) {
-    $inputPath = Join-Path $TemplateFrontendRoot $page[0]
-    $outputPath = Join-Path $seedDir "$($page[1]).json"
+    $inputPath = Join-Path $TemplateFrontendRoot $page.SourceFile
+    $outputPath = Join-Path $seedDir "$($page.Id).json"
 
     if (-not (Test-Path -LiteralPath $inputPath)) {
         $fail++
-        $results += "FAIL: $($page[1]) - missing input $inputPath"
+        $results += "FAIL: $($page.Id) - missing input $inputPath"
         continue
     }
 
@@ -79,19 +114,22 @@ foreach ($page in $pages) {
     try {
         $previousTemplateRoot = $env:TEMPLATE_FRONTEND_ROOT
         $previousPuckRoot = $env:PUCK_PROJECT_ROOT
+        $previousReportPath = $env:PUCK_REPORT_PATH
         $env:TEMPLATE_FRONTEND_ROOT = $TemplateFrontendRoot
-        $env:PUCK_PROJECT_ROOT = $DndTestRoot
+        $env:PUCK_PROJECT_ROOT = $PuckTargetRoot
+        $env:PUCK_REPORT_PATH = Join-Path $reportDir "$($page.Id).report.json"
         $result = & npx tsx $parserEntry $inputPath $outputPath 2>&1
         $exitCode = $LASTEXITCODE
     }
     finally {
         $env:TEMPLATE_FRONTEND_ROOT = $previousTemplateRoot
         $env:PUCK_PROJECT_ROOT = $previousPuckRoot
+        $env:PUCK_REPORT_PATH = $previousReportPath
         Pop-Location
     }
 
     $generatedLine = ($result | Where-Object { $_ -match "Generated" } | Select-Object -First 1)
-    $reportPath = Join-Path $seedDir "_reports\$($page[1]).report.json"
+    $reportPath = Join-Path $reportDir "$($page.Id).report.json"
     $reportIsClean = $false
     $reportError = $null
     if (Test-Path -LiteralPath $reportPath) {
@@ -118,7 +156,7 @@ foreach ($page in $pages) {
 
     if ($exitCode -eq 0 -and $generatedLine -and $reportIsClean -and (Test-Path -LiteralPath $outputPath)) {
         $success++
-        $results += "PASS: $($page[1]) - $generatedLine"
+        $results += "PASS: $($page.Id) - $generatedLine"
     }
     else {
         $fail++
@@ -129,13 +167,14 @@ foreach ($page in $pages) {
         if (-not $errorLine) {
             $errorLine = ($result | Select-Object -Last 1)
         }
-        $results += "FAIL: $($page[1]) - $errorLine"
+        $results += "FAIL: $($page.Id) - $errorLine"
     }
 }
 
 Write-Output "=== AST PARSER TO DND-TEST RESULTS ==="
 Write-Output "TemplateFrontend: $TemplateFrontendRoot"
-Write-Output "DndTest seeds: $seedDir"
+Write-Output "Target seeds: $seedDir"
+Write-Output "Target reports: $reportDir"
 Write-Output "Success: $success / $($pages.Count)"
 Write-Output "Fail: $fail / $($pages.Count)"
 Write-Output ""
@@ -143,4 +182,19 @@ $results | ForEach-Object { Write-Output $_ }
 
 if ($fail -gt 0) {
     exit 1
+}
+
+Push-Location $PuckTargetRoot
+try {
+    & npm run puck:generate
+    if ($LASTEXITCODE -ne 0) {
+        throw "Target Puck config generation after parsing failed with exit code $LASTEXITCODE"
+    }
+    & npm run puck:validate
+    if ($LASTEXITCODE -ne 0) {
+        throw "Target Puck validation after parsing failed with exit code $LASTEXITCODE"
+    }
+}
+finally {
+    Pop-Location
 }

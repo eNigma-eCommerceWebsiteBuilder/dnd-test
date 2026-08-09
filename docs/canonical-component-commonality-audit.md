@@ -30,7 +30,7 @@ This protects the parser's ability to recognize the original JSX while avoiding 
 
 ## Evidence
 
-- The generated route grammar contains 30 routes and requires a canonical root for each.
+- The generated route grammar contains 32 routes and requires a canonical root for each.
 - The canonical component directories contain 287 `*View` adapters.
 - No non-View canonical `.tsx` renderer files have identical content hashes. Similar names therefore do not prove safe component identity.
 - The manifest shows genuine shared production leaves: `ProductGrid` is referenced by seven canonical types, `Pagination` by five, `SortDropdown` by four, and `ProductFilters` by three.
@@ -156,7 +156,7 @@ No common Puck layout or state owner is recommended. A future non-Puck visual pr
 
 ### Top-Level Page Shells
 
-Do not introduce a universal page shell. The 30 routes differ in max widths, padding, background ownership, responsive structure, root state boundaries, and slot order. Generic shells would recreate the opaque replacement components this project has been removing.
+Do not introduce a universal page shell. The 32 routes differ in max widths, padding, background ownership, responsive structure, root state boundaries, and slot order. Generic shells would recreate the opaque replacement components this project has been removing.
 
 ## Recommended Implementation Order
 
