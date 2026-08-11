@@ -35,3 +35,7 @@ powershell -ExecutionPolicy Bypass -File scripts/run-parser-to-dnd-test.ps1 `
 The target manifest is the source of truth for route discovery. A target must
 generate its Puck config before parsing so the parser can match only its known
 component metadata and composition rules.
+
+For the complete target-project contract, setup, seed-generation, and
+troubleshooting workflow, see
+[`docs/target-project-integration-guide.md`](docs/target-project-integration-guide.md).

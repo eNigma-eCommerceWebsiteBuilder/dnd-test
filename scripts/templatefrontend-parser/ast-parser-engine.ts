@@ -363,10 +363,25 @@ class JsxToPuckEngine {
       const conditionOwner = this.matchRuntimeOwner(ancestors, 'conditional', conditionSource);
       if (conditionOwner) {
         const nextAncestors = [...ancestors, conditionOwner.type];
-        const children = [
-          ...this.parseOwnedSubtreeExpression(expression.consequent, context, nextAncestors, conditionOwner),
-          ...this.parseOwnedSubtreeExpression(expression.alternate, context, nextAncestors, conditionOwner),
-        ];
+        const consequentChildren = this.parseOwnedSubtreeExpression(
+          expression.consequent,
+          context,
+          nextAncestors,
+          conditionOwner,
+        );
+        const alternateChildren = this.parseOwnedSubtreeExpression(
+          expression.alternate,
+          context,
+          nextAncestors,
+          conditionOwner,
+        );
+        if (expressionContainsJsx(expression.consequent) && consequentChildren.length === 0) {
+          fail(this.diagnostics, `Runtime conditional branch produced no canonical output: ${sourceFor(expression.consequent, context)}.`);
+        }
+        if (expressionContainsJsx(expression.alternate) && alternateChildren.length === 0) {
+          fail(this.diagnostics, `Runtime conditional branch produced no canonical output: ${sourceFor(expression.alternate, context)}.`);
+        }
+        const children = [...consequentChildren, ...alternateChildren];
         const props = this.assignChildrenToSlots(conditionOwner, children);
         this.diagnostics.runtimeConditionals.push({ source: conditionSource, handledBy: conditionOwner.type });
         return [this.section(conditionOwner, props)];
@@ -627,6 +642,8 @@ class JsxToPuckEngine {
         return this.parseOwnedSubtreeChildren(expression.children, context, ancestors, owner);
       }
       const binding = context.imports.get(name);
+      const delegate = binding ? this.delegateIndex.get(binding.moduleKey) : undefined;
+      if (delegate) return this.expandDelegate(name, delegate, ancestors);
       const component = this.matchManifestComponent(name, binding, context, ancestors);
       const allowed = new Set(
         Object.values(this.composition.children[owner.type] || {}).flat(),
@@ -1005,6 +1022,28 @@ function componentTypesIn(value: unknown, result = new Set<string>()): Set<strin
   }
   for (const nested of Object.values(record)) componentTypesIn(nested, result);
   return result;
+}
+
+function expressionContainsJsx(expression: t.Expression | t.JSXEmptyExpression): boolean {
+  if (t.isJSXElement(expression)) return true;
+  if (t.isJSXFragment(expression)) {
+    return expression.children.some((child) => (
+      t.isJSXElement(child)
+      || t.isJSXFragment(child)
+      || (t.isJSXExpressionContainer(child) && expressionContainsJsx(child.expression))
+    ));
+  }
+  if (t.isParenthesizedExpression(expression)) return expressionContainsJsx(expression.expression);
+  if (t.isTSAsExpression(expression) || t.isTSTypeAssertion(expression) || t.isTSNonNullExpression(expression)) {
+    return expressionContainsJsx(expression.expression);
+  }
+  if (t.isConditionalExpression(expression)) {
+    return expressionContainsJsx(expression.consequent) || expressionContainsJsx(expression.alternate);
+  }
+  if (t.isLogicalExpression(expression)) {
+    return expressionContainsJsx(expression.left) || expressionContainsJsx(expression.right);
+  }
+  return false;
 }
 
 function loadManifest(puckRoot: string, diagnostics: ParserDiagnostics): ManifestComponent[] {

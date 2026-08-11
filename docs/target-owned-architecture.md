@@ -1,6 +1,6 @@
-# Target-Owned Migration Status
+# Target-Owned Architecture
 
-## Completed
+## Current State
 
 - `eNigma-TemplateFrontend` owns the Puck application: 333 component definitions, 32-route manifest, editor, `/page` renderer, persistence API, seeds, diagnostics, and generated configuration.
 - The real storefront routes remain unchanged. Editing is available at `/editor?slug=<route-id>` and published Puck pages at `/page/<route-id>` or `/page/<route-id>/<entitySlug>`.
@@ -15,6 +15,6 @@
 - Test authenticated and backend-dependent states against a compatible backend/database environment.
 - Add the existing commands to target CI when the team is ready to enforce this pipeline in pull requests.
 
-## Completion
+## Migration Result
 
 The architecture migration is complete. Remaining work is product QA and CI hardening, not a dependency or ownership gap between `dnd-test` and `eNigma-TemplateFrontend`.

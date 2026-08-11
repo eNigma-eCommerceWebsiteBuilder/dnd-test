@@ -43,7 +43,15 @@ const profiles: Record<string, RouteProfile> = {
       delegate('@/components/templates/checkout/CheckoutPageClient', 'components/templates/checkout/CheckoutPageClient.tsx', 'default'),
     ],
   },
-  'checkout-success': { id: 'checkout-success', requiredRootRole: 'checkout-success-page-state' },
+  'checkout-success': {
+    id: 'checkout-success',
+    requiredRootRole: 'checkout-success-page-state',
+    delegates: [
+      delegate('@/components/checkout/success/canonical/CheckoutSuccessPage', 'components/checkout/success/canonical/CheckoutSuccessPage.tsx', 'CheckoutSuccessPage'),
+      delegate('@/components/checkout/success/OrderItemList', 'components/checkout/success/OrderItemList.tsx', 'OrderItemList'),
+      delegate('@/components/checkout/success/DigitalDownloads', 'components/checkout/success/DigitalDownloads.tsx', 'DigitalDownloads'),
+    ],
+  },
   downloads: {
     id: 'downloads',
     requiredRootRole: 'download-page-layout',
@@ -90,6 +98,7 @@ const profiles: Record<string, RouteProfile> = {
     requiredRootRole: 'account-wishlist-page-layout',
     delegates: [
       delegate('@/components/wishlist/canonical/WishlistPage', 'components/wishlist/canonical/WishlistPage.tsx', 'WishlistPage', 'ACCOUNT_WISHLIST_PAGE_SOURCE'),
+      delegate('@/components/wishlist/WishlistGrid', 'components/wishlist/WishlistGrid.tsx', 'WishlistGrid'),
     ],
   },
   'account-subscriptions': {

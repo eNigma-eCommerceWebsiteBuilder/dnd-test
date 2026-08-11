@@ -1,603 +1,387 @@
-# Component Standard for Puck Integration
+# Component Standard For Target-Owned Puck Parsing
 
-## Purpose
+This is the binding standard for a component or page region in a Next.js target
+that must work with the complete eNigma Puck system:
 
-This document defines a binding contract between display components and the Puck config generation script. Components that follow this standard can be automatically processed into Puck editor configs with **zero manual adapter code** and **zero human judgment**.
-
-**Yes — any component that conforms to this standard will be automatically picked up by the script and have its Puck config generated. No manual intervention required.**
-
----
-
-## Scope
-
-### In scope (~40-50 components)
-
-Components whose primary purpose is to **display content visually** — sections, cards, banners, grids, galleries, badges, text blocks, hero units, testimonials, newsletters.
-
-### Out of scope (~285 components)
-
-| Type | Examples | Why excluded |
-|------|----------|-------------|
-| Interactive forms | AddressForm, PaymentMethodSelector, PromoCodeInput | Stateful user input, not visual content |
-| Buttons tied to stores | AddToCartButton, WishlistButton, RemoveButton | Runtime state dependencies |
-| Modals/drawers | AddAddressModal, MiniCartDrawer, CancelModal | Overlay UI, not page content |
-| Skeletons | CartSkeleton, ProductGridSkeleton, CheckoutSkeleton | Loading states |
-| Client orchestrators | CheckoutPageClient, CartPageClient, SubscriptionListClient | Page-level flow controllers |
-| Filters/sorting | ProductFilters, SortDropdown, PriceRangeSlider | Interactive controls |
-| Utility files (.ts) | addressFormUtils, productCardUtils | Not components |
-
-A component is in scope if and only if it satisfies **all three** tests:
-
-1. **Render test** — it produces visible page content from props alone
-2. **Data test** — it does not require runtime data fetching, store reads, or API calls
-3. **Interaction test** — it does not contain form state, event handlers that mutate external state, or client-only hooks
-
----
-
-## The Container / View Split
-
-Components that contain business logic (date checks, null gating, data mapping) must be split into two files. Components that are already pure presentation skip this step.
-
-### When the split is required
-
-A component needs splitting if it does **any** of the following:
-
-- Returns `null` based on a prop being falsy or a business rule (e.g., `isPromotionActive(promotion)`)
-- Receives a nested domain object (e.g., `Promotion`, `Product`, `Testimonial`) and extracts fields from it internally
-- Calls utility functions to transform data before rendering (e.g., `formatProductPrice()`, `formatRating()`)
-- Contains conditional logic that depends on infrastructure state
-
-### When the split is NOT required
-
-A component skips the split if it already:
-
-- Accepts flat scalar props (string, number, boolean)
-- Renders directly from those props with no transformation
-- Has no null-gating based on business rules
-
-`PriceDisplay` is an example — it already takes flat props (`price`, `salePrice`, `isOnSale`, `size`). It only needed Puck metadata added.
-
-### The split pattern
-
-```
-components/
-  promotions/
-    PromotionBar.tsx          ← Container (unchanged interface for routes)
-    PromotionBarView.tsx      ← View (flat props + Puck metadata, for editor)
+```text
+real Next.js JSX -> target Puck definition -> generated manifest
+-> dnd-test AST parser -> seed JSON -> target editor -> published /page render
 ```
 
-**Container** — keeps the original name, original props, and original business logic. Routes continue to import and use this file unchanged. It delegates rendering to the View after performing its logic and data mapping.
+The goal is visual and structural fidelity. Puck data must represent the real
+JSX hierarchy with target-owned, thin adapters. It must not replace a page with
+a generic block or independently redesigned UI.
 
-**View** — the new file. Accepts only flat scalar props. Contains the JSX. Exports Puck metadata. This is what the script reads and what Puck renders.
+## Ownership
 
----
+| Layer | Owner | Purpose |
+| --- | --- | --- |
+| Production component and real page JSX | Target Next.js project | The visual and behavioral source of truth. |
+| Canonical structural renderer | Target Next.js project | Exact extracted JSX when page-level structure needs a named Puck boundary. |
+| Puck View adapter and metadata | Target Next.js project | Editor fields, slots, preview behavior, parser matching, and server data bridge. |
+| Puck route manifest and config generation | Target Next.js project | Declares routes, valid component grammar, generated client/server configs. |
+| Seed and published data | Target Next.js project | Generated baseline and saved author edits. |
+| AST parser and contract validator | `dnd-test` | Reads target JSX and emits only target-declared Puck types. |
 
-## View Component Requirements
+`dnd-test` must never become the home for target production components, Puck
+Views, the editor, published routes, or backend service substitutes.
 
-A View file must export exactly **five named exports** plus the component itself, with one optional export:
+## 1. Production Component Requirements
 
-### Required exports
+A production component remains a normal Next.js component in the target's
+`components/` directory. It may be a Server Component or a Client Component.
 
-| Export | Type | Purpose |
-|--------|------|---------|
-| `puckComponentName` | `string` | The config key that links AST parser JSON `type` to this Puck config entry. Must match the JSX tag name used in `page.tsx` (e.g., `"HeroSection"`, `"PromotionBanner"`) |
-| `puckLabel` | `string` | Human-readable name shown in Puck's component drawer |
-| `puckCategory` | `string` | Drawer grouping (e.g., `"Home"`, `"Products"`, `"Marketing"`) |
-| `puckFields` | `Record<string, FieldDef>` | Puck field definitions, one per editable prop |
-| `puckDefaults` | `Record<string, value>` | Default prop values when component is dragged onto canvas |
+- Keep its real DOM, semantic elements, Tailwind classes, class ordering,
+  Suspense boundaries, and source prop flow intact.
+- Give it typed, explicit props. A Puck View must be able to delegate the same
+  complete values without recreating its internal markup.
+- Keep backend calls, stores, client actions, and conditional behavior in the
+  production/domain owner that already owns that behavior.
+- Keep runtime list iteration (`products.map`, cart items, fetched collections)
+  in a runtime owner; never expand it into repeated static seed blocks.
+- Do not import Puck into a plain production leaf merely to make it editable.
 
-### Optional exports
+If a component is already a suitable leaf, its Puck View should call it
+directly. For example, `ProductGridView` delegates complete `Product[]` data to
+`ProductGrid`; it must not recreate the grid by rendering `ProductCard` itself.
 
-| Export | Type | Purpose |
-|--------|------|---------|
-| `puckSeedData` | `Record<string, value>` | Placeholder data for props that the AST parser strips (data-derived props like arrays of products, categories, testimonials). Keys must NOT overlap with `puckFields` keys — seed data fills gaps that aren't editable. The seed post-processor merges this into the generated seed JSON where the parser left gaps. In production, `puckDataFetcher` overrides these with real data. |
-| `puckDataFetcher` | `async (props, context?) => Promise<Partial<Props>>` | Async function that fetches real API data on the server. Called only by the server config's render function in the published page render route. If it throws, the component falls back to seed/default props. Must return a partial props object whose keys merge with (and override) the component's existing props. The `context` parameter receives `{ searchParams?: Record<string, string> }` from the current URL. |
+## 2. Canonical Structural Renderer Requirements
 
-### Component export
+Create a canonical renderer when a real page's meaningful structure is inline
+JSX rather than an existing reusable component: a page wrapper, two-column
+layout, header row, conditional boundary, or named section wrapper.
 
-The View component itself can be a named export or default export. The script checks for a default export first, then falls back to a named export matching the filename (without the `View` suffix).
+Place it with the target Puck definitions, for example:
 
-### Props interface
-
-The View component must accept **only flat scalar props** that correspond exactly to the keys in `puckFields`. No nested objects, no domain types, no arrays of domain objects.
-
-Allowed prop types:
-- `string`
-- `number`
-- `boolean`
-- `string` representing a URL, path, or image source
-- `string` representing an enum value (paired with a `select` field)
-
-No-gating rule: The View component must **not** return `null` based on business logic. If a visibility toggle is needed, expose it as an explicit `visible` prop of type `select` with `true`/`false` options, and gate on that. The View may still return `null` if `visible === "false"`.
-
-### `'use client'` rule — View files must be Server Components
-
-**View files must NEVER have a `'use client'` directive.** The Puck render route uses `<Render>` from `@puckeditor/core/rsc` (a Server Component). When a View has `'use client'`, React's RSC protocol tries to pass Puck's internal props (which include functions like `renderDropZone`, `dragRef`, `isEditing`) to that Client Component. Functions cannot be serialized across the server-to-client boundary, causing a runtime error:
-
-```
-Functions cannot be passed directly to Client Components unless you explicitly
-expose it by marking it with "use server".
+```text
+puck/definitions/products/canonical/ProductsCatalogLayout.tsx
+puck/definitions/products/canonical/ProductsCatalogLayoutView.tsx
 ```
 
-If a View needs interactivity (e.g., `useState` for tab switching, image selection, clipboard copy):
+The renderer is an exact structural extraction from the real source route.
 
-1. **Extract the interactive logic into a separate `*Client.tsx` child component** with `'use client'`
-2. **The View file stays as a Server Component** — it receives flat props from Puck and passes them down to the client child
-3. **Name the child `{ComponentName}Client.tsx`** (e.g., `ProductTabsClient.tsx`, `ProductGalleryClient.tsx`, `CopyButton.tsx`)
+- Preserve original tags, nesting, class names, source order, and Suspense
+  fallbacks.
+- Accept `ReactNode` values for the regions that become Puck slots.
+- Contain only the JSX it owns. Do not add generic wrappers, alternate markup,
+  editor controls, or replacement leaves.
+- Use source-specific names even when similar layouts exist on other routes.
+  Reuse only lower-level non-Puck helpers after source-parity evidence proves
+  that reuse does not alter markup.
+- Add a concise comment recording the source route when the extraction is not
+  self-evident.
 
 ```tsx
-// ❌ WRONG — causes RSC serialization error
-'use client';  // <-- this breaks the render route
-export function ProductTabsView({ tabs, defaultTab }: Props) {
-  const [activeTab, setActiveTab] = useState(defaultTab);
-  // ...
+import type { ReactNode } from "react";
+
+interface CatalogHeaderLayoutProps {
+  breadcrumbs?: ReactNode;
+  title?: ReactNode;
+  controls?: ReactNode;
 }
 
-// ✅ CORRECT — View is Server Component, delegates to client child
-export function ProductTabsView({ tabs, defaultTab, className }: Props) {
+// Extracted from app/products/page.tsx; preserve its DOM and class sequence.
+export function CatalogHeaderLayout({
+  breadcrumbs,
+  title,
+  controls,
+}: CatalogHeaderLayoutProps) {
   return (
-    <ProductTabsClient
-      tabs={tabs}
-      defaultTab={defaultTab}
-      className={className}
-    />
-  );
-}
-```
-
----
-
-## Field Type Specification
-
-Each entry in `puckFields` maps one prop to a Puck editor field. The `type` value determines what control Puck renders.
-
-### Scalar field types
-
-| Puck field type | Use for | Props interface type |
-|-----------------|---------|---------------------|
-| `text` | Short single-line strings: titles, names, labels, URLs | `string` |
-| `textarea` | Long multi-line strings: descriptions, quotes, body text | `string` |
-| `number` | Numeric values: prices, counts, quantities | `number` |
-| `select` | Enumerated values: sizes, ratings, on/off toggles | `string` (value from options) |
-| `radio` | Small enumerated sets (2-3 options) | `string` (value from options) |
-
-### Select field format
-
-```tsx
-{
-  type: "select",
-  label: "Size",
-  options: [
-    { label: "Default", value: "default" },
-    { label: "Large", value: "large" },
-  ],
-}
-```
-
-For boolean-like toggles, always use `select` with `"true"` / `"false"` string values (Puck stores everything as strings in select fields).
-
-### Array field type
-
-For components that display lists (e.g., a grid of cards), use Puck's `array` field type:
-
-```tsx
-{
-  type: "array",
-  label: "Items",
-  arrayFields: {
-    name: { type: "text", label: "Name" },
-    image: { type: "text", label: "Image URL" },
-    price: { type: "number", label: "Price" },
-  },
-  defaultItemProps: { name: "New Item", image: "", price: 0 },
-  getItemSummary: (item) => item.name,
-  max: 12,
-}
-```
-
-The View component receives this as a plain array of objects:
-
-```tsx
-interface ProductGridViewProps {
-  items: { name: string; image: string; price: number }[];
-  columns: string;
-}
-```
-
-### Field definition shape
-
-Every field must include a `label` string. Optional properties vary by type (e.g., `options` for `select`, `placeholder` for `text`, `arrayFields` for `array`).
-
----
-
-## File Naming Convention
-
-| File | Pattern | Example |
-|------|---------|---------|
-| Container | `{ComponentName}.tsx` | `PromotionBar.tsx` |
-| View | `{ComponentName}View.tsx` | `PromotionBarView.tsx` |
-| Already flat (no split needed) | `{ComponentName}.tsx` — exports metadata directly | `PriceDisplay.tsx` |
-
-The script scans for `*View.tsx` files and for `*.tsx` files that export `puckFields`. If a file exports `puckFields`, it is treated as a Puck component regardless of naming.
-
----
-
-## Concrete Examples
-
-### Example 1: Already flat — no split needed
-
-`PriceDisplay` already accepts flat props. Just add the metadata exports.
-
-```tsx
-// components/products/PriceDisplay.tsx
-
-import { cn } from "@/lib/utils/cn";
-import { formatProductPrice } from "@/lib/utils/formatters";
-
-interface PriceDisplayProps {
-  price: number;
-  salePrice?: number | null;
-  originalPrice?: number;
-  isOnSale?: boolean;
-  className?: string;
-  size?: "default" | "large";
-}
-
-export const puckLabel = "Price Display";
-export const puckCategory = "Products";
-
-export const puckFields = {
-  price:         { type: "number", label: "Price" },
-  salePrice:     { type: "number", label: "Sale Price" },
-  originalPrice: { type: "number", label: "Original Price" },
-  isOnSale: {
-    type: "select",
-    label: "On Sale",
-    options: [
-      { label: "No", value: "false" },
-      { label: "Yes", value: "true" },
-    ],
-  },
-  size: {
-    type: "select",
-    label: "Size",
-    options: [
-      { label: "Default", value: "default" },
-      { label: "Large", value: "large" },
-    ],
-  },
-} as const;
-
-export const puckDefaults = {
-  price: 299,
-  salePrice: 199,
-  originalPrice: 299,
-  isOnSale: "true",
-  size: "default",
-};
-
-export function PriceDisplay({ price, salePrice, originalPrice, isOnSale, className, size = "default" }: PriceDisplayProps) {
-  // component body unchanged
-}
-```
-
-### Example 2: Split required — container + view
-
-`PromotionBar` has business logic (`isPromotionActive`) and receives a `Promotion` domain object.
-
-```tsx
-// ──────────────────────────────────────────────
-// components/promotions/PromotionBar.tsx  (CONTAINER)
-// ──────────────────────────────────────────────
-// Unchanged interface — routes keep using this.
-// Delegates to View after performing logic.
-
-import { PromotionBarView } from "./PromotionBarView";
-import { isPromotionActive } from "@/lib/utils/promotions";
-import type { Promotion } from "@/lib/api/types/promotions";
-
-interface PromotionBarProps {
-  promotion: Promotion | null;
-  className?: string;
-}
-
-export const PromotionBar = ({ promotion, className }: PromotionBarProps) => {
-  if (!promotion) return null;
-  if (!isPromotionActive(promotion)) return null;
-
-  return (
-    <PromotionBarView
-      title={promotion.title}
-      subtitle={promotion.subtitle}
-      ctaText={promotion.ctaText}
-      ctaLink={promotion.ctaLink}
-      visible="true"
-      className={className}
-    />
-  );
-};
-```
-
-```tsx
-// ──────────────────────────────────────────────
-// components/promotions/PromotionBarView.tsx  (VIEW)
-// ──────────────────────────────────────────────
-// Flat props, no business logic, Puck metadata.
-
-import Link from "next/link";
-import { cn } from "@/lib/utils/cn";
-
-interface PromotionBarViewProps {
-  title: string;
-  subtitle: string;
-  ctaText: string;
-  ctaLink: string;
-  visible: string;
-  className?: string;
-}
-
-export const puckLabel = "Promotion Bar";
-export const puckCategory = "Marketing";
-
-export const puckFields = {
-  title:    { type: "text", label: "Title" },
-  subtitle: { type: "text", label: "Subtitle" },
-  ctaText:  { type: "text", label: "CTA Text" },
-  ctaLink:  { type: "text", label: "CTA Link" },
-  visible: {
-    type: "select",
-    label: "Visible",
-    options: [
-      { label: "Yes", value: "true" },
-      { label: "No", value: "false" },
-    ],
-  },
-} as const;
-
-export const puckDefaults = {
-  title: "Free Shipping on All Orders",
-  subtitle: "Limited time only — ends soon",
-  ctaText: "Shop Now",
-  ctaLink: "/collections/all",
-  visible: "true",
-};
-
-export const puckSeedData = {
-  // Placeholder promotion for seed JSON — not editable in Puck,
-  // but needed so the component doesn't null-gate in the editor
-  promotion: {
-    id: "promo-1",
-    backgroundImage: "",
-    title: "Free Shipping on All Orders",
-    subtitle: "Limited time only — ends soon",
-    description: "",
-    ctaText: "Shop Now",
-    ctaLink: "/collections/all",
-    startDate: "2020-01-01T00:00:00Z",
-    endDate: "2099-12-31T23:59:59Z",
-  },
-};
-
-export function PromotionBarView({ title, subtitle, ctaText, ctaLink, visible, className }: PromotionBarViewProps) {
-  if (visible === "false") return null;
-
-  const hasCta = Boolean(ctaText && ctaLink);
-
-  return (
-    <div className={cn("@container w-full bg-bg-surface text-text-base border-b border-border", className)}>
-      <div className="w-full px-4 py-3 flex flex-col @md:flex-row @md:items-center @md:justify-between gap-2 @md:gap-4">
-        <div className="flex flex-col gap-1">
-          <span className="text-sm font-semibold text-text-base">{title}</span>
-          <span className="text-xs text-text-muted">{subtitle}</span>
-        </div>
-        {hasCta && (
-          <Link href={ctaLink} className="inline-flex items-center justify-center rounded-button bg-cta-primary px-4 py-2 text-xs font-semibold text-on-primary transition-colors hover:bg-cta-primary-hover">
-            {ctaText}
-          </Link>
-        )}
+    <div className="mb-10">
+      {breadcrumbs}
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        {title}
+        {controls}
       </div>
     </div>
   );
 }
 ```
 
-### Example 3: List component with array field
+## 3. Thin Puck View Adapter Requirements
 
-A grid view that displays multiple cards.
+Every parser-visible Puck component is a target-owned `*View.tsx` module under
+`puck/definitions/`. It adapts Puck's fields and slots to the real production
+component or canonical renderer.
+
+The target config generator requires these exports:
 
 ```tsx
-// components/categories/CategoryGridView.tsx
+export const puckComponentName = "CatalogHeaderLayout";
+export const puckLabel = "Catalog Header Layout";
+export const puckCategory = "Products";
+export const puckFields = { /* Puck fields and slots */ };
+export const puckDefaults = { /* JSON-safe defaults */ };
+export const puckAst = { /* parser metadata */ };
+export function CatalogHeaderLayoutView() { /* render delegate */ }
+```
 
-interface CategoryGridViewProps {
-  columns: string;
-  items: { name: string; slug: string; image: string; itemCount: number }[];
+The generator resolves the component export by file name. A file named
+`CatalogHeaderLayoutView.tsx` must export either a default component,
+`CatalogHeaderLayoutView`, or `CatalogHeaderLayout`.
+
+Adapter rules:
+
+- Delegate directly to a production component or canonical renderer.
+- Do not copy lower-level DOM, recreate a grid/card, or write a visually
+  similar replacement implementation.
+- Keep Puck-only preview props and fields confined to the View. They must not
+  change published behavior.
+- Keep fields and defaults JSON-safe. Functions, class instances, React nodes,
+  secrets, request objects, and backend responses do not belong in seed data.
+- A View may add only the translation necessary for slots, editor preview, or
+  server data. Explain non-obvious translation with a short comment.
+
+## 4. Native Slots And Composition
+
+Use Puck native `slot` fields for nested page regions. Do not flatten a nested
+JSX tree into unrelated top-level siblings and do not introduce raw HTML blocks.
+
+```tsx
+import { puckTransparentSlotProps, type CatalogSlot } from "./types";
+
+interface CatalogHeaderLayoutViewProps {
+  breadcrumbs?: CatalogSlot;
+  title?: CatalogSlot;
+  controls?: CatalogSlot;
 }
 
-export const puckLabel = "Category Grid";
-export const puckCategory = "Products";
-
 export const puckFields = {
-  columns: {
-    type: "select",
-    label: "Columns",
-    options: [
-      { label: "2", value: "2" },
-      { label: "3", value: "3" },
-      { label: "4", value: "4" },
-    ],
-  },
-  items: {
-    type: "array",
-    label: "Categories",
-    arrayFields: {
-      name:       { type: "text", label: "Name" },
-      slug:       { type: "text", label: "Slug" },
-      image:      { type: "text", label: "Image URL" },
-      itemCount:  { type: "number", label: "Item Count" },
-    },
-    defaultItemProps: { name: "New Category", slug: "new-category", image: "", itemCount: 0 },
-    getItemSummary: (item) => item.name,
-    max: 12,
-  },
-} as const;
-
-export const puckDefaults = {
-  columns: "3",
-  items: [
-    { name: "Outerwear", slug: "outerwear", image: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=80", itemCount: 42 },
-    { name: "Footwear", slug: "footwear", image: "https://images.unsplash.com/photo-1549298916-b41d501d3779?w=600&q=80", itemCount: 28 },
-    { name: "Accessories", slug: "accessories", image: "https://images.unsplash.com/photo-1611923134139-cb5f6c7c5e3e?w=600&q=80", itemCount: 15 },
-  ],
+  breadcrumbs: { type: "slot" as const },
+  title: { type: "slot" as const },
+  controls: { type: "slot" as const },
 };
 
-export function CategoryGridView({ columns, items }: CategoryGridViewProps) {
-  const gridCols = { "2": "grid-cols-2", "3": "grid-cols-3", "4": "grid-cols-4" }[columns] || "grid-cols-3";
+export const puckDefaults = { breadcrumbs: [], title: [], controls: [] };
 
+export function CatalogHeaderLayoutView(props: CatalogHeaderLayoutViewProps) {
   return (
-    <div className={`grid ${gridCols} gap-6`}>
-      {items.map((item, i) => (
-        <CategoryCardView key={i} name={item.name} slug={item.slug} image={item.image} itemCount={item.itemCount} />
-      ))}
-    </div>
+    <CatalogHeaderLayout
+      breadcrumbs={props.breadcrumbs?.(puckTransparentSlotProps)}
+      title={props.title?.(puckTransparentSlotProps)}
+      controls={props.controls?.(puckTransparentSlotProps)}
+    />
   );
 }
 ```
 
----
+For every slot:
 
-## The Script Contract
+- `puckFields.<slot>` must have `type: "slot"`.
+- `puckDefaults.<slot>` must be an empty array unless an intentional editor
+  seed is required.
+- Omit editor `allow` by default so authors can place any Puck component in the
+  slot. Use it only when the product explicitly requires an editing constraint.
+- `puckAst.slots` must name the same slots.
+- `puckAst.parserChildren` should describe the source-valid children for each
+  slot. It constrains parser validation without constraining drag-and-drop.
+- The canonical renderer must render the matching prop at the original source
+  position.
+- The route composition must allow the parent/slot/child relationship.
 
-The script performs pure mechanical assembly. It does **not**:
+Puck slots are the supported nested composition model and are compatible with
+server rendering when the server config preserves slot field information. See
+[Puck slot fields](https://puckeditor.com/docs/api-reference/fields/slot) and
+[Puck React Server Components](https://puckeditor.com/docs/integrating-puck/server-components).
 
-- Parse TypeScript types
-- Infer field types from prop types
-- Make decisions about which fields to expose
-- Generate default values
-- Resolve nested domain objects
+## 5. Parser Metadata: `puckAst`
 
-The script **does**:
-
-1. Scan `components/**/*.tsx` for files that export `puckFields`
-2. For each matching file, dynamically import it
-3. Read the five required exports: `puckComponentName`, `puckLabel`, `puckCategory`, `puckFields`, `puckDefaults`
-4. Determine the component export (default export, or named export matching filename without `View` suffix)
-5. Assemble a Puck config entry:
-
-```
-{
-   [puckComponentName]: {
-     category: puckCategory,
-     label: puckLabel,
-     fields: puckFields,
-     defaultProps: puckDefaults,
-     render: (props) => <Component {...props} />,
-   }
- }
-```
-
-6. Write the assembled config to `lib/puck-components.jsx`
-7. Write a server config to `lib/puck-components.server.jsx` with async render functions for data-aware components
-
-### Dual config generation
-
-The script produces two files from the same View components:
-
-| File | Used by | Render function |
-|------|---------|-----------------|
-| `lib/puck-components.jsx` | Puck editor (`/editor`) | `(props) => <Component {...props} />` — synchronous, no data fetching |
-| `lib/puck-components.server.jsx` | Published page render (`/page/[slug]`) | `async (props) => { const data = await fetcher(props); return <Component {...props} {...data} />; }` — calls `puckDataFetcher` if exported, falls back to seed/defaults on error |
-
-Components without `puckDataFetcher` get identical render functions in both files.
-
----
-
-## Data-Aware Components
-
-### Component types
-
-| Type | Exports | Behavior |
-|------|---------|----------|
-| **Content** | `puckFields` + `puckDefaults` | Static content — no data fetching. Rendered identically in editor and production. |
-| **Data-aware** | `puckFields` + `puckDefaults` + `puckSeedData` + `puckDataFetcher` | Editor shows seed/placeholder data. Production fetches real API data via `puckDataFetcher`. Falls back to seed if fetch fails. |
-| **Pure data** | (not in Puck) | Not editable in Puck. Rendered directly by `page.tsx` or as part of a data-aware component's fetcher. |
-
-### `puckDataFetcher` contract
+`puckAst` is the contract between real JSX and the AST parser. A parser-eligible
+component needs a unique role, kind, source JSX names, and source import paths.
 
 ```tsx
-export async function puckDataFetcher(
-  props: Record<string, unknown>,
-  context?: { searchParams?: Record<string, string> },
-): Promise<Partial<ComponentProps>> {
-  // Call API services, return data props
-  const products = await fetchFeaturedProducts(8);
-  return { products };
-}
-```
-
-Rules:
-- **Returns partial props** — only the data-derived keys (typically the same keys as `puckSeedData`)
-- **Must NOT return `puckFields` keys** — editable props are preserved from the saved page data
-- **Must handle empty state internally** — if API returns empty array, return `{ products: [] }`; the View component renders the empty state
-- **Must throw on failure** — the server config's render function catches errors and falls back to seed/defaults
-- **Server-only** — uses `apiRequest` which calls `fetch` with server context (cookies, Next.js cache)
-- **No `'use client'`** — View files with `puckDataFetcher` must NOT have `'use client'`
-
-### `puckSeedData` for data-aware components
-
-`puckSeedData` holds placeholder data for the editor. When the editor renders a data-aware component, it uses seed data (since there's no API to call in the browser). In production, `puckDataFetcher` overrides these with real data.
-
-```tsx
-export const puckSeedData = {
-  products: [
-    { _id: "seed-1", name: "Sample Product", price: 99, images: ["/placeholder.jpg"], inStock: true, slug: "sample-product" },
-  ],
+export const puckAst = {
+  kind: "static", // "static" or "runtime"
+  role: "catalog-header-layout", // unique across the target
+  slots: ["breadcrumbs", "title", "controls"],
+  parserChildren: {
+    breadcrumbs: ["CatalogBreadcrumbs"],
+    title: ["CatalogTitleSummary"],
+    controls: ["CatalogControlsLayout"],
+  },
+  sourceJsxNames: ["CatalogHeaderLayout"],
+  sourceImportPaths: ["@/puck/definitions/products/canonical/CatalogHeaderLayout"],
+  slotTarget: "header",
+  requiredClasses: ["mb-10", "lg:flex-row", "lg:items-end"],
+  match: {
+    tag: "div",
+    rootClasses: ["mb-10"],
+  },
+  routes: ["products"],
 };
 ```
 
-Keys in `puckSeedData` must NOT overlap with `puckFields` keys. They represent non-editable data props.
+Metadata rules:
 
-### What the script needs to handle
+- `role` is unique and is the route's root-role/composition identifier.
+- `kind: "static"` means output comes from source/static props; it does not
+  mean the rendered page cannot receive normal styling or links.
+- `kind: "runtime"` means a data fetch, route state, client state, condition,
+  or runtime list influences the output.
+- `sourceJsxNames` must use the actual imported JSX identifier(s), including
+  aliases where applicable.
+- `sourceImportPaths` must match the real source import path after the target's
+  normal alias resolution. Do not use a route-name keyword as a parser hint.
+- `match` and `requiredClasses` are additional structural evidence for inline
+  HTML/canonical boundaries. They must describe the real source, not desired
+  output.
+- Set `slotTarget` to the parent slot that owns this component.
+- Use `parserChildren` to declare expected source composition independently of
+  optional Puck editor `allow` restrictions.
+- Describe source conditions with `conditional` and data dependencies with
+  `runtimeSignals`.
+- Use `list` metadata only for a declared list owner. The parser must not turn
+  runtime arrays into static duplicated children.
+- Set `parserEligible: false` only for a Puck component intentionally excluded
+  from AST output, such as editor-only support UI.
 
-| Concern | How |
-|---------|-----|
-| Component name derivation | Strip `View` suffix from filename, or use default export name |
-| `render` function | Simple spread — `<Component {...props} />` — works because props are flat and keys match `puckFields` |
-| `className` prop | Excluded from `puckFields` — Puck doesn't edit it. Component can still accept it but Puck won't pass it |
-| Select values stored as strings | Components must convert internally (e.g., `Number(price)`, `isOnSale === "true"`) |
-| Array fields | Puck passes arrays directly — no conversion needed |
+If the parser cannot match an important region, add an accurate target adapter
+and metadata. Do not add a broad fallback that inserts a large page component
+based only on the route name.
 
-### What happens if a file is missing exports
+## 6. Runtime Data And Conditional State
 
-The script skips the file and logs a warning:
+Published pages must use real target behavior. Editor preview values exist only
+to make components visible and editable before real data is available.
 
+- Put backend fetch logic in a route/domain runtime loader or a Puck data
+  fetcher, not in static seed JSON.
+- Use `PuckFetcherContext` and `puck/route-metadata.ts` to read route params,
+  search params, and request cookies. Do not depend on editor-only props for
+  published behavior.
+- A runtime View can export `puckDataFetcher` or a server fetcher declaration
+  so the generated server config resolves data before rendering.
+- Keep source conditions in the component that owns them. A results-state
+  component may contain both `results` and `empty` slots but renders exactly
+  one according to the real runtime condition.
+- Runtime branches must never become unconditional sibling blocks in seed JSON.
+- Errors, authentication redirects, empty states, and not-found states must be
+  deliberate source-specific regions, not generic parser fallbacks.
+
+```tsx
+export const puckAst = {
+  kind: "runtime",
+  role: "catalog-results-state",
+  slots: ["results", "empty"],
+  sourceJsxNames: ["CatalogResultsState"],
+  sourceImportPaths: ["@/puck/definitions/products/canonical/CatalogResultsState"],
+  conditional: "products.length > 0",
+  runtimeSignals: ["products.items"],
+};
+
+export async function puckDataFetcher(_props: unknown, context?: PuckFetcherContext) {
+  const runtime = await loadCatalogRuntime(context);
+  return { hasProducts: runtime.productsData.items.length > 0 };
+}
 ```
-⚠ components/home/HeroSectionView.tsx — missing puckComponentName export, skipping
-⚠ components/home/HeroSectionView.tsx — missing puckFields export, skipping
-⚠ components/home/HeroSectionView.tsx — missing puckDefaults export, skipping
+
+For dynamic routes, the target renderer maps its generic Puck entity parameter
+to the route parameters expected by the real domain loader. Keep this mapping
+in the target's publication/route helper; never bake a product slug, order ID,
+or token into the seed.
+
+## 7. Client Interactivity And Server Rendering
+
+The editor config and published server config are separate generated artifacts.
+
+- The editor route may import the interactive `<Puck>` client component and
+  `config.client`.
+- The published `/page` route must use the RSC-compatible `Render` API and
+  `config.server`.
+- A Client Component needed by production interaction must retain its
+  `"use client"` boundary and be imported through an adapter safe for both
+  generated configs.
+- Do not import editor UI, Puck CSS, or editor-only state into public
+  storefront routes or published renderer components.
+- Use the original target stores, server actions, and API clients for cart,
+  checkout, account, and mutation behavior. A parser seed is page structure,
+  not a replacement application backend.
+
+## 8. CSS, Layout, And Assets
+
+Visual parity requires the target's real layout environment.
+
+- The target's global theme, Tailwind tokens, fonts, reset, and layout shell
+  must be available to both real and published Puck routes.
+- Canonical renderers retain source classes. Do not compensate for a missing
+  target token by adding arbitrary View-only styles.
+- Use the target's existing `next/image` configuration, asset host allow-list,
+  and image URL normalization. Do not substitute preview assets on published
+  pages.
+- Verify desktop and mobile layouts. Editor iframe dimensions are not proof of
+  published page parity.
+- Header/footer ownership must be consistent: either the target app layout
+  renders them for both routes, or the matching Puck page tree explicitly owns
+  them. Never render them twice.
+
+## 9. Route And Manifest Requirements
+
+Each parseable page is declared in the target's `puck/site.ts` (or equivalent)
+with a stable ID, real source file, public source route pattern, and required
+root role.
+
+```ts
+route("products", "app/products/page.tsx", "/products", "catalog-layout");
 ```
 
-This makes it safe to have non-Puck files in the same directories. Only files with `puckFields` are processed.
+- The route ID becomes the seed filename and `/editor?slug=<route-id>` value.
+- The source file is relative to the target root and points to real JSX.
+- The required root role must exist on one unique parser-eligible component.
+- Declared delegates are allowed only when source route JSX intentionally
+  delegates page structure to another target-owned module.
+- The target generator must validate route roots, Puck types, slots, and
+  composition before the parser runs.
 
----
+## 10. Required Validation Sequence
 
-## Checklist for Component Authors
+Run this sequence whenever a component, route, metadata hint, or canonical
+layout changes:
 
-Before a component can be auto-processed, verify:
+```powershell
+# Target project
+npm run puck:check
 
-- [ ] Component accepts only flat scalar props (string, number, boolean, arrays of flat objects)
-- [ ] No business logic inside the component (no date checks, no API calls, no store reads)
-- [ ] If original component had logic, a container file handles it and delegates to this View
-- [ ] `puckComponentName` exported — matches the JSX tag name used in `page.tsx`
-- [ ] `puckLabel` exported — human-readable name
-- [ ] `puckCategory` exported — drawer grouping
-- [ ] `puckFields` exported — one entry per editable prop, with correct field type and label
-- [ ] `puckDefaults` exported — sensible default for every key in `puckFields`
-- [ ] Every key in `puckFields` has a matching prop in the component's interface
-- [ ] Every key in `puckDefaults` has a matching key in `puckFields`
-- [ ] If `puckSeedData` is exported, its keys don't overlap with `puckFields` keys
-- [ ] If `puckDataFetcher` is exported, it returns partial props (only data-derived keys, not `puckFields` keys)
-- [ ] If `puckDataFetcher` is exported, it throws on failure (the server config catches and falls back)
-- [ ] If `puckDataFetcher` is exported, `puckSeedData` is also exported with matching keys (placeholder data for editor)
-- [ ] Select fields for booleans use `"true"` / `"false"` string values
-- [ ] Component does not return `null` based on business logic (only based on an explicit `visible` prop if applicable)
-- [ ] Component is imported with `@/` path alias (not relative paths that break outside the original project)
+# Parser project
+cd ..\dnd-test
+npm run parser:check
+npm run parser:typecheck
+npm run contract:typecheck
+npm run contract:test
+
+# Parse the changed route first
+powershell -ExecutionPolicy Bypass -File .\scripts\run-parser-to-dnd-test.ps1 `
+  -TemplateFrontendRoot "D:\projects\my-storefront" `
+  -PuckTargetRoot "D:\projects\my-storefront" `
+  -RouteId products
+```
+
+Accept the change only when:
+
+- target Puck generation, validation, and typecheck pass;
+- the route report has no errors, warnings, dropped components, or unmatched
+  important HTML;
+- the generated seed has the expected root and nested slot tree;
+- the target editor outline matches the meaningful source JSX hierarchy; and
+- the target `/page` route visually matches the real source route for the same
+  data, URL, viewport, and authentication state.
+
+Run full regeneration after the focused route passes:
+
+```powershell
+npm run seeds:regenerate-target -- `
+  -TemplateFrontendRoot "D:\projects\my-storefront" `
+  -PuckTargetRoot "D:\projects\my-storefront"
+```
+
+## Definition Of Done
+
+A component is fully integrated only when it has all applicable layers:
+
+- Real production component or exact canonical structural renderer.
+- Thin target-owned Puck View adapter.
+- Complete Puck fields and JSON-safe defaults.
+- Correct `puckAst` identity, source matching, slots, and runtime metadata.
+- Valid route composition and manifest presence.
+- Real published runtime behavior, with preview data isolated to editor mode.
+- Clean parser diagnostics and regenerated seed.
+- Visual parity verified at desktop and mobile widths.

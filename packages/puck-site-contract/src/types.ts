@@ -68,6 +68,7 @@ export interface PuckAstHints {
   kind?: PuckAstKind;
   topLevel?: boolean;
   slots?: string[];
+  parserChildren?: Record<string, string[]>;
   sourceJsxNames?: string[];
   sourceImportPaths?: string[];
   role?: string;
